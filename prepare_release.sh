@@ -17,6 +17,7 @@ find ./images -type f -size +1M | cut -d "/" -f 3 | while read fn; do
 
 	FULL_SRC_FN="images/${fn}"
 	ORIGINAL_SIZE="$(du -h "${FULL_SRC_FN}" | tr -s "\t" " " | cut -d " " -f 1)"
+	TARGET_FN="${fn}.xz"
 	FULL_TARGET_FN="images/${fn}.xz"
 
 	echo "Compressing ${FULL_SRC_FN} to ${FULL_TARGET_FN}"
