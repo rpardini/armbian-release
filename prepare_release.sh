@@ -17,15 +17,13 @@ find ./images -type f -size +1M | cut -d "/" -f 3 | while read fn; do
 
 	FULL_SRC_FN="images/${fn}"
 	ORIGINAL_SIZE="$(du -h "${FULL_SRC_FN}" | tr -s "\t" " " | cut -d " " -f 1)"
-	# Target fn, replace stuff.
-	TARGET_FN="$(echo -n "${fn}" | sed -e "s/Armbian.*-trunk_/Armbian_rpardini_${RELEASE_TAG}_/").xz"
-	FULL_TARGET_FN="images/${TARGET_FN}"
+	FULL_TARGET_FN="images/${fn}.xz"
 
 	echo "Compressing ${FULL_SRC_FN} to ${FULL_TARGET_FN}"
-	pixz -0 "${FULL_SRC_FN}" "${FULL_TARGET_FN}"
+	time pixz -0 "${FULL_SRC_FN}" "${FULL_TARGET_FN}"
 	XZ_SIZE="$(du -h "${FULL_TARGET_FN}" | tr -s "\t" " " | cut -d " " -f 1)"
 
-	echo "  - [${TARGET_FN}](https://github.com/rpardini/armbian-release/releases/download/${RELEASE_TAG}/${TARGET_FN}) _(xz:${XZ_SIZE}b, original:${ORIGINAL_SIZE}b)_" >>release.md
+	echo "  - [${TARGET_FN}](https://github.com/${RELEASE_OWNER_AND_REPO}/releases/download/${RELEASE_TAG}/${TARGET_FN}) _(xz:${XZ_SIZE}b, original:${ORIGINAL_SIZE}b)_" >>release.md
 done
 
 echo "Listing images contents:"

@@ -150,19 +150,29 @@ jobs:
 
       - name: Preserve previous run caches and cleanup
         run: |
-          sudo --preserve-env REGULAR_USER="$(whoami)" RELEASE_TAG="${{needs.prepare.outputs.tagName}}" bash --noprofile --norc -e release/cleanup.sh
+          sudo --preserve-env \
+            REGULAR_USER="$(whoami)" \
+            RELEASE_OWNER="${{ github.repository_owner }}" \
+            RELEASE_OWNER_AND_REPO="${{ github.repository }}" \
+            RELEASE_TAG="${{needs.prepare.outputs.tagName}}" \
+            bash --noprofile --norc -e release/cleanup.sh
 
       - name: Checkout build repo
         uses: actions/checkout@v2
         with:
-          repository: rpardini/armbian-build
+          repository: ${{ github.repository_owner }}/armbian-build
           ref: rpardini-fragments # branch to build from.
           clean: true # true is default. it *will* delete the hosts /dev if mounted inside.
           path: build
 
       - name: Restore caches
         run: |
-          sudo --preserve-env REGULAR_USER="$(whoami)" RELEASE_TAG="${{needs.prepare.outputs.tagName}}" bash --noprofile --norc -e release/restore_cache.sh
+          sudo --preserve-env \
+            REGULAR_USER="$(whoami)" \
+            RELEASE_OWNER="${{ github.repository_owner }}" \
+            RELEASE_OWNER_AND_REPO="${{ github.repository }}" \
+            RELEASE_TAG="${{needs.prepare.outputs.tagName}}" \
+            bash --noprofile --norc -e release/restore_cache.sh
 
       - name: Build dependency ${{ matrix.buildFirst }} first
         id: buildFirst
@@ -170,21 +180,40 @@ jobs:
         working-directory: build
         continue-on-error: true
         run: |
-          sudo --preserve-env ${{ matrix.vars }} REGULAR_USER="$(whoami)" RELEASE_TAG="${{needs.prepare.outputs.tagName}}" bash --noprofile --norc -e ../release/build.sh "${{ matrix.buildFirst }}" "${{ matrix.vars }}"
+          sudo --preserve-env ${{ matrix.vars }} \
+            REGULAR_USER="$(whoami)" \
+            RELEASE_OWNER="${{ github.repository_owner }}" \
+            RELEASE_OWNER_AND_REPO="${{ github.repository }}" \
+            RELEASE_TAG="${{needs.prepare.outputs.tagName}}" \
+            bash --noprofile --norc -e ../release/build.sh \
+            "${{ matrix.buildFirst }}" "${{ matrix.vars }}"
 
       - name: Build board ${{ matrix.board }}
         id: buildBoard
         working-directory: build
         continue-on-error: true
         run: |
-          sudo --preserve-env ${{ matrix.vars }} REGULAR_USER="$(whoami)" RELEASE_TAG="${{needs.prepare.outputs.tagName}}" bash --noprofile --norc -e ../release/build.sh "${{ matrix.board }}" "${{ matrix.vars }}"
+          sudo --preserve-env ${{ matrix.vars }} \
+            REGULAR_USER="$(whoami)" \
+            RELEASE_OWNER="${{ github.repository_owner }}" \
+            RELEASE_OWNER_AND_REPO="${{ github.repository }}" \
+            RELEASE_TAG="${{needs.prepare.outputs.tagName}}" \
+            bash --noprofile --norc -e ../release/build.sh \
+            "${{ matrix.board }}" "${{ matrix.vars }}"
 
       - name: Compress/Prepare release ${{ matrix.board }}
         id: compress
         working-directory: build/output
         continue-on-error: true
         run: |
-          sudo --preserve-env ${{ matrix.vars }} MATRIX_DESC="${{ matrix.desc }}" REGULAR_USER="$(whoami)" RELEASE_TAG="${{needs.prepare.outputs.tagName}}" bash --noprofile --norc -e ../../release/prepare_release.sh "${{ matrix.board }}"
+          sudo --preserve-env ${{ matrix.vars }} \
+            MATRIX_DESC="${{ matrix.desc }}" \
+            REGULAR_USER="$(whoami)" \
+            RELEASE_OWNER="${{ github.repository_owner }}" \
+            RELEASE_OWNER_AND_REPO="${{ github.repository }}" \
+            RELEASE_TAG="${{needs.prepare.outputs.tagName}}" \
+            bash --noprofile --norc -e ../../release/prepare_release.sh \
+            "${{ matrix.board }}" "${{ matrix.vars }}"
 
       - name: Release ${{ matrix.board }}
         id: release
@@ -194,6 +223,12 @@ jobs:
           body_path: build/output/release.md # created by prepare_release.sh
           files: |
             build/output/images/*.xz
+
+      - name: Upload logs as artifact ${{ matrix.board }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-logs
+          path: build/output/images/build.logs.*.xz
 
       - name: Finish build with status
         run: |
