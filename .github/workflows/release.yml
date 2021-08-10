@@ -136,7 +136,7 @@ jobs:
           - board: x86uefi-dual-root
             desc: UEFI Generic x86 Dual Root/Rescue e2img, with -generic Ubuntu kernel, cloud image, user-data at /boot for each root
             runnerLabel: can-build-x86
-            vars: "CLOUD_IMAGE=yes DUAL_ROOT_OUTPUT_E2IMG_ONLY=yes"
+            vars: "CLOUD_IMAGE=yes"
             buildFirst: x86uefi-rescue-rootfs # rescue is the second root, which contains a rootfs of the first.
             aaaa: 18
 
