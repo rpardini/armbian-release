@@ -91,11 +91,11 @@ jobs:
 #            runnerLabel: can-build-arm64
 #            vars: "CLOUD_IMAGE=yes"
 #            aaaa: 9
-#          - board: uefiarm64
-#            desc: UEFI Generic ARM64, with -generic Ubuntu kernel, cloud image, user-data at /boot/efi (FAT)
-#            runnerLabel: can-build-arm64
-#            vars: "CLOUD_IMAGE=yes"
-#            aaaa: 10
+           - board: uefiarm64
+             desc: UEFI Generic ARM64, with -generic Ubuntu kernel, cloud image, user-data at /boot/efi (FAT)
+             runnerLabel: can-build-arm64
+             vars: "CLOUD_IMAGE=yes"
+             aaaa: 10
 #          - board: uefiarm64
 #            desc: UEFI Generic ARM64, with -generic Ubuntu kernel, regular CLI
 #            runnerLabel: can-build-arm64
