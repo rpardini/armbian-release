@@ -25,7 +25,7 @@ jobs:
   "A": # short name because GH will expand with the matrix values
     needs: [ prepare ]
     runs-on: [ self-hosted, Linux, hirsute, '${{ matrix.runnerLabel }}' ]
-    timeout-minutes: 120
+    timeout-minutes: 480 # First builds on new machines can take extremely long until caches are primed
     if: ${{ github.repository_owner == 'rpardini' }}
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
