@@ -43,4 +43,8 @@ chown -R "${REGULAR_USER}":"${REGULAR_USER}" build || true
 echo "Show ccache status"
 ccache -s
 
+echo "Restart apt-cacher-ng."
+systemctl restart apt-cacher-ng.service
+systemctl status apt-cacher-ng.service
+
 echo "Done cleanup run."
