@@ -2,7 +2,7 @@ name: Release
 on:
   push:
     tags:
-      - "*" # any tag. GH releases (containing binaries for download) require tags
+      - "202*" # any tag. GH releases (containing binaries for download) require tags
 
 jobs:
 
