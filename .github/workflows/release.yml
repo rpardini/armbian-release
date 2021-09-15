@@ -40,19 +40,19 @@ jobs:
         # aaaa: GH Actions orders the jobs by the first key value. 'aaaa' should be first
 
         include:
-          - aaaa: 1
-            board: hc4
-            desc: ODROID HC4, cloud image, minimal, user-data at /boot (ext4)
-            runnerLabel: can-build-arm64
-            runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=yes"
+          #- aaaa: 1
+          #  board: hc4
+          #  desc: ODROID HC4, cloud image, minimal, user-data at /boot (ext4)
+          #  runnerLabel: can-build-arm64
+          #  runnerLabelKernel: can-build-kernels
+          #  vars: "CLOUD_IMAGE=yes"
 
-          - board: n2plus
-            desc: ODROID N2+, cloud image, minimal, user-data at /boot (ext4)
-            runnerLabel: can-build-arm64
-            runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=yes"
-            aaaa: 2
+          #- board: n2plus
+          #  desc: ODROID N2+, cloud image, minimal, user-data at /boot (ext4)
+          #  runnerLabel: can-build-arm64
+          #  runnerLabelKernel: can-build-kernels
+          #  vars: "CLOUD_IMAGE=yes"
+          #  aaaa: 2
 
           - aaaa: 3
             board: hc4
