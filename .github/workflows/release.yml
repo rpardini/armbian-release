@@ -53,12 +53,84 @@ jobs:
             runnerLabel: can-build-arm64
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=no"
+
+          - aa: 0021
+            board: radxa-zero
+            desc: Radxa Zero, CLI, standard
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no"
+
           - aa: 0030
             board: vim3
             desc: Khadas VIM3, regular CLI
             runnerLabel: can-build-arm64
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=no"
+
+          - aa: 0031
+            board: khadas-vim1
+            desc: Khadas VIM1, regular CLI
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no"
+
+          - aa: 0032
+            board: khadas-vim2
+            desc: Khadas VIM2, regular CLI
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no"
+
+          - aa: 0033
+            board: khadas-vim3l
+            desc: Khadas VIM3L, regular CLI
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no"
+
+          - aa: 0034
+            board: lafrite
+            desc: lafrite, regular CLI
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no"
+
+          - aa: 0035
+            board: lepotato
+            desc: lepotato, regular CLI
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no"
+
+          - aa: 0036
+            board: odroidc2
+            desc: ODROID C2, regular CLI
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no"
+
+          - aa: 0037
+            board: odroidc4
+            desc: ODROID C4, regular CLI
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no"
+
+          - aa: 0038
+            board: nanopik2-s905
+            desc: nanopik2-s905, regular CLI
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no"
+
+          - aa: 0039
+            board: t95z
+            desc: t95z tvbox (old/deprecated/untested), regular CLI
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no"
+
           - aa: 0040
             board: oneplus5
             desc: OnePlus 5, fastboot-compatible, regular CLI
