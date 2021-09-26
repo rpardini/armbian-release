@@ -37,7 +37,7 @@ jobs:
         # desc: markdown for description in release notes
         # runnerLabel: goes into runs-on to select preferred builder via label
         # vars: env vars to pass both to scripts and ./compile.sh
-        # aa: GH Actions orders the jobs by the first key value. 'aa' should be first. it never is.
+        # aa: GH Actions orders the jobs by the first key value. 'aa' should be first. it never is. it is actually quite pointless trying. it's effectively random.
 
         include:
           # regular CLI builds, build first
