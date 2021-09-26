@@ -42,13 +42,13 @@ jobs:
         include:
           # regular CLI builds, build first
           - aa: 0010
-            board: hc4
+            board: odroidhc4
             desc: ODROID HC4, CLI, standard
             runnerLabel: can-build-arm64
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=no"
           - aa: 0020
-            board: n2plus
+            board: odroidn2
             desc: ODROID N2+, CLI, standard
             runnerLabel: can-build-arm64
             runnerLabelKernel: can-build-kernels
@@ -62,7 +62,7 @@ jobs:
             vars: "CLOUD_IMAGE=no"
 
           - aa: 0030
-            board: vim3
+            board: khadas-vim3
             desc: Khadas VIM3, regular CLI
             runnerLabel: can-build-arm64
             runnerLabelKernel: can-build-kernels
@@ -147,19 +147,19 @@ jobs:
 
           # cloud images build after regular cli
           - aa: 0110
-            board: hc4
+            board: odroidhc4
             desc: ODROID HC4, cloud image, user-data at /boot (ext4)
             runnerLabel: can-build-arm64
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=yes"
           - aa: 0120
-            board: n2plus
+            board: odroidn2
             desc: ODROID N2+, cloud image, user-data at /boot (ext4)
             runnerLabel: can-build-arm64
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=yes"
           - aa: 0130
-            board: vim3
+            board: khadas-vim3
             desc: Khadas VIM3, cloud image, user-data at /boot (ext4)
             runnerLabel: can-build-arm64
             runnerLabelKernel: can-build-kernels

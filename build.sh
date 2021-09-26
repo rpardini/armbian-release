@@ -18,14 +18,14 @@ touch .ignore_changes
 
 echo "Starting build for ${MATRIX_BOARD} - CLOUD_IMAGE:${CLOUD_IMAGE}"
 
-if [[ -f "userpatches/rpardini-${MATRIX_BOARD}.conf" ]]; then
+if [[ -f "userpatches/config-rpardini-${MATRIX_BOARD}.conf" ]]; then
 	echo "Using rpardini userpatches config for ${MATRIX_BOARD}..."
 	# shellcheck disable=SC2086 # I *want* to expand EXTRA_VARS as vars.
 	CLOUD_IMAGE="${CLOUD_IMAGE}" ./compile.sh "rpardini-${MATRIX_BOARD}" CLEAN_LEVEL=none ${EXTRA_VARS} || BUILD_OK=0
 else
 	echo "Using generic build for ${MATRIX_BOARD}..."
 	# shellcheck disable=SC2086 # I *want* to expand EXTRA_VARS as vars.
-	CLOUD_IMAGE="${CLOUD_IMAGE}" BOARD="${MATRIX_BOARD}" ./compile.sh "rpardini-n2plus" BOARD="${MATRIX_BOARD}" CLEAN_LEVEL=none ${EXTRA_VARS} || BUILD_OK=0
+	CLOUD_IMAGE="${CLOUD_IMAGE}" BOARD="${MATRIX_BOARD}" ./compile.sh "rpardini-generic" BOARD="${MATRIX_BOARD}" CLEAN_LEVEL=none ${EXTRA_VARS} || BUILD_OK=0
 fi
 
 # Remove stuff we added before the build, so working copy is clean again.
