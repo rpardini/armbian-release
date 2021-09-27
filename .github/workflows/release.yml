@@ -124,12 +124,12 @@ jobs:
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=no"
 
-          - aa: 0039
-            board: t95z
-            desc: t95z tvbox (old/deprecated/untested), regular CLI
-            runnerLabel: can-build-arm64
-            runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=no"
+          #- aa: 0039
+          #  board: t95z # @TODO: this is not even close to building. my t95z is in production, so no testing
+          #  desc: t95z tvbox (old/deprecated/untested), regular CLI
+          #  runnerLabel: can-build-arm64
+          #  runnerLabelKernel: can-build-kernels
+          #  vars: "CLOUD_IMAGE=no"
 
           - aa: 0040
             board: oneplus5
