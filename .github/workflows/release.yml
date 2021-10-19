@@ -40,220 +40,232 @@ jobs:
         # aa: GH Actions orders the jobs by the first key value. 'aa' should be first. it never is. it is actually quite pointless trying. it's effectively random.
 
         include:
+          # regular CLI builds, build first
           - aa: 0010
+            board: odroidhc4
+            desc: ODROID HC4, CLI, standard
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no"
+          - aa: 0020
+            board: odroidn2
+            desc: ODROID N2+, CLI, standard
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no"
+
+          - aa: 0021
+            board: radxa-zero
+            desc: Radxa Zero, CLI, standard
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no"
+          - aa: 022
             board: jethubj80
             desc: JetHub J80, CLI, standard
             runnerLabel: can-build-arm64
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=no"
-          - aa: 0020
+          - aa: 022
             board: jethubj100
             desc: JetHub J100, CLI, standard
             runnerLabel: can-build-arm64
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=no"
 
-#          # regular CLI builds, build first
-#          - aa: 0010
-#            board: odroidhc4
-#            desc: ODROID HC4, CLI, standard
-#            runnerLabel: can-build-arm64
-#            runnerLabelKernel: can-build-kernels
-#            vars: "CLOUD_IMAGE=no"
-#          - aa: 0020
-#            board: odroidn2
-#            desc: ODROID N2+, CLI, standard
-#            runnerLabel: can-build-arm64
-#            runnerLabelKernel: can-build-kernels
-#            vars: "CLOUD_IMAGE=no"
-#
-#          - aa: 0021
-#            board: radxa-zero
-#            desc: Radxa Zero, CLI, standard
-#            runnerLabel: can-build-arm64
-#            runnerLabelKernel: can-build-kernels
-#            vars: "CLOUD_IMAGE=no"
-#
-#          - aa: 0030
-#            board: khadas-vim3
-#            desc: Khadas VIM3, regular CLI
-#            runnerLabel: can-build-arm64
-#            runnerLabelKernel: can-build-kernels
-#            vars: "CLOUD_IMAGE=no"
-#
-#          - aa: 0031
-#            board: khadas-vim1
-#            desc: Khadas VIM1, regular CLI
-#            runnerLabel: can-build-arm64
-#            runnerLabelKernel: can-build-kernels
-#            vars: "CLOUD_IMAGE=no"
-#
-#          - aa: 0032
-#            board: khadas-vim2
-#            desc: Khadas VIM2, regular CLI
-#            runnerLabel: can-build-arm64
-#            runnerLabelKernel: can-build-kernels
-#            vars: "CLOUD_IMAGE=no"
-#
-#          - aa: 0033
-#            board: khadas-vim3l
-#            desc: Khadas VIM3L, regular CLI
-#            runnerLabel: can-build-arm64
-#            runnerLabelKernel: can-build-kernels
-#            vars: "CLOUD_IMAGE=no"
-#
-#          - aa: 0034
-#            board: lafrite
-#            desc: lafrite, regular CLI
-#            runnerLabel: can-build-arm64
-#            runnerLabelKernel: can-build-kernels
-#            vars: "CLOUD_IMAGE=no"
-#
-#          - aa: 0035
-#            board: lepotato
-#            desc: lepotato, regular CLI
-#            runnerLabel: can-build-arm64
-#            runnerLabelKernel: can-build-kernels
-#            vars: "CLOUD_IMAGE=no"
-#
-#          - aa: 0036
-#            board: odroidc2
-#            desc: ODROID C2, regular CLI
-#            runnerLabel: can-build-arm64
-#            runnerLabelKernel: can-build-kernels
-#            vars: "CLOUD_IMAGE=no"
-#
-#          - aa: 0037
-#            board: odroidc4
-#            desc: ODROID C4, regular CLI
-#            runnerLabel: can-build-arm64
-#            runnerLabelKernel: can-build-kernels
-#            vars: "CLOUD_IMAGE=no"
-#
-#          - aa: 0038
-#            board: nanopik2-s905
-#            desc: nanopik2-s905, regular CLI
-#            runnerLabel: can-build-arm64
-#            runnerLabelKernel: can-build-kernels
-#            vars: "CLOUD_IMAGE=no"
-#
-#          #- aa: 0039
-#          #  board: t95z # @TODO: this is not even close to building. my t95z is in production, so no testing
-#          #  desc: t95z tvbox (old/deprecated/untested), regular CLI
-#          #  runnerLabel: can-build-arm64
-#          #  runnerLabelKernel: can-build-kernels
-#          #  vars: "CLOUD_IMAGE=no"
-#
-#          - aa: 0040
-#            board: oneplus5
-#            desc: OnePlus 5, fastboot-compatible, regular CLI
-#            runnerLabel: can-build-arm64
-#            runnerLabelKernel: can-build-small-kernels
-#            vars: "CLOUD_IMAGE=no"
-#          - aa: 0050
-#            board: rpi4b
-#            desc: Raspberry Pi 4B, using Ubuntu's raspi kernel, regular CLI
-#            runnerLabel: can-build-arm64
-#            runnerLabelKernel: can-build-rootfs-only
-#            vars: "CLOUD_IMAGE=no"
-#            aaaa: 8
-#
-#          # cloud images build after regular cli
-#          - aa: 0110
-#            board: odroidhc4
-#            desc: ODROID HC4, cloud image, user-data at /boot (ext4)
-#            runnerLabel: can-build-arm64
-#            runnerLabelKernel: can-build-kernels
-#            vars: "CLOUD_IMAGE=yes"
-#          - aa: 0120
-#            board: odroidn2
-#            desc: ODROID N2+, cloud image, user-data at /boot (ext4)
-#            runnerLabel: can-build-arm64
-#            runnerLabelKernel: can-build-kernels
-#            vars: "CLOUD_IMAGE=yes"
-#          - aa: 0130
-#            board: khadas-vim3
-#            desc: Khadas VIM3, cloud image, user-data at /boot (ext4)
-#            runnerLabel: can-build-arm64
-#            runnerLabelKernel: can-build-kernels
-#            vars: "CLOUD_IMAGE=yes"
-#          - aa: 0140
-#            board: oneplus5
-#            desc: OnePlus 5, fastboot-compatible, cloud image, user-data at /boot
-#            runnerLabel: can-build-arm64
-#            runnerLabelKernel: can-build-small-kernels
-#            vars: "CLOUD_IMAGE=yes"
-#          - aa: 0150
-#            board: rpi4b
-#            desc: Raspberry Pi 4B, using Ubuntu's raspi kernel, cloud image, user-data at /boot/firmware (FAT)
-#            runnerLabel: can-build-arm64
-#            runnerLabelKernel: can-build-rootfs-only
-#            vars: "CLOUD_IMAGE=yes"
-#
-#          # then the rest.
-#          - aa: 0710
-#            board: dkbarm64
-#            desc: ARM64 Direct Kernel Boot, -generic kernel, cloud image, for use with kexec/QEMU, user-data from Kernel cmdline only
-#            runnerLabel: can-build-arm64
-#            runnerLabelKernel: can-build-rootfs-only
-#            vars: "CLOUD_IMAGE=yes"
-#          - aa: 0720
-#            board: uefiarm64
-#            desc: UEFI Generic ARM64, with -generic Ubuntu kernel, cloud image, user-data at /boot/efi (FAT)
-#            runnerLabel: can-build-arm64
-#            runnerLabelKernel: can-build-rootfs-only
-#            vars: "CLOUD_IMAGE=yes"
-#          - aa: 0730
-#            board: uefiarm64
-#            desc: UEFI Generic ARM64, with -generic Ubuntu kernel, regular CLI
-#            runnerLabel: can-build-arm64
-#            runnerLabelKernel: can-build-rootfs-only
-#            vars: "CLOUD_IMAGE=no"
-#          - aa: 0740
-#            board: uefiarm64meta
-#            desc: UEFI Generic ARM64 cloud image for metadata-capable clouds (AWS/GCP/OCI/OpenStack/etc)
-#            runnerLabel: can-build-arm64
-#            runnerLabelKernel: can-build-rootfs-only
-#            vars: "CLOUD_IMAGE=yes"
-#          - aa: 0750
-#            board: uefiarm64-dual-root
-#            desc: UEFI Generic ARM64 Dual Root/Rescue e2img, with -generic Ubuntu kernel, cloud image, user-data at /boot for each root
-#            runnerLabel: can-build-arm64
-#            runnerLabelKernel: can-build-rootfs-only
-#            vars: "CLOUD_IMAGE=yes DUAL_ROOT_OUTPUT_E2IMG_ONLY=yes"
-#            buildFirst: uefiarm64-rescue-rootfs # rescue is the second root, which contains a rootfs of the first.
-#
-#          - aa: 0810
-#            board: x86dkb
-#            desc: x86 Direct Kernel Boot, -generic kernel, cloud image, for use with kexec/QEMU, user-data from Kernel cmdline only
-#            runnerLabel: can-build-x86
-#            runnerLabelKernel: can-build-rootfs-only
-#            vars: "CLOUD_IMAGE=yes"
-#          - aa: 0820
-#            board: x86uefi
-#            desc: UEFI Generic x86, with -generic Ubuntu kernel, cloud image, user-data at /boot/efi (FAT)
-#            runnerLabel: can-build-x86
-#            runnerLabelKernel: can-build-rootfs-only
-#            vars: "CLOUD_IMAGE=yes"
-#          - aa: 0830
-#            board: x86uefi
-#            desc: UEFI Generic x86, with -generic Ubuntu kernel, regular CLI
-#            runnerLabel: can-build-x86
-#            runnerLabelKernel: can-build-rootfs-only
-#            vars: "CLOUD_IMAGE=no"
-#          - aa: 0840
-#            board: x86uefimeta
-#            desc: UEFI Generic x86 cloud image for metadata-capable clouds (AWS/GCP/OCI/OpenStack/etc)
-#            runnerLabel: can-build-x86
-#            runnerLabelKernel: can-build-rootfs-only
-#            vars: "CLOUD_IMAGE=yes"
-#          - aa: 0850
-#            board: x86uefi-dual-root
-#            desc: UEFI Generic x86 Dual Root/Rescue e2img, with -generic Ubuntu kernel, cloud image, user-data at /boot for each root
-#            runnerLabel: can-build-x86
-#            runnerLabelKernel: can-build-rootfs-only
-#            vars: "CLOUD_IMAGE=yes DUAL_ROOT_OUTPUT_E2IMG_ONLY=yes"
-#            buildFirst: x86uefi-rescue-rootfs # rescue is the second root, which contains a rootfs of the first.
+          - aa: 0030
+            board: khadas-vim3
+            desc: Khadas VIM3, regular CLI
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no"
+
+          - aa: 0031
+            board: khadas-vim1
+            desc: Khadas VIM1, regular CLI
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no"
+
+          - aa: 0032
+            board: khadas-vim2
+            desc: Khadas VIM2, regular CLI
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no"
+
+          - aa: 0033
+            board: khadas-vim3l
+            desc: Khadas VIM3L, regular CLI
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no"
+
+          - aa: 0034
+            board: lafrite
+            desc: lafrite, regular CLI
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no"
+
+          - aa: 0035
+            board: lepotato
+            desc: lepotato, regular CLI
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no"
+
+          - aa: 0036
+            board: odroidc2
+            desc: ODROID C2, regular CLI
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no"
+
+          - aa: 0037
+            board: odroidc4
+            desc: ODROID C4, regular CLI
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no"
+
+          - aa: 0038
+            board: nanopik2-s905
+            desc: nanopik2-s905, regular CLI
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no"
+
+          #- aa: 0039
+          #  board: t95z # @TODO: this is not even close to building. my t95z is in production, so no testing
+          #  desc: t95z tvbox (old/deprecated/untested), regular CLI
+          #  runnerLabel: can-build-arm64
+          #  runnerLabelKernel: can-build-kernels
+          #  vars: "CLOUD_IMAGE=no"
+
+          - aa: 0040
+            board: oneplus5
+            desc: OnePlus 5, fastboot-compatible, regular CLI
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-small-kernels
+            vars: "CLOUD_IMAGE=no"
+          - aa: 0050
+            board: rpi4b
+            desc: Raspberry Pi 4B, using Ubuntu's raspi kernel, regular CLI
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-rootfs-only
+            vars: "CLOUD_IMAGE=no"
+
+
+
+          # cloud images build after regular cli
+          - aa: 0110
+            board: odroidhc4
+            desc: ODROID HC4, cloud image, user-data at /boot (ext4)
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=yes"
+          - aa: 0120
+            board: odroidn2
+            desc: ODROID N2+, cloud image, user-data at /boot (ext4)
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=yes"
+          - aa: 0130
+            board: khadas-vim3
+            desc: Khadas VIM3, cloud image, user-data at /boot (ext4)
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=yes"
+          - aa: 0140
+            board: oneplus5
+            desc: OnePlus 5, fastboot-compatible, cloud image, user-data at /boot
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-small-kernels
+            vars: "CLOUD_IMAGE=yes"
+          - aa: 0150
+            board: rpi4b
+            desc: Raspberry Pi 4B, using Ubuntu's raspi kernel, cloud image, user-data at /boot/firmware (FAT)
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-rootfs-only
+            vars: "CLOUD_IMAGE=yes"
+          - aa: 0155
+            board: jethubj80
+            desc: JetHub J80, cloud image, user-data at /boot (ext4)
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=yes"
+          - aa: 0156
+            board: jethubj100
+            desc: JetHub J100, cloud image, user-data at /boot (ext4)
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=yes"
+
+          # then the rest.
+          - aa: 0710
+            board: dkbarm64
+            desc: ARM64 Direct Kernel Boot, -generic kernel, cloud image, for use with kexec/QEMU, user-data from Kernel cmdline only
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-rootfs-only
+            vars: "CLOUD_IMAGE=yes"
+          - aa: 0720
+            board: uefiarm64
+            desc: UEFI Generic ARM64, with -generic Ubuntu kernel, cloud image, user-data at /boot/efi (FAT)
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-rootfs-only
+            vars: "CLOUD_IMAGE=yes"
+          - aa: 0730
+            board: uefiarm64
+            desc: UEFI Generic ARM64, with -generic Ubuntu kernel, regular CLI
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-rootfs-only
+            vars: "CLOUD_IMAGE=no"
+          - aa: 0740
+            board: uefiarm64meta
+            desc: UEFI Generic ARM64 cloud image for metadata-capable clouds (AWS/GCP/OCI/OpenStack/etc)
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-rootfs-only
+            vars: "CLOUD_IMAGE=yes"
+          - aa: 0750
+            board: uefiarm64-dual-root
+            desc: UEFI Generic ARM64 Dual Root/Rescue e2img, with -generic Ubuntu kernel, cloud image, user-data at /boot for each root
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-rootfs-only
+            vars: "CLOUD_IMAGE=yes DUAL_ROOT_OUTPUT_E2IMG_ONLY=yes"
+            buildFirst: uefiarm64-rescue-rootfs # rescue is the second root, which contains a rootfs of the first.
+
+          - aa: 0810
+            board: x86dkb
+            desc: x86 Direct Kernel Boot, -generic kernel, cloud image, for use with kexec/QEMU, user-data from Kernel cmdline only
+            runnerLabel: can-build-x86
+            runnerLabelKernel: can-build-rootfs-only
+            vars: "CLOUD_IMAGE=yes"
+          - aa: 0820
+            board: x86uefi
+            desc: UEFI Generic x86, with -generic Ubuntu kernel, cloud image, user-data at /boot/efi (FAT)
+            runnerLabel: can-build-x86
+            runnerLabelKernel: can-build-rootfs-only
+            vars: "CLOUD_IMAGE=yes"
+          - aa: 0830
+            board: x86uefi
+            desc: UEFI Generic x86, with -generic Ubuntu kernel, regular CLI
+            runnerLabel: can-build-x86
+            runnerLabelKernel: can-build-rootfs-only
+            vars: "CLOUD_IMAGE=no"
+          - aa: 0840
+            board: x86uefimeta
+            desc: UEFI Generic x86 cloud image for metadata-capable clouds (AWS/GCP/OCI/OpenStack/etc)
+            runnerLabel: can-build-x86
+            runnerLabelKernel: can-build-rootfs-only
+            vars: "CLOUD_IMAGE=yes"
+          - aa: 0850
+            board: x86uefi-dual-root
+            desc: UEFI Generic x86 Dual Root/Rescue e2img, with -generic Ubuntu kernel, cloud image, user-data at /boot for each root
+            runnerLabel: can-build-x86
+            runnerLabelKernel: can-build-rootfs-only
+            vars: "CLOUD_IMAGE=yes DUAL_ROOT_OUTPUT_E2IMG_ONLY=yes"
+            buildFirst: x86uefi-rescue-rootfs # rescue is the second root, which contains a rootfs of the first.
 
 
     steps:
