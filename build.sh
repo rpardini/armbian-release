@@ -8,6 +8,7 @@
 declare -i BUILD_OK=1
 MATRIX_BOARD="$1"
 EXTRA_VARS="$2"
+BUILD_VARS="CLEAN_LEVEL=none PROGRESS_LOG_TO_FILE=yes PROGRESS_DISPLAY=none DEB_COMPRESS=none"
 
 # Write the userpatches/VERSION file with our info.
 # RELEASE_TAG needs to start with a digit otherwise Debian packaging rules will be violated
@@ -17,16 +18,19 @@ echo "${RELEASE_TAG}-${RELEASE_OWNER}" > userpatches/VERSION
 touch .ignore_changes
 
 echo "Starting build for ${MATRIX_BOARD} - CLOUD_IMAGE:${CLOUD_IMAGE}"
+USERCONFIG="rpardini-generic"
 
 if [[ -f "userpatches/config-rpardini-${MATRIX_BOARD}.conf" ]]; then
 	echo "Using rpardini userpatches config for ${MATRIX_BOARD}..."
-	# shellcheck disable=SC2086 # I *want* to expand EXTRA_VARS as vars.
-	CLOUD_IMAGE="${CLOUD_IMAGE}" ./compile.sh "rpardini-${MATRIX_BOARD}" CLEAN_LEVEL=none ${EXTRA_VARS} || BUILD_OK=0
-else
-	echo "Using generic build for ${MATRIX_BOARD}..."
-	# shellcheck disable=SC2086 # I *want* to expand EXTRA_VARS as vars.
-	CLOUD_IMAGE="${CLOUD_IMAGE}" BOARD="${MATRIX_BOARD}" ./compile.sh "rpardini-generic" BOARD="${MATRIX_BOARD}" CLEAN_LEVEL=none ${EXTRA_VARS} || BUILD_OK=0
+	USERCONFIG="rpardini-${MATRIX_BOARD}"
+	BUILD_VARS="${BUILD_VARS} BOARD=${MATRIX_BOARD}"
 fi
+
+echo "Using userconfig '${USERCONFIG}' for ${MATRIX_BOARD}..."
+
+echo "::notice file=${MATRIX_BOARD}::Building CLOUD_IMAGE=\"${CLOUD_IMAGE}\" ${BUILD_VARS} ./compile.sh \"${USERCONFIG}\" ${BUILD_VARS} ${EXTRA_VARS}"
+# shellcheck disable=SC2086 # I *want* to expand EXTRA_VARS/BUILD_VARS as vars.
+CLOUD_IMAGE="${CLOUD_IMAGE}" ${BUILD_VARS} ./compile.sh "${USERCONFIG}" ${BUILD_VARS} ${EXTRA_VARS} || BUILD_OK=0
 
 # Remove stuff we added before the build, so working copy is clean again.
 rm -f .ignore_changes userpatches/VERSION || true
