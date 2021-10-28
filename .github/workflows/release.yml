@@ -212,8 +212,8 @@ jobs:
 
           # then the rest.
           - aa: 0710
-            board: dkbarm64
-            desc: ARM64 Direct Kernel Boot, -generic kernel, cloud image, for use with kexec/QEMU, user-data from Kernel cmdline only
+            board: uefiarm64meta
+            desc: UEFI Generic ARM64 cloud image for metadata-capable clouds (AWS/GCP/OCI/OpenStack/KVM/etc), includes external kernel and initrd for kexec
             runnerLabel: can-build-arm64
             runnerLabelKernel: can-build-rootfs-only
             vars: "CLOUD_IMAGE=yes"
@@ -229,17 +229,10 @@ jobs:
             runnerLabel: can-build-arm64
             runnerLabelKernel: can-build-rootfs-only
             vars: "CLOUD_IMAGE=no"
-          - aa: 0740
-            board: uefiarm64meta
-            desc: UEFI Generic ARM64 cloud image for metadata-capable clouds (AWS/GCP/OCI/OpenStack/etc)
-            runnerLabel: can-build-arm64
-            runnerLabelKernel: can-build-rootfs-only
-            vars: "CLOUD_IMAGE=yes"
-
 
           - aa: 0810
-            board: x86dkb
-            desc: x86 Direct Kernel Boot, -generic kernel, cloud image, for use with kexec/QEMU, user-data from Kernel cmdline only
+            board: x86uefimeta
+            desc: UEFI Generic x86 cloud image for metadata-capable clouds (AWS/GCP/OCI/OpenStack/KVM/etc), includes external kernel and initrd for kexec
             runnerLabel: can-build-x86
             runnerLabelKernel: can-build-rootfs-only
             vars: "CLOUD_IMAGE=yes"
@@ -255,12 +248,6 @@ jobs:
             runnerLabel: can-build-x86
             runnerLabelKernel: can-build-rootfs-only
             vars: "CLOUD_IMAGE=no"
-          - aa: 0840
-            board: x86uefimeta
-            desc: UEFI Generic x86 cloud image for metadata-capable clouds (AWS/GCP/OCI/OpenStack/etc)
-            runnerLabel: can-build-x86
-            runnerLabelKernel: can-build-rootfs-only
-            vars: "CLOUD_IMAGE=yes"
           - aa: 0850
             board: x86uefi-dual-root
             desc: UEFI Generic x86 Dual Root/Rescue e2img, with -generic Ubuntu kernel, cloud image, user-data at /boot for each root
@@ -284,6 +271,7 @@ jobs:
             RELEASE_OWNER="${{ github.repository_owner }}" \
             RELEASE_OWNER_AND_REPO="${{ github.repository }}" \
             RELEASE_TAG="${{needs.prepare.outputs.tagName}}" \
+            GH_FULL_RUN_ID="${{ github.run_id }}_${{github.run_number}}_${{github.run_attempt}}" \
             bash --noprofile --norc -e release/cleanup.sh
 
       - name: Checkout build repo
@@ -301,6 +289,7 @@ jobs:
             RELEASE_OWNER="${{ github.repository_owner }}" \
             RELEASE_OWNER_AND_REPO="${{ github.repository }}" \
             RELEASE_TAG="${{needs.prepare.outputs.tagName}}" \
+            GH_FULL_RUN_ID="${{ github.run_id }}_${{github.run_number}}_${{github.run_attempt}}" \
             bash --noprofile --norc -e release/restore_cache.sh
 
       - name: Build dependency ${{ matrix.buildFirst }} first

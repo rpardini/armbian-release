@@ -27,7 +27,7 @@ find ./images -type f -size +1M | cut -d "/" -f 3 | while read fn; do
 	fi
 
 	echo "Compressing ${FULL_SRC_FN} to ${FULL_TARGET_FN}"
-	time pixz -0 "${FULL_SRC_FN}" "${FULL_TARGET_FN}"
+	time pixz -0 "${FULL_SRC_FN}" "${FULL_TARGET_FN}" # @TODO: move to zstd soon
 	XZ_SIZE="$(du -h "${FULL_TARGET_FN}" | tr -s "\t" " " | cut -d " " -f 1)"
 
 	echo "  - [${TARGET_FN}](https://github.com/${RELEASE_OWNER_AND_REPO}/releases/download/${RELEASE_TAG}/${TARGET_FN}) _(xz:${XZ_SIZE}b, original:${ORIGINAL_SIZE}b${SPARSE})_" >>release.md
@@ -46,7 +46,7 @@ find ./images -type f -size +2G -exec rm -f {} ";"
 LOGS_TARBALL="images/build.logs.${MATRIX_BOARD}.${CLOUD_IMAGE_DESC}.tar"
 echo "Tarring up the build logs... ${LOGS_TARBALL}.xz"
 tar cf "${LOGS_TARBALL}" debug
-pixz -0 "${LOGS_TARBALL}" "${LOGS_TARBALL}.xz"
+pixz -0 "${LOGS_TARBALL}" "${LOGS_TARBALL}.xz" # @TODO: move to zstd soon
 
 echo "Chown images back to regular user (${REGULAR_USER})..."
 chown -R "${REGULAR_USER}":"${REGULAR_USER}" ./images || true
