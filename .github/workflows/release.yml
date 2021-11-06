@@ -40,14 +40,6 @@ jobs:
         # aa: GH Actions orders the jobs by the first key value. 'aa' should be first. it never is. it is actually quite pointless trying. it's effectively random.
 
         include:
-          - aa: 0001
-            board: uefiarm64-dual-root
-            desc: UEFI Generic ARM64 Dual Root/Rescue e2img, with -generic Ubuntu kernel, cloud image, user-data at /boot for each root
-            runnerLabel: can-build-arm64
-            runnerLabelKernel: can-build-rootfs-only
-            vars: "CLOUD_IMAGE=yes DUAL_ROOT_OUTPUT_E2IMG_ONLY=yes"
-            buildFirst: uefiarm64-rescue-rootfs # rescue is the second root, which contains a rootfs of the first.
-
           # regular CLI builds, build first
           - aa: 0010
             board: odroidhc4
@@ -229,6 +221,14 @@ jobs:
             runnerLabel: can-build-arm64
             runnerLabelKernel: can-build-rootfs-only
             vars: "CLOUD_IMAGE=no"
+          - aa: 0750
+            board: uefiarm64-dual-root
+            desc: UEFI Generic ARM64 Dual Root/Rescue e2img, with -generic Ubuntu kernel, cloud image, user-data at /boot for each root
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-rootfs-only
+            vars: "CLOUD_IMAGE=yes DUAL_ROOT_OUTPUT_E2IMG_ONLY=yes"
+            buildFirst: uefiarm64-rescue-rootfs # rescue is the second root, which contains a rootfs of the first.
+
 
           - aa: 0810
             board: x86uefimeta
