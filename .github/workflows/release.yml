@@ -24,7 +24,7 @@ jobs:
 
   "A": # short name because GH will expand with the matrix values
     needs: [ prepare ]
-    runs-on: [ self-hosted, Linux, '${{ matrix.runnerLabel }}', '${{ matrix.runnerLabelKernel }}' ]
+    runs-on: [ self-hosted, Linux, 'can-build-target-impish', '${{ matrix.runnerLabel }}', '${{ matrix.runnerLabelKernel }}' ]
     timeout-minutes: 480 # First builds on new machines can take extremely long until caches are primed
     if: ${{ github.repository_owner == 'rpardini' }}
     strategy:
