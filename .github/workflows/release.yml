@@ -278,7 +278,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: ${{ github.repository_owner }}/armbian-build
-          ref: rpardini-fragments # branch to build from.
+          ref: extensions # branch to build from.
           clean: true # true is default. it *will* delete the hosts /dev if mounted inside.
           path: build
 
