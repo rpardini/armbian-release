@@ -194,76 +194,117 @@ jobs:
           #  vars: "CLOUD_IMAGE=yes DUAL_ROOT_OUTPUT_E2IMG_ONLY=yes"
           #  buildFirst: uefi-x86-rescue-rootfs # rescue is the second root, which contains a rootfs of the first.
 
-          - aa: 0050
-            board: rpi4b
-            desc: Raspberry Pi 4B, using Ubuntu's raspi kernel, regular CLI
-            runnerLabel: can-build-arm64
-            runnerLabelKernel: can-build-rootfs-only
-            vars: "CLOUD_IMAGE=no"
-
-          - aa: 0051
-            board: uefi-x86
-            desc: UEFI Generic x86, with -generic Ubuntu kernel, regular CLI
+          # --------------------------------------------------------------------
+          - aa: 0100
+            board: uefi-x86-meta
+            desc: UEFI Generic x86 cloud image, with Armbian pure mainline kernel (edge), for metadata-capable clouds (AWS/GCP/OCI/OpenStack/KVM/etc), includes external kernel and initrd for kexec
             runnerLabel: can-build-x86
-            runnerLabelKernel: can-build-rootfs-only
-            vars: "CLOUD_IMAGE=no"
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=yes RELEASE=edge"
 
           - aa: 0150
-            board: rpi4b
-            desc: Raspberry Pi 4B, using Ubuntu's raspi kernel, cloud image, user-data at /boot/firmware (FAT)
-            runnerLabel: can-build-arm64
+            board: uefi-x86-meta
+            desc: UEFI Generic x86 cloud image, with -generic Ubuntu kernel (current), for metadata-capable clouds (AWS/GCP/OCI/OpenStack/KVM/etc), includes external kernel and initrd for kexec
+            runnerLabel: can-build-x86
             runnerLabelKernel: can-build-rootfs-only
-            vars: "CLOUD_IMAGE=yes"
+            vars: "CLOUD_IMAGE=yes RELEASE=current"
 
-          - aa: 0710
-            board: uefi-arm64-meta
-            desc: UEFI Generic ARM64 cloud image for metadata-capable clouds (AWS/GCP/OCI/OpenStack/KVM/etc), includes external kernel and initrd for kexec
+          - aa: 0200
+            board: uefi-x86
+            desc: UEFI Generic x86, with Armbian pure mainline kernel (edge), regular CLI
+            runnerLabel: can-build-x86
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no ENABLE_EXTENSIONS=image-output-ovf RELEASE=edge"
+
+          - aa: 0250
+            board: uefi-x86
+            desc: UEFI Generic x86, with -generic Ubuntu kernel (current), regular CLI
+            runnerLabel: can-build-x86
+            runnerLabelKernel: can-build-rootfs-only
+            vars: "CLOUD_IMAGE=no ENABLE_EXTENSIONS=image-output-ovf RELEASE=current"
+
+
+            #- aa: 0300
+            #  board: rpi4b
+            #  desc: Raspberry Pi 4B, with Armbian pure mainline kernel (edge), regular CLI
+            #  runnerLabel: can-build-arm64
+            #  runnerLabelKernel: can-build-kernels
+            #  vars: "CLOUD_IMAGE=no RELEASE=edge"
+
+            #- aa: 0350
+            #  board: rpi4b
+            #  desc: Raspberry Pi 4B, with Armbian pure mainline kernel (edge), cloud image, user-data at /boot/firmware (FAT)
+            #  runnerLabel: can-build-arm64
+            #  runnerLabelKernel: can-build-kernels
+            #  vars: "CLOUD_IMAGE=yes RELEASE=edge"
+
+
+          - aa: 0400
+            board: rpi4b
+            desc: Raspberry Pi 4B, with Ubuntu's raspi kernel (current), regular CLI
             runnerLabel: can-build-arm64
             runnerLabelKernel: can-build-rootfs-only
-            vars: "CLOUD_IMAGE=yes"
+            vars: "CLOUD_IMAGE=no RELEASE=current"
+
+          - aa: 0450
+            board: rpi4b
+            desc: Raspberry Pi 4B, using Ubuntu's raspi kernel (current), cloud image, user-data at /boot/firmware (FAT)
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-rootfs-only
+            vars: "CLOUD_IMAGE=yes RELEASE=current"
+
 
           - aa: 0720
             board: uefi-arm64
-            desc: UEFI Generic ARM64, with -generic Ubuntu kernel, cloud image, user-data at /boot/efi (FAT)
+            desc: UEFI Generic ARM64, with -generic Ubuntu kernel (current), cloud image, user-data at /boot/efi (FAT)
             runnerLabel: can-build-arm64
             runnerLabelKernel: can-build-rootfs-only
-            vars: "CLOUD_IMAGE=yes"
+            vars: "CLOUD_IMAGE=yes RELEASE=current"
 
           - aa: 0730
             board: uefi-arm64
-            desc: UEFI Generic ARM64, with -generic Ubuntu kernel, regular CLI
+            desc: UEFI Generic ARM64, with -generic Ubuntu kernel (current), regular CLI
             runnerLabel: can-build-arm64
             runnerLabelKernel: can-build-rootfs-only
-            vars: "CLOUD_IMAGE=no"
+            vars: "CLOUD_IMAGE=no RELEASE=current"
 
-          - aa: 0750
+          - aa: 0740
             board: uefi-arm64-dual-root
             desc: UEFI Generic ARM64 Dual Root/Rescue e2img, with -generic Ubuntu kernel, cloud image, user-data at /boot for each root
             runnerLabel: can-build-arm64
             runnerLabelKernel: can-build-rootfs-only
-            vars: "CLOUD_IMAGE=yes DUAL_ROOT_OUTPUT_E2IMG_ONLY=yes"
+            vars: "CLOUD_IMAGE=yes DUAL_ROOT_OUTPUT_E2IMG_ONLY=yes RELEASE=current"
             buildFirst: uefi-arm64-rescue-rootfs # rescue is the second root, which contains a rootfs of the first.
 
-          - aa: 0810
-            board: uefi-x86-meta
-            desc: UEFI Generic x86 cloud image for metadata-capable clouds (AWS/GCP/OCI/OpenStack/KVM/etc), includes external kernel and initrd for kexec
-            runnerLabel: can-build-x86
-            runnerLabelKernel: can-build-rootfs-only
-            vars: "CLOUD_IMAGE=yes"
-
-          - aa: 0820
-            board: uefi-x86
-            desc: UEFI Generic x86, with -generic Ubuntu kernel, cloud image, user-data at /boot/efi (FAT)
-            runnerLabel: can-build-x86
-            runnerLabelKernel: can-build-rootfs-only
-            vars: "CLOUD_IMAGE=yes"
-
-          - aa: 0940
-            board: oneplus5
-            desc: OnePlus 5, fastboot-compatible, regular CLI
+          - aa: 0750
+            board: uefi-arm64-meta
+            desc: UEFI Generic ARM64, with -generic Ubuntu kernel (current), cloud image for metadata-capable clouds (AWS/GCP/OCI/OpenStack/KVM/etc), includes external kernel and initrd for kexec
             runnerLabel: can-build-arm64
-            runnerLabelKernel: can-build-small-kernels
-            vars: "CLOUD_IMAGE=no"
+            runnerLabelKernel: can-build-rootfs-only
+            vars: "CLOUD_IMAGE=yes RELEASE=current"
+
+
+          #- aa: 0820
+          #  board: uefi-x86
+          #  desc: UEFI Generic x86, with -generic Ubuntu kernel (current), cloud image, user-data at /boot/efi (FAT)
+          #  runnerLabel: can-build-x86
+          #  runnerLabelKernel: can-build-rootfs-only
+          #  vars: "CLOUD_IMAGE=yes RELEASE=current"
+
+          - aa: 0830
+            board: uefi-x86
+            desc: UEFI Generic x86, with Armbian pure mainline kernel (edge), cloud image, user-data at /boot/efi (FAT)
+            runnerLabel: can-build-x86
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=yes RELEASE=edge"
+
+
+          #- aa: 0940
+          #  board: oneplus5
+          #  desc: OnePlus 5, fastboot-compatible, regular CLI
+          #  runnerLabel: can-build-arm64
+          #  runnerLabelKernel: can-build-small-kernels
+          #  vars: "CLOUD_IMAGE=no"
 
     steps:
 
