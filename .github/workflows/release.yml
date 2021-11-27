@@ -195,6 +195,14 @@ jobs:
           #  buildFirst: uefi-x86-rescue-rootfs # rescue is the second root, which contains a rootfs of the first.
 
           # --------------------------------------------------------------------
+          - aa: 0050
+            board: uefi-arm64-dual-root
+            desc: UEFI Generic ARM64 Dual Root/Rescue e2img, with Armbian pure mainline kernel (edge), cloud image, user-data at /boot for each root
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=yes DUAL_ROOT_OUTPUT_E2IMG_ONLY=yes BRANCH=edge"
+            buildFirst: uefi-arm64-rescue-rootfs # rescue is the second root, which contains a rootfs of the first.
+
           - aa: 0100
             board: uefi-x86-meta
             desc: UEFI Generic x86 cloud image, with Armbian pure mainline kernel (edge), for metadata-capable clouds (AWS/GCP/OCI/OpenStack/KVM/etc), includes external kernel and initrd for kexec

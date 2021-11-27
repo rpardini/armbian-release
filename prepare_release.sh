@@ -39,14 +39,14 @@ ls -laht ./images || true
 # GH Releases/packages has a limit of 2Gb per artifact.
 # For not just remove, @TODO: in the future could split.
 echo "Removing too-big images: "
-find ./images -type f -size +2G
-find ./images -type f -size +2G -exec rm -f {} ";"
+find ./images -type f -size +2G || true
+find ./images -type f -size +2G -exec rm -f {} ";" || true
 
 # Tar up the logs
 LOGS_TARBALL="images/build.logs.${MATRIX_BOARD}.${CLOUD_IMAGE_DESC}.tar"
 echo "Tarring up the build logs... ${LOGS_TARBALL}.xz"
-tar cf "${LOGS_TARBALL}" debug
-pixz -0 "${LOGS_TARBALL}" "${LOGS_TARBALL}.xz" # @TODO: move to zstd soon
+tar cf "${LOGS_TARBALL}" debug || true
+pixz -0 "${LOGS_TARBALL}" "${LOGS_TARBALL}.xz" || true # @TODO: move to zstd soon
 
 echo "Chown images back to regular user (${REGULAR_USER})..."
 chown -R "${REGULAR_USER}":"${REGULAR_USER}" ./images || true
