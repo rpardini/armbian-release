@@ -185,6 +185,13 @@ jobs:
           #  buildFirst: uefi-x86-rescue-rootfs # rescue is the second root, which contains a rootfs of the first.
 
           # --------------------------------------------------------------------
+          - aa: 0010
+            board: uefi-arm64
+            desc: Debian SID - UEFI Generic ARM64, with -generic Debian kernel (current), regular CLI
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-rootfs-only
+            vars: "CLOUD_IMAGE=no BRANCH=current RELEASE=sid"
+
           - aa: 0050
             board: uefi-arm64-dual-root
             desc: UEFI Generic ARM64 Dual Root/Rescue e2img, with Armbian mainline kernel (edge), cloud image, user-data at /boot for each root
