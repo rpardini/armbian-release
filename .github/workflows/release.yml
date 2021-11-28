@@ -136,16 +136,6 @@ jobs:
           #            runnerLabelKernel: can-build-kernels
           #            vars: "CLOUD_IMAGE=no"
           #
-          #          #- aa: 0039
-          #          #  board: t95z # @TODO: this is not even close to building. my t95z is in production, so no testing
-          #          #  desc: t95z tvbox (old/deprecated/untested), regular CLI
-          #          #  runnerLabel: can-build-arm64
-          #          #  runnerLabelKernel: can-build-kernels
-          #          #  vars: "CLOUD_IMAGE=no"
-          #
-
-
-
           #          # cloud images build after regular cli
           #          - aa: 0110
           #            board: odroidhc4
@@ -197,7 +187,7 @@ jobs:
           # --------------------------------------------------------------------
           - aa: 0050
             board: uefi-arm64-dual-root
-            desc: UEFI Generic ARM64 Dual Root/Rescue e2img, with Armbian pure mainline kernel (edge), cloud image, user-data at /boot for each root
+            desc: UEFI Generic ARM64 Dual Root/Rescue e2img, with Armbian mainline kernel (edge), cloud image, user-data at /boot for each root
             runnerLabel: can-build-arm64
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=yes DUAL_ROOT_OUTPUT_E2IMG_ONLY=yes BRANCH=edge"
@@ -205,28 +195,28 @@ jobs:
 
           - aa: 0060
             board: uefi-arm64
-            desc: UEFI Generic ARM64, with Armbian pure mainline kernel (edge), regular CLI
+            desc: UEFI Generic ARM64, with Armbian mainline kernel (edge), regular CLI
             runnerLabel: can-build-arm64
             runnerLabelKernel: can-build-rootfs-only
             vars: "CLOUD_IMAGE=no BRANCH=edge"
 
           - aa: 0070
             board: rpi4b
-            desc: Raspberry Pi 4B, with Armbian pure mainline kernel (edge), regular CLI
+            desc: Raspberry Pi 4B, with Armbian mainline kernel (edge), regular CLI
             runnerLabel: can-build-arm64
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=no BRANCH=edge"
 
           - aa: 0100
             board: uefi-x86-meta
-            desc: UEFI Generic x86 cloud image, with Armbian pure mainline kernel (edge), for metadata-capable clouds (AWS/GCP/OCI/OpenStack/KVM/etc), includes external kernel and initrd for kexec
+            desc: UEFI Generic x86 cloud image, with Armbian mainline kernel (edge), for metadata-capable clouds (AWS/GCP/OCI/OpenStack/KVM/etc), includes external kernel and initrd for kexec
             runnerLabel: can-build-x86
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=yes BRANCH=edge"
 
           - aa: 0120
             board: uefi-x86
-            desc: UEFI Generic x86, with Armbian pure mainline kernel (edge), regular CLI
+            desc: UEFI Generic x86, with Armbian mainline kernel (edge), regular CLI
             runnerLabel: can-build-x86
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=no ENABLE_EXTENSIONS=image-output-ovf BRANCH=edge"
@@ -252,26 +242,26 @@ jobs:
             runnerLabelKernel: can-build-rootfs-only
             vars: "CLOUD_IMAGE=yes BRANCH=current"
 
-          - aa: 0350
-            board: rpi4b
-            desc: Raspberry Pi 4B, with Armbian pure mainline kernel (edge), cloud image, user-data at /boot/firmware (FAT)
-            runnerLabel: can-build-arm64
-            runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=yes BRANCH=edge"
+          #- aa: 0350
+          #  board: rpi4b
+          #  desc: Raspberry Pi 4B, with Armbian mainline kernel (edge), cloud image, user-data at /boot/firmware (FAT)
+          #  runnerLabel: can-build-arm64
+          #  runnerLabelKernel: can-build-kernels
+          #  vars: "CLOUD_IMAGE=yes BRANCH=edge"
+          #
+          #- aa: 0450
+          #  board: rpi4b
+          #  desc: Raspberry Pi 4B, using Ubuntu's raspi kernel (current), cloud image, user-data at /boot/firmware (FAT)
+          #  runnerLabel: can-build-arm64
+          #  runnerLabelKernel: can-build-rootfs-only
+          #  vars: "CLOUD_IMAGE=yes BRANCH=current"
 
-          - aa: 0450
-            board: rpi4b
-            desc: Raspberry Pi 4B, using Ubuntu's raspi kernel (current), cloud image, user-data at /boot/firmware (FAT)
-            runnerLabel: can-build-arm64
-            runnerLabelKernel: can-build-rootfs-only
-            vars: "CLOUD_IMAGE=yes BRANCH=current"
-
-          - aa: 0720
-            board: uefi-arm64
-            desc: UEFI Generic ARM64, with -generic Ubuntu kernel (current), cloud image, user-data at /boot/efi (FAT)
-            runnerLabel: can-build-arm64
-            runnerLabelKernel: can-build-rootfs-only
-            vars: "CLOUD_IMAGE=yes BRANCH=current"
+          #- aa: 0720
+          #  board: uefi-arm64
+          #  desc: UEFI Generic ARM64, with -generic Ubuntu kernel (current), cloud image, user-data at /boot/efi (FAT)
+          #  runnerLabel: can-build-arm64
+          #  runnerLabelKernel: can-build-rootfs-only
+          #  vars: "CLOUD_IMAGE=yes BRANCH=current"
 
           - aa: 0740
             board: uefi-arm64-dual-root
@@ -298,7 +288,7 @@ jobs:
 
           - aa: 0830
             board: uefi-x86
-            desc: UEFI Generic x86, with Armbian pure mainline kernel (edge), cloud image, user-data at /boot/efi (FAT)
+            desc: UEFI Generic x86, with Armbian mainline kernel (edge), cloud image, user-data at /boot/efi (FAT)
             runnerLabel: can-build-x86
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=yes BRANCH=edge"
