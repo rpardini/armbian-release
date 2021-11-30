@@ -291,14 +291,14 @@ jobs:
             desc: UEFI Generic x86, with -generic Ubuntu kernel (current), cloud image, user-data at /boot/efi (FAT)
             runnerLabel: can-build-x86
             runnerLabelKernel: can-build-rootfs-only
-            vars: "CLOUD_IMAGE=yes BRANCH=current"
+            vars: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=image-output-ovf BRANCH=current"
 
           - aa: 0830
             board: uefi-x86
             desc: UEFI Generic x86, with Armbian mainline kernel (edge), cloud image, user-data at /boot/efi (FAT)
             runnerLabel: can-build-x86
             runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=yes BRANCH=edge"
+            vars: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=image-output-ovf BRANCH=edge"
 
           - aa: 0900
             board: uefi-arm64
