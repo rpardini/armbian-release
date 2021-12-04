@@ -40,8 +40,60 @@ jobs:
         # aa: GH Actions orders the jobs by the first key value. 'aa' should be first. it never is. it is actually quite pointless trying. it's effectively random.
 
         include:
+          # aarch64
+          - aa: 0001
+            board: rpi4b
+            desc: Raspberry Pi 4B, with Armbian mainline kernel (edge), regular CLI
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no BRANCH=edge"
+
+          - aa: 0002
+            board: rpi4b
+            desc: Raspberry Pi 4B, with Armbian mainline kernel (edge), cloud image, user-data at /boot/firmware (FAT)
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=yes BRANCH=edge"
+
+          - aa: 0003
+            board: rpi4b
+            desc: Raspberry Pi 4B, with Ubuntu's raspi kernel (current), regular CLI
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-rootfs-only
+            vars: "CLOUD_IMAGE=no BRANCH=current"
+
+          - aa: 0004
+            board: rpi4b
+            desc: Raspberry Pi 4B, using Ubuntu's raspi kernel (current), cloud image, user-data at /boot/firmware (FAT)
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-rootfs-only
+            vars: "CLOUD_IMAGE=yes BRANCH=current"
+
+          - aa: 0005
+            board: uefi-arm64-dual-root
+            desc: UEFI Generic ARM64 Dual Root/Rescue e2img, with Armbian mainline kernel (edge), cloud image, user-data at /boot for each root
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=yes DUAL_ROOT_OUTPUT_E2IMG_ONLY=yes BRANCH=edge"
+            buildFirst: uefi-arm64-rescue-rootfs # rescue is the second root, which contains a rootfs of the first.
+
+          # x86
+          - aa: 0006
+            board: uefi-x86-meta
+            desc: UEFI Generic x86 cloud image, with Armbian mainline kernel (edge), for metadata-capable clouds (AWS/GCP/OCI/OpenStack/KVM/etc), includes external kernel and initrd for kexec
+            runnerLabel: can-build-x86
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=yes BRANCH=edge"
+
+          - aa: 0007
+            board: uefi-x86
+            desc: UEFI Generic x86, with Armbian mainline kernel (edge), cloud image, user-data at /boot/efi (FAT)
+            runnerLabel: can-build-x86
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=image-output-ovf BRANCH=edge"
+
           # regular CLI builds, build first
-          - aa: 0010
+          - aa: 0019
             board: odroidhc4
             desc: ODROID HC4, CLI, standard
             runnerLabel: can-build-arm64
@@ -192,14 +244,6 @@ jobs:
             runnerLabelKernel: can-build-rootfs-only
             vars: "CLOUD_IMAGE=no BRANCH=current RELEASE=sid"
 
-          - aa: 0050
-            board: uefi-arm64-dual-root
-            desc: UEFI Generic ARM64 Dual Root/Rescue e2img, with Armbian mainline kernel (edge), cloud image, user-data at /boot for each root
-            runnerLabel: can-build-arm64
-            runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=yes DUAL_ROOT_OUTPUT_E2IMG_ONLY=yes BRANCH=edge"
-            buildFirst: uefi-arm64-rescue-rootfs # rescue is the second root, which contains a rootfs of the first.
-
           - aa: 0060
             board: uefi-arm64
             desc: UEFI Generic ARM64, with Armbian mainline kernel (edge), regular CLI
@@ -207,19 +251,6 @@ jobs:
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=no BRANCH=edge"
 
-          - aa: 0070
-            board: rpi4b
-            desc: Raspberry Pi 4B, with Armbian mainline kernel (edge), regular CLI
-            runnerLabel: can-build-arm64
-            runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=no BRANCH=edge"
-
-          - aa: 0100
-            board: uefi-x86-meta
-            desc: UEFI Generic x86 cloud image, with Armbian mainline kernel (edge), for metadata-capable clouds (AWS/GCP/OCI/OpenStack/KVM/etc), includes external kernel and initrd for kexec
-            runnerLabel: can-build-x86
-            runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=yes BRANCH=edge"
 
           - aa: 0120
             board: uefi-x86
@@ -228,12 +259,6 @@ jobs:
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=no ENABLE_EXTENSIONS=image-output-ovf BRANCH=edge"
 
-          - aa: 0130
-            board: rpi4b
-            desc: Raspberry Pi 4B, with Ubuntu's raspi kernel (current), regular CLI
-            runnerLabel: can-build-arm64
-            runnerLabelKernel: can-build-rootfs-only
-            vars: "CLOUD_IMAGE=no BRANCH=current"
 
           - aa: 0250
             board: uefi-x86
@@ -246,20 +271,6 @@ jobs:
             board: uefi-x86-meta
             desc: UEFI Generic x86 cloud image, with -generic Ubuntu kernel (current), for metadata-capable clouds (AWS/GCP/OCI/OpenStack/KVM/etc), includes external kernel and initrd for kexec
             runnerLabel: can-build-x86
-            runnerLabelKernel: can-build-rootfs-only
-            vars: "CLOUD_IMAGE=yes BRANCH=current"
-
-          - aa: 0350
-            board: rpi4b
-            desc: Raspberry Pi 4B, with Armbian mainline kernel (edge), cloud image, user-data at /boot/firmware (FAT)
-            runnerLabel: can-build-arm64
-            runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=yes BRANCH=edge"
-
-          - aa: 0450
-            board: rpi4b
-            desc: Raspberry Pi 4B, using Ubuntu's raspi kernel (current), cloud image, user-data at /boot/firmware (FAT)
-            runnerLabel: can-build-arm64
             runnerLabelKernel: can-build-rootfs-only
             vars: "CLOUD_IMAGE=yes BRANCH=current"
 
@@ -292,13 +303,6 @@ jobs:
             runnerLabel: can-build-x86
             runnerLabelKernel: can-build-rootfs-only
             vars: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=image-output-ovf BRANCH=current"
-
-          - aa: 0830
-            board: uefi-x86
-            desc: UEFI Generic x86, with Armbian mainline kernel (edge), cloud image, user-data at /boot/efi (FAT)
-            runnerLabel: can-build-x86
-            runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=image-output-ovf BRANCH=edge"
 
           - aa: 0900
             board: uefi-arm64
