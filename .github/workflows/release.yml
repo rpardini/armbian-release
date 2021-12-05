@@ -55,6 +55,13 @@ jobs:
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=no BRANCH=edge"
 
+          - aa: 0002
+            board: uefi-arm64
+            desc: UEFI Generic ARM64, with Armbian mainline kernel (edge), cloud image, user-data at /boot/efi (FAT)
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=yes BRANCH=edge"
+
           - aa: 0003
             board: rpi4b
             desc: Raspberry Pi 4B, with Armbian mainline kernel (edge), cloud image, user-data at /boot/firmware (FAT)
