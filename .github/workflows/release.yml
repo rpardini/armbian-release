@@ -124,12 +124,6 @@ jobs:
             runnerLabel: can-build-arm64
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=yes"
-          - aa: 0560
-            board: oneplus5
-            desc: OnePlus 5, fastboot-compatible, cloud image, user-data at /boot
-            runnerLabel: can-build-arm64
-            runnerLabelKernel: can-build-small-kernels
-            vars: "CLOUD_IMAGE=yes"
 
           - aa: 0700
             board: uefi-arm64-dual-root
@@ -139,6 +133,12 @@ jobs:
             vars: "CLOUD_IMAGE=yes DUAL_ROOT_OUTPUT_E2IMG_ONLY=yes BRANCH=current"
             buildFirst: uefi-arm64-rescue-rootfs # rescue is the second root, which contains a rootfs of the first.
 
+          - aa: 0800
+            board: oneplus5
+            desc: OnePlus 5, fastboot-compatible, cloud image, user-data at /boot
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-small-kernels
+            vars: "CLOUD_IMAGE=yes"
 
 
     steps:
