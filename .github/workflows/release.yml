@@ -43,14 +43,14 @@ jobs:
           # non-cloud desktop images for meson 64 HC4/N2
           - aa: 0010
             board: odroidhc4
-            desc: ODROID HC4, xfce desktop, `current`
+            desc: ODROID HC4, xfce desktop, current
             runnerLabel: can-build-arm64
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=no BRANCH=current BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=\"\" DESKTOP_ENVIRONMENT=xfce DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
 
           - aa: 0015
             board: odroidn2
-            desc: ODROID N2+, xfce desktop, `current`
+            desc: ODROID N2+, xfce desktop, current
             runnerLabel: can-build-arm64
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=no BRANCH=current BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=\"\" DESKTOP_ENVIRONMENT=xfce DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
