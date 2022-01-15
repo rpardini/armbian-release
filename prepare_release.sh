@@ -18,8 +18,8 @@ find ./images -type f -size +1M | cut -d "/" -f 3 | while read fn; do
 	FULL_SRC_FN="images/${fn}"
 	ORIGINAL_SIZE="$(du -h "${FULL_SRC_FN}" | tr -s "\t" " " | cut -d " " -f 1)"
 	UNSPARSE_SIZE="$(du --apparent-size -h "${FULL_SRC_FN}" | tr -s "\t" " " | cut -d " " -f 1)"
-	TARGET_FN="${fn}.xz"
-	FULL_TARGET_FN="images/${fn}.xz"
+	TARGET_FN="${fn}.zst"
+	FULL_TARGET_FN="images/${fn}.zst"
 
 	SPARSE=""
 	if [[ "${ORIGINAL_SIZE}" != "${UNSPARSE_SIZE}" ]]; then
@@ -27,10 +27,10 @@ find ./images -type f -size +1M | cut -d "/" -f 3 | while read fn; do
 	fi
 
 	echo "Compressing ${FULL_SRC_FN} to ${FULL_TARGET_FN}"
-	time pixz -1 "${FULL_SRC_FN}" "${FULL_TARGET_FN}" # @TODO: move to zstd soon
-	XZ_SIZE="$(du -h "${FULL_TARGET_FN}" | tr -s "\t" " " | cut -d " " -f 1)"
+	time zstd -T0 -1 "${FULL_SRC_FN}" "${FULL_TARGET_FN}"
+	ZST_SIZE="$(du -h "${FULL_TARGET_FN}" | tr -s "\t" " " | cut -d " " -f 1)"
 
-	echo "  - [${TARGET_FN}](https://github.com/${RELEASE_OWNER_AND_REPO}/releases/download/${RELEASE_TAG}/${TARGET_FN}) _(xz:${XZ_SIZE}b, original:${ORIGINAL_SIZE}b${SPARSE})_" >>release.md
+	echo "  - [${TARGET_FN}](https://github.com/${RELEASE_OWNER_AND_REPO}/releases/download/${RELEASE_TAG}/${TARGET_FN}) _(zst:${ZST_SIZE}b, original:${ORIGINAL_SIZE}b${SPARSE})_" >>release.md
 done
 
 echo "Listing images contents:"
@@ -44,9 +44,9 @@ find ./images -type f -size +2G -exec rm -f {} ";" || true
 
 # Tar up the logs
 LOGS_TARBALL="images/build.logs.${MATRIX_BOARD}.${CLOUD_IMAGE_DESC}.tar"
-echo "Tarring up the build logs... ${LOGS_TARBALL}.xz"
+echo "Tarring up the build logs... ${LOGS_TARBALL}.zst"
 tar cf "${LOGS_TARBALL}" debug || true
-pixz -0 "${LOGS_TARBALL}" "${LOGS_TARBALL}.xz" || true # @TODO: move to zstd soon
+zstd -T0 -1 "${LOGS_TARBALL}" "${LOGS_TARBALL}.zst" || true
 
 echo "Chown images back to regular user (${REGULAR_USER})..."
 chown -R "${REGULAR_USER}":"${REGULAR_USER}" ./images || true

@@ -40,15 +40,30 @@ jobs:
         # aa: GH Actions orders the jobs by the first key value. 'aa' should be first. it never is. it is actually quite pointless trying. it's effectively random.
 
         include:
+          # e2img for oracle cloud
+          - aa: 0001
+            board: uefi-arm64
+            desc: UEFI Generic ARM64 Rescue e2img, edge, cloud image, user-data at /boot
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=uefi-rescue BRANCH=edge"
+
+          - aa: 0002
+            board: uefi-arm64
+            desc: UEFI Generic ARM64 Rescue e2img, ddk, cloud image, user-data at /boot
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-rootfs-only
+            vars: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=uefi-rescue BRANCH=ddk"
+
           # non-cloud cli images for armhf stuff built on arm64
-          - aa: 0003
+          - aa: 0900
             board: tinkerboard
             desc: Tinkerboard, cli, edge
             runnerLabel: can-build-arm64
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=no BRANCH=edge"
 
-          - aa: 0004
+          - aa: 0950
             board: helios4
             desc: Helios4, cli, edge
             runnerLabel: can-build-arm64
@@ -56,27 +71,19 @@ jobs:
             vars: "CLOUD_IMAGE=no BRANCH=edge"
 
           # non-cloud desktop images for meson 64 HC4/N2
-          - aa: 0010
+          - aa: 0960
             board: odroidhc4
             desc: ODROID HC4, xfce desktop, current
             runnerLabel: can-build-arm64
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=no BRANCH=current BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=\"\" DESKTOP_ENVIRONMENT=xfce DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
 
-          - aa: 0015
+          - aa: 0970
             board: odroidn2
             desc: ODROID N2+, xfce desktop, current
             runnerLabel: can-build-arm64
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=no BRANCH=current BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=\"\" DESKTOP_ENVIRONMENT=xfce DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
-
-          - aa: 050
-            board: uefi-arm64-dual-root
-            desc: UEFI Generic ARM64 Dual Root/Rescue e2img, with Armbian mainline kernel (edge), cloud image, user-data at /boot for each root
-            runnerLabel: can-build-arm64
-            runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=yes DUAL_ROOT_OUTPUT_E2IMG_ONLY=yes BRANCH=edge"
-            buildFirst: uefi-arm64-rescue-rootfs # rescue is the second root, which contains a rootfs of the first.
 
           - aa: 0100
             board: uefi-x86-meta
@@ -162,20 +169,13 @@ jobs:
             runnerLabel: can-build-arm64
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=yes"
+
           - aa: 0550
             board: odroidn2
             desc: ODROID N2+, cloud image, user-data at /boot (ext4)
             runnerLabel: can-build-arm64
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=yes"
-
-          - aa: 0700
-            board: uefi-arm64-dual-root
-            desc: UEFI Generic ARM64 Dual Root/Rescue e2img, with -generic Ubuntu kernel, cloud image, user-data at /boot for each root
-            runnerLabel: can-build-arm64
-            runnerLabelKernel: can-build-rootfs-only
-            vars: "CLOUD_IMAGE=yes DUAL_ROOT_OUTPUT_E2IMG_ONLY=yes BRANCH=current"
-            buildFirst: uefi-arm64-rescue-rootfs # rescue is the second root, which contains a rootfs of the first.
 
           - aa: 0800
             board: oneplus5
@@ -220,20 +220,6 @@ jobs:
             GH_FULL_RUN_ID="${{ github.run_id }}_${{github.run_number}}_${{github.run_attempt}}" \
             bash --noprofile --norc -e release/restore_cache.sh
 
-      - name: Build dependency ${{ matrix.buildFirst }} first
-        id: buildFirst
-        if: ${{ matrix.buildFirst != '' }}
-        working-directory: build
-        continue-on-error: true
-        run: |
-          sudo --preserve-env ${{ matrix.vars }} \
-            REGULAR_USER="$(whoami)" \
-            RELEASE_OWNER="${{ github.repository_owner }}" \
-            RELEASE_OWNER_AND_REPO="${{ github.repository }}" \
-            RELEASE_TAG="${{needs.prepare.outputs.tagName}}" \
-            bash --noprofile --norc -e ../release/build.sh \
-            "${{ matrix.buildFirst }}" "${{ matrix.vars }}"
-
       - name: Build board ${{ matrix.board }}
         id: buildBoard
         working-directory: build
@@ -268,21 +254,16 @@ jobs:
         with:
           body_path: build/output/release.md # created by prepare_release.sh
           files: |
-            build/output/images/*.xz
+            build/output/images/*.zst
 
       - name: Upload logs as artifact ${{ matrix.board }}
         uses: actions/upload-artifact@v2
         with:
           name: build-logs
-          path: build/output/images/build.logs.*.xz
+          path: build/output/images/build.logs.*.zst
 
       - name: Finish build with status
         run: |
-          if [[ "${{ steps.buildFirst.outcome }}" == "failure" ]]; then
-            echo "buildFirst failed"
-            exit 1
-          fi
-
           if [[ "${{ steps.buildBoard.outcome }}" == "failure" ]]; then
             echo "buildBoard failed"
             exit 2
