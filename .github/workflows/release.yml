@@ -101,10 +101,10 @@ jobs:
 
           - aa: 0205
             board: rpi4b
-            desc: Raspberry Pi 4B, current, desktop cinnamon
+            desc: Raspberry Pi 4B, ddk, desktop cinnamon
             runnerLabel: can-build-arm64
             runnerLabelKernel: can-build-rootfs-only
-            vars: "CLOUD_IMAGE=no BRANCH=current BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=\"\" DESKTOP_ENVIRONMENT=cinnamon DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
+            vars: "CLOUD_IMAGE=no BRANCH=ddk BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=\"\" DESKTOP_ENVIRONMENT=cinnamon DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
 
           - aa: 0206
             board: rpi4b
@@ -115,10 +115,10 @@ jobs:
 
           - aa: 0210
             board: rpi4b
-            desc: Raspberry Pi 4B, using Ubuntu's raspi kernel (current), cloud image, user-data at /boot/firmware (FAT)
+            desc: Raspberry Pi 4B, using Ubuntu's raspi kernel (ddk), cloud image, user-data at /boot/firmware (FAT)
             runnerLabel: can-build-arm64
             runnerLabelKernel: can-build-rootfs-only
-            vars: "CLOUD_IMAGE=yes BRANCH=current"
+            vars: "CLOUD_IMAGE=yes BRANCH=ddk"
 
           - aa: 0300
             board: uefi-arm64-meta
