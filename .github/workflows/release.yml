@@ -72,7 +72,21 @@ jobs:
 
           - aa: 0005
             board: nanopik2-s905
-            desc: nanopik2-s905, current regular CLI
+            desc: nanopik2-s905, current, regular CLI
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no BRANCH=current"
+
+          - aa: 0006
+            board: radxa-zero
+            desc: radxa-zero, current, regular CLI
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no BRANCH=current"
+
+          - aa: 0007
+            board: odroidc2
+            desc: odroidc2, current, regular CLI
             runnerLabel: can-build-arm64
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=no BRANCH=current"
@@ -94,6 +108,20 @@ jobs:
           - aa: 0015
             board: nanopik2-s905
             desc: nanopik2-s905, edge regular CLI
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no BRANCH=edge"
+
+          - aa: 0016
+            board: radxa-zero
+            desc: radxa-zero, edge, regular CLI
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no BRANCH=edge"
+
+          - aa: 0017
+            board: odroidc2
+            desc: odroidc2, edge, regular CLI
             runnerLabel: can-build-arm64
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=no BRANCH=edge"
