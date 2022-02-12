@@ -140,6 +140,20 @@ jobs:
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=no BRANCH=edge"
 
+          - aa: 0020
+            board: khadas-vim3l
+            desc: khadas-vim3l, current, regular CLI
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no BRANCH=current"
+
+          - aa: 0021
+            board: khadas-vim3l
+            desc: khadas-vim3l, edge, regular CLI
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no BRANCH=edge"
+
           # non-cloud cli images for armhf stuff built on arm64
           - aa: 0900
             board: tinkerboard
