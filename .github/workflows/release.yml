@@ -55,42 +55,6 @@ jobs:
             runnerLabelKernel: can-build-rootfs-only
             vars: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=uefi-rescue BRANCH=ddk"
 
-          # some more meson64, it's party time for uboot 2022.01
-          - aa: 0003
-            board: lafrite
-            desc: lafrite, current, regular CLI
-            runnerLabel: can-build-arm64
-            runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=no BRANCH=current"
-
-          - aa: 0004
-            board: lepotato
-            desc: lepotato, current, regular CLI
-            runnerLabel: can-build-arm64
-            runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=no BRANCH=current"
-
-          - aa: 0005
-            board: nanopik2-s905
-            desc: nanopik2-s905, current, regular CLI
-            runnerLabel: can-build-arm64
-            runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=no BRANCH=current"
-
-          - aa: 0006
-            board: radxa-zero
-            desc: radxa-zero, current, regular CLI
-            runnerLabel: can-build-arm64
-            runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=no BRANCH=current"
-
-          - aa: 0007
-            board: odroidc2
-            desc: odroidc2, current, regular CLI
-            runnerLabel: can-build-arm64
-            runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=no BRANCH=current"
-
           - aa: 0013
             board: lafrite
             desc: lafrite, edge, regular CLI
@@ -154,20 +118,6 @@ jobs:
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=no BRANCH=edge"
 
-          # non-cloud cli images for armhf stuff built on arm64
-          - aa: 0900
-            board: tinkerboard
-            desc: Tinkerboard, cli, edge
-            runnerLabel: can-build-arm64-others
-            runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=no BRANCH=edge"
-
-          - aa: 0950
-            board: helios4
-            desc: Helios4, cli, edge
-            runnerLabel: can-build-arm64-others
-            runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=no BRANCH=edge"
 
           # non-cloud desktop images for meson 64 HC4/N2
           - aa: 0960
@@ -184,6 +134,7 @@ jobs:
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=no BRANCH=current BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=\"\" DESKTOP_ENVIRONMENT=xfce DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
 
+          # uefix-86 cloud
           - aa: 0100
             board: uefi-x86-meta
             desc: UEFI Generic x86 cloud image, with Armbian mainline kernel (edge), for metadata-capable clouds (AWS/GCP/OCI/OpenStack/KVM/etc), includes external kernel and initrd for kexec
@@ -198,6 +149,7 @@ jobs:
             runnerLabelKernel: can-build-rootfs-only
             vars: "CLOUD_IMAGE=yes BRANCH=ddk"
 
+          # rpi4b clouds and desktops
           - aa: 0200
             board: rpi4b
             desc: Raspberry Pi 4B, with Armbian mainline kernel (edge), cloud image, user-data at /boot/firmware (FAT)
@@ -261,7 +213,7 @@ jobs:
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=image-output-ovf BRANCH=edge"
 
-          # cloud images for meson 64
+          # cloud images for meson 64 -- what branch is this? possibly duplicate?
           - aa: 0500
             board: odroidhc4
             desc: ODROID HC4, cloud image, user-data at /boot (ext4)
@@ -290,6 +242,21 @@ jobs:
             runnerLabel: can-build-arm64-others
             runnerLabelKernel: can-build-small-kernels
             vars: "CLOUD_IMAGE=yes"
+
+          # non-cloud cli images for armhf stuff built on arm64
+          - aa: 0900
+            board: tinkerboard
+            desc: Tinkerboard, cli, edge
+            runnerLabel: can-build-arm64-others
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no BRANCH=edge"
+
+          - aa: 0950
+            board: helios4
+            desc: Helios4, cli, edge
+            runnerLabel: can-build-arm64-others
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no BRANCH=edge"
 
 
     steps:
