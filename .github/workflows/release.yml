@@ -258,7 +258,6 @@ jobs:
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=no BRANCH=edge"
 
-
     steps:
 
       - name: Checkout this (release) repo into release dir
@@ -297,7 +296,7 @@ jobs:
       - name: Build board ${{ matrix.board }}
         id: buildBoard
         working-directory: build
-        continue-on-error: true
+        continue-on-error: false # No, break as soon as possible. Logs will be inline.
         run: |
           sudo --preserve-env ${{ matrix.vars }} \
             REGULAR_USER="$(whoami)" \
@@ -310,7 +309,7 @@ jobs:
       - name: Compress/Prepare release ${{ matrix.board }}
         id: compress
         working-directory: build/output
-        continue-on-error: true
+        continue-on-error: false  # No, break as soon as possible. Logs will be inline.
         run: |
           sudo --preserve-env ${{ matrix.vars }} \
             MATRIX_DESC="${{ matrix.desc }}" \
