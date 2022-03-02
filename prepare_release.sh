@@ -42,10 +42,10 @@ echo "Removing too-big images: "
 find ./images -type f -size +2G || true
 find ./images -type f -size +2G -exec rm -f {} ";" || true
 
-# Tar up the logs
+# Tar up the logs # @TODO: armbian-next changed this. the logs will end up in "output/logs", not debug. eventually.
 LOGS_TARBALL="images/build.logs.${MATRIX_BOARD}.${CLOUD_IMAGE_DESC}.tar"
 echo "Tarring up the build logs... ${LOGS_TARBALL}.zst"
-tar cf "${LOGS_TARBALL}" debug || true
+tar cf "${LOGS_TARBALL}" logs || true
 zstd -T0 -4 --rm -o "${LOGS_TARBALL}.zst" "${LOGS_TARBALL}" || true
 
 echo "Chown images back to regular user (${REGULAR_USER})..."
