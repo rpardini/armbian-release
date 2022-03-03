@@ -260,10 +260,10 @@ jobs:
 
           - aa: 0800
             board: oneplus5
-            desc: OnePlus 5, fastboot-compatible, cloud image, user-data at /boot
+            desc: OnePlus 5, fastboot-compatible, current, cloud image, user-data at /boot
             runnerLabel: can-build-arm64-others
-            runnerLabelKernel: can-build-small-kernels
-            vars: "CLOUD_IMAGE=yes"
+            runnerLabelKernel: can-build-kernels # can-build-small-kernels # it's just as big as any other actually
+            vars: "CLOUD_IMAGE=yes BRANCH=current" # current is 5.10
 
           # non-cloud cli images for armhf stuff built on arm64
           - aa: 0900
