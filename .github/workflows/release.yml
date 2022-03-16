@@ -84,26 +84,26 @@ jobs:
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=no BRANCH=edge"
 
-          - aa: 0014
-            board: lepotato
-            desc: lepotato, edge, regular CLI
-            runnerLabel: can-build-arm64
-            runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=no BRANCH=edge"
-
-          - aa: 0015
-            board: nanopik2-s905
-            desc: nanopik2-s905, edge regular CLI
-            runnerLabel: can-build-arm64
-            runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=no BRANCH=edge"
-
-          - aa: 0016
-            board: radxa-zero
-            desc: radxa-zero, edge, regular CLI
-            runnerLabel: can-build-arm64
-            runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=no BRANCH=edge"
+          #          - aa: 0014
+          #            board: lepotato
+          #            desc: lepotato, edge, regular CLI
+          #            runnerLabel: can-build-arm64
+          #            runnerLabelKernel: can-build-kernels
+          #            vars: "CLOUD_IMAGE=no BRANCH=edge"
+          #
+          #          - aa: 0015
+          #            board: nanopik2-s905
+          #            desc: nanopik2-s905, edge regular CLI
+          #            runnerLabel: can-build-arm64
+          #            runnerLabelKernel: can-build-kernels
+          #            vars: "CLOUD_IMAGE=no BRANCH=edge"
+          #
+          #          - aa: 0016
+          #            board: radxa-zero
+          #            desc: radxa-zero, edge, regular CLI
+          #            runnerLabel: can-build-arm64
+          #            runnerLabelKernel: can-build-kernels
+          #            vars: "CLOUD_IMAGE=no BRANCH=edge"
 
           - aa: 0017
             board: odroidc2
@@ -112,12 +112,12 @@ jobs:
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=no BRANCH=edge"
 
-          - aa: 0018
-            board: t95z
-            desc: t95z, current, regular CLI
-            runnerLabel: can-build-arm64
-            runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=no BRANCH=current"
+          #          - aa: 0018
+          #            board: t95z
+          #            desc: t95z, current, regular CLI
+          #            runnerLabel: can-build-arm64
+          #            runnerLabelKernel: can-build-kernels
+          #            vars: "CLOUD_IMAGE=no BRANCH=current"
 
           - aa: 0019
             board: t95z
@@ -142,12 +142,12 @@ jobs:
 
 
           # non-cloud desktop images for meson 64 HC4/N2
-          - aa: 0960
-            board: odroidhc4
-            desc: ODROID HC4, xfce desktop, current
-            runnerLabel: can-build-arm64
-            runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=no BRANCH=current BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=\"\" DESKTOP_ENVIRONMENT=xfce DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
+          #          - aa: 0960
+          #            board: odroidhc4
+          #            desc: ODROID HC4, xfce desktop, current
+          #            runnerLabel: can-build-arm64
+          #            runnerLabelKernel: can-build-kernels
+          #            vars: "CLOUD_IMAGE=no BRANCH=current BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=\"\" DESKTOP_ENVIRONMENT=xfce DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
 
           - aa: 0970
             board: odroidn2
@@ -179,12 +179,12 @@ jobs:
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=yes BRANCH=edge"
 
-          - aa: 0205
-            board: rpi4b
-            desc: Raspberry Pi 4B, ddk, desktop cinnamon
-            runnerLabel: can-build-arm64
-            runnerLabelKernel: can-build-rootfs-only
-            vars: "CLOUD_IMAGE=no BRANCH=ddk BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=\"\" DESKTOP_ENVIRONMENT=cinnamon DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
+          #          - aa: 0205
+          #            board: rpi4b
+          #            desc: Raspberry Pi 4B, ddk, desktop cinnamon
+          #            runnerLabel: can-build-arm64
+          #            runnerLabelKernel: can-build-rootfs-only
+          #            vars: "CLOUD_IMAGE=no BRANCH=ddk BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=\"\" DESKTOP_ENVIRONMENT=cinnamon DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
 
           - aa: 0206
             board: rpi4b
@@ -193,12 +193,12 @@ jobs:
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=no BRANCH=edge BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=\"\" DESKTOP_ENVIRONMENT=cinnamon DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
 
-          - aa: 0210
-            board: rpi4b
-            desc: Raspberry Pi 4B, using Ubuntu's raspi kernel (ddk), cloud image, user-data at /boot/firmware (FAT)
-            runnerLabel: can-build-arm64
-            runnerLabelKernel: can-build-rootfs-only
-            vars: "CLOUD_IMAGE=yes BRANCH=ddk"
+          #          - aa: 0210
+          #            board: rpi4b
+          #            desc: Raspberry Pi 4B, using Ubuntu's raspi kernel (ddk), cloud image, user-data at /boot/firmware (FAT)
+          #            runnerLabel: can-build-arm64
+          #            runnerLabelKernel: can-build-rootfs-only
+          #            vars: "CLOUD_IMAGE=yes BRANCH=ddk"
 
           - aa: 0300
             board: uefi-arm64-meta
@@ -207,12 +207,12 @@ jobs:
             runnerLabelKernel: can-build-rootfs-only
             vars: "CLOUD_IMAGE=yes BRANCH=ddk"
 
-          - aa: 0301
-            board: uefi-x86
-            desc: UEFI Generic x86, with -generic Ubuntu kernel (ddk), desktop xfce
-            runnerLabel: can-build-x86
-            runnerLabelKernel: can-build-rootfs-only
-            vars: "CLOUD_IMAGE=no ENABLE_EXTENSIONS=image-output-ovf BRANCH=ddk BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=\"\" DESKTOP_ENVIRONMENT=xfce DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
+          #          - aa: 0301
+          #            board: uefi-x86
+          #            desc: UEFI Generic x86, with -generic Ubuntu kernel (ddk), desktop xfce
+          #            runnerLabel: can-build-x86
+          #            runnerLabelKernel: can-build-rootfs-only
+          #            vars: "CLOUD_IMAGE=no ENABLE_EXTENSIONS=image-output-ovf BRANCH=ddk BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=\"\" DESKTOP_ENVIRONMENT=xfce DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
 
           - aa: 0302
             board: uefi-x86
@@ -257,6 +257,13 @@ jobs:
             runnerLabel: can-build-arm64-others
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=no BRANCH=current"
+
+          - aa: 0710
+            board: tinkerboard-2
+            desc: Tinkerboard-2, current, cloud image, user-data at /boot (ext4)
+            runnerLabel: can-build-arm64-others
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=yes BRANCH=current"
 
           - aa: 0800
             board: oneplus5

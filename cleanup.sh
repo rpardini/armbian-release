@@ -26,9 +26,9 @@ if [[ -d build/.tmp ]]; then
 	rm --one-file-system --force --recursive build/.tmp # Stop if this fails. Things are hanging.
 fi
 
-if [[ -d build/output/debug ]]; then
-	echo "Cleaning previous run output/debug..."
-	rm -rf build/output/debug
+if [[ -d build/output/logs ]]; then
+	echo "Cleaning previous run output/logs..."
+	rm -rf build/output/logs
 fi
 
 if [[ -d build/output/images ]]; then
