@@ -70,12 +70,12 @@ jobs:
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=uefi-rescue BRANCH=edge"
 
-          - aa: 0012
-            board: uefi-arm64
-            desc: UEFI Generic ARM64 Rescue e2img, ddk, cloud image, user-data at /boot
-            runnerLabel: can-build-arm64
-            runnerLabelKernel: can-build-rootfs-only
-            vars: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=uefi-rescue BRANCH=ddk"
+          # - aa: 0012
+          #   board: uefi-arm64
+          #   desc: UEFI Generic ARM64 Rescue e2img, ddk, cloud image, user-data at /boot
+          #   runnerLabel: can-build-arm64
+          #   runnerLabelKernel: can-build-rootfs-only
+          #   vars: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=uefi-rescue BRANCH=ddk"
 
           - aa: 0013
             board: lafrite
@@ -221,12 +221,12 @@ jobs:
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=no ENABLE_EXTENSIONS=image-output-ovf BRANCH=edge BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=\"\" DESKTOP_ENVIRONMENT=xfce DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
 
-          - aa: 0310
-            board: uefi-x86
-            desc: UEFI Generic x86, with -generic Ubuntu kernel (ddk), cloud image, user-data at /boot/efi (FAT)
-            runnerLabel: can-build-x86
-            runnerLabelKernel: can-build-rootfs-only
-            vars: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=image-output-ovf BRANCH=ddk"
+          # - aa: 0310
+          #   board: uefi-x86
+          #   desc: UEFI Generic x86, with -generic Ubuntu kernel (ddk), cloud image, user-data at /boot/efi (FAT)
+          #   runnerLabel: can-build-x86
+          #   runnerLabelKernel: can-build-rootfs-only
+          #   vars: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=image-output-ovf BRANCH=ddk"
 
           - aa: 0320
             board: uefi-x86
@@ -283,6 +283,13 @@ jobs:
           - aa: 0950
             board: helios4
             desc: Helios4, cli, edge
+            runnerLabel: can-build-arm64-others
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no BRANCH=edge"
+
+          - aa: 0950
+            board: odroidxu4
+            desc: ODROID XU4, cli, edge
             runnerLabel: can-build-arm64-others
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=no BRANCH=edge"
