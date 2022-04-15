@@ -160,14 +160,14 @@ jobs:
           - aa: 0100
             board: uefi-x86-meta
             desc: UEFI Generic x86 cloud image, with Armbian mainline kernel (edge), for metadata-capable clouds (AWS/GCP/OCI/OpenStack/KVM/etc), includes external kernel and initrd for kexec
-            runnerLabel: can-build-x86
+            runnerLabel: can-build-x86 # lite image with kernel, but more widespread usage, so keep on native build for ow
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=yes BRANCH=edge"
 
           - aa: 0150
             board: uefi-x86-meta
             desc: UEFI Generic x86 cloud image, with -generic Ubuntu kernel (ddk), for metadata-capable clouds (AWS/GCP/OCI/OpenStack/KVM/etc), includes external kernel and initrd for kexec
-            runnerLabel: can-build-x86
+            runnerLabel: can-build-x86 # no use cross compiling this, no kernel built
             runnerLabelKernel: can-build-rootfs-only
             vars: "CLOUD_IMAGE=yes BRANCH=ddk"
 
@@ -217,7 +217,7 @@ jobs:
           - aa: 0302
             board: uefi-x86
             desc: UEFI Generic x86, with Armbian mainline kernel (edge), desktop xfce
-            runnerLabel: can-build-x86
+            runnerLabel: can-build-x86-huge # huge image, vmware too, kernel built.
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=no ENABLE_EXTENSIONS=image-output-ovf BRANCH=edge BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=\"\" DESKTOP_ENVIRONMENT=xfce DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
 
@@ -231,7 +231,7 @@ jobs:
           - aa: 0320
             board: uefi-x86
             desc: UEFI Generic x86, with Armbian mainline kernel (edge), cloud image, user-data at /boot/efi (FAT)
-            runnerLabel: can-build-x86
+            runnerLabel: can-build-x86-others # light image with kernel, VMWare image, low usage, good cross compile candidate
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=image-output-ovf BRANCH=edge"
 
