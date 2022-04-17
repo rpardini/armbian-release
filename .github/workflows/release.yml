@@ -76,6 +76,12 @@ jobs:
           #   runnerLabel: can-build-arm64
           #   runnerLabelKernel: can-build-rootfs-only
           #   vars: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=uefi-rescue BRANCH=ddk"
+          - aa: 0005
+            board: odroidm1
+            desc: odroidm1, legacy, regular CLI
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no BRANCH=legacy"
 
           - aa: 0013
             board: lafrite
