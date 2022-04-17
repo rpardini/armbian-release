@@ -78,8 +78,15 @@ jobs:
           #   vars: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=uefi-rescue BRANCH=ddk"
           - aa: 0005
             board: odroidm1
-            desc: odroidm1, legacy, regular CLI
+            desc: odroidm1, legacy, regular CLI, built on arm64
             runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no BRANCH=legacy"
+
+          - aa: 0006
+            board: odroidm1
+            desc: odroidm1, legacy, regular CLI, built on x86
+            runnerLabel: can-build-x86-huge
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=no BRANCH=legacy"
 
@@ -155,12 +162,12 @@ jobs:
           #            runnerLabelKernel: can-build-kernels
           #            vars: "CLOUD_IMAGE=no BRANCH=current BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=\"\" DESKTOP_ENVIRONMENT=xfce DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
 
-          - aa: 0970
-            board: odroidn2
-            desc: ODROID N2+, xfce desktop, edge
-            runnerLabel: can-build-arm64
-            runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=no BRANCH=edge BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=\"\" DESKTOP_ENVIRONMENT=xfce DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
+          # - aa: 0970
+          #   board: odroidn2
+          #   desc: ODROID N2+, xfce desktop, edge
+          #   runnerLabel: can-build-arm64
+          #   runnerLabelKernel: can-build-kernels
+          #   vars: "CLOUD_IMAGE=no BRANCH=edge BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=\"\" DESKTOP_ENVIRONMENT=xfce DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
 
           # uefix-86 cloud
           - aa: 0100
