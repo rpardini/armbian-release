@@ -241,12 +241,12 @@ jobs:
           #   runnerLabelKernel: can-build-rootfs-only
           #   vars: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=image-output-ovf BRANCH=ddk"
 
-          - aa: 0320
-            board: uefi-x86
-            desc: UEFI Generic x86, with Armbian mainline kernel (edge), cloud image, user-data at /boot/efi (FAT)
-            runnerLabel: can-build-x86-others # light image with kernel, VMWare image, low usage, good cross compile candidate
-            runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=image-output-ovf BRANCH=edge"
+          #- aa: 0320
+          #  board: uefi-x86
+          #  desc: UEFI Generic x86, with Armbian mainline kernel (edge), cloud image, user-data at /boot/efi (FAT)
+          #  runnerLabel: can-build-x86-others # light image with kernel, VMWare image, low usage, good cross compile candidate
+          #  runnerLabelKernel: can-build-kernels
+          #  vars: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=image-output-ovf BRANCH=edge"
 
           # cloud images for meson 64 -- what branch is this? possibly duplicate?
           - aa: 0500
