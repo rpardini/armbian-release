@@ -90,6 +90,13 @@ jobs:
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=no BRANCH=legacy"
 
+          - aa: 0007
+            board: odroidm1
+            desc: odroidm1, edge, regular CLI, built on x86
+            runnerLabel: can-build-x86-huge
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no BRANCH=edge"
+
           #- aa: 0013
           #  board: lafrite
           #  desc: lafrite, edge, regular CLI
