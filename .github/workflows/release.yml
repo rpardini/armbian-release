@@ -76,12 +76,14 @@ jobs:
           #   runnerLabel: can-build-arm64
           #   runnerLabelKernel: can-build-rootfs-only
           #   vars: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=uefi-rescue BRANCH=ddk"
-          - aa: 0005
-            board: odroidm1
-            desc: odroidm1, legacy, regular CLI, built on arm64
-            runnerLabel: can-build-arm64
-            runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=no BRANCH=legacy"
+
+          # @TODO: disabled, cant build on arm64 yet, still using their rkbins which is amd64 only
+          #- aa: 0005
+          #  board: odroidm1
+          #  desc: odroidm1, legacy, regular CLI, built on arm64
+          #  runnerLabel: can-build-arm64
+          #  runnerLabelKernel: can-build-kernels
+          #  vars: "CLOUD_IMAGE=no BRANCH=legacy"
 
           - aa: 0006
             board: odroidm1
@@ -307,12 +309,26 @@ jobs:
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=no BRANCH=edge"
 
-          - aa: 0950
+          - aa: 0960
             board: odroidxu4
             desc: ODROID XU4, cli, edge
             runnerLabel: can-build-arm64-others
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=no BRANCH=edge"
+
+          - aa: 0970
+            board: cubox-i
+            desc: cubox-i, cli, current
+            runnerLabel: can-build-arm64-others
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no BRANCH=current"
+
+          - aa: 0980
+            board: clearfogbase
+            desc: clearfogbase, cli, current
+            runnerLabel: can-build-arm64-others
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no BRANCH=current"
 
     steps:
 
