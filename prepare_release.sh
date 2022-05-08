@@ -8,7 +8,7 @@ CLOUD_IMAGE_DESC="cli"
 
 echo "Preparing release Markdown fragment for this run..."
 cat << EOD > release.md
-- \`${MATRIX_BOARD}\`: ${MATRIX_DESC}
+- \`${MATRIX_BOARD}\`: ${MATRIX_DESC} (built on $(dpkg --print-architecture))
 EOD
 
 echo "Compressing files..."

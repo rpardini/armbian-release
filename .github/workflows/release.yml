@@ -274,6 +274,13 @@ jobs:
 
           # random stuff
           - aa: 0700
+            board: nanopct4
+            desc: nanopct4, cli, current
+            runnerLabel: can-build-arm64-others
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no BRANCH=current"
+
+          - aa: 0705
             board: pine64
             desc: PINE64, cli, current
             runnerLabel: can-build-arm64-others
