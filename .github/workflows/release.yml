@@ -70,12 +70,12 @@ jobs:
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=uefi-rescue BRANCH=edge"
 
-          # - aa: 0012
-          #   board: uefi-arm64
-          #   desc: UEFI Generic ARM64 Rescue e2img, ddk, cloud image, user-data at /boot
-          #   runnerLabel: can-build-arm64
-          #   runnerLabelKernel: can-build-rootfs-only
-          #   vars: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=uefi-rescue BRANCH=ddk"
+          - aa: 0012
+            board: uefi-arm64
+            desc: UEFI Generic ARM64 Rescue e2img, ddk, cloud image, user-data at /boot
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-rootfs-only
+            vars: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=uefi-rescue BRANCH=ddk"
 
           # @TODO: disabled, cant build on arm64 yet, still using their rkbins which is amd64 only
           #- aa: 0005
@@ -87,14 +87,14 @@ jobs:
 
           - aa: 0006
             board: odroidm1
-            desc: odroidm1, legacy, regular CLI, built on x86
+            desc: odroidm1, legacy, regular CLI #, built on x86
             runnerLabel: can-build-x86-huge
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=no BRANCH=legacy"
 
           - aa: 0007
             board: odroidm1
-            desc: odroidm1, edge, regular CLI, built on x86
+            desc: odroidm1, edge, regular CLI #, built on x86
             runnerLabel: can-build-x86-huge
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=no BRANCH=edge"
@@ -289,10 +289,10 @@ jobs:
 
           - aa: 0710
             board: tinkerboard-2
-            desc: Tinkerboard-2, current, cloud image, user-data at /boot (ext4)
+            desc: Tinkerboard-2, edge, cli
             runnerLabel: can-build-arm64-others
             runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=yes BRANCH=current"
+            vars: "CLOUD_IMAGE=no BRANCH=edge"
 
           - aa: 0800
             board: oneplus5
