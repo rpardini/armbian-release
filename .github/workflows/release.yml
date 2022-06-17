@@ -301,6 +301,20 @@ jobs:
             runnerLabelKernel: can-build-kernels # can-build-small-kernels # it's just as big as any other actually
             vars: "CLOUD_IMAGE=yes BRANCH=current" # current is 5.10
 
+          - aa: 0850
+            board: rockpro64
+            desc: RockPro64, cli, edge
+            runnerLabel: can-build-arm64-others
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no BRANCH=edge"
+
+          - aa: 0860
+            board: quartz64a
+            desc: quartz64a, cli, edge
+            runnerLabel: can-build-arm64-others
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no BRANCH=edge"
+
           # non-cloud cli images for armhf stuff built on arm64
           - aa: 0900
             board: tinkerboard
