@@ -99,40 +99,40 @@ jobs:
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=no BRANCH=edge"
 
-          #- aa: 0013
-          #  board: lafrite
-          #  desc: lafrite, edge, regular CLI
-          #  runnerLabel: can-build-arm64
-          #  runnerLabelKernel: can-build-kernels
-          #  vars: "CLOUD_IMAGE=no BRANCH=edge"
+          - aa: 0013
+            board: lafrite
+            desc: lafrite, edge, regular CLI
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no BRANCH=edge"
 
-          #          - aa: 0014
-          #            board: lepotato
-          #            desc: lepotato, edge, regular CLI
-          #            runnerLabel: can-build-arm64
-          #            runnerLabelKernel: can-build-kernels
-          #            vars: "CLOUD_IMAGE=no BRANCH=edge"
-          #
-          #          - aa: 0015
-          #            board: nanopik2-s905
-          #            desc: nanopik2-s905, edge regular CLI
-          #            runnerLabel: can-build-arm64
-          #            runnerLabelKernel: can-build-kernels
-          #            vars: "CLOUD_IMAGE=no BRANCH=edge"
-          #
-          #          - aa: 0016
-          #            board: radxa-zero
-          #            desc: radxa-zero, edge, regular CLI
-          #            runnerLabel: can-build-arm64
-          #            runnerLabelKernel: can-build-kernels
-          #            vars: "CLOUD_IMAGE=no BRANCH=edge"
+          - aa: 0014
+            board: lepotato
+            desc: lepotato, edge, regular CLI
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no BRANCH=edge"
 
-          #- aa: 0017
-          #  board: odroidc2
-          #  desc: odroidc2, edge, regular CLI
-          #  runnerLabel: can-build-arm64
-          #  runnerLabelKernel: can-build-kernels
-          #  vars: "CLOUD_IMAGE=no BRANCH=edge"
+          - aa: 0015
+            board: nanopik2-s905
+            desc: nanopik2-s905, edge regular CLI
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no BRANCH=edge"
+
+          - aa: 0016
+            board: radxa-zero
+            desc: radxa-zero, edge, regular CLI
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no BRANCH=edge"
+
+          - aa: 0017
+            board: odroidc2
+            desc: odroidc2, edge, regular CLI
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no BRANCH=edge"
 
           #          - aa: 0018
           #            board: t95z
@@ -171,12 +171,26 @@ jobs:
           #            runnerLabelKernel: can-build-kernels
           #            vars: "CLOUD_IMAGE=no BRANCH=current BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=\"\" DESKTOP_ENVIRONMENT=xfce DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
 
-          # - aa: 0970
-          #   board: odroidn2
-          #   desc: ODROID N2+, xfce desktop, edge
-          #   runnerLabel: can-build-arm64
-          #   runnerLabelKernel: can-build-kernels
-          #   vars: "CLOUD_IMAGE=no BRANCH=edge BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=\"\" DESKTOP_ENVIRONMENT=xfce DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
+          - aa: 0970
+            board: odroidn2
+            desc: ODROID N2+, edge, xfce desktop
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no BRANCH=edge BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=\"\" DESKTOP_ENVIRONMENT=xfce DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
+
+          - aa: 0971
+            board: odroidn2
+            desc: ODROID N2+, edge, regular CLI
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no BRANCH=edge"
+
+          - aa: 0971
+            board: odroidnhc4
+            desc: ODROID HC4, edge, regular CLI
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no BRANCH=edge"
 
           # uefix-86 cloud
           - aa: 0100
@@ -258,12 +272,12 @@ jobs:
           #  vars: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=image-output-ovf BRANCH=edge"
 
           # cloud images for meson 64 -- what branch is this? possibly duplicate?
-          - aa: 0500
-            board: odroidhc4
-            desc: ODROID HC4, cloud image, user-data at /boot (ext4)
-            runnerLabel: can-build-arm64
-            runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=yes"
+          # - aa: 0500
+          #   board: odroidhc4
+          #   desc: ODROID HC4, cloud image, user-data at /boot (ext4)
+          #   runnerLabel: can-build-arm64
+          #   runnerLabelKernel: can-build-kernels
+          #   vars: "CLOUD_IMAGE=yes"
 
           #- aa: 0550
           #  board: odroidn2
