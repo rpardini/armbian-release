@@ -455,13 +455,13 @@ jobs:
         with:
           body_path: build/output/release.md # created by prepare_release.sh
           files: |
-            build/output/images/*.zst
+            build/output/images/*.xz
 
       - name: Upload logs as artifact ${{ matrix.board }}
         uses: actions/upload-artifact@v2
         with:
           name: build-logs
-          path: build/output/images/build.logs.*.zst
+          path: build/output/images/build.logs.*.xz
 
       - name: Finish build with status
         run: |
