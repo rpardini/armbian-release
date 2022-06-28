@@ -70,6 +70,13 @@ jobs:
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=uefi-rescue BRANCH=edge"
 
+          - aa: 0011
+            board: uefi-arm64
+            desc: UEFI Generic arm64, with Armbian mainline kernel (edge), regular CLI
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no BRANCH=edge "
+
           - aa: 0012
             board: uefi-arm64
             desc: UEFI Generic ARM64 Rescue e2img, ddk, cloud image, user-data at /boot
@@ -123,6 +130,13 @@ jobs:
           - aa: 0016
             board: radxa-zero
             desc: radxa-zero, edge, regular CLI
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no BRANCH=edge"
+
+          - aa: 0016
+            board: radxa-zero2
+            desc: radxa-zero2, edge, regular CLI
             runnerLabel: can-build-arm64
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=no BRANCH=edge"
@@ -284,6 +298,14 @@ jobs:
           #   runnerLabel: can-build-x86
           #   runnerLabelKernel: can-build-rootfs-only
           #   vars: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=image-output-ovf BRANCH=ddk"
+
+          - aa: 0320
+            board: uefi-x86
+            desc: UEFI Generic x86, with Armbian mainline kernel (edge), regular CLI, also for UEFI-capable arm64 SBCs
+            runnerLabel: can-build-x86 # light image with kernel, VMWare image, low usage, good cross compile candidate
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no ENABLE_EXTENSIONS=image-output-ovf BRANCH=edge"
+
 
           #- aa: 0320
           #  board: uefi-x86
