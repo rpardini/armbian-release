@@ -155,6 +155,13 @@ jobs:
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=no BRANCH=edge"
 
+          - aa: 0017
+            board: khadas-vim1
+            desc: khadas-vim1, edge, regular CLI
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no BRANCH=edge"
+
           #          - aa: 0018
           #            board: t95z
           #            desc: t95z, current, regular CLI
