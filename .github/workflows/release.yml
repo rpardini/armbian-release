@@ -400,6 +400,13 @@ jobs:
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=no BRANCH=edge"
 
+          - aa: 0867
+            board: rock-5b
+            desc: rock-5b, cli, legacy (5.10, by @amazingfate), cloud image, user-data at /boot
+            runnerLabel: can-build-x86-huge
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=yes BRANCH=legacy"
+
           # non-cloud cli images for armhf stuff built on arm64
           - aa: 0900
             board: tinkerboard
