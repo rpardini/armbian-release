@@ -400,6 +400,21 @@ jobs:
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=no BRANCH=edge"
 
+          # other stuff
+          - aa: 0867
+            board: rock-5b
+            desc: rock-5b, cli, legacy (5.10, by @amazingfate), regular CLI
+            runnerLabel: can-build-arm64-others-rock5b
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no BRANCH=legacy"
+
+          - aa: 0868
+            board: rock-5b
+            desc: rock-5b, legacy (5.10, by @amazingfate), xfce desktop
+            runnerLabel: can-build-arm64-others-rock5b
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no BRANCH=legacy  BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=\"\" DESKTOP_ENVIRONMENT=xfce DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
+
           # non-cloud cli images for armhf stuff built on arm64
           - aa: 0900
             board: tinkerboard
