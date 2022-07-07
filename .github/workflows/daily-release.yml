@@ -1,0 +1,16 @@
+name: Create a daily release
+on:
+  schedule:
+    # Daily at sixteen minutes past midnight UTC
+    - cron: '16 0 * * *'
+jobs:
+  create_release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y%m%d')"
+      - run: |
+          gh release create "${{ steps.date.outputs.date }}a" --title "${{ steps.date.outputs.date }}a armbian-next auto dialy build" --notes "auto daily build" --repo $GITHUB_REPOSITORY
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
