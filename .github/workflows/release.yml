@@ -62,228 +62,171 @@ jobs:
           #  runnerLabelKernel: can-build-kernels
           #  vars: "CLOUD_IMAGE=no BRANCH=edge BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=\"\" DESKTOP_ENVIRONMENT=cinnamon DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
 
-          # e2img for oracle cloud
-          - aa: 0011
-            board: uefi-arm64
-            desc: UEFI Generic ARM64 Rescue e2img, edge, cloud image, user-data at /boot
-            runnerLabel: can-build-arm64
-            runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=uefi-rescue BRANCH=edge"
-
-          - aa: 0011
-            board: uefi-arm64
-            desc: UEFI Generic arm64, with Armbian mainline kernel (edge), regular CLI
-            runnerLabel: can-build-arm64
-            runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=no BRANCH=edge "
-
-          - aa: 0012
-            board: uefi-arm64
-            desc: UEFI Generic ARM64 Rescue e2img, ddk, cloud image, user-data at /boot
-            runnerLabel: can-build-arm64
-            runnerLabelKernel: can-build-rootfs-only
-            vars: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=uefi-rescue BRANCH=ddk"
-
-          # @TODO: disabled, cant build on arm64 yet, still using their rkbins which is amd64 only
-          #- aa: 0005
-          #  board: odroidm1
-          #  desc: odroidm1, legacy, regular CLI, built on arm64
-          #  runnerLabel: can-build-arm64
-          #  runnerLabelKernel: can-build-kernels
-          #  vars: "CLOUD_IMAGE=no BRANCH=legacy"
-
-          - aa: 0006
-            board: odroidm1
-            desc: odroidm1, legacy, regular CLI #, built on x86
-            runnerLabel: can-build-x86-huge
-            runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=no BRANCH=legacy"
-
-          - aa: 0007
-            board: odroidm1
-            desc: odroidm1, edge, regular CLI #, built on x86
-            runnerLabel: can-build-x86-huge
-            runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=no BRANCH=edge"
-
-          - aa: 0013
-            board: lafrite
-            desc: lafrite, edge, regular CLI
-            runnerLabel: can-build-arm64
-            runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=no BRANCH=edge"
-
-          - aa: 0014
-            board: lepotato
-            desc: lepotato, edge, regular CLI
-            runnerLabel: can-build-arm64
-            runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=no BRANCH=edge"
-
-          - aa: 0015
-            board: nanopik2-s905
-            desc: nanopik2-s905, edge regular CLI
-            runnerLabel: can-build-arm64
-            runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=no BRANCH=edge"
-
-          - aa: 0016
-            board: radxa-zero
-            desc: radxa-zero, edge, regular CLI
-            runnerLabel: can-build-arm64
-            runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=no BRANCH=edge"
-
-          - aa: 0016
-            board: radxa-zero2
-            desc: radxa-zero2, edge, regular CLI
-            runnerLabel: can-build-arm64
-            runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=no BRANCH=edge"
-
-          - aa: 0017
-            board: odroidc2
-            desc: odroidc2, edge, regular CLI
-            runnerLabel: can-build-arm64
-            runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=no BRANCH=edge"
-
-          - aa: 0017
-            board: khadas-vim2
-            desc: khadas-vim2, edge, regular CLI
-            runnerLabel: can-build-arm64
-            runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=no BRANCH=edge"
-
-          - aa: 0017
-            board: khadas-vim1
-            desc: khadas-vim1, edge, regular CLI
-            runnerLabel: can-build-arm64
-            runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=no BRANCH=edge"
-
-          #          - aa: 0018
-          #            board: t95z
-          #            desc: t95z, current, regular CLI
-          #            runnerLabel: can-build-arm64
-          #            runnerLabelKernel: can-build-kernels
-          #            vars: "CLOUD_IMAGE=no BRANCH=current"
-
-          - aa: 0019
-            board: t95z
-            desc: t95z, edge, regular CLI
-            runnerLabel: can-build-arm64
-            runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=no BRANCH=edge"
-
-          #- aa: 0020
-          #  board: khadas-vim3l
-          #  desc: khadas-vim3l, current, regular CLI
-          #  runnerLabel: can-build-arm64
-          #  runnerLabelKernel: can-build-kernels
-          #  vars: "CLOUD_IMAGE=no BRANCH=current"
-
-          - aa: 0021
-            board: khadas-vim3l
-            desc: khadas-vim3l, edge, regular CLI
-            runnerLabel: can-build-arm64
-            runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=no BRANCH=edge"
-
-          - aa: 0022
-            board: khadas-vim3
-            desc: Khadas VIM3 (not L), edge, regular CLI
-            runnerLabel: can-build-arm64
-            runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=no BRANCH=edge"
+          # 0000 = stuff I need first for emergency reasons, avoid.
+          # 0100 = meson64 stuff (fixed version), boards I own first, then others
+          # 0200 = uefi stuff (fixed version)
+          # 0500+ other stuff
 
 
-          # non-cloud desktop images for meson 64 HC4/N2
-          #          - aa: 0960
-          #            board: odroidhc4
-          #            desc: ODROID HC4, xfce desktop, current
-          #            runnerLabel: can-build-arm64
-          #            runnerLabelKernel: can-build-kernels
-          #            vars: "CLOUD_IMAGE=no BRANCH=current BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=\"\" DESKTOP_ENVIRONMENT=xfce DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
-
-          - aa: 0970
+          - aa: 0110
             board: odroidn2
             desc: ODROID N2+, edge, xfce desktop
             runnerLabel: can-build-arm64
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=no BRANCH=edge BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=\"\" DESKTOP_ENVIRONMENT=xfce DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
 
-          - aa: 0971
+          - aa: 0115
             board: odroidn2
             desc: ODROID N2+, edge, regular CLI
             runnerLabel: can-build-arm64
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=no BRANCH=edge"
 
-          - aa: 0971
+          - aa: 0120
             board: odroidhc4
             desc: ODROID HC4, edge, regular CLI
             runnerLabel: can-build-arm64
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=no BRANCH=edge"
 
-          - aa: 0971
+          - aa: 0125
+            board: t95z
+            desc: t95z, edge, regular CLI
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no BRANCH=edge"
+
+          - aa: 0130
+            board: khadas-vim3l
+            desc: khadas-vim3l, edge, regular CLI
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no BRANCH=edge"
+
+          - aa: 0135
+            board: lafrite
+            desc: lafrite, edge, regular CLI
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no BRANCH=edge"
+
+          - aa: 0140
+            board: lepotato
+            desc: lepotato, edge, regular CLI
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no BRANCH=edge"
+
+          - aa: 0145
+            board: nanopik2-s905
+            desc: nanopik2-s905, edge regular CLI
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no BRANCH=edge"
+
+          - aa: 0150
+            board: radxa-zero
+            desc: radxa-zero, edge, regular CLI
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no BRANCH=edge"
+
+          - aa: 0155
+            board: radxa-zero2
+            desc: radxa-zero2, edge, regular CLI
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no BRANCH=edge"
+
+          - aa: 0160
+            board: odroidc2
+            desc: odroidc2, edge, regular CLI
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no BRANCH=edge"
+
+          - aa: 0165
+            board: khadas-vim2
+            desc: khadas-vim2, edge, regular CLI
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no BRANCH=edge"
+
+          - aa: 0170
+            board: khadas-vim1
+            desc: khadas-vim1, edge, regular CLI
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no BRANCH=edge"
+
+          - aa: 0175
+            board: khadas-vim3
+            desc: Khadas VIM3 (not L), edge, regular CLI
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no BRANCH=edge"
+
+          - aa: 0180
             board: odroidc4
             desc: ODROID C4, edge, regular CLI
             runnerLabel: can-build-arm64
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=no BRANCH=edge"
 
-          # uefix-86 cloud
-          - aa: 0100
+
+
+          # e2img for oracle cloud
+          - aa: 0205
+            board: uefi-arm64
+            desc: UEFI Generic ARM64 Rescue e2img, edge, cloud image, user-data at /boot
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=uefi-rescue BRANCH=edge"
+
+          - aa: 0210
+            board: uefi-arm64
+            desc: UEFI Generic arm64, with Armbian mainline kernel (edge), regular CLI
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no BRANCH=edge "
+
+          - aa: 0215
+            board: uefi-arm64
+            desc: UEFI Generic ARM64 Rescue e2img, ddk, cloud image, user-data at /boot
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-rootfs-only
+            vars: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=uefi-rescue BRANCH=ddk"
+
+
+          # UEFI
+          - aa: 0220
             board: uefi-x86-meta
             desc: UEFI Generic x86 cloud image, with Armbian mainline kernel (edge), for metadata-capable clouds (AWS/GCP/OCI/OpenStack/KVM/etc), includes external kernel and initrd for kexec
             runnerLabel: can-build-x86 # lite image with kernel, but more widespread usage, so keep on native build for ow
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=yes BRANCH=edge"
 
-          - aa: 0150
+          - aa: 0225
             board: uefi-x86-meta
             desc: UEFI Generic x86 cloud image, with -generic Ubuntu kernel (ddk), for metadata-capable clouds (AWS/GCP/OCI/OpenStack/KVM/etc), includes external kernel and initrd for kexec
             runnerLabel: can-build-x86 # no use cross compiling this, no kernel built
             runnerLabelKernel: can-build-rootfs-only
             vars: "CLOUD_IMAGE=yes BRANCH=ddk"
 
-          # rpi4b clouds and desktops
-          - aa: 0200
-            board: rpi4b
-            desc: Raspberry Pi 4B, with Armbian mainline kernel (edge), cloud image, user-data at /boot/firmware (FAT)
-            runnerLabel: can-build-arm64
-            runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=yes BRANCH=edge"
-
-          #          - aa: 0205
-          #            board: rpi4b
-          #            desc: Raspberry Pi 4B, ddk, desktop cinnamon
-          #            runnerLabel: can-build-arm64
-          #            runnerLabelKernel: can-build-rootfs-only
-          #            vars: "CLOUD_IMAGE=no BRANCH=ddk BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=\"\" DESKTOP_ENVIRONMENT=cinnamon DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
-
-          #- aa: 0206
-          #  board: rpi4b
-          #  desc: Raspberry Pi 4B, edge, desktop cinnamon
-          #  runnerLabel: can-build-arm64
-          #  runnerLabelKernel: can-build-kernels
-          #  vars: "CLOUD_IMAGE=no BRANCH=edge BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=\"\" DESKTOP_ENVIRONMENT=cinnamon DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
-
-          #          - aa: 0210
-          #            board: rpi4b
-          #            desc: Raspberry Pi 4B, using Ubuntu's raspi kernel (ddk), cloud image, user-data at /boot/firmware (FAT)
-          #            runnerLabel: can-build-arm64
-          #            runnerLabelKernel: can-build-rootfs-only
-          #            vars: "CLOUD_IMAGE=yes BRANCH=ddk"
-
-          - aa: 0300
+          - aa: 0230
             board: uefi-arm64-meta
             desc: UEFI Generic ARM64, with -generic Ubuntu kernel (ddk), cloud image for metadata-capable clouds (AWS/GCP/OCI/OpenStack/KVM/etc), includes external kernel and initrd for kexec
             runnerLabel: can-build-arm64
             runnerLabelKernel: can-build-rootfs-only
             vars: "CLOUD_IMAGE=yes BRANCH=ddk"
+
+          - aa: 0320
+            board: uefi-x86
+            desc: UEFI Generic x86, with Armbian mainline kernel (edge), regular CLI, also for UEFI-capable arm64 SBCs
+            runnerLabel: can-build-x86 # light image with kernel, VMWare image, low usage, good cross compile candidate
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no ENABLE_EXTENSIONS=image-output-ovf BRANCH=edge"
+
 
           #          - aa: 0301
           #            board: uefi-x86
@@ -306,20 +249,85 @@ jobs:
           #   runnerLabelKernel: can-build-rootfs-only
           #   vars: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=image-output-ovf BRANCH=ddk"
 
-          - aa: 0320
-            board: uefi-x86
-            desc: UEFI Generic x86, with Armbian mainline kernel (edge), regular CLI, also for UEFI-capable arm64 SBCs
-            runnerLabel: can-build-x86 # light image with kernel, VMWare image, low usage, good cross compile candidate
-            runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=no ENABLE_EXTENSIONS=image-output-ovf BRANCH=edge"
-
-
           #- aa: 0320
           #  board: uefi-x86
           #  desc: UEFI Generic x86, with Armbian mainline kernel (edge), cloud image, user-data at /boot/efi (FAT)
           #  runnerLabel: can-build-x86-others # light image with kernel, VMWare image, low usage, good cross compile candidate
           #  runnerLabelKernel: can-build-kernels
           #  vars: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=image-output-ovf BRANCH=edge"
+
+          # ROCK 5b
+          - aa: 0605
+            board: rock-5b
+            desc: rock-5b, cli, legacy (5.10, by @amazingfate), regular CLI
+            runnerLabel: can-build-arm64-others-rock5b
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no BRANCH=legacy"
+
+          - aa: 0610
+            board: rock-5b
+            desc: rock-5b, legacy (5.10, by @amazingfate), xfce desktop
+            runnerLabel: can-build-arm64-others-rock5b
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no BRANCH=legacy  BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=\"\" DESKTOP_ENVIRONMENT=xfce DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
+
+
+
+
+          # @TODO: disabled, cant build on arm64 yet, still using their rkbins which is amd64 only
+          #- aa: 0005
+          #  board: odroidm1
+          #  desc: odroidm1, legacy, regular CLI, built on arm64
+          #  runnerLabel: can-build-arm64
+          #  runnerLabelKernel: can-build-kernels
+          #  vars: "CLOUD_IMAGE=no BRANCH=legacy"
+
+          - aa: 0705
+            board: odroidm1
+            desc: odroidm1, legacy, regular CLI #, built on x86
+            runnerLabel: can-build-x86-huge
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no BRANCH=legacy"
+
+          - aa: 0710
+            board: odroidm1
+            desc: odroidm1, edge, regular CLI #, built on x86
+            runnerLabel: can-build-x86-huge
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no BRANCH=edge"
+
+
+
+
+          # RPI
+          - aa: 0805
+            board: rpi4b
+            desc: Raspberry Pi 4B, with Armbian mainline kernel (edge), cloud image, user-data at /boot/firmware (FAT)
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=yes BRANCH=edge"
+
+
+          #          - aa: 0205
+          #            board: rpi4b
+          #            desc: Raspberry Pi 4B, ddk, desktop cinnamon
+          #            runnerLabel: can-build-arm64
+          #            runnerLabelKernel: can-build-rootfs-only
+          #            vars: "CLOUD_IMAGE=no BRANCH=ddk BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=\"\" DESKTOP_ENVIRONMENT=cinnamon DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
+
+          #- aa: 0206
+          #  board: rpi4b
+          #  desc: Raspberry Pi 4B, edge, desktop cinnamon
+          #  runnerLabel: can-build-arm64
+          #  runnerLabelKernel: can-build-kernels
+          #  vars: "CLOUD_IMAGE=no BRANCH=edge BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=\"\" DESKTOP_ENVIRONMENT=cinnamon DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
+
+          #          - aa: 0210
+          #            board: rpi4b
+          #            desc: Raspberry Pi 4B, using Ubuntu's raspi kernel (ddk), cloud image, user-data at /boot/firmware (FAT)
+          #            runnerLabel: can-build-arm64
+          #            runnerLabelKernel: can-build-rootfs-only
+          #            vars: "CLOUD_IMAGE=yes BRANCH=ddk"
 
           # cloud images for meson 64 -- what branch is this? possibly duplicate?
           # - aa: 0500
@@ -337,7 +345,7 @@ jobs:
           #  vars: "CLOUD_IMAGE=yes"
 
           # random stuff
-          - aa: 0700
+          - aa: 0905
             board: nanopct4
             desc: nanopct4, cli, current
             runnerLabel: can-build-arm64-others
@@ -351,7 +359,7 @@ jobs:
           #  runnerLabelKernel: can-build-kernels
           #  vars: "CLOUD_IMAGE=no BRANCH=current"
 
-          - aa: 0710
+          - aa: 0910
             board: tinkerboard-2
             desc: Tinkerboard-2, edge, cli
             runnerLabel: can-build-arm64-others
@@ -365,55 +373,40 @@ jobs:
           #  runnerLabelKernel: can-build-kernels # can-build-small-kernels # it's just as big as any other actually
           #  vars: "CLOUD_IMAGE=yes BRANCH=current" # current is 5.10
 
-          - aa: 0850
+          - aa: 0915
             board: rockpro64
             desc: RockPro64, cli, edge
             runnerLabel: can-build-arm64-others
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=no BRANCH=edge"
 
-          - aa: 0855
+          - aa: 0920
             board: rockpro64
             desc: RockPro64, cli, current
             runnerLabel: can-build-arm64-others
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=no BRANCH=current"
 
-          - aa: 0860
+          - aa: 0925
             board: quartz64a
             desc: quartz64a, cli, edge
             runnerLabel: can-build-arm64-others
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=no BRANCH=edge"
 
-          - aa: 0865
+          - aa: 0930
             board: quartz64a
             desc: quartz64a, cli, current
             runnerLabel: can-build-arm64-others
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=no BRANCH=current"
 
-          - aa: 0866
+          - aa: 0935
             board: quartz64a-pgwipeout
             desc: quartz64a-pgwipeout.wip, cli, edge
             runnerLabel: can-build-arm64-others
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=no BRANCH=edge"
-
-          # other stuff
-          - aa: 0867
-            board: rock-5b
-            desc: rock-5b, cli, legacy (5.10, by @amazingfate), regular CLI
-            runnerLabel: can-build-arm64-others-rock5b
-            runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=no BRANCH=legacy"
-
-          - aa: 0868
-            board: rock-5b
-            desc: rock-5b, legacy (5.10, by @amazingfate), xfce desktop
-            runnerLabel: can-build-arm64-others-rock5b
-            runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=no BRANCH=legacy  BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=\"\" DESKTOP_ENVIRONMENT=xfce DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
 
           # non-cloud cli images for armhf stuff built on arm64
           #- aa: 0900
