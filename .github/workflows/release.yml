@@ -344,12 +344,12 @@ jobs:
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=no BRANCH=current"
 
-          - aa: 0705
-            board: pine64
-            desc: PINE64, cli, current
-            runnerLabel: can-build-arm64-others
-            runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=no BRANCH=current"
+          #- aa: 0705
+          #  board: pine64
+          #  desc: PINE64, cli, current
+          #  runnerLabel: can-build-arm64-others
+          #  runnerLabelKernel: can-build-kernels
+          #  vars: "CLOUD_IMAGE=no BRANCH=current"
 
           - aa: 0710
             board: tinkerboard-2
@@ -358,12 +358,12 @@ jobs:
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=no BRANCH=edge"
 
-          - aa: 0800
-            board: oneplus5
-            desc: OnePlus 5, fastboot-compatible, current, cloud image, user-data at /boot
-            runnerLabel: can-build-arm64-others
-            runnerLabelKernel: can-build-kernels # can-build-small-kernels # it's just as big as any other actually
-            vars: "CLOUD_IMAGE=yes BRANCH=current" # current is 5.10
+          #- aa: 0800
+          #  board: oneplus5
+          #  desc: OnePlus 5, fastboot-compatible, current, cloud image, user-data at /boot
+          #  runnerLabel: can-build-arm64-others
+          #  runnerLabelKernel: can-build-kernels # can-build-small-kernels # it's just as big as any other actually
+          #  vars: "CLOUD_IMAGE=yes BRANCH=current" # current is 5.10
 
           - aa: 0850
             board: rockpro64
@@ -416,40 +416,40 @@ jobs:
             vars: "CLOUD_IMAGE=no BRANCH=legacy  BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=\"\" DESKTOP_ENVIRONMENT=xfce DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
 
           # non-cloud cli images for armhf stuff built on arm64
-          - aa: 0900
-            board: tinkerboard
-            desc: Tinkerboard, cli, edge
-            runnerLabel: can-build-arm64-others
-            runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=no BRANCH=edge"
-
-          - aa: 0950
-            board: helios4
-            desc: Helios4, cli, edge
-            runnerLabel: can-build-arm64-others
-            runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=no BRANCH=edge"
-
-          - aa: 0960
-            board: odroidxu4
-            desc: ODROID XU4, cli, edge
-            runnerLabel: can-build-arm64-others
-            runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=no BRANCH=edge"
-
-          - aa: 0970
-            board: cubox-i
-            desc: cubox-i, cli, current
-            runnerLabel: can-build-arm64-others
-            runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=no BRANCH=current"
-
-          - aa: 0980
-            board: clearfogbase
-            desc: clearfogbase, cli, current
-            runnerLabel: can-build-arm64-others
-            runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=no BRANCH=current"
+          #- aa: 0900
+          #  board: tinkerboard
+          #  desc: Tinkerboard, cli, edge
+          #  runnerLabel: can-build-arm64-others
+          #  runnerLabelKernel: can-build-kernels
+          #  vars: "CLOUD_IMAGE=no BRANCH=edge"
+          #
+          #- aa: 0950
+          #  board: helios4
+          #  desc: Helios4, cli, edge
+          #  runnerLabel: can-build-arm64-others
+          #  runnerLabelKernel: can-build-kernels
+          #  vars: "CLOUD_IMAGE=no BRANCH=edge"
+          #
+          #- aa: 0960
+          #  board: odroidxu4
+          #  desc: ODROID XU4, cli, edge
+          #  runnerLabel: can-build-arm64-others
+          #  runnerLabelKernel: can-build-kernels
+          #  vars: "CLOUD_IMAGE=no BRANCH=edge"
+          #
+          #- aa: 0970
+          #  board: cubox-i
+          #  desc: cubox-i, cli, current
+          #  runnerLabel: can-build-arm64-others
+          #  runnerLabelKernel: can-build-kernels
+          #  vars: "CLOUD_IMAGE=no BRANCH=current"
+          #
+          #- aa: 0980
+          #  board: clearfogbase
+          #  desc: clearfogbase, cli, current
+          #  runnerLabel: can-build-arm64-others
+          #  runnerLabelKernel: can-build-kernels
+          #  vars: "CLOUD_IMAGE=no BRANCH=current"
 
     steps:
 
