@@ -13,4 +13,4 @@ jobs:
       - run: |
           gh release create "${{ steps.date.outputs.date }}a" --title "${{ steps.date.outputs.date }}a armbian-next auto dialy build" --notes "auto daily build" --repo $GITHUB_REPOSITORY
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PAT_FOR_ARMBIAN_RELEASE }}
