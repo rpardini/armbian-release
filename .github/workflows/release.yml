@@ -67,13 +67,28 @@ jobs:
           # 0200 = uefi stuff (fixed version)
           # 0500+ other stuff
 
+          # ROCK 5b
+          - aa: 0005
+            board: rock-5b
+            desc: rock-5b, cli, legacy (5.10, by @amazingfate), regular CLI
+            runnerLabel: can-build-arm64-others-rock5b
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no BRANCH=legacy"
+
+          - aa: 0010
+            board: rock-5b
+            desc: rock-5b, legacy (5.10, by @amazingfate), xfce desktop
+            runnerLabel: can-build-arm64-others-rock5b
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no BRANCH=legacy  BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=browsers DESKTOP_ENVIRONMENT=xfce DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
+
 
           - aa: 0110
             board: odroidn2
             desc: ODROID N2+, edge, xfce desktop
             runnerLabel: can-build-arm64
             runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=no BRANCH=edge BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=\"\" DESKTOP_ENVIRONMENT=xfce DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
+            vars: "CLOUD_IMAGE=no BRANCH=edge BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=browsers DESKTOP_ENVIRONMENT=xfce DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
 
           - aa: 0115
             board: odroidn2
@@ -255,24 +270,6 @@ jobs:
           #  runnerLabel: can-build-x86-others # light image with kernel, VMWare image, low usage, good cross compile candidate
           #  runnerLabelKernel: can-build-kernels
           #  vars: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=image-output-ovf BRANCH=edge"
-
-          # ROCK 5b
-          - aa: 0605
-            board: rock-5b
-            desc: rock-5b, cli, legacy (5.10, by @amazingfate), regular CLI
-            runnerLabel: can-build-arm64-others-rock5b
-            runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=no BRANCH=legacy"
-
-          - aa: 0610
-            board: rock-5b
-            desc: rock-5b, legacy (5.10, by @amazingfate), xfce desktop
-            runnerLabel: can-build-arm64-others-rock5b
-            runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=no BRANCH=legacy  BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=\"\" DESKTOP_ENVIRONMENT=xfce DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
-
-
-
 
           # @TODO: disabled, cant build on arm64 yet, still using their rkbins which is amd64 only
           #- aa: 0005
