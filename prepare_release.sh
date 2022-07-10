@@ -5,6 +5,9 @@ MATRIX_BOARD="$1"
 CLOUD_IMAGE="${CLOUD_IMAGE:-yes}"
 CLOUD_IMAGE_DESC="cli"
 [[ "${CLOUD_IMAGE}" == "yes" ]] && CLOUD_IMAGE_DESC="cloud"
+DESKTOP_NAME=".${DESKTOP_ENVIRONMENT:-no}"
+DESKTOP_DESC="-${DESKTOP_NAME}"
+[[ "${DESKTOP_NAME}" == ".no" ]] && DESKTOP_DESC=""
 
 echo "Preparing release Markdown fragment for this run..."
 cat << EOD > release.md
@@ -42,8 +45,8 @@ echo "Removing too-big images: "
 find ./images -type f -size +2G || true
 find ./images -type f -size +2G -exec rm -f {} ";" || true
 
-# Tar up the logs # @TODO: armbian-next changed this. the logs will end up in "output/logs", not debug. eventually.
-LOGS_TARBALL="images/build.logs.${MATRIX_BOARD}.${CLOUD_IMAGE_DESC}.tar"
+# Tar up the logs
+LOGS_TARBALL="images/build.logs.${MATRIX_BOARD}.${CLOUD_IMAGE_DESC}${DESKTOP_DESC}.tar"
 echo "Tarring up the build logs... ${LOGS_TARBALL}.xz"
 tar cf "${LOGS_TARBALL}" logs || true
 pixz -0 "${LOGS_TARBALL}" "${LOGS_TARBALL}.xz" || true

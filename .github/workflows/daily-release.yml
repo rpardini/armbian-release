@@ -11,6 +11,6 @@ jobs:
         id: date
         run: echo "::set-output name=date::$(date +'%Y%m%d')"
       - run: |
-          gh release create "${{ steps.date.outputs.date }}a" --title "${{ steps.date.outputs.date }}a armbian-next auto dialy build" --notes "auto daily build" --repo $GITHUB_REPOSITORY
+          gh release create "${{ steps.date.outputs.date }}a" --title "${{ steps.date.outputs.date }}a armbian-next auto daily build" --notes "auto daily build" --repo $GITHUB_REPOSITORY
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_FOR_ARMBIAN_RELEASE }}
