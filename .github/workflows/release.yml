@@ -214,10 +214,10 @@ jobs:
 
           - aa: 0220
             board: uefi-arm64
-            desc: UTM 4.x arm64 UEFI Virtual Machine, with Armbian mainline kernel (edge), regular CLI
+            desc: UTM 3.x arm64 UEFI Builder Virtual Machine, with Armbian mainline kernel (edge), regular CLI
             runnerLabel: can-build-arm64 # light image with kernel, UTM image, low usage, good cross compile candidate
             runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=no ENABLE_EXTENSIONS=image-output-utm BRANCH=edge"
+            vars: "CLOUD_IMAGE=no ENABLE_EXTENSIONS=image-output-utm,build-machine-image BRANCH=edge"
 
           # UEFI x86
           - aa: 0220
@@ -243,17 +243,17 @@ jobs:
 
           - aa: 0320
             board: uefi-x86
-            desc: UEFI Generic x86, with Armbian mainline kernel (edge), regular CLI, also for UEFI-capable arm64 SBCs
+            desc: VMWare x86 UEFI Builder Virtual Machine, with Armbian mainline kernel (edge), regular CLI
             runnerLabel: can-build-x86 # light image with kernel, VMWare image, low usage, good cross compile candidate
             runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=no ENABLE_EXTENSIONS=image-output-ovf BRANCH=edge"
+            vars: "CLOUD_IMAGE=no ENABLE_EXTENSIONS=image-output-ovf,build-machine-image OVF_KEEP_IMG=yes BRANCH=edge"
 
           - aa: 0320
             board: uefi-x86
-            desc: UTM 4.x x86 UEFI Virtual Machine, with Armbian mainline kernel (edge), regular CLI
+            desc: UTM 3.x x86 UEFI Builder Virtual Machine, with Armbian mainline kernel (edge), regular CLI
             runnerLabel: can-build-x86 # light image with kernel, UTM image, low usage, good cross compile candidate
             runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=no ENABLE_EXTENSIONS=image-output-utm BRANCH=edge"
+            vars: "CLOUD_IMAGE=no ENABLE_EXTENSIONS=image-output-utm,build-machine-image BRANCH=edge"
 
           #          - aa: 0301
           #            board: uefi-x86
