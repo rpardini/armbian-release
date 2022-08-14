@@ -67,20 +67,20 @@ jobs:
           # 0200 = uefi stuff (fixed version)
           # 0500+ other stuff
 
-          # ROCK 5b
-          - aa: 0005
-            board: rock-5b
-            desc: rock-5b, cli, legacy (5.10, by @amazingfate), regular CLI
-            runnerLabel: can-build-arm64-others-rock5b
-            runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=no BRANCH=legacy"
+          ## ROCK 5b
+          #- aa: 0005
+          #  board: rock-5b
+          #  desc: rock-5b, cli, legacy (5.10, by @amazingfate), regular CLI
+          #  runnerLabel: can-build-arm64-others-rock5b
+          #  runnerLabelKernel: can-build-kernels
+          #  vars: "CLOUD_IMAGE=no BRANCH=legacy"
 
-          - aa: 0010
-            board: rock-5b
-            desc: rock-5b, legacy (5.10, by @amazingfate), xfce desktop
-            runnerLabel: can-build-arm64-others-rock5b
-            runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=no BRANCH=legacy  BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=browsers DESKTOP_ENVIRONMENT=xfce DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
+          #- aa: 0010
+          #  board: rock-5b
+          #  desc: rock-5b, legacy (5.10, by @amazingfate), xfce desktop
+          #  runnerLabel: can-build-arm64-others-rock5b
+          #  runnerLabelKernel: can-build-kernels
+          #  vars: "CLOUD_IMAGE=no BRANCH=legacy  BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=browsers DESKTOP_ENVIRONMENT=xfce DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
 
 
           - aa: 0110
@@ -212,8 +212,14 @@ jobs:
             runnerLabelKernel: can-build-rootfs-only
             vars: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=uefi-rescue BRANCH=ddk"
 
+          - aa: 0220
+            board: uefi-arm64
+            desc: UTM 4.x arm64 UEFI Virtual Machine, with Armbian mainline kernel (edge), regular CLI
+            runnerLabel: can-build-arm64 # light image with kernel, UTM image, low usage, good cross compile candidate
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no ENABLE_EXTENSIONS=image-output-utm BRANCH=edge"
 
-          # UEFI
+          # UEFI x86
           - aa: 0220
             board: uefi-x86-meta
             desc: UEFI Generic x86 cloud image, with Armbian mainline kernel (edge), for metadata-capable clouds (AWS/GCP/OCI/OpenStack/KVM/etc), includes external kernel and initrd for kexec
@@ -242,6 +248,12 @@ jobs:
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=no ENABLE_EXTENSIONS=image-output-ovf BRANCH=edge"
 
+          - aa: 0320
+            board: uefi-x86
+            desc: UTM 4.x x86 UEFI Virtual Machine, with Armbian mainline kernel (edge), regular CLI
+            runnerLabel: can-build-x86 # light image with kernel, UTM image, low usage, good cross compile candidate
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no ENABLE_EXTENSIONS=image-output-utm BRANCH=edge"
 
           #          - aa: 0301
           #            board: uefi-x86
@@ -295,7 +307,6 @@ jobs:
 
 
 
-
           # RPI
           - aa: 0805
             board: rpi4b
@@ -342,12 +353,12 @@ jobs:
           #  vars: "CLOUD_IMAGE=yes"
 
           # random stuff
-          - aa: 0905
-            board: nanopct4
-            desc: nanopct4, cli, current
-            runnerLabel: can-build-arm64-others
-            runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=no BRANCH=current"
+          #- aa: 0905
+          #  board: nanopct4
+          #  desc: nanopct4, cli, current
+          #  runnerLabel: can-build-arm64-others
+          #  runnerLabelKernel: can-build-kernels
+          #  vars: "CLOUD_IMAGE=no BRANCH=current"
 
           #- aa: 0705
           #  board: pine64
@@ -377,12 +388,12 @@ jobs:
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=no BRANCH=edge"
 
-          - aa: 0920
-            board: rockpro64
-            desc: RockPro64, cli, current
-            runnerLabel: can-build-arm64-others
-            runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=no BRANCH=current"
+          #- aa: 0920
+          #  board: rockpro64
+          #  desc: RockPro64, cli, current
+          #  runnerLabel: can-build-arm64-others
+          #  runnerLabelKernel: can-build-kernels
+          #  vars: "CLOUD_IMAGE=no BRANCH=current"
 
           - aa: 0925
             board: quartz64a
@@ -391,19 +402,19 @@ jobs:
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=no BRANCH=edge"
 
-          - aa: 0930
-            board: quartz64a
-            desc: quartz64a, cli, current
-            runnerLabel: can-build-arm64-others
-            runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=no BRANCH=current"
+          #- aa: 0930
+          #  board: quartz64a
+          #  desc: quartz64a, cli, current
+          #  runnerLabel: can-build-arm64-others
+          #  runnerLabelKernel: can-build-kernels
+          #  vars: "CLOUD_IMAGE=no BRANCH=current"
 
-          - aa: 0935
-            board: quartz64a-pgwipeout
-            desc: quartz64a-pgwipeout.wip, cli, edge
-            runnerLabel: can-build-arm64-others
-            runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=no BRANCH=edge"
+          #- aa: 0935
+          #  board: quartz64a-pgwipeout
+          #  desc: quartz64a-pgwipeout.wip, cli, edge
+          #  runnerLabel: can-build-arm64-others
+          #  runnerLabelKernel: can-build-kernels
+          #  vars: "CLOUD_IMAGE=no BRANCH=edge"
 
           # non-cloud cli images for armhf stuff built on arm64
           #- aa: 0900
