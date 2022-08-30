@@ -374,6 +374,13 @@ jobs:
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=no BRANCH=edge"
 
+          - aa: 0912
+            board: rockpi-4cplus
+            desc: Rockpi 4C Plus, edge, cli
+            runnerLabel: can-build-arm64-others
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no BRANCH=edge"
+
           #- aa: 0800
           #  board: oneplus5
           #  desc: OnePlus 5, fastboot-compatible, current, cloud image, user-data at /boot
