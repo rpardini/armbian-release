@@ -46,7 +46,7 @@ find ./images -type f -size +2G || true
 find ./images -type f -size +2G -exec rm -f {} ";" || true
 
 # Tar up the logs
-LOGS_TARBALL="images/build.logs.${MATRIX_BOARD}.${CLOUD_IMAGE_DESC}${DESKTOP_DESC}.tar"
+LOGS_TARBALL="images/build.logs.${MATRIX_ID}.${MATRIX_BOARD}.${CLOUD_IMAGE_DESC}${DESKTOP_DESC}.tar"
 echo "Tarring up the build logs... ${LOGS_TARBALL}.xz"
 tar cf "${LOGS_TARBALL}" logs || true
 pixz -0 "${LOGS_TARBALL}" "${LOGS_TARBALL}.xz" || true

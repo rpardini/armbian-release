@@ -497,7 +497,7 @@ jobs:
       - name: Build board ${{ matrix.board }}
         id: buildBoard
         working-directory: build
-        continue-on-error: false # No, break as soon as possible. Logs will be inline.
+        continue-on-error: true # so we get to upload logs later
         run: |
           sudo --preserve-env ${{ matrix.vars }} \
             REGULAR_USER="$(whoami)" \
@@ -510,10 +510,11 @@ jobs:
       - name: Compress/Prepare release ${{ matrix.board }}
         id: compress
         working-directory: build/output
-        continue-on-error: false  # No, break as soon as possible. Logs will be inline.
+        continue-on-error: true # so we get to upload logs later
         run: |
           sudo --preserve-env ${{ matrix.vars }} \
             MATRIX_DESC="${{ matrix.desc }}" \
+            MATRIX_ID="${{ matrix.aa }}" \
             REGULAR_USER="$(whoami)" \
             RELEASE_OWNER="${{ github.repository_owner }}" \
             RELEASE_OWNER_AND_REPO="${{ github.repository }}" \
