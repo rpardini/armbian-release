@@ -198,19 +198,35 @@ jobs:
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=uefi-rescue BRANCH=edge"
 
-          - aa: 0210
-            board: uefi-arm64
-            desc: UEFI Generic arm64, with Armbian mainline kernel (edge), regular CLI
-            runnerLabel: can-build-arm64
-            runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=no BRANCH=edge "
-
           - aa: 0215
             board: uefi-arm64
             desc: UEFI Generic ARM64 Rescue e2img, ddk, cloud image, user-data at /boot
             runnerLabel: can-build-arm64
             runnerLabelKernel: can-build-rootfs-only
             vars: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=uefi-rescue BRANCH=ddk"
+
+          # e2img for x86 baremetal/cloud
+          - aa: 0235
+            board: uefi-x86
+            desc: UEFI Generic x86 Rescue e2img, edge, cloud image, user-data at /boot
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=uefi-rescue BRANCH=edge"
+
+          - aa: 0235
+            board: uefi-x86
+            desc: UEFI Generic x86 Rescue e2img, ddk, cloud image, user-data at /boot
+            runnerLabel: can-build-x86
+            runnerLabelKernel: can-build-rootfs-only
+            vars: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=uefi-rescue BRANCH=ddk"
+
+          # other stuff
+          - aa: 0210
+            board: uefi-arm64
+            desc: UEFI Generic arm64, with Armbian mainline kernel (edge), regular CLI
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no BRANCH=edge "
 
           - aa: 0220
             board: uefi-arm64
