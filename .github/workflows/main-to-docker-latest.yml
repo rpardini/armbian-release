@@ -48,7 +48,7 @@ jobs:
         env:
           DOCKERFILE_GENERATE_ONLY: "yes" # Just generate the Dockerfile, don't build
           DOCKER_ARMBIAN_BASE_IMAGE: "${{env.DOCKERFILE_OS}}:${{env.DOCKERFILE_RELEASE}}" # Use this base image
-          DOCKERFILE_USE_ARMBIAN_IMAGE_AS_BASE: "no" # Do NOT use the Armbian image as base image to speed up; we're creating it here
+          DOCKERFILE_USE_ARMBIAN_IMAGE_AS_BASE: "no" # Do NOT use the Armbian image as base  image to speed up; we're creating it here
         run: |
           bash ./docker.sh
 
