@@ -3,17 +3,21 @@ name: master-latest
 on:
   push:
     branches: [ main ]
-  #schedule:
-  #  - cron: '0 3 * * *' # Scheduled runs every day at 3am UTC
+  schedule:
+    - cron: '0 3 * * *' # Scheduled runs every day at 3am UTC
+
+env:
+  DOCKERFILE_OS: ubuntu
+  DOCKERFILE_RELEASE: jammy
 
 jobs:
-  docker:
+  build-armbian-dockerfile:
     runs-on: ubuntu-latest
     if: ${{ github.repository_owner == 'rpardini' }}
     steps:
 
       - name: Checkout build repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           repository: ${{ github.repository_owner }}/armbian-build
           ref: extensions # branch to build from.
@@ -21,14 +25,14 @@ jobs:
           path: "" # use default path
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v2
 
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
 
       - name: Docker Login to GitHub Container Registry
-        uses: docker/login-action@v1
+        uses: docker/login-action@v2
         with:
           registry: ghcr.io
           username: ${{ github.repository_owner }} # github username or org
@@ -39,10 +43,14 @@ jobs:
         run: |
           echo ::set-output name=created::$(date -u +'%Y-%m-%dT%H:%M:%SZ')
 
-      - name: Generate Dockerfile via Armbian helper script
+      - name: Generate Dockerfile for ${{env.DOCKERFILE_OS}}:${{env.DOCKERFILE_RELEASE}} via Armbian helper script
         id: generate
+        env:
+          DOCKERFILE_GENERATE_ONLY: "yes" # Just generate the Dockerfile, don't build
+          DOCKER_ARMBIAN_BASE_IMAGE: "${{env.DOCKERFILE_OS}}:${{env.DOCKERFILE_RELEASE}}" # Use this base image
+          DOCKERFILE_USE_ARMBIAN_IMAGE_AS_BASE: "no" # Do NOT use the Armbian image as base image to speed up; we're creating it here
         run: |
-          DOCKERFILE_GENERATE_ONLY=yes bash ./docker.sh
+          bash ./docker.sh
 
       - name: Build and push
         id: docker_build
@@ -50,7 +58,7 @@ jobs:
         with:
           context: .
           file: ./Dockerfile
-          platforms: linux/amd64 #,linux/arm64
+          platforms: linux/amd64 #,linux/arm64 # @TODO: enable arm64
           pull: true # Pull new version of base image, always; avoid bit-rot
           push: true
           labels: |
@@ -63,8 +71,5 @@ jobs:
             org.opencontainers.image.licenses=${{ github.event.repository.license.spdx_id }}
           cache-from: type=gha # all-automatic Github Actions caching
           cache-to: type=gha,mode=max
-          #build-args: |
-          #  UPSTREAM_VERSION=${{env.UPSTREAM_VERSION}}
-          #  UPSTREAM_BRANCH=${{env.UPSTREAM_VERSION}}
-          tags: ghcr.io/${{ github.repository }}:armbian-next-latest
+          tags: ghcr.io/${{ github.repository }}:armbian-next-${{env.DOCKERFILE_OS}}-${{env.DOCKERFILE_RELEASE}}-latest
 
