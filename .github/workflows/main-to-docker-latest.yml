@@ -70,7 +70,7 @@ jobs:
         with:
           context: .
           file: ./Dockerfile
-          platforms: linux/amd64 # @TODO: reenable: ,linux/arm64 # arm64 is done under qemu and is _very_ slow. Thanks, GitHub!
+          platforms: linux/amd64,linux/arm64 # arm64 is done under qemu and is _very_ slow. Thanks, GitHub!
           pull: true # Pull new version of base image, always; avoid bit-rot
           push: true
           labels: |
