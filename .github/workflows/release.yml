@@ -256,6 +256,14 @@ jobs:
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=no ENABLE_EXTENSIONS=image-output-utm,build-machine-image BRANCH=edge"
 
+          # UEFI RISCV64
+          - aa: 0330
+            board: uefi-riscv64
+            desc: UEFI Generic RISC-V 64 (edge)
+            runnerLabel: can-build-x86
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no BRANCH=edge"
+
           #          - aa: 0301
           #            board: uefi-x86
           #            desc: UEFI Generic x86, with -generic Ubuntu kernel (ddk), desktop xfce
