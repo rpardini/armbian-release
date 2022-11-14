@@ -9,7 +9,8 @@ jobs:
     steps:
       - name: Get current date
         id: date
-        run: echo "::set-output name=date::$(date +'%Y%m%d')"
+        run: echo "date=$(date +'%Y%m%d')" >> $GITHUB_OUTPUT
+
       - run: |
           gh release create "${{ steps.date.outputs.date }}a" --title "${{ steps.date.outputs.date }}a armbian-next auto daily build" --notes "auto daily build" --repo $GITHUB_REPOSITORY
         env:

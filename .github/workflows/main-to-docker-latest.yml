@@ -53,8 +53,7 @@ jobs:
 
       - name: Prepare
         id: prep
-        run: |
-          echo ::set-output name=created::$(date -u +'%Y-%m-%dT%H:%M:%SZ')
+        run: echo "created=$(date -u +'%Y-%m-%dT%H:%M:%SZ')" >> $GITHUB_OUTPUT
 
       - name: Generate Dockerfile for ${{env.DOCKERFILE_OS}}:${{env.DOCKERFILE_RELEASE}} via Armbian helper script
         id: generate
