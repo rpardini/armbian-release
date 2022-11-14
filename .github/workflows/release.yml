@@ -222,25 +222,25 @@ jobs:
 
           # UEFI x86
           - aa: 0220
-            board: uefi-x86-meta
+            board: uefi-x86
             desc: UEFI Generic x86 cloud image, with Armbian mainline kernel (edge), for metadata-capable clouds (AWS/GCP/OCI/OpenStack/KVM/etc), includes external kernel and initrd for kexec
             runnerLabel: can-build-x86 # lite image with kernel, but more widespread usage, so keep on native build for ow
             runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=yes BRANCH=edge"
+            vars: "CLOUD_IMAGE=yes BRANCH=edge ENABLE_EXTENSIONS=cloud-metadata"
 
           - aa: 0225
-            board: uefi-x86-meta
+            board: uefi-x86
             desc: UEFI Generic x86 cloud image, with -generic Ubuntu kernel (ddk), for metadata-capable clouds (AWS/GCP/OCI/OpenStack/KVM/etc), includes external kernel and initrd for kexec
             runnerLabel: can-build-x86 # no use cross compiling this, no kernel built
             runnerLabelKernel: can-build-rootfs-only
-            vars: "CLOUD_IMAGE=yes BRANCH=ddk"
+            vars: "CLOUD_IMAGE=yes BRANCH=ddk ENABLE_EXTENSIONS=cloud-metadata"
 
           - aa: 0230
-            board: uefi-arm64-meta
+            board: uefi-arm64
             desc: UEFI Generic ARM64, with -generic Ubuntu kernel (ddk), cloud image for metadata-capable clouds (AWS/GCP/OCI/OpenStack/KVM/etc), includes external kernel and initrd for kexec
             runnerLabel: can-build-arm64
             runnerLabelKernel: can-build-rootfs-only
-            vars: "CLOUD_IMAGE=yes BRANCH=ddk"
+            vars: "CLOUD_IMAGE=yes BRANCH=ddk ENABLE_EXTENSIONS=cloud-metadata"
 
           - aa: 0320
             board: uefi-x86

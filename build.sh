@@ -21,15 +21,8 @@ touch .ignore_changes
 
 start_time=$(date +%s)
 
-if [[ -f "userpatches/config-rpardini-${MATRIX_BOARD}.conf" ]]; then
-	#echo "::notice file=${MATRIX_BOARD}::$(hostname -s) building CLOUD_IMAGE=\"${CLOUD_IMAGE}\" ./compile.sh \"rpardini-${MATRIX_BOARD}\" ${DEFAULT_VARS} ${EXTRA_VARS}"
-	# shellcheck disable=SC2086 # I *want* to expand DEFAULT_VARS/EXTRA_VARS as vars.
-	CLOUD_IMAGE="${CLOUD_IMAGE}" ./compile.sh "rpardini-${MATRIX_BOARD}" ${DEFAULT_VARS} ${EXTRA_VARS} || BUILD_OK=0
-else
-	#echo "::notice file=${MATRIX_BOARD}::$(hostname -s) Building CLOUD_IMAGE=\"${CLOUD_IMAGE}\" ./compile.sh \"${USERCONFIG}\" ${DEFAULT_VARS} ${EXTRA_VARS}"
-	# shellcheck disable=SC2086 # I *want* to expand EXTRA_VARS as vars.
-	CLOUD_IMAGE="${CLOUD_IMAGE}" BOARD="${MATRIX_BOARD}" ./compile.sh "rpardini-generic" BOARD="${MATRIX_BOARD}" ${DEFAULT_VARS} ${EXTRA_VARS} || BUILD_OK=0
-fi
+# shellcheck disable=SC2086 # I *want* to expand EXTRA_VARS as vars.
+CLOUD_IMAGE="${CLOUD_IMAGE}" BOARD="${MATRIX_BOARD}" ./compile.sh "rpardini-generic" BOARD="${MATRIX_BOARD}" ${DEFAULT_VARS} ${EXTRA_VARS} || BUILD_OK=0
 
 end_time=$(date +%s)
 runtime_seconds=$((end_time - start_time))
