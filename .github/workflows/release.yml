@@ -354,14 +354,6 @@ jobs:
           #  runnerLabelKernel: can-build-kernels
           #  vars: "CLOUD_IMAGE=yes"
 
-          # random stuff
-          #- aa: 0905
-          #  board: nanopct4
-          #  desc: nanopct4, cli, current
-          #  runnerLabel: can-build-arm64-others
-          #  runnerLabelKernel: can-build-kernels
-          #  vars: "CLOUD_IMAGE=no BRANCH=current"
-
           #- aa: 0705
           #  board: pine64
           #  desc: PINE64, cli, current
@@ -399,10 +391,17 @@ jobs:
 
           - aa: 0925
             board: quartz64a
-            desc: quartz64a, cli, edge
+            desc: quartz64a, cli, edge # media kernel
             runnerLabel: can-build-arm64-others
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=no BRANCH=edge"
+
+          - aa: 0930
+            board: nanopct4
+            desc: nanopct4, Desktop gnome, edge # uses media kernel
+            runnerLabel: can-build-arm64-others
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no BRANCH=edge BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=browsers DESKTOP_ENVIRONMENT=gnome DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
 
           #- aa: 0930
           #  board: quartz64a
