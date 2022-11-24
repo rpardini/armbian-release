@@ -252,10 +252,10 @@ jobs:
 
           - aa: 0322
             board: uefi-x86
-            desc: VMWare x86 UEFI Builder Virtual Machine, with Armbian mainline kernel (edge), desktop Gnome
+            desc: VMWare x86 UEFI Virtual Machine, with Armbian mainline kernel (edge), desktop Gnome
             runnerLabel: can-build-x86
             runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=no ENABLE_EXTENSIONS=image-output-ovf,build-machine-image OVF_KEEP_IMG=yes BRANCH=edge BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=browsers DESKTOP_ENVIRONMENT=gnome DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
+            vars: "CLOUD_IMAGE=no ENABLE_EXTENSIONS=image-output-ovf BRANCH=edge BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED= DESKTOP_ENVIRONMENT=gnome DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
 
           - aa: 0324
             board: uefi-x86
