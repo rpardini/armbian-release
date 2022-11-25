@@ -314,7 +314,12 @@ jobs:
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=no BRANCH=edge"
 
-
+          - aa: 0715
+            board: rock-5b
+            desc: rock-5b, legacy (5.10), gnome desktop
+            runnerLabel: can-build-x86-huge
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no BRANCH=legacy BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=none DESKTOP_ENVIRONMENT=gnome DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
 
           # RPI
           - aa: 0805
