@@ -373,6 +373,13 @@ jobs:
           #  runnerLabelKernel: can-build-kernels
           #  vars: "CLOUD_IMAGE=no BRANCH=current"
 
+          - aa: 0905
+            board: tinkerboard
+            desc: Tinkerboard, edge, cli
+            runnerLabel: can-build-arm64-others
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no BRANCH=edge"
+
           - aa: 0910
             board: tinkerboard-2
             desc: Tinkerboard-2, edge, cli
