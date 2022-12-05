@@ -132,6 +132,13 @@ jobs:
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=no BRANCH=edge"
 
+          - aa: 0151
+            board: radxa-zero
+            desc: radxa-zero, current, regular CLI
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-kernels
+            vars: "CLOUD_IMAGE=no BRANCH=current"
+
           - aa: 0155
             board: radxa-zero2
             desc: radxa-zero2, edge, regular CLI
