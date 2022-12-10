@@ -202,7 +202,7 @@ jobs:
           - aa: 0235
             board: uefi-x86
             desc: UEFI Generic x86 Rescue e2img, edge, cloud image, user-data at /boot
-            runnerLabel: can-build-arm64
+            runnerLabel: can-build-x86
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=uefi-rescue BRANCH=edge"
 
@@ -275,7 +275,7 @@ jobs:
           - aa: 0330
             board: uefi-riscv64
             desc: UEFI Generic RISC-V 64 (edge)
-            runnerLabel: can-build-x86
+            runnerLabel: can-build-riscv64
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=no BRANCH=edge"
 
@@ -317,14 +317,14 @@ jobs:
           - aa: 0710
             board: odroidm1
             desc: odroidm1, edge, regular CLI #, built on x86
-            runnerLabel: can-build-x86-huge
+            runnerLabel: can-build-arm64-others
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=no BRANCH=edge"
 
           - aa: 0715
             board: rock-5b
             desc: rock-5b, legacy (5.10), gnome desktop
-            runnerLabel: can-build-x86-huge
+            runnerLabel: can-build-arm64-others
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=no BRANCH=legacy BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=none DESKTOP_ENVIRONMENT=gnome DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
 
@@ -332,7 +332,7 @@ jobs:
           - aa: 0805
             board: rpi4b
             desc: Raspberry Pi 4B, with Armbian mainline kernel (edge), cloud image, user-data at /boot/firmware (FAT)
-            runnerLabel: can-build-arm64
+            runnerLabel: can-build-arm64-others
             runnerLabelKernel: can-build-kernels
             vars: "CLOUD_IMAGE=yes BRANCH=edge"
 
