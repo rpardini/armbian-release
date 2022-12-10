@@ -65,10 +65,10 @@ echo "Chown build dir back to regular user (${REGULAR_USER})..."
 chown -R "${REGULAR_USER}":"${REGULAR_USER}" build || true
 
 echo "Show ccache status"
-ccache -s
+ccache -s || true
 
 echo "Restart apt-cacher-ng."
-systemctl restart apt-cacher-ng.service
-systemctl status apt-cacher-ng.service
+systemctl restart apt-cacher-ng.service || true
+systemctl status apt-cacher-ng.service || true
 
 echo "Done cleanup run."
