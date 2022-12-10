@@ -76,6 +76,13 @@ jobs:
           #  runnerLabelKernel: can-build-kernels
           #  vars: "CLOUD_IMAGE=no BRANCH=edge BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=browsers DESKTOP_ENVIRONMENT=xfce DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
 
+          - aa: 0001
+            board: uefi-arm64
+            desc: UEFI Generic ARM64 Rescue e2img, ddk, cloud image, user-data at /boot, *always Jammy*
+            runnerLabel: can-build-arm64
+            runnerLabelKernel: can-build-rootfs-only
+            vars: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=uefi-rescue BRANCH=ddk RELEASE=jammy"
+
           - aa: 0115
             board: odroidn2
             desc: ODROID N2+, edge, regular CLI
@@ -186,32 +193,32 @@ jobs:
           # e2img for oracle cloud
           - aa: 0205
             board: uefi-arm64
-            desc: UEFI Generic ARM64 Rescue e2img, edge, cloud image, user-data at /boot
+            desc: UEFI Generic ARM64 Rescue e2img, edge, cloud image, user-data at /boot, *always Jammy*
             runnerLabel: can-build-arm64
             runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=uefi-rescue BRANCH=edge"
+            vars: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=uefi-rescue BRANCH=edge RELEASE=jammy"
 
-          - aa: 0215
-            board: uefi-arm64
-            desc: UEFI Generic ARM64 Rescue e2img, ddk, cloud image, user-data at /boot
-            runnerLabel: can-build-arm64
-            runnerLabelKernel: can-build-rootfs-only
-            vars: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=uefi-rescue BRANCH=ddk"
+          #- aa: 0215 # This was moved up so it builds early
+          #  board: uefi-arm64
+          #  desc: UEFI Generic ARM64 Rescue e2img, ddk, cloud image, user-data at /boot, *always Jammy*
+          #  runnerLabel: can-build-arm64
+          #  runnerLabelKernel: can-build-rootfs-only
+          #  vars: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=uefi-rescue BRANCH=ddk RELEASE=jammy"
 
           # e2img for x86 baremetal/cloud
           - aa: 0235
             board: uefi-x86
-            desc: UEFI Generic x86 Rescue e2img, edge, cloud image, user-data at /boot
+            desc: UEFI Generic x86 Rescue e2img, edge, cloud image, user-data at /boot, *always Jammy*
             runnerLabel: can-build-x86
             runnerLabelKernel: can-build-kernels
-            vars: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=uefi-rescue BRANCH=edge"
+            vars: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=uefi-rescue BRANCH=edge RELEASE=jammy"
 
           - aa: 0235
             board: uefi-x86
-            desc: UEFI Generic x86 Rescue e2img, ddk, cloud image, user-data at /boot
+            desc: UEFI Generic x86 Rescue e2img, ddk, cloud image, user-data at /boot, *always Jammy*
             runnerLabel: can-build-x86
             runnerLabelKernel: can-build-rootfs-only
-            vars: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=uefi-rescue BRANCH=ddk"
+            vars: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=uefi-rescue BRANCH=ddk RELEASE=jammy"
 
           # other stuff
           - aa: 0210
