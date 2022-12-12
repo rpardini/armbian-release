@@ -19,9 +19,9 @@ jobs:
         uses: softprops/action-gh-release@de2c0eb89ae2a093876385947365aca7b0e5f844 # de2c0eb8 = v0.1.5; already with koplo199's node16 fixes
         if: startsWith(github.ref, 'refs/tags/') # only for tags. GitHub requires tags for releases.
         with:
-          append_body: false # don't append to the release body; this is the first.
+          append_body: true # append, since we've descriptions in there already
           body: |
-            ### Release ${{ steps.tagName.outputs.tag }}
+            ### Release ${{ steps.tagName.outputs.tag }} images below, in no particular order
 
   "A": # short name because GH will expand with the matrix values
     needs: [ prepare ]
