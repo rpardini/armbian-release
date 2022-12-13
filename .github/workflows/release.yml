@@ -49,6 +49,13 @@ jobs:
             runnerLabel: armbian-arm64-ddk
             vars: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=uefi-rescue BRANCH=ddk RELEASE=jammy"
 
+          # RPI4b, ddk
+          - aa: 0002
+            board: rpi4b
+            desc: Raspberry Pi 4B, ddk, cli
+            runnerLabel: armbian-arm64-ddk
+            vars: "CLOUD_IMAGE=no BRANCH=ddk"
+
           # 0100 = meson64 stuff (fixed version), boards I own first, then others
           - aa: 0115
             board: odroidn2
@@ -225,12 +232,12 @@ jobs:
             runnerLabel: armbian-arm64-rock5b
             vars: "CLOUD_IMAGE=no BRANCH=legacy BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=none DESKTOP_ENVIRONMENT=gnome DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
 
-          # RPI
+          # RPI4b, edge
           - aa: 0805
             board: rpi4b
-            desc: Raspberry Pi 4B, with Armbian mainline kernel (edge), cloud image, user-data at /boot/firmware (FAT)
+            desc: Raspberry Pi 4B, with Armbian mainline kernel (edge), cli
             runnerLabel: armbian-arm64-bcm2711
-            vars: "CLOUD_IMAGE=yes BRANCH=edge"
+            vars: "CLOUD_IMAGE=no BRANCH=edge"
 
           - aa: 0905
             board: tinkerboard
