@@ -213,11 +213,29 @@ jobs:
             runnerLabel: armbian-x86-uefi
             vars: "CLOUD_IMAGE=no ENABLE_EXTENSIONS=image-output-utm,build-machine-image BRANCH=edge"
 
-          # UEFI  RISCV64
-          - aa: 0330
+          - aa: 0326
+            board: qemu-uboot-x86
+            desc: qemu-uboot-x86 (edge), regular CLI; for development only
+            runnerLabel: armbian-x86-uefi
+            vars: "CLOUD_IMAGE=no BRANCH=edge"
+
+          # RISCV64
+          - aa: 0340
             board: uefi-riscv64
             desc: UEFI Generic RISC-V 64 (edge)
             runnerLabel: armbian-riscv64-uefi
+            vars: "CLOUD_IMAGE=no BRANCH=edge"
+
+          - aa: 0342
+            board: visionfive
+            desc: VisionFive RISC-V 64 (edge)
+            runnerLabel: armbian-riscv64-visionfive
+            vars: "CLOUD_IMAGE=no BRANCH=edge"
+
+          - aa: 0344
+            board: beaglev
+            desc: BeagleV RISC-V 64 (edge)
+            runnerLabel: armbian-riscv64-beaglev
             vars: "CLOUD_IMAGE=no BRANCH=edge"
 
           - aa: 0710
