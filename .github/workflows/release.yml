@@ -247,14 +247,14 @@ jobs:
           - aa: 0715
             board: orangepi5
             desc: orangepi5, legacy (5.10), cli
-            runnerLabel: armbian-arm64-rock5b
+            runnerLabel: armbian-arm64-rockchip-rk3588
             vars: "CLOUD_IMAGE=no BRANCH=legacy"
 
           - aa: 0720
             board: rock-5b
-            desc: rock-5b, legacy (5.10), gnome desktop
-            runnerLabel: armbian-arm64-rock5b
-            vars: "CLOUD_IMAGE=no BRANCH=legacy BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=none DESKTOP_ENVIRONMENT=gnome DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
+            desc: rock-5b, legacy (5.10), cli
+            runnerLabel: armbian-arm64-rockchip-rk3588
+            vars: "CLOUD_IMAGE=no BRANCH=legacy"
 
           # RPI4b, edge
           - aa: 0805
