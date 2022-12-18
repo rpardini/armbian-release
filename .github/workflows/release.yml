@@ -44,13 +44,19 @@ jobs:
           # 0500+ other stuff
 
           - aa: 0001
+            board: orangepi5
+            desc: orangepi5, legacy (5.10), cli
+            runnerLabel: armbian-arm64-rockchip-rk3588
+            vars: "CLOUD_IMAGE=no BRANCH=legacy"
+
+          - aa: 0010
             board: uefi-arm64
             desc: UEFI Generic ARM64 Rescue e2img, ddk, cloud image, user-data at /boot, *always Jammy*
             runnerLabel: armbian-arm64-ddk
             vars: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=uefi-rescue BRANCH=ddk RELEASE=jammy"
 
           # RPI4b, ddk
-          - aa: 0002
+          - aa: 0020
             board: rpi4b
             desc: Raspberry Pi 4B, ddk, cli
             runnerLabel: armbian-arm64-ddk
@@ -243,12 +249,6 @@ jobs:
             desc: odroidm1, edge, regular CLI #, built on x86
             runnerLabel: armbian-arm64-odroidm1
             vars: "CLOUD_IMAGE=no BRANCH=edge"
-
-          - aa: 0715
-            board: orangepi5
-            desc: orangepi5, legacy (5.10), cli
-            runnerLabel: armbian-arm64-rockchip-rk3588
-            vars: "CLOUD_IMAGE=no BRANCH=legacy"
 
           - aa: 0720
             board: rock-5b
