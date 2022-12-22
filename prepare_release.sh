@@ -14,6 +14,8 @@ cat << EOD > release.md
 - \`${MATRIX_BOARD}\`: ${MATRIX_DESC} (built on $(dpkg --print-architecture))
 EOD
 
+mkdir -p ./images # ensure this exists; it doesnt if the build failed
+
 echo "Compressing files..."
 find ./images -type f -size +1M | cut -d "/" -f 3 | while read fn; do
 	echo "Compressing '$fn'..."

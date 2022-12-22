@@ -42,20 +42,25 @@ jobs:
           # 0100 = meson64 stuff (fixed version), boards I own first, then others
           # 0200 = uefi stuff (fixed version)
           # 0500+ other stuff
+          - aa: 0002
+            board: jetson-nano
+            desc: jetson-nano, cli, edge # media kernel
+            runnerLabel: armbian-arm64-media
+            vars: "CLOUD_IMAGE=no BRANCH=edge"
 
-          - aa: 0001
+          - aa: 0005
             board: tritium-h3
             desc: tritium-h3, edge, cli
             runnerLabel: armbian-armhf-sunxi
             vars: "CLOUD_IMAGE=no BRANCH=edge"
 
-          - aa: 0002
+          - aa: 00010
             board: tritium-h5
             desc: tritium-h5, edge, cli
             runnerLabel: armbian-armhf-sunxi64
             vars: "CLOUD_IMAGE=no BRANCH=edge"
 
-          - aa: 0010
+          - aa: 0019
             board: uefi-arm64
             desc: UEFI Generic ARM64 Rescue e2img, ddk, cloud image, user-data at /boot, *always Jammy*
             runnerLabel: armbian-arm64-ddk
