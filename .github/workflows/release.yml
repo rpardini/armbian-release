@@ -48,11 +48,23 @@ jobs:
             runnerLabel: armbian-arm64-media
             vars: "CLOUD_IMAGE=no BRANCH=edge"
 
+          - aa: 0004
+            board: tritium-h3
+            desc: tritium-h3, current, cli
+            runnerLabel: armbian-armhf-sunxi
+            vars: "CLOUD_IMAGE=no BRANCH=current"
+
           - aa: 0005
             board: tritium-h3
             desc: tritium-h3, edge, cli
             runnerLabel: armbian-armhf-sunxi
             vars: "CLOUD_IMAGE=no BRANCH=edge"
+
+          - aa: 00009
+            board: tritium-h5
+            desc: tritium-h5, current, cli
+            runnerLabel: armbian-armhf-sunxi64
+            vars: "CLOUD_IMAGE=no BRANCH=current"
 
           - aa: 00010
             board: tritium-h5
