@@ -1,0 +1,36 @@
+jobs:
+  rootfs-cli-13154b4292817436e52804427edd4f8d:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    - armbian-armhf-sunxi
+    steps:
+    - name: Build CLI RootFS '13154b4292817436e52804427edd4f8d'
+      run: 'echo "fake rootfs: 13154b4292817436e52804427edd4f8d"'
+  rootfs-cli-45a3600c135f97b07f80e870bb692d01:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    - armbian-armhf-sunxi
+    steps:
+    - name: Build CLI RootFS '45a3600c135f97b07f80e870bb692d01'
+      run: 'echo "fake rootfs: 45a3600c135f97b07f80e870bb692d01"'
+  rootfs-cli-6c0e668ae353c4fb22cc2b94a8bc0493:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    - armbian-armhf-sunxi
+    steps:
+    - name: Build CLI RootFS '6c0e668ae353c4fb22cc2b94a8bc0493'
+      run: 'echo "fake rootfs: 6c0e668ae353c4fb22cc2b94a8bc0493"'
+name: fake
+'on':
+  workflow_dispatch:
+    inputs:
+      name:
+        default: World
+        description: Name
+        required: true
