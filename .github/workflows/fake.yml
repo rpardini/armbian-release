@@ -181,6 +181,8 @@ jobs:
       uptodate_kernel-rk3568-odroid-edge: ${{ steps.prepare_rk3568-odroid-edge.outputs.uptodate }}
   kernel-sunxi-edge:
     if: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-sunxi-edge == 'no' }}
+    outputs:
+      up-to-date: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-sunxi-edge }}
     runs-on:
     - self-hosted
     - Linux
@@ -192,6 +194,8 @@ jobs:
       run: 'echo "fake kernel: sunxi-edge"'
   kernel-rockchip64-edge:
     if: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-rockchip64-edge == 'no' }}
+    outputs:
+      up-to-date: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-rockchip64-edge }}
     runs-on:
     - self-hosted
     - Linux
@@ -203,6 +207,8 @@ jobs:
       run: 'echo "fake kernel: rockchip64-edge"'
   kernel-sunxi64-edge:
     if: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-sunxi64-edge == 'no' }}
+    outputs:
+      up-to-date: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-sunxi64-edge }}
     runs-on:
     - self-hosted
     - Linux
@@ -214,6 +220,8 @@ jobs:
       run: 'echo "fake kernel: sunxi64-edge"'
   kernel-meson64-edge:
     if: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-meson64-edge == 'no' }}
+    outputs:
+      up-to-date: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-meson64-edge }}
     runs-on:
     - self-hosted
     - Linux
@@ -225,6 +233,8 @@ jobs:
       run: 'echo "fake kernel: meson64-edge"'
   kernel-media-edge:
     if: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-media-edge == 'no' }}
+    outputs:
+      up-to-date: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-media-edge }}
     runs-on:
     - self-hosted
     - Linux
@@ -236,6 +246,8 @@ jobs:
       run: 'echo "fake kernel: media-edge"'
   kernel-starfive-edge:
     if: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-starfive-edge == 'no' }}
+    outputs:
+      up-to-date: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-starfive-edge }}
     runs-on:
     - self-hosted
     - Linux
@@ -247,6 +259,8 @@ jobs:
       run: 'echo "fake kernel: starfive-edge"'
   kernel-rockchip-edge:
     if: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-rockchip-edge == 'no' }}
+    outputs:
+      up-to-date: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-rockchip-edge }}
     runs-on:
     - self-hosted
     - Linux
@@ -258,6 +272,8 @@ jobs:
       run: 'echo "fake kernel: rockchip-edge"'
   kernel-mvebu-edge:
     if: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-mvebu-edge == 'no' }}
+    outputs:
+      up-to-date: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-mvebu-edge }}
     runs-on:
     - self-hosted
     - Linux
@@ -269,6 +285,8 @@ jobs:
       run: 'echo "fake kernel: mvebu-edge"'
   kernel-mvebu64-edge:
     if: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-mvebu64-edge == 'no' }}
+    outputs:
+      up-to-date: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-mvebu64-edge }}
     runs-on:
     - self-hosted
     - Linux
@@ -280,6 +298,8 @@ jobs:
       run: 'echo "fake kernel: mvebu64-edge"'
   kernel-meson-edge:
     if: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-meson-edge == 'no' }}
+    outputs:
+      up-to-date: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-meson-edge }}
     runs-on:
     - self-hosted
     - Linux
@@ -291,6 +311,8 @@ jobs:
       run: 'echo "fake kernel: meson-edge"'
   kernel-x86-edge:
     if: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-x86-edge == 'no' }}
+    outputs:
+      up-to-date: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-x86-edge }}
     runs-on:
     - self-hosted
     - Linux
@@ -302,6 +324,8 @@ jobs:
       run: 'echo "fake kernel: x86-edge"'
   kernel-arm64-edge:
     if: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-arm64-edge == 'no' }}
+    outputs:
+      up-to-date: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-arm64-edge }}
     runs-on:
     - self-hosted
     - Linux
@@ -313,6 +337,8 @@ jobs:
       run: 'echo "fake kernel: arm64-edge"'
   kernel-imx6-edge:
     if: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-imx6-edge == 'no' }}
+    outputs:
+      up-to-date: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-imx6-edge }}
     runs-on:
     - self-hosted
     - Linux
@@ -324,6 +350,8 @@ jobs:
       run: 'echo "fake kernel: imx6-edge"'
   kernel-rk322x-edge:
     if: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-rk322x-edge == 'no' }}
+    outputs:
+      up-to-date: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-rk322x-edge }}
     runs-on:
     - self-hosted
     - Linux
@@ -335,6 +363,8 @@ jobs:
       run: 'echo "fake kernel: rk322x-edge"'
   kernel-rk35xx-edge:
     if: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-rk35xx-edge == 'no' }}
+    outputs:
+      up-to-date: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-rk35xx-edge }}
     runs-on:
     - self-hosted
     - Linux
@@ -346,6 +376,8 @@ jobs:
       run: 'echo "fake kernel: rk35xx-edge"'
   kernel-riscv64-edge:
     if: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-riscv64-edge == 'no' }}
+    outputs:
+      up-to-date: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-riscv64-edge }}
     runs-on:
     - self-hosted
     - Linux
@@ -357,6 +389,8 @@ jobs:
       run: 'echo "fake kernel: riscv64-edge"'
   kernel-bcm2711-edge:
     if: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-bcm2711-edge == 'no' }}
+    outputs:
+      up-to-date: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-bcm2711-edge }}
     runs-on:
     - self-hosted
     - Linux
@@ -368,6 +402,8 @@ jobs:
       run: 'echo "fake kernel: bcm2711-edge"'
   kernel-odroidxu4-edge:
     if: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-odroidxu4-edge == 'no' }}
+    outputs:
+      up-to-date: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-odroidxu4-edge }}
     runs-on:
     - self-hosted
     - Linux
@@ -379,6 +415,8 @@ jobs:
       run: 'echo "fake kernel: odroidxu4-edge"'
   kernel-rk3568-odroid-edge:
     if: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-rk3568-odroid-edge == 'no' }}
+    outputs:
+      up-to-date: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-rk3568-odroid-edge }}
     runs-on:
     - self-hosted
     - Linux
@@ -393,6 +431,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-mvebu64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'espressobin-edge'
       run: 'echo "fake image: espressobin-edge"'
@@ -404,6 +443,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'orangepi4-edge'
       run: 'echo "fake image: orangepi4-edge"'
@@ -415,6 +455,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'sunvell-r69-edge'
       run: 'echo "fake image: sunvell-r69-edge"'
@@ -426,6 +467,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-meson64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'khadas-vim2-edge'
       run: 'echo "fake image: khadas-vim2-edge"'
@@ -437,6 +479,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-meson-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'odroidc1-edge'
       run: 'echo "fake image: odroidc1-edge"'
@@ -448,6 +491,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'bananapim64-edge'
       run: 'echo "fake image: bananapim64-edge"'
@@ -459,6 +503,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-meson64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'radxa-zero-edge'
       run: 'echo "fake image: radxa-zero-edge"'
@@ -470,6 +515,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'orangepipc-edge'
       run: 'echo "fake image: orangepipc-edge"'
@@ -481,6 +527,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'rockpi-4cplus-edge'
       run: 'echo "fake image: rockpi-4cplus-edge"'
@@ -492,6 +539,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-x86-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'qemu-uboot-x86-edge'
       run: 'echo "fake image: qemu-uboot-x86-edge"'
@@ -503,6 +551,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'nanopineoplus2-edge'
       run: 'echo "fake image: nanopineoplus2-edge"'
@@ -514,6 +563,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-media-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'station-m2-edge'
       run: 'echo "fake image: station-m2-edge"'
@@ -525,6 +575,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'pinebook-a64-edge'
       run: 'echo "fake image: pinebook-a64-edge"'
@@ -536,6 +587,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-rk322x-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'rk322x-box-edge'
       run: 'echo "fake image: rk322x-box-edge"'
@@ -547,6 +599,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'beelinkx2-edge'
       run: 'echo "fake image: beelinkx2-edge"'
@@ -558,6 +611,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-meson64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'khadas-vim3l-edge'
       run: 'echo "fake image: khadas-vim3l-edge"'
@@ -569,6 +623,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'rk3318-box-edge'
       run: 'echo "fake image: rk3318-box-edge"'
@@ -580,6 +635,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'tritium-h5-edge'
       run: 'echo "fake image: tritium-h5-edge"'
@@ -591,6 +647,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'roc-rk3399-pc-edge'
       run: 'echo "fake image: roc-rk3399-pc-edge"'
@@ -602,6 +659,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-starfive-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'beaglev-edge'
       run: 'echo "fake image: beaglev-edge"'
@@ -613,6 +671,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'orangepiprime-edge'
       run: 'echo "fake image: orangepiprime-edge"'
@@ -624,6 +683,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'renegade-edge'
       run: 'echo "fake image: renegade-edge"'
@@ -635,6 +695,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-media-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'jetson-nano-edge'
       run: 'echo "fake image: jetson-nano-edge"'
@@ -646,6 +707,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'nanopineo2black-edge'
       run: 'echo "fake image: nanopineo2black-edge"'
@@ -657,6 +719,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-starfive-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'star64-edge'
       run: 'echo "fake image: star64-edge"'
@@ -668,6 +731,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'orangepipcplus-edge'
       run: 'echo "fake image: orangepipcplus-edge"'
@@ -679,6 +743,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'nanopiduo-edge'
       run: 'echo "fake image: nanopiduo-edge"'
@@ -690,6 +755,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'nanopiair-edge'
       run: 'echo "fake image: nanopiair-edge"'
@@ -701,6 +767,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'nanopineocore2-edge'
       run: 'echo "fake image: nanopineocore2-edge"'
@@ -712,6 +779,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'orangepizeroplus2-h5-edge'
       run: 'echo "fake image: orangepizeroplus2-h5-edge"'
@@ -723,6 +791,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-rk35xx-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'rock-3a-edge'
       run: 'echo "fake image: rock-3a-edge"'
@@ -734,6 +803,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'cubietruckplus-edge'
       run: 'echo "fake image: cubietruckplus-edge"'
@@ -745,6 +815,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'nanopim1-edge'
       run: 'echo "fake image: nanopim1-edge"'
@@ -756,6 +827,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'rockpi-n10-edge'
       run: 'echo "fake image: rockpi-n10-edge"'
@@ -767,6 +839,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'orangepi3-lts-edge'
       run: 'echo "fake image: orangepi3-lts-edge"'
@@ -778,6 +851,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'nanopim4-edge'
       run: 'echo "fake image: nanopim4-edge"'
@@ -789,6 +863,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'orangepilite2-edge'
       run: 'echo "fake image: orangepilite2-edge"'
@@ -800,6 +875,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'cubieboard-edge'
       run: 'echo "fake image: cubieboard-edge"'
@@ -811,6 +887,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-media-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'station-p2-edge'
       run: 'echo "fake image: station-p2-edge"'
@@ -822,6 +899,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'orangepipc2-edge'
       run: 'echo "fake image: orangepipc2-edge"'
@@ -833,6 +911,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'pine64so-edge'
       run: 'echo "fake image: pine64so-edge"'
@@ -844,6 +923,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-meson64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'lafrite-edge'
       run: 'echo "fake image: lafrite-edge"'
@@ -855,6 +935,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-rockchip-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'tinkerboard-edge'
       run: 'echo "fake image: tinkerboard-edge"'
@@ -866,6 +947,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'mk808c-edge'
       run: 'echo "fake image: mk808c-edge"'
@@ -877,6 +959,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'rockpi-4bplus-edge'
       run: 'echo "fake image: rockpi-4bplus-edge"'
@@ -888,6 +971,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-meson64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'khadas-vim3-edge'
       run: 'echo "fake image: khadas-vim3-edge"'
@@ -899,6 +983,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'pcduino2-edge'
       run: 'echo "fake image: pcduino2-edge"'
@@ -910,6 +995,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-meson64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'aml-s9xx-box-edge'
       run: 'echo "fake image: aml-s9xx-box-edge"'
@@ -921,6 +1007,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'pinebook-pro-edge'
       run: 'echo "fake image: pinebook-pro-edge"'
@@ -932,6 +1019,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-meson64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'jethubj80-edge'
       run: 'echo "fake image: jethubj80-edge"'
@@ -943,6 +1031,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-meson64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'nanopik2-s905-edge'
       run: 'echo "fake image: nanopik2-s905-edge"'
@@ -954,6 +1043,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'orangepione-edge'
       run: 'echo "fake image: orangepione-edge"'
@@ -965,6 +1055,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'nanopi-r1s-h5-edge'
       run: 'echo "fake image: nanopi-r1s-h5-edge"'
@@ -976,6 +1067,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'micro-edge'
       run: 'echo "fake image: micro-edge"'
@@ -987,6 +1079,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'tritium-h3-edge'
       run: 'echo "fake image: tritium-h3-edge"'
@@ -998,6 +1091,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'orangepi-rk3399-edge'
       run: 'echo "fake image: orangepi-rk3399-edge"'
@@ -1009,6 +1103,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'nanopim1plus2-edge'
       run: 'echo "fake image: nanopim1plus2-edge"'
@@ -1020,6 +1115,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-mvebu-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'clearfogpro-edge'
       run: 'echo "fake image: clearfogpro-edge"'
@@ -1031,6 +1127,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'pcduino3nano-edge'
       run: 'echo "fake image: pcduino3nano-edge"'
@@ -1042,6 +1139,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'orangepi4-lts-edge'
       run: 'echo "fake image: orangepi4-lts-edge"'
@@ -1053,6 +1151,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'nanopineo4-edge'
       run: 'echo "fake image: nanopineo4-edge"'
@@ -1064,6 +1163,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-mvebu-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'clearfogbase-edge'
       run: 'echo "fake image: clearfogbase-edge"'
@@ -1075,6 +1175,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'pineh64-edge'
       run: 'echo "fake image: pineh64-edge"'
@@ -1086,6 +1187,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'zeropi-edge'
       run: 'echo "fake image: zeropi-edge"'
@@ -1097,6 +1199,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'nanopi-r2s-edge'
       run: 'echo "fake image: nanopi-r2s-edge"'
@@ -1108,6 +1211,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'orangepilite-edge'
       run: 'echo "fake image: orangepilite-edge"'
@@ -1119,6 +1223,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-starfive-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'visionfive-edge'
       run: 'echo "fake image: visionfive-edge"'
@@ -1130,6 +1235,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'orangepiwin-edge'
       run: 'echo "fake image: orangepiwin-edge"'
@@ -1141,6 +1247,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'rockpi-4c-edge'
       run: 'echo "fake image: rockpi-4c-edge"'
@@ -1152,6 +1259,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-media-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'firefly-rk3399-edge'
       run: 'echo "fake image: firefly-rk3399-edge"'
@@ -1163,6 +1271,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'pine64-edge'
       run: 'echo "fake image: pine64-edge"'
@@ -1174,6 +1283,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'cubietruck-edge'
       run: 'echo "fake image: cubietruck-edge"'
@@ -1185,6 +1295,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'orangepiplus2e-edge'
       run: 'echo "fake image: orangepiplus2e-edge"'
@@ -1196,6 +1307,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'nanopim4v2-edge'
       run: 'echo "fake image: nanopim4v2-edge"'
@@ -1207,6 +1319,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'rock64-edge'
       run: 'echo "fake image: rock64-edge"'
@@ -1218,6 +1331,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'nanopim1plus-edge'
       run: 'echo "fake image: nanopim1plus-edge"'
@@ -1229,6 +1343,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-meson64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'bananapim5-edge'
       run: 'echo "fake image: bananapim5-edge"'
@@ -1240,6 +1355,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'orangepizero-edge'
       run: 'echo "fake image: orangepizero-edge"'
@@ -1251,6 +1367,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-meson64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'odroidhc4-edge'
       run: 'echo "fake image: odroidhc4-edge"'
@@ -1262,6 +1379,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'rockpi-4b-edge'
       run: 'echo "fake image: rockpi-4b-edge"'
@@ -1273,6 +1391,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'pineh64-b-edge'
       run: 'echo "fake image: pineh64-b-edge"'
@@ -1284,6 +1403,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-rockchip-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'miqi-edge'
       run: 'echo "fake image: miqi-edge"'
@@ -1295,6 +1415,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-meson64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'odroidn2-edge'
       run: 'echo "fake image: odroidn2-edge"'
@@ -1306,6 +1427,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'orangepi3-edge'
       run: 'echo "fake image: orangepi3-edge"'
@@ -1317,6 +1439,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'orangepi-edge'
       run: 'echo "fake image: orangepi-edge"'
@@ -1328,6 +1451,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'orangepi-r1plus-edge'
       run: 'echo "fake image: orangepi-r1plus-edge"'
@@ -1339,6 +1463,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'nanopi-r4s-edge'
       run: 'echo "fake image: nanopi-r4s-edge"'
@@ -1350,6 +1475,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'lime-a10-edge'
       run: 'echo "fake image: lime-a10-edge"'
@@ -1361,6 +1487,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-media-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'nanopct4-edge'
       run: 'echo "fake image: nanopct4-edge"'
@@ -1372,6 +1499,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-riscv64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'uefi-riscv64-edge'
       run: 'echo "fake image: uefi-riscv64-edge"'
@@ -1383,6 +1511,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'pcduino3-edge'
       run: 'echo "fake image: pcduino3-edge"'
@@ -1394,6 +1523,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'orangepimini-edge'
       run: 'echo "fake image: orangepimini-edge"'
@@ -1405,6 +1535,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'nanopi-r1-edge'
       run: 'echo "fake image: nanopi-r1-edge"'
@@ -1416,6 +1547,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'fe-som-rk3399-edge'
       run: 'echo "fake image: fe-som-rk3399-edge"'
@@ -1427,6 +1559,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'cubieboard4-edge'
       run: 'echo "fake image: cubieboard4-edge"'
@@ -1438,6 +1571,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'rockpi-e-edge'
       run: 'echo "fake image: rockpi-e-edge"'
@@ -1449,6 +1583,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'bananapim2ultra-edge'
       run: 'echo "fake image: bananapim2ultra-edge"'
@@ -1460,6 +1595,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-media-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'quartz64a-edge'
       run: 'echo "fake image: quartz64a-edge"'
@@ -1471,6 +1607,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'lime2-edge'
       run: 'echo "fake image: lime2-edge"'
@@ -1482,6 +1619,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'orangepizeroplus-edge'
       run: 'echo "fake image: orangepizeroplus-edge"'
@@ -1493,6 +1631,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'lime-a64-edge'
       run: 'echo "fake image: lime-a64-edge"'
@@ -1504,6 +1643,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-x86-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'uefi-x86-edge'
       run: 'echo "fake image: uefi-x86-edge"'
@@ -1515,6 +1655,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-starfive-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'visionfive2-edge'
       run: 'echo "fake image: visionfive2-edge"'
@@ -1526,6 +1667,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'orangepiplus-edge'
       run: 'echo "fake image: orangepiplus-edge"'
@@ -1537,6 +1679,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'bananapim3-edge'
       run: 'echo "fake image: bananapim3-edge"'
@@ -1548,6 +1691,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-meson64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'odroidc4-edge'
       run: 'echo "fake image: odroidc4-edge"'
@@ -1559,6 +1703,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'nanopia64-edge'
       run: 'echo "fake image: nanopia64-edge"'
@@ -1570,6 +1715,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'clockworkpi-a06-edge'
       run: 'echo "fake image: clockworkpi-a06-edge"'
@@ -1581,6 +1727,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'nanopik1plus-edge'
       run: 'echo "fake image: nanopik1plus-edge"'
@@ -1592,6 +1739,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'bananapim2plus-edge'
       run: 'echo "fake image: bananapim2plus-edge"'
@@ -1603,6 +1751,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'tinkerboard-2-edge'
       run: 'echo "fake image: tinkerboard-2-edge"'
@@ -1614,6 +1763,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-arm64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'uefi-arm64-edge'
       run: 'echo "fake image: uefi-arm64-edge"'
@@ -1625,6 +1775,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'pinecube-edge'
       run: 'echo "fake image: pinecube-edge"'
@@ -1636,6 +1787,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-meson64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'jethubj100-edge'
       run: 'echo "fake image: jethubj100-edge"'
@@ -1647,6 +1799,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'rockpi-4a-edge'
       run: 'echo "fake image: rockpi-4a-edge"'
@@ -1658,6 +1811,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'olimex-som204-a20-edge'
       run: 'echo "fake image: olimex-som204-a20-edge"'
@@ -1669,6 +1823,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'nanopineo3-edge'
       run: 'echo "fake image: nanopineo3-edge"'
@@ -1680,6 +1835,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-mvebu64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'macchiatobin-doubleshot-edge'
       run: 'echo "fake image: macchiatobin-doubleshot-edge"'
@@ -1691,6 +1847,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'bananapim2zero-edge'
       run: 'echo "fake image: bananapim2zero-edge"'
@@ -1702,6 +1859,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'orangepioneplus-edge'
       run: 'echo "fake image: orangepioneplus-edge"'
@@ -1713,6 +1871,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'nanopineo2-edge'
       run: 'echo "fake image: nanopineo2-edge"'
@@ -1724,6 +1883,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'cubieboard2-edge'
       run: 'echo "fake image: cubieboard2-edge"'
@@ -1735,6 +1895,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'orangepizeroplus2-h3-edge'
       run: 'echo "fake image: orangepizeroplus2-h3-edge"'
@@ -1746,6 +1907,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-bcm2711-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'rpi4b-edge'
       run: 'echo "fake image: rpi4b-edge"'
@@ -1757,6 +1919,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'rockpro64-edge'
       run: 'echo "fake image: rockpro64-edge"'
@@ -1768,6 +1931,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'lamobo-r1-edge'
       run: 'echo "fake image: lamobo-r1-edge"'
@@ -1779,6 +1943,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'helios64-edge'
       run: 'echo "fake image: helios64-edge"'
@@ -1790,6 +1955,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'nanopiduo2-edge'
       run: 'echo "fake image: nanopiduo2-edge"'
@@ -1801,6 +1967,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'orangepi2-edge'
       run: 'echo "fake image: orangepi2-edge"'
@@ -1812,6 +1979,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'olimex-som-a20-edge'
       run: 'echo "fake image: olimex-som-a20-edge"'
@@ -1823,6 +1991,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-odroidxu4-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'odroidxu4-edge'
       run: 'echo "fake image: odroidxu4-edge"'
@@ -1834,6 +2003,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'orangepi-r1-edge'
       run: 'echo "fake image: orangepi-r1-edge"'
@@ -1845,6 +2015,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'olinux-som-a13-edge'
       run: 'echo "fake image: olinux-som-a13-edge"'
@@ -1856,6 +2027,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'bananapim1plus-edge'
       run: 'echo "fake image: bananapim1plus-edge"'
@@ -1867,6 +2039,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-arm64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'qemu-uboot-arm64-edge'
       run: 'echo "fake image: qemu-uboot-arm64-edge"'
@@ -1878,6 +2051,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-meson64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'radxa-zero2-edge'
       run: 'echo "fake image: radxa-zero2-edge"'
@@ -1889,6 +2063,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'bananapi-edge'
       run: 'echo "fake image: bananapi-edge"'
@@ -1900,6 +2075,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'orangepizero2-edge'
       run: 'echo "fake image: orangepizero2-edge"'
@@ -1911,6 +2087,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-meson64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'odroidc2-edge'
       run: 'echo "fake image: odroidc2-edge"'
@@ -1922,6 +2099,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'nanopineo-edge'
       run: 'echo "fake image: nanopineo-edge"'
@@ -1933,6 +2111,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-media-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'station-p1-edge'
       run: 'echo "fake image: station-p1-edge"'
@@ -1944,6 +2123,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-imx6-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'cubox-i-edge'
       run: 'echo "fake image: cubox-i-edge"'
@@ -1955,6 +2135,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'recore-edge'
       run: 'echo "fake image: recore-edge"'
@@ -1966,6 +2147,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-meson-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'onecloud-edge'
       run: 'echo "fake image: onecloud-edge"'
@@ -1977,6 +2159,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-imx6-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'udoo-edge'
       run: 'echo "fake image: udoo-edge"'
@@ -1988,6 +2171,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-media-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'station-m1-edge'
       run: 'echo "fake image: station-m1-edge"'
@@ -1999,6 +2183,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'teres-a64-edge'
       run: 'echo "fake image: teres-a64-edge"'
@@ -2010,6 +2195,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-rockchip-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'xt-q8l-v10-edge'
       run: 'echo "fake image: xt-q8l-v10-edge"'
@@ -2021,6 +2207,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'melea1000-edge'
       run: 'echo "fake image: melea1000-edge"'
@@ -2032,6 +2219,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-rk3568-odroid-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'odroidm1-edge'
       run: 'echo "fake image: odroidm1-edge"'
@@ -2043,6 +2231,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-meson64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'lepotato-edge'
       run: 'echo "fake image: lepotato-edge"'
@@ -2054,6 +2243,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'lime-a33-edge'
       run: 'echo "fake image: lime-a33-edge"'
@@ -2065,6 +2255,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-media-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'bananapir2pro-edge'
       run: 'echo "fake image: bananapir2pro-edge"'
@@ -2076,6 +2267,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'orangepi-r1plus-lts-edge'
       run: 'echo "fake image: orangepi-r1plus-lts-edge"'
@@ -2087,6 +2279,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-meson64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'khadas-vim1-edge'
       run: 'echo "fake image: khadas-vim1-edge"'
@@ -2098,6 +2291,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-mvebu-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'helios4-edge'
       run: 'echo "fake image: helios4-edge"'
@@ -2109,6 +2303,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'nanopi-r2c-edge'
       run: 'echo "fake image: nanopi-r2c-edge"'
@@ -2120,6 +2315,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'bananapipro-edge'
       run: 'echo "fake image: bananapipro-edge"'
@@ -2131,6 +2327,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'lime-edge'
       run: 'echo "fake image: lime-edge"'
@@ -2142,6 +2339,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'rockpi-s-edge'
       run: 'echo "fake image: rockpi-s-edge"'
@@ -2153,6 +2351,7 @@ jobs:
     - self-hosted
     - Linux
     - armbian
+    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     steps:
     - name: Image CLI 'khadas-edge-edge'
       run: 'echo "fake image: khadas-edge-edge"'
