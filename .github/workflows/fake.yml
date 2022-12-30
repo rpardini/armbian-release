@@ -1,1996 +1,185 @@
+name: fake
+'on':
+  workflow_dispatch:
+    inputs:
+      name:
+        description: Name
+        required: true
+        default: World
 jobs:
-  image_cli_aml-s9xx-box-edge:
-    needs:
-    - kernel-meson64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'aml-s9xx-box-edge'
-      run: 'echo "fake image: aml-s9xx-box-edge"'
-  image_cli_bananapi-edge:
-    needs:
-    - kernel-sunxi-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'bananapi-edge'
-      run: 'echo "fake image: bananapi-edge"'
-  image_cli_bananapim1plus-edge:
-    needs:
-    - kernel-sunxi-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'bananapim1plus-edge'
-      run: 'echo "fake image: bananapim1plus-edge"'
-  image_cli_bananapim2plus-edge:
-    needs:
-    - kernel-sunxi-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'bananapim2plus-edge'
-      run: 'echo "fake image: bananapim2plus-edge"'
-  image_cli_bananapim2ultra-edge:
-    needs:
-    - kernel-sunxi-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'bananapim2ultra-edge'
-      run: 'echo "fake image: bananapim2ultra-edge"'
-  image_cli_bananapim2zero-edge:
-    needs:
-    - kernel-sunxi-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'bananapim2zero-edge'
-      run: 'echo "fake image: bananapim2zero-edge"'
-  image_cli_bananapim3-edge:
-    needs:
-    - kernel-sunxi-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'bananapim3-edge'
-      run: 'echo "fake image: bananapim3-edge"'
-  image_cli_bananapim5-edge:
-    needs:
-    - kernel-meson64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'bananapim5-edge'
-      run: 'echo "fake image: bananapim5-edge"'
-  image_cli_bananapim64-edge:
-    needs:
-    - kernel-sunxi64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'bananapim64-edge'
-      run: 'echo "fake image: bananapim64-edge"'
-  image_cli_bananapipro-edge:
-    needs:
-    - kernel-sunxi-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'bananapipro-edge'
-      run: 'echo "fake image: bananapipro-edge"'
-  image_cli_bananapir2pro-edge:
-    needs:
-    - kernel-media-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'bananapir2pro-edge'
-      run: 'echo "fake image: bananapir2pro-edge"'
-  image_cli_beaglev-edge:
-    needs:
-    - kernel-starfive-edge
-    - rootfs-cli-6c0e668ae353c4fb22cc2b94a8bc0493
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'beaglev-edge'
-      run: 'echo "fake image: beaglev-edge"'
-  image_cli_beelinkx2-edge:
-    needs:
-    - kernel-sunxi-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'beelinkx2-edge'
-      run: 'echo "fake image: beelinkx2-edge"'
-  image_cli_clearfogbase-edge:
-    needs:
-    - kernel-mvebu-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'clearfogbase-edge'
-      run: 'echo "fake image: clearfogbase-edge"'
-  image_cli_clearfogpro-edge:
-    needs:
-    - kernel-mvebu-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'clearfogpro-edge'
-      run: 'echo "fake image: clearfogpro-edge"'
-  image_cli_clockworkpi-a06-edge:
-    needs:
-    - kernel-rockchip64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'clockworkpi-a06-edge'
-      run: 'echo "fake image: clockworkpi-a06-edge"'
-  image_cli_cubieboard-edge:
-    needs:
-    - kernel-sunxi-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'cubieboard-edge'
-      run: 'echo "fake image: cubieboard-edge"'
-  image_cli_cubieboard2-edge:
-    needs:
-    - kernel-sunxi-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'cubieboard2-edge'
-      run: 'echo "fake image: cubieboard2-edge"'
-  image_cli_cubieboard4-edge:
-    needs:
-    - kernel-sunxi-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'cubieboard4-edge'
-      run: 'echo "fake image: cubieboard4-edge"'
-  image_cli_cubietruck-edge:
-    needs:
-    - kernel-sunxi-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'cubietruck-edge'
-      run: 'echo "fake image: cubietruck-edge"'
-  image_cli_cubietruckplus-edge:
-    needs:
-    - kernel-sunxi-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'cubietruckplus-edge'
-      run: 'echo "fake image: cubietruckplus-edge"'
-  image_cli_cubox-i-edge:
-    needs:
-    - kernel-imx6-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'cubox-i-edge'
-      run: 'echo "fake image: cubox-i-edge"'
-  image_cli_espressobin-edge:
-    needs:
-    - kernel-mvebu64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'espressobin-edge'
-      run: 'echo "fake image: espressobin-edge"'
-  image_cli_fe-som-rk3399-edge:
-    needs:
-    - kernel-rockchip64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'fe-som-rk3399-edge'
-      run: 'echo "fake image: fe-som-rk3399-edge"'
-  image_cli_firefly-rk3399-edge:
-    needs:
-    - kernel-media-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'firefly-rk3399-edge'
-      run: 'echo "fake image: firefly-rk3399-edge"'
-  image_cli_helios4-edge:
-    needs:
-    - kernel-mvebu-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'helios4-edge'
-      run: 'echo "fake image: helios4-edge"'
-  image_cli_helios64-edge:
-    needs:
-    - kernel-rockchip64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'helios64-edge'
-      run: 'echo "fake image: helios64-edge"'
-  image_cli_jethubj100-edge:
-    needs:
-    - kernel-meson64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'jethubj100-edge'
-      run: 'echo "fake image: jethubj100-edge"'
-  image_cli_jethubj80-edge:
-    needs:
-    - kernel-meson64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'jethubj80-edge'
-      run: 'echo "fake image: jethubj80-edge"'
-  image_cli_jetson-nano-edge:
-    needs:
-    - kernel-media-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'jetson-nano-edge'
-      run: 'echo "fake image: jetson-nano-edge"'
-  image_cli_khadas-edge-edge:
-    needs:
-    - kernel-rockchip64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'khadas-edge-edge'
-      run: 'echo "fake image: khadas-edge-edge"'
-  image_cli_khadas-vim1-edge:
-    needs:
-    - kernel-meson64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'khadas-vim1-edge'
-      run: 'echo "fake image: khadas-vim1-edge"'
-  image_cli_khadas-vim2-edge:
-    needs:
-    - kernel-meson64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'khadas-vim2-edge'
-      run: 'echo "fake image: khadas-vim2-edge"'
-  image_cli_khadas-vim3-edge:
-    needs:
-    - kernel-meson64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'khadas-vim3-edge'
-      run: 'echo "fake image: khadas-vim3-edge"'
-  image_cli_khadas-vim3l-edge:
-    needs:
-    - kernel-meson64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'khadas-vim3l-edge'
-      run: 'echo "fake image: khadas-vim3l-edge"'
-  image_cli_lafrite-edge:
-    needs:
-    - kernel-meson64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'lafrite-edge'
-      run: 'echo "fake image: lafrite-edge"'
-  image_cli_lamobo-r1-edge:
-    needs:
-    - kernel-sunxi-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'lamobo-r1-edge'
-      run: 'echo "fake image: lamobo-r1-edge"'
-  image_cli_lepotato-edge:
-    needs:
-    - kernel-meson64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'lepotato-edge'
-      run: 'echo "fake image: lepotato-edge"'
-  image_cli_lime-a10-edge:
-    needs:
-    - kernel-sunxi-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'lime-a10-edge'
-      run: 'echo "fake image: lime-a10-edge"'
-  image_cli_lime-a33-edge:
-    needs:
-    - kernel-sunxi-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'lime-a33-edge'
-      run: 'echo "fake image: lime-a33-edge"'
-  image_cli_lime-a64-edge:
-    needs:
-    - kernel-sunxi64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'lime-a64-edge'
-      run: 'echo "fake image: lime-a64-edge"'
-  image_cli_lime-edge:
-    needs:
-    - kernel-sunxi-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'lime-edge'
-      run: 'echo "fake image: lime-edge"'
-  image_cli_lime2-edge:
-    needs:
-    - kernel-sunxi-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'lime2-edge'
-      run: 'echo "fake image: lime2-edge"'
-  image_cli_macchiatobin-doubleshot-edge:
-    needs:
-    - kernel-mvebu64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'macchiatobin-doubleshot-edge'
-      run: 'echo "fake image: macchiatobin-doubleshot-edge"'
-  image_cli_melea1000-edge:
-    needs:
-    - kernel-sunxi-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'melea1000-edge'
-      run: 'echo "fake image: melea1000-edge"'
-  image_cli_micro-edge:
-    needs:
-    - kernel-sunxi-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'micro-edge'
-      run: 'echo "fake image: micro-edge"'
-  image_cli_miqi-edge:
-    needs:
-    - kernel-rockchip-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'miqi-edge'
-      run: 'echo "fake image: miqi-edge"'
-  image_cli_mk808c-edge:
-    needs:
-    - kernel-sunxi-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'mk808c-edge'
-      run: 'echo "fake image: mk808c-edge"'
-  image_cli_nanopct4-edge:
-    needs:
-    - kernel-media-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'nanopct4-edge'
-      run: 'echo "fake image: nanopct4-edge"'
-  image_cli_nanopi-r1-edge:
-    needs:
-    - kernel-sunxi-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'nanopi-r1-edge'
-      run: 'echo "fake image: nanopi-r1-edge"'
-  image_cli_nanopi-r1s-h5-edge:
-    needs:
-    - kernel-sunxi64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'nanopi-r1s-h5-edge'
-      run: 'echo "fake image: nanopi-r1s-h5-edge"'
-  image_cli_nanopi-r2c-edge:
-    needs:
-    - kernel-rockchip64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'nanopi-r2c-edge'
-      run: 'echo "fake image: nanopi-r2c-edge"'
-  image_cli_nanopi-r2s-edge:
-    needs:
-    - kernel-rockchip64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'nanopi-r2s-edge'
-      run: 'echo "fake image: nanopi-r2s-edge"'
-  image_cli_nanopi-r4s-edge:
-    needs:
-    - kernel-rockchip64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'nanopi-r4s-edge'
-      run: 'echo "fake image: nanopi-r4s-edge"'
-  image_cli_nanopia64-edge:
-    needs:
-    - kernel-sunxi64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'nanopia64-edge'
-      run: 'echo "fake image: nanopia64-edge"'
-  image_cli_nanopiair-edge:
-    needs:
-    - kernel-sunxi-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'nanopiair-edge'
-      run: 'echo "fake image: nanopiair-edge"'
-  image_cli_nanopiduo-edge:
-    needs:
-    - kernel-sunxi-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'nanopiduo-edge'
-      run: 'echo "fake image: nanopiduo-edge"'
-  image_cli_nanopiduo2-edge:
-    needs:
-    - kernel-sunxi-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'nanopiduo2-edge'
-      run: 'echo "fake image: nanopiduo2-edge"'
-  image_cli_nanopik1plus-edge:
-    needs:
-    - kernel-sunxi64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'nanopik1plus-edge'
-      run: 'echo "fake image: nanopik1plus-edge"'
-  image_cli_nanopik2-s905-edge:
-    needs:
-    - kernel-meson64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'nanopik2-s905-edge'
-      run: 'echo "fake image: nanopik2-s905-edge"'
-  image_cli_nanopim1-edge:
-    needs:
-    - kernel-sunxi-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'nanopim1-edge'
-      run: 'echo "fake image: nanopim1-edge"'
-  image_cli_nanopim1plus-edge:
-    needs:
-    - kernel-sunxi-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'nanopim1plus-edge'
-      run: 'echo "fake image: nanopim1plus-edge"'
-  image_cli_nanopim1plus2-edge:
-    needs:
-    - kernel-sunxi64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'nanopim1plus2-edge'
-      run: 'echo "fake image: nanopim1plus2-edge"'
-  image_cli_nanopim4-edge:
-    needs:
-    - kernel-rockchip64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'nanopim4-edge'
-      run: 'echo "fake image: nanopim4-edge"'
-  image_cli_nanopim4v2-edge:
-    needs:
-    - kernel-rockchip64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'nanopim4v2-edge'
-      run: 'echo "fake image: nanopim4v2-edge"'
-  image_cli_nanopineo-edge:
-    needs:
-    - kernel-sunxi-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'nanopineo-edge'
-      run: 'echo "fake image: nanopineo-edge"'
-  image_cli_nanopineo2-edge:
-    needs:
-    - kernel-sunxi64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'nanopineo2-edge'
-      run: 'echo "fake image: nanopineo2-edge"'
-  image_cli_nanopineo2black-edge:
-    needs:
-    - kernel-sunxi64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'nanopineo2black-edge'
-      run: 'echo "fake image: nanopineo2black-edge"'
-  image_cli_nanopineo3-edge:
-    needs:
-    - kernel-rockchip64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'nanopineo3-edge'
-      run: 'echo "fake image: nanopineo3-edge"'
-  image_cli_nanopineo4-edge:
-    needs:
-    - kernel-rockchip64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'nanopineo4-edge'
-      run: 'echo "fake image: nanopineo4-edge"'
-  image_cli_nanopineocore2-edge:
-    needs:
-    - kernel-sunxi64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'nanopineocore2-edge'
-      run: 'echo "fake image: nanopineocore2-edge"'
-  image_cli_nanopineoplus2-edge:
-    needs:
-    - kernel-sunxi64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'nanopineoplus2-edge'
-      run: 'echo "fake image: nanopineoplus2-edge"'
-  image_cli_odroidc1-edge:
-    needs:
-    - kernel-meson-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'odroidc1-edge'
-      run: 'echo "fake image: odroidc1-edge"'
-  image_cli_odroidc2-edge:
-    needs:
-    - kernel-meson64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'odroidc2-edge'
-      run: 'echo "fake image: odroidc2-edge"'
-  image_cli_odroidc4-edge:
-    needs:
-    - kernel-meson64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'odroidc4-edge'
-      run: 'echo "fake image: odroidc4-edge"'
-  image_cli_odroidhc4-edge:
-    needs:
-    - kernel-meson64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'odroidhc4-edge'
-      run: 'echo "fake image: odroidhc4-edge"'
-  image_cli_odroidm1-edge:
-    needs:
-    - kernel-rk3568-odroid-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'odroidm1-edge'
-      run: 'echo "fake image: odroidm1-edge"'
-  image_cli_odroidn2-edge:
-    needs:
-    - kernel-meson64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'odroidn2-edge'
-      run: 'echo "fake image: odroidn2-edge"'
-  image_cli_odroidxu4-edge:
-    needs:
-    - kernel-odroidxu4-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'odroidxu4-edge'
-      run: 'echo "fake image: odroidxu4-edge"'
-  image_cli_olimex-som-a20-edge:
-    needs:
-    - kernel-sunxi-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'olimex-som-a20-edge'
-      run: 'echo "fake image: olimex-som-a20-edge"'
-  image_cli_olimex-som204-a20-edge:
-    needs:
-    - kernel-sunxi-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'olimex-som204-a20-edge'
-      run: 'echo "fake image: olimex-som204-a20-edge"'
-  image_cli_olinux-som-a13-edge:
-    needs:
-    - kernel-sunxi-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'olinux-som-a13-edge'
-      run: 'echo "fake image: olinux-som-a13-edge"'
-  image_cli_onecloud-edge:
-    needs:
-    - kernel-meson-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'onecloud-edge'
-      run: 'echo "fake image: onecloud-edge"'
-  image_cli_orangepi-edge:
-    needs:
-    - kernel-sunxi-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'orangepi-edge'
-      run: 'echo "fake image: orangepi-edge"'
-  image_cli_orangepi-r1-edge:
-    needs:
-    - kernel-sunxi-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'orangepi-r1-edge'
-      run: 'echo "fake image: orangepi-r1-edge"'
-  image_cli_orangepi-r1plus-edge:
-    needs:
-    - kernel-rockchip64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'orangepi-r1plus-edge'
-      run: 'echo "fake image: orangepi-r1plus-edge"'
-  image_cli_orangepi-r1plus-lts-edge:
-    needs:
-    - kernel-rockchip64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'orangepi-r1plus-lts-edge'
-      run: 'echo "fake image: orangepi-r1plus-lts-edge"'
-  image_cli_orangepi-rk3399-edge:
-    needs:
-    - kernel-rockchip64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'orangepi-rk3399-edge'
-      run: 'echo "fake image: orangepi-rk3399-edge"'
-  image_cli_orangepi2-edge:
-    needs:
-    - kernel-sunxi-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'orangepi2-edge'
-      run: 'echo "fake image: orangepi2-edge"'
-  image_cli_orangepi3-edge:
-    needs:
-    - kernel-sunxi64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'orangepi3-edge'
-      run: 'echo "fake image: orangepi3-edge"'
-  image_cli_orangepi3-lts-edge:
-    needs:
-    - kernel-sunxi64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'orangepi3-lts-edge'
-      run: 'echo "fake image: orangepi3-lts-edge"'
-  image_cli_orangepi4-edge:
-    needs:
-    - kernel-rockchip64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'orangepi4-edge'
-      run: 'echo "fake image: orangepi4-edge"'
-  image_cli_orangepi4-lts-edge:
-    needs:
-    - kernel-rockchip64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'orangepi4-lts-edge'
-      run: 'echo "fake image: orangepi4-lts-edge"'
-  image_cli_orangepilite-edge:
-    needs:
-    - kernel-sunxi-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'orangepilite-edge'
-      run: 'echo "fake image: orangepilite-edge"'
-  image_cli_orangepilite2-edge:
-    needs:
-    - kernel-sunxi64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'orangepilite2-edge'
-      run: 'echo "fake image: orangepilite2-edge"'
-  image_cli_orangepimini-edge:
-    needs:
-    - kernel-sunxi-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'orangepimini-edge'
-      run: 'echo "fake image: orangepimini-edge"'
-  image_cli_orangepione-edge:
-    needs:
-    - kernel-sunxi-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'orangepione-edge'
-      run: 'echo "fake image: orangepione-edge"'
-  image_cli_orangepioneplus-edge:
-    needs:
-    - kernel-sunxi64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'orangepioneplus-edge'
-      run: 'echo "fake image: orangepioneplus-edge"'
-  image_cli_orangepipc-edge:
-    needs:
-    - kernel-sunxi-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'orangepipc-edge'
-      run: 'echo "fake image: orangepipc-edge"'
-  image_cli_orangepipc2-edge:
-    needs:
-    - kernel-sunxi64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'orangepipc2-edge'
-      run: 'echo "fake image: orangepipc2-edge"'
-  image_cli_orangepipcplus-edge:
-    needs:
-    - kernel-sunxi-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'orangepipcplus-edge'
-      run: 'echo "fake image: orangepipcplus-edge"'
-  image_cli_orangepiplus-edge:
-    needs:
-    - kernel-sunxi-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'orangepiplus-edge'
-      run: 'echo "fake image: orangepiplus-edge"'
-  image_cli_orangepiplus2e-edge:
-    needs:
-    - kernel-sunxi-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'orangepiplus2e-edge'
-      run: 'echo "fake image: orangepiplus2e-edge"'
-  image_cli_orangepiprime-edge:
-    needs:
-    - kernel-sunxi64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'orangepiprime-edge'
-      run: 'echo "fake image: orangepiprime-edge"'
-  image_cli_orangepiwin-edge:
-    needs:
-    - kernel-sunxi64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'orangepiwin-edge'
-      run: 'echo "fake image: orangepiwin-edge"'
-  image_cli_orangepizero-edge:
-    needs:
-    - kernel-sunxi-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'orangepizero-edge'
-      run: 'echo "fake image: orangepizero-edge"'
-  image_cli_orangepizero2-edge:
-    needs:
-    - kernel-sunxi64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'orangepizero2-edge'
-      run: 'echo "fake image: orangepizero2-edge"'
-  image_cli_orangepizeroplus-edge:
-    needs:
-    - kernel-sunxi64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'orangepizeroplus-edge'
-      run: 'echo "fake image: orangepizeroplus-edge"'
-  image_cli_orangepizeroplus2-h3-edge:
-    needs:
-    - kernel-sunxi-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'orangepizeroplus2-h3-edge'
-      run: 'echo "fake image: orangepizeroplus2-h3-edge"'
-  image_cli_orangepizeroplus2-h5-edge:
-    needs:
-    - kernel-sunxi64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'orangepizeroplus2-h5-edge'
-      run: 'echo "fake image: orangepizeroplus2-h5-edge"'
-  image_cli_pcduino2-edge:
-    needs:
-    - kernel-sunxi-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'pcduino2-edge'
-      run: 'echo "fake image: pcduino2-edge"'
-  image_cli_pcduino3-edge:
-    needs:
-    - kernel-sunxi-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'pcduino3-edge'
-      run: 'echo "fake image: pcduino3-edge"'
-  image_cli_pcduino3nano-edge:
-    needs:
-    - kernel-sunxi-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'pcduino3nano-edge'
-      run: 'echo "fake image: pcduino3nano-edge"'
-  image_cli_pine64-edge:
-    needs:
-    - kernel-sunxi64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'pine64-edge'
-      run: 'echo "fake image: pine64-edge"'
-  image_cli_pine64so-edge:
-    needs:
-    - kernel-sunxi64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'pine64so-edge'
-      run: 'echo "fake image: pine64so-edge"'
-  image_cli_pinebook-a64-edge:
-    needs:
-    - kernel-sunxi64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
+  rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01:
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    - armbian-armhf-sunxi
     steps:
-    - name: Image CLI 'pinebook-a64-edge'
-      run: 'echo "fake image: pinebook-a64-edge"'
-  image_cli_pinebook-pro-edge:
-    needs:
-    - kernel-rockchip64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'pinebook-pro-edge'
-      run: 'echo "fake image: pinebook-pro-edge"'
-  image_cli_pinecube-edge:
-    needs:
-    - kernel-sunxi-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'pinecube-edge'
-      run: 'echo "fake image: pinecube-edge"'
-  image_cli_pineh64-b-edge:
-    needs:
-    - kernel-sunxi64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'pineh64-b-edge'
-      run: 'echo "fake image: pineh64-b-edge"'
-  image_cli_pineh64-edge:
-    needs:
-    - kernel-sunxi64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'pineh64-edge'
-      run: 'echo "fake image: pineh64-edge"'
-  image_cli_qemu-uboot-arm64-edge:
-    needs:
-    - kernel-arm64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'qemu-uboot-arm64-edge'
-      run: 'echo "fake image: qemu-uboot-arm64-edge"'
-  image_cli_qemu-uboot-x86-edge:
-    needs:
-    - kernel-x86-edge
-    - rootfs-cli-13154b4292817436e52804427edd4f8d
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'qemu-uboot-x86-edge'
-      run: 'echo "fake image: qemu-uboot-x86-edge"'
-  image_cli_quartz64a-edge:
-    needs:
-    - kernel-media-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'quartz64a-edge'
-      run: 'echo "fake image: quartz64a-edge"'
-  image_cli_radxa-zero-edge:
-    needs:
-    - kernel-meson64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'radxa-zero-edge'
-      run: 'echo "fake image: radxa-zero-edge"'
-  image_cli_radxa-zero2-edge:
-    needs:
-    - kernel-meson64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'radxa-zero2-edge'
-      run: 'echo "fake image: radxa-zero2-edge"'
-  image_cli_recore-edge:
-    needs:
-    - kernel-sunxi64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'recore-edge'
-      run: 'echo "fake image: recore-edge"'
-  image_cli_renegade-edge:
-    needs:
-    - kernel-rockchip64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'renegade-edge'
-      run: 'echo "fake image: renegade-edge"'
-  image_cli_rk322x-box-edge:
-    needs:
-    - kernel-rk322x-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'rk322x-box-edge'
-      run: 'echo "fake image: rk322x-box-edge"'
-  image_cli_rk3318-box-edge:
-    needs:
-    - kernel-rockchip64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'rk3318-box-edge'
-      run: 'echo "fake image: rk3318-box-edge"'
-  image_cli_roc-rk3399-pc-edge:
-    needs:
-    - kernel-rockchip64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'roc-rk3399-pc-edge'
-      run: 'echo "fake image: roc-rk3399-pc-edge"'
-  image_cli_rock-3a-edge:
-    needs:
-    - kernel-rk35xx-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'rock-3a-edge'
-      run: 'echo "fake image: rock-3a-edge"'
-  image_cli_rock64-edge:
-    needs:
-    - kernel-rockchip64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'rock64-edge'
-      run: 'echo "fake image: rock64-edge"'
-  image_cli_rockpi-4a-edge:
-    needs:
-    - kernel-rockchip64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'rockpi-4a-edge'
-      run: 'echo "fake image: rockpi-4a-edge"'
-  image_cli_rockpi-4b-edge:
-    needs:
-    - kernel-rockchip64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'rockpi-4b-edge'
-      run: 'echo "fake image: rockpi-4b-edge"'
-  image_cli_rockpi-4bplus-edge:
-    needs:
-    - kernel-rockchip64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'rockpi-4bplus-edge'
-      run: 'echo "fake image: rockpi-4bplus-edge"'
-  image_cli_rockpi-4c-edge:
-    needs:
-    - kernel-rockchip64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'rockpi-4c-edge'
-      run: 'echo "fake image: rockpi-4c-edge"'
-  image_cli_rockpi-4cplus-edge:
-    needs:
-    - kernel-rockchip64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'rockpi-4cplus-edge'
-      run: 'echo "fake image: rockpi-4cplus-edge"'
-  image_cli_rockpi-e-edge:
-    needs:
-    - kernel-rockchip64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'rockpi-e-edge'
-      run: 'echo "fake image: rockpi-e-edge"'
-  image_cli_rockpi-n10-edge:
-    needs:
-    - kernel-rockchip64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'rockpi-n10-edge'
-      run: 'echo "fake image: rockpi-n10-edge"'
-  image_cli_rockpi-s-edge:
-    needs:
-    - kernel-rockchip64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'rockpi-s-edge'
-      run: 'echo "fake image: rockpi-s-edge"'
-  image_cli_rockpro64-edge:
-    needs:
-    - kernel-rockchip64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'rockpro64-edge'
-      run: 'echo "fake image: rockpro64-edge"'
-  image_cli_rpi4b-edge:
-    needs:
-    - kernel-bcm2711-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'rpi4b-edge'
-      run: 'echo "fake image: rpi4b-edge"'
-  image_cli_star64-edge:
-    needs:
-    - kernel-starfive-edge
-    - rootfs-cli-6c0e668ae353c4fb22cc2b94a8bc0493
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'star64-edge'
-      run: 'echo "fake image: star64-edge"'
-  image_cli_station-m1-edge:
-    needs:
-    - kernel-media-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'station-m1-edge'
-      run: 'echo "fake image: station-m1-edge"'
-  image_cli_station-m2-edge:
-    needs:
-    - kernel-media-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'station-m2-edge'
-      run: 'echo "fake image: station-m2-edge"'
-  image_cli_station-p1-edge:
-    needs:
-    - kernel-media-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'station-p1-edge'
-      run: 'echo "fake image: station-p1-edge"'
-  image_cli_station-p2-edge:
-    needs:
-    - kernel-media-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'station-p2-edge'
-      run: 'echo "fake image: station-p2-edge"'
-  image_cli_sunvell-r69-edge:
-    needs:
-    - kernel-sunxi-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'sunvell-r69-edge'
-      run: 'echo "fake image: sunvell-r69-edge"'
-  image_cli_teres-a64-edge:
-    needs:
-    - kernel-sunxi64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'teres-a64-edge'
-      run: 'echo "fake image: teres-a64-edge"'
-  image_cli_tinkerboard-2-edge:
-    needs:
-    - kernel-rockchip64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'tinkerboard-2-edge'
-      run: 'echo "fake image: tinkerboard-2-edge"'
-  image_cli_tinkerboard-edge:
-    needs:
-    - kernel-rockchip-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'tinkerboard-edge'
-      run: 'echo "fake image: tinkerboard-edge"'
-  image_cli_tritium-h3-edge:
-    needs:
-    - kernel-sunxi-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
+    - name: Build CLI RootFS 'arm64_jammy_45a3600c135f97b07f80e870bb692d01'
+      run: 'echo "fake rootfs: arm64_jammy_45a3600c135f97b07f80e870bb692d01"'
+  rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01:
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    - armbian-armhf-sunxi
     steps:
-    - name: Image CLI 'tritium-h3-edge'
-      run: 'echo "fake image: tritium-h3-edge"'
-  image_cli_tritium-h5-edge:
-    needs:
-    - kernel-sunxi64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
+    - name: Build CLI RootFS 'armhf_jammy_45a3600c135f97b07f80e870bb692d01'
+      run: 'echo "fake rootfs: armhf_jammy_45a3600c135f97b07f80e870bb692d01"'
+  rootfs-cli-riscv64_jammy_6c0e668ae353c4fb22cc2b94a8bc0493:
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    - armbian-armhf-sunxi
     steps:
-    - name: Image CLI 'tritium-h5-edge'
-      run: 'echo "fake image: tritium-h5-edge"'
-  image_cli_udoo-edge:
-    needs:
-    - kernel-imx6-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
+    - name: Build CLI RootFS 'riscv64_jammy_6c0e668ae353c4fb22cc2b94a8bc0493'
+      run: 'echo "fake rootfs: riscv64_jammy_6c0e668ae353c4fb22cc2b94a8bc0493"'
+  rootfs-cli-amd64_jammy_13154b4292817436e52804427edd4f8d:
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    - armbian-armhf-sunxi
     steps:
-    - name: Image CLI 'udoo-edge'
-      run: 'echo "fake image: udoo-edge"'
-  image_cli_uefi-arm64-edge:
-    needs:
-    - kernel-arm64-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
+    - name: Build CLI RootFS 'amd64_jammy_13154b4292817436e52804427edd4f8d'
+      run: 'echo "fake rootfs: amd64_jammy_13154b4292817436e52804427edd4f8d"'
+  kernel-prepare-all:
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    - armbian-armhf-sunxi
     steps:
-    - name: Image CLI 'uefi-arm64-edge'
-      run: 'echo "fake image: uefi-arm64-edge"'
-  image_cli_uefi-riscv64-edge:
-    needs:
-    - kernel-riscv64-edge
-    - rootfs-cli-6c0e668ae353c4fb22cc2b94a8bc0493
+    - name: Prepare Kernel 'sunxi-edge'
+      run: 'echo "fake kernel prepare: sunxi-edge"'
+    - name: Prepare Kernel 'rockchip64-edge'
+      run: 'echo "fake kernel prepare: rockchip64-edge"'
+    - name: Prepare Kernel 'sunxi64-edge'
+      run: 'echo "fake kernel prepare: sunxi64-edge"'
+    - name: Prepare Kernel 'meson64-edge'
+      run: 'echo "fake kernel prepare: meson64-edge"'
+    - name: Prepare Kernel 'media-edge'
+      run: 'echo "fake kernel prepare: media-edge"'
+    - name: Prepare Kernel 'starfive-edge'
+      run: 'echo "fake kernel prepare: starfive-edge"'
+    - name: Prepare Kernel 'rockchip-edge'
+      run: 'echo "fake kernel prepare: rockchip-edge"'
+    - name: Prepare Kernel 'mvebu-edge'
+      run: 'echo "fake kernel prepare: mvebu-edge"'
+    - name: Prepare Kernel 'mvebu64-edge'
+      run: 'echo "fake kernel prepare: mvebu64-edge"'
+    - name: Prepare Kernel 'meson-edge'
+      run: 'echo "fake kernel prepare: meson-edge"'
+    - name: Prepare Kernel 'x86-edge'
+      run: 'echo "fake kernel prepare: x86-edge"'
+    - name: Prepare Kernel 'arm64-edge'
+      run: 'echo "fake kernel prepare: arm64-edge"'
+    - name: Prepare Kernel 'imx6-edge'
+      run: 'echo "fake kernel prepare: imx6-edge"'
+    - name: Prepare Kernel 'rk322x-edge'
+      run: 'echo "fake kernel prepare: rk322x-edge"'
+    - name: Prepare Kernel 'rk35xx-edge'
+      run: 'echo "fake kernel prepare: rk35xx-edge"'
+    - name: Prepare Kernel 'riscv64-edge'
+      run: 'echo "fake kernel prepare: riscv64-edge"'
+    - name: Prepare Kernel 'bcm2711-edge'
+      run: 'echo "fake kernel prepare: bcm2711-edge"'
+    - name: Prepare Kernel 'odroidxu4-edge'
+      run: 'echo "fake kernel prepare: odroidxu4-edge"'
+    - name: Prepare Kernel 'rk3568-odroid-edge'
+      run: 'echo "fake kernel prepare: rk3568-odroid-edge"'
+    outputs:
+      kernel-sunxi-edge: fake output for kernel-sunxi-edge
+      kernel-rockchip64-edge: fake output for kernel-rockchip64-edge
+      kernel-sunxi64-edge: fake output for kernel-sunxi64-edge
+      kernel-meson64-edge: fake output for kernel-meson64-edge
+      kernel-media-edge: fake output for kernel-media-edge
+      kernel-starfive-edge: fake output for kernel-starfive-edge
+      kernel-rockchip-edge: fake output for kernel-rockchip-edge
+      kernel-mvebu-edge: fake output for kernel-mvebu-edge
+      kernel-mvebu64-edge: fake output for kernel-mvebu64-edge
+      kernel-meson-edge: fake output for kernel-meson-edge
+      kernel-x86-edge: fake output for kernel-x86-edge
+      kernel-arm64-edge: fake output for kernel-arm64-edge
+      kernel-imx6-edge: fake output for kernel-imx6-edge
+      kernel-rk322x-edge: fake output for kernel-rk322x-edge
+      kernel-rk35xx-edge: fake output for kernel-rk35xx-edge
+      kernel-riscv64-edge: fake output for kernel-riscv64-edge
+      kernel-bcm2711-edge: fake output for kernel-bcm2711-edge
+      kernel-odroidxu4-edge: fake output for kernel-odroidxu4-edge
+      kernel-rk3568-odroid-edge: fake output for kernel-rk3568-odroid-edge
+  kernel-sunxi-edge:
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'uefi-riscv64-edge'
-      run: 'echo "fake image: uefi-riscv64-edge"'
-  image_cli_uefi-x86-edge:
     needs:
-    - kernel-x86-edge
-    - rootfs-cli-13154b4292817436e52804427edd4f8d
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
+    - kernel-prepare-all
     steps:
-    - name: Image CLI 'uefi-x86-edge'
-      run: 'echo "fake image: uefi-x86-edge"'
-  image_cli_visionfive-edge:
-    needs:
-    - kernel-starfive-edge
-    - rootfs-cli-6c0e668ae353c4fb22cc2b94a8bc0493
+    - name: Build Kernel 'sunxi-edge'
+      run: 'echo "fake kernel: sunxi-edge"'
+  kernel-rockchip64-edge:
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'visionfive-edge'
-      run: 'echo "fake image: visionfive-edge"'
-  image_cli_visionfive2-edge:
     needs:
-    - kernel-starfive-edge
-    - rootfs-cli-6c0e668ae353c4fb22cc2b94a8bc0493
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
+    - kernel-prepare-all
     steps:
-    - name: Image CLI 'visionfive2-edge'
-      run: 'echo "fake image: visionfive2-edge"'
-  image_cli_xt-q8l-v10-edge:
-    needs:
-    - kernel-rockchip-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
+    - name: Build Kernel 'rockchip64-edge'
+      run: 'echo "fake kernel: rockchip64-edge"'
+  kernel-sunxi64-edge:
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'xt-q8l-v10-edge'
-      run: 'echo "fake image: xt-q8l-v10-edge"'
-  image_cli_zeropi-edge:
     needs:
-    - kernel-sunxi-edge
-    - rootfs-cli-45a3600c135f97b07f80e870bb692d01
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Image CLI 'zeropi-edge'
-      run: 'echo "fake image: zeropi-edge"'
-  kernel-arm64-edge:
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Build Kernel 'arm64-edge'
-      run: 'echo "fake kernel: arm64-edge"'
-  kernel-bcm2711-edge:
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Build Kernel 'bcm2711-edge'
-      run: 'echo "fake kernel: bcm2711-edge"'
-  kernel-imx6-edge:
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Build Kernel 'imx6-edge'
-      run: 'echo "fake kernel: imx6-edge"'
-  kernel-media-edge:
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Build Kernel 'media-edge'
-      run: 'echo "fake kernel: media-edge"'
-  kernel-meson-edge:
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
+    - kernel-prepare-all
     steps:
-    - name: Build Kernel 'meson-edge'
-      run: 'echo "fake kernel: meson-edge"'
+    - name: Build Kernel 'sunxi64-edge'
+      run: 'echo "fake kernel: sunxi64-edge"'
   kernel-meson64-edge:
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    - armbian-armhf-sunxi
+    needs:
+    - kernel-prepare-all
     steps:
     - name: Build Kernel 'meson64-edge'
       run: 'echo "fake kernel: meson64-edge"'
+  kernel-media-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    needs:
+    - kernel-prepare-all
+    steps:
+    - name: Build Kernel 'media-edge'
+      run: 'echo "fake kernel: media-edge"'
+  kernel-starfive-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    needs:
+    - kernel-prepare-all
+    steps:
+    - name: Build Kernel 'starfive-edge'
+      run: 'echo "fake kernel: starfive-edge"'
+  kernel-rockchip-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    needs:
+    - kernel-prepare-all
+    steps:
+    - name: Build Kernel 'rockchip-edge'
+      run: 'echo "fake kernel: rockchip-edge"'
   kernel-mvebu-edge:
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    - armbian-armhf-sunxi
+    needs:
+    - kernel-prepare-all
     steps:
     - name: Build Kernel 'mvebu-edge'
       run: 'echo "fake kernel: mvebu-edge"'
@@ -1999,141 +188,1879 @@ jobs:
     - self-hosted
     - Linux
     - armbian
-    - armbian-armhf-sunxi
+    needs:
+    - kernel-prepare-all
     steps:
     - name: Build Kernel 'mvebu64-edge'
       run: 'echo "fake kernel: mvebu64-edge"'
-  kernel-odroidxu4-edge:
+  kernel-meson-edge:
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    - armbian-armhf-sunxi
+    needs:
+    - kernel-prepare-all
     steps:
-    - name: Build Kernel 'odroidxu4-edge'
-      run: 'echo "fake kernel: odroidxu4-edge"'
-  kernel-riscv64-edge:
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Build Kernel 'riscv64-edge'
-      run: 'echo "fake kernel: riscv64-edge"'
-  kernel-rk322x-edge:
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Build Kernel 'rk322x-edge'
-      run: 'echo "fake kernel: rk322x-edge"'
-  kernel-rk3568-odroid-edge:
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Build Kernel 'rk3568-odroid-edge'
-      run: 'echo "fake kernel: rk3568-odroid-edge"'
-  kernel-rk35xx-edge:
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Build Kernel 'rk35xx-edge'
-      run: 'echo "fake kernel: rk35xx-edge"'
-  kernel-rockchip-edge:
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Build Kernel 'rockchip-edge'
-      run: 'echo "fake kernel: rockchip-edge"'
-  kernel-rockchip64-edge:
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Build Kernel 'rockchip64-edge'
-      run: 'echo "fake kernel: rockchip64-edge"'
-  kernel-starfive-edge:
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Build Kernel 'starfive-edge'
-      run: 'echo "fake kernel: starfive-edge"'
-  kernel-sunxi-edge:
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Build Kernel 'sunxi-edge'
-      run: 'echo "fake kernel: sunxi-edge"'
-  kernel-sunxi64-edge:
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - armbian-armhf-sunxi
-    steps:
-    - name: Build Kernel 'sunxi64-edge'
-      run: 'echo "fake kernel: sunxi64-edge"'
+    - name: Build Kernel 'meson-edge'
+      run: 'echo "fake kernel: meson-edge"'
   kernel-x86-edge:
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    - armbian-armhf-sunxi
+    needs:
+    - kernel-prepare-all
     steps:
     - name: Build Kernel 'x86-edge'
       run: 'echo "fake kernel: x86-edge"'
-  rootfs-cli-13154b4292817436e52804427edd4f8d:
+  kernel-arm64-edge:
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    - armbian-armhf-sunxi
+    needs:
+    - kernel-prepare-all
     steps:
-    - name: Build CLI RootFS '13154b4292817436e52804427edd4f8d'
-      run: 'echo "fake rootfs: 13154b4292817436e52804427edd4f8d"'
-  rootfs-cli-45a3600c135f97b07f80e870bb692d01:
+    - name: Build Kernel 'arm64-edge'
+      run: 'echo "fake kernel: arm64-edge"'
+  kernel-imx6-edge:
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    - armbian-armhf-sunxi
+    needs:
+    - kernel-prepare-all
     steps:
-    - name: Build CLI RootFS '45a3600c135f97b07f80e870bb692d01'
-      run: 'echo "fake rootfs: 45a3600c135f97b07f80e870bb692d01"'
-  rootfs-cli-6c0e668ae353c4fb22cc2b94a8bc0493:
+    - name: Build Kernel 'imx6-edge'
+      run: 'echo "fake kernel: imx6-edge"'
+  kernel-rk322x-edge:
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    - armbian-armhf-sunxi
+    needs:
+    - kernel-prepare-all
     steps:
-    - name: Build CLI RootFS '6c0e668ae353c4fb22cc2b94a8bc0493'
-      run: 'echo "fake rootfs: 6c0e668ae353c4fb22cc2b94a8bc0493"'
-name: fake
-'on':
-  workflow_dispatch:
-    inputs:
-      name:
-        default: World
-        description: Name
-        required: true
+    - name: Build Kernel 'rk322x-edge'
+      run: 'echo "fake kernel: rk322x-edge"'
+  kernel-rk35xx-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    needs:
+    - kernel-prepare-all
+    steps:
+    - name: Build Kernel 'rk35xx-edge'
+      run: 'echo "fake kernel: rk35xx-edge"'
+  kernel-riscv64-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    needs:
+    - kernel-prepare-all
+    steps:
+    - name: Build Kernel 'riscv64-edge'
+      run: 'echo "fake kernel: riscv64-edge"'
+  kernel-bcm2711-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    needs:
+    - kernel-prepare-all
+    steps:
+    - name: Build Kernel 'bcm2711-edge'
+      run: 'echo "fake kernel: bcm2711-edge"'
+  kernel-odroidxu4-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    needs:
+    - kernel-prepare-all
+    steps:
+    - name: Build Kernel 'odroidxu4-edge'
+      run: 'echo "fake kernel: odroidxu4-edge"'
+  kernel-rk3568-odroid-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    needs:
+    - kernel-prepare-all
+    steps:
+    - name: Build Kernel 'rk3568-odroid-edge'
+      run: 'echo "fake kernel: rk3568-odroid-edge"'
+  image_cli_espressobin-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'espressobin-edge'
+      run: 'echo "fake image: espressobin-edge"'
+    needs:
+    - kernel-mvebu64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_orangepi4-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'orangepi4-edge'
+      run: 'echo "fake image: orangepi4-edge"'
+    needs:
+    - kernel-rockchip64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_sunvell-r69-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'sunvell-r69-edge'
+      run: 'echo "fake image: sunvell-r69-edge"'
+    needs:
+    - kernel-sunxi-edge
+    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_khadas-vim2-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'khadas-vim2-edge'
+      run: 'echo "fake image: khadas-vim2-edge"'
+    needs:
+    - kernel-meson64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_odroidc1-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'odroidc1-edge'
+      run: 'echo "fake image: odroidc1-edge"'
+    needs:
+    - kernel-meson-edge
+    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_bananapim64-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'bananapim64-edge'
+      run: 'echo "fake image: bananapim64-edge"'
+    needs:
+    - kernel-sunxi64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_radxa-zero-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'radxa-zero-edge'
+      run: 'echo "fake image: radxa-zero-edge"'
+    needs:
+    - kernel-meson64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_orangepipc-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'orangepipc-edge'
+      run: 'echo "fake image: orangepipc-edge"'
+    needs:
+    - kernel-sunxi-edge
+    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_rockpi-4cplus-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'rockpi-4cplus-edge'
+      run: 'echo "fake image: rockpi-4cplus-edge"'
+    needs:
+    - kernel-rockchip64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_qemu-uboot-x86-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'qemu-uboot-x86-edge'
+      run: 'echo "fake image: qemu-uboot-x86-edge"'
+    needs:
+    - kernel-x86-edge
+    - rootfs-cli-amd64_jammy_13154b4292817436e52804427edd4f8d
+  image_cli_nanopineoplus2-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'nanopineoplus2-edge'
+      run: 'echo "fake image: nanopineoplus2-edge"'
+    needs:
+    - kernel-sunxi64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_station-m2-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'station-m2-edge'
+      run: 'echo "fake image: station-m2-edge"'
+    needs:
+    - kernel-media-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_pinebook-a64-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'pinebook-a64-edge'
+      run: 'echo "fake image: pinebook-a64-edge"'
+    needs:
+    - kernel-sunxi64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_rk322x-box-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'rk322x-box-edge'
+      run: 'echo "fake image: rk322x-box-edge"'
+    needs:
+    - kernel-rk322x-edge
+    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_beelinkx2-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'beelinkx2-edge'
+      run: 'echo "fake image: beelinkx2-edge"'
+    needs:
+    - kernel-sunxi-edge
+    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_khadas-vim3l-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'khadas-vim3l-edge'
+      run: 'echo "fake image: khadas-vim3l-edge"'
+    needs:
+    - kernel-meson64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_rk3318-box-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'rk3318-box-edge'
+      run: 'echo "fake image: rk3318-box-edge"'
+    needs:
+    - kernel-rockchip64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_tritium-h5-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'tritium-h5-edge'
+      run: 'echo "fake image: tritium-h5-edge"'
+    needs:
+    - kernel-sunxi64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_roc-rk3399-pc-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'roc-rk3399-pc-edge'
+      run: 'echo "fake image: roc-rk3399-pc-edge"'
+    needs:
+    - kernel-rockchip64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_beaglev-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'beaglev-edge'
+      run: 'echo "fake image: beaglev-edge"'
+    needs:
+    - kernel-starfive-edge
+    - rootfs-cli-riscv64_jammy_6c0e668ae353c4fb22cc2b94a8bc0493
+  image_cli_orangepiprime-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'orangepiprime-edge'
+      run: 'echo "fake image: orangepiprime-edge"'
+    needs:
+    - kernel-sunxi64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_renegade-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'renegade-edge'
+      run: 'echo "fake image: renegade-edge"'
+    needs:
+    - kernel-rockchip64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_jetson-nano-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'jetson-nano-edge'
+      run: 'echo "fake image: jetson-nano-edge"'
+    needs:
+    - kernel-media-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_nanopineo2black-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'nanopineo2black-edge'
+      run: 'echo "fake image: nanopineo2black-edge"'
+    needs:
+    - kernel-sunxi64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_star64-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'star64-edge'
+      run: 'echo "fake image: star64-edge"'
+    needs:
+    - kernel-starfive-edge
+    - rootfs-cli-riscv64_jammy_6c0e668ae353c4fb22cc2b94a8bc0493
+  image_cli_orangepipcplus-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'orangepipcplus-edge'
+      run: 'echo "fake image: orangepipcplus-edge"'
+    needs:
+    - kernel-sunxi-edge
+    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_nanopiduo-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'nanopiduo-edge'
+      run: 'echo "fake image: nanopiduo-edge"'
+    needs:
+    - kernel-sunxi-edge
+    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_nanopiair-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'nanopiair-edge'
+      run: 'echo "fake image: nanopiair-edge"'
+    needs:
+    - kernel-sunxi-edge
+    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_nanopineocore2-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'nanopineocore2-edge'
+      run: 'echo "fake image: nanopineocore2-edge"'
+    needs:
+    - kernel-sunxi64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_orangepizeroplus2-h5-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'orangepizeroplus2-h5-edge'
+      run: 'echo "fake image: orangepizeroplus2-h5-edge"'
+    needs:
+    - kernel-sunxi64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_rock-3a-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'rock-3a-edge'
+      run: 'echo "fake image: rock-3a-edge"'
+    needs:
+    - kernel-rk35xx-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_cubietruckplus-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'cubietruckplus-edge'
+      run: 'echo "fake image: cubietruckplus-edge"'
+    needs:
+    - kernel-sunxi-edge
+    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_nanopim1-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'nanopim1-edge'
+      run: 'echo "fake image: nanopim1-edge"'
+    needs:
+    - kernel-sunxi-edge
+    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_rockpi-n10-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'rockpi-n10-edge'
+      run: 'echo "fake image: rockpi-n10-edge"'
+    needs:
+    - kernel-rockchip64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_orangepi3-lts-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'orangepi3-lts-edge'
+      run: 'echo "fake image: orangepi3-lts-edge"'
+    needs:
+    - kernel-sunxi64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_nanopim4-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'nanopim4-edge'
+      run: 'echo "fake image: nanopim4-edge"'
+    needs:
+    - kernel-rockchip64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_orangepilite2-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'orangepilite2-edge'
+      run: 'echo "fake image: orangepilite2-edge"'
+    needs:
+    - kernel-sunxi64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_cubieboard-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'cubieboard-edge'
+      run: 'echo "fake image: cubieboard-edge"'
+    needs:
+    - kernel-sunxi-edge
+    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_station-p2-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'station-p2-edge'
+      run: 'echo "fake image: station-p2-edge"'
+    needs:
+    - kernel-media-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_orangepipc2-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'orangepipc2-edge'
+      run: 'echo "fake image: orangepipc2-edge"'
+    needs:
+    - kernel-sunxi64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_pine64so-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'pine64so-edge'
+      run: 'echo "fake image: pine64so-edge"'
+    needs:
+    - kernel-sunxi64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_lafrite-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'lafrite-edge'
+      run: 'echo "fake image: lafrite-edge"'
+    needs:
+    - kernel-meson64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_tinkerboard-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'tinkerboard-edge'
+      run: 'echo "fake image: tinkerboard-edge"'
+    needs:
+    - kernel-rockchip-edge
+    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_mk808c-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'mk808c-edge'
+      run: 'echo "fake image: mk808c-edge"'
+    needs:
+    - kernel-sunxi-edge
+    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_rockpi-4bplus-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'rockpi-4bplus-edge'
+      run: 'echo "fake image: rockpi-4bplus-edge"'
+    needs:
+    - kernel-rockchip64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_khadas-vim3-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'khadas-vim3-edge'
+      run: 'echo "fake image: khadas-vim3-edge"'
+    needs:
+    - kernel-meson64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_pcduino2-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'pcduino2-edge'
+      run: 'echo "fake image: pcduino2-edge"'
+    needs:
+    - kernel-sunxi-edge
+    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_aml-s9xx-box-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'aml-s9xx-box-edge'
+      run: 'echo "fake image: aml-s9xx-box-edge"'
+    needs:
+    - kernel-meson64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_pinebook-pro-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'pinebook-pro-edge'
+      run: 'echo "fake image: pinebook-pro-edge"'
+    needs:
+    - kernel-rockchip64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_jethubj80-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'jethubj80-edge'
+      run: 'echo "fake image: jethubj80-edge"'
+    needs:
+    - kernel-meson64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_nanopik2-s905-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'nanopik2-s905-edge'
+      run: 'echo "fake image: nanopik2-s905-edge"'
+    needs:
+    - kernel-meson64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_orangepione-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'orangepione-edge'
+      run: 'echo "fake image: orangepione-edge"'
+    needs:
+    - kernel-sunxi-edge
+    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_nanopi-r1s-h5-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'nanopi-r1s-h5-edge'
+      run: 'echo "fake image: nanopi-r1s-h5-edge"'
+    needs:
+    - kernel-sunxi64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_micro-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'micro-edge'
+      run: 'echo "fake image: micro-edge"'
+    needs:
+    - kernel-sunxi-edge
+    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_tritium-h3-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'tritium-h3-edge'
+      run: 'echo "fake image: tritium-h3-edge"'
+    needs:
+    - kernel-sunxi-edge
+    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_orangepi-rk3399-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'orangepi-rk3399-edge'
+      run: 'echo "fake image: orangepi-rk3399-edge"'
+    needs:
+    - kernel-rockchip64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_nanopim1plus2-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'nanopim1plus2-edge'
+      run: 'echo "fake image: nanopim1plus2-edge"'
+    needs:
+    - kernel-sunxi64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_clearfogpro-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'clearfogpro-edge'
+      run: 'echo "fake image: clearfogpro-edge"'
+    needs:
+    - kernel-mvebu-edge
+    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_pcduino3nano-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'pcduino3nano-edge'
+      run: 'echo "fake image: pcduino3nano-edge"'
+    needs:
+    - kernel-sunxi-edge
+    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_orangepi4-lts-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'orangepi4-lts-edge'
+      run: 'echo "fake image: orangepi4-lts-edge"'
+    needs:
+    - kernel-rockchip64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_nanopineo4-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'nanopineo4-edge'
+      run: 'echo "fake image: nanopineo4-edge"'
+    needs:
+    - kernel-rockchip64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_clearfogbase-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'clearfogbase-edge'
+      run: 'echo "fake image: clearfogbase-edge"'
+    needs:
+    - kernel-mvebu-edge
+    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_pineh64-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'pineh64-edge'
+      run: 'echo "fake image: pineh64-edge"'
+    needs:
+    - kernel-sunxi64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_zeropi-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'zeropi-edge'
+      run: 'echo "fake image: zeropi-edge"'
+    needs:
+    - kernel-sunxi-edge
+    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_nanopi-r2s-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'nanopi-r2s-edge'
+      run: 'echo "fake image: nanopi-r2s-edge"'
+    needs:
+    - kernel-rockchip64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_orangepilite-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'orangepilite-edge'
+      run: 'echo "fake image: orangepilite-edge"'
+    needs:
+    - kernel-sunxi-edge
+    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_visionfive-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'visionfive-edge'
+      run: 'echo "fake image: visionfive-edge"'
+    needs:
+    - kernel-starfive-edge
+    - rootfs-cli-riscv64_jammy_6c0e668ae353c4fb22cc2b94a8bc0493
+  image_cli_orangepiwin-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'orangepiwin-edge'
+      run: 'echo "fake image: orangepiwin-edge"'
+    needs:
+    - kernel-sunxi64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_rockpi-4c-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'rockpi-4c-edge'
+      run: 'echo "fake image: rockpi-4c-edge"'
+    needs:
+    - kernel-rockchip64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_firefly-rk3399-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'firefly-rk3399-edge'
+      run: 'echo "fake image: firefly-rk3399-edge"'
+    needs:
+    - kernel-media-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_pine64-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'pine64-edge'
+      run: 'echo "fake image: pine64-edge"'
+    needs:
+    - kernel-sunxi64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_cubietruck-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'cubietruck-edge'
+      run: 'echo "fake image: cubietruck-edge"'
+    needs:
+    - kernel-sunxi-edge
+    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_orangepiplus2e-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'orangepiplus2e-edge'
+      run: 'echo "fake image: orangepiplus2e-edge"'
+    needs:
+    - kernel-sunxi-edge
+    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_nanopim4v2-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'nanopim4v2-edge'
+      run: 'echo "fake image: nanopim4v2-edge"'
+    needs:
+    - kernel-rockchip64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_rock64-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'rock64-edge'
+      run: 'echo "fake image: rock64-edge"'
+    needs:
+    - kernel-rockchip64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_nanopim1plus-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'nanopim1plus-edge'
+      run: 'echo "fake image: nanopim1plus-edge"'
+    needs:
+    - kernel-sunxi-edge
+    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_bananapim5-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'bananapim5-edge'
+      run: 'echo "fake image: bananapim5-edge"'
+    needs:
+    - kernel-meson64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_orangepizero-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'orangepizero-edge'
+      run: 'echo "fake image: orangepizero-edge"'
+    needs:
+    - kernel-sunxi-edge
+    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_odroidhc4-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'odroidhc4-edge'
+      run: 'echo "fake image: odroidhc4-edge"'
+    needs:
+    - kernel-meson64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_rockpi-4b-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'rockpi-4b-edge'
+      run: 'echo "fake image: rockpi-4b-edge"'
+    needs:
+    - kernel-rockchip64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_pineh64-b-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'pineh64-b-edge'
+      run: 'echo "fake image: pineh64-b-edge"'
+    needs:
+    - kernel-sunxi64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_miqi-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'miqi-edge'
+      run: 'echo "fake image: miqi-edge"'
+    needs:
+    - kernel-rockchip-edge
+    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_odroidn2-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'odroidn2-edge'
+      run: 'echo "fake image: odroidn2-edge"'
+    needs:
+    - kernel-meson64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_orangepi3-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'orangepi3-edge'
+      run: 'echo "fake image: orangepi3-edge"'
+    needs:
+    - kernel-sunxi64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_orangepi-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'orangepi-edge'
+      run: 'echo "fake image: orangepi-edge"'
+    needs:
+    - kernel-sunxi-edge
+    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_orangepi-r1plus-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'orangepi-r1plus-edge'
+      run: 'echo "fake image: orangepi-r1plus-edge"'
+    needs:
+    - kernel-rockchip64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_nanopi-r4s-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'nanopi-r4s-edge'
+      run: 'echo "fake image: nanopi-r4s-edge"'
+    needs:
+    - kernel-rockchip64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_lime-a10-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'lime-a10-edge'
+      run: 'echo "fake image: lime-a10-edge"'
+    needs:
+    - kernel-sunxi-edge
+    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_nanopct4-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'nanopct4-edge'
+      run: 'echo "fake image: nanopct4-edge"'
+    needs:
+    - kernel-media-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_uefi-riscv64-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'uefi-riscv64-edge'
+      run: 'echo "fake image: uefi-riscv64-edge"'
+    needs:
+    - kernel-riscv64-edge
+    - rootfs-cli-riscv64_jammy_6c0e668ae353c4fb22cc2b94a8bc0493
+  image_cli_pcduino3-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'pcduino3-edge'
+      run: 'echo "fake image: pcduino3-edge"'
+    needs:
+    - kernel-sunxi-edge
+    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_orangepimini-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'orangepimini-edge'
+      run: 'echo "fake image: orangepimini-edge"'
+    needs:
+    - kernel-sunxi-edge
+    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_nanopi-r1-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'nanopi-r1-edge'
+      run: 'echo "fake image: nanopi-r1-edge"'
+    needs:
+    - kernel-sunxi-edge
+    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_fe-som-rk3399-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'fe-som-rk3399-edge'
+      run: 'echo "fake image: fe-som-rk3399-edge"'
+    needs:
+    - kernel-rockchip64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_cubieboard4-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'cubieboard4-edge'
+      run: 'echo "fake image: cubieboard4-edge"'
+    needs:
+    - kernel-sunxi-edge
+    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_rockpi-e-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'rockpi-e-edge'
+      run: 'echo "fake image: rockpi-e-edge"'
+    needs:
+    - kernel-rockchip64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_bananapim2ultra-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'bananapim2ultra-edge'
+      run: 'echo "fake image: bananapim2ultra-edge"'
+    needs:
+    - kernel-sunxi-edge
+    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_quartz64a-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'quartz64a-edge'
+      run: 'echo "fake image: quartz64a-edge"'
+    needs:
+    - kernel-media-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_lime2-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'lime2-edge'
+      run: 'echo "fake image: lime2-edge"'
+    needs:
+    - kernel-sunxi-edge
+    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_orangepizeroplus-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'orangepizeroplus-edge'
+      run: 'echo "fake image: orangepizeroplus-edge"'
+    needs:
+    - kernel-sunxi64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_lime-a64-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'lime-a64-edge'
+      run: 'echo "fake image: lime-a64-edge"'
+    needs:
+    - kernel-sunxi64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_uefi-x86-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'uefi-x86-edge'
+      run: 'echo "fake image: uefi-x86-edge"'
+    needs:
+    - kernel-x86-edge
+    - rootfs-cli-amd64_jammy_13154b4292817436e52804427edd4f8d
+  image_cli_visionfive2-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'visionfive2-edge'
+      run: 'echo "fake image: visionfive2-edge"'
+    needs:
+    - kernel-starfive-edge
+    - rootfs-cli-riscv64_jammy_6c0e668ae353c4fb22cc2b94a8bc0493
+  image_cli_orangepiplus-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'orangepiplus-edge'
+      run: 'echo "fake image: orangepiplus-edge"'
+    needs:
+    - kernel-sunxi-edge
+    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_bananapim3-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'bananapim3-edge'
+      run: 'echo "fake image: bananapim3-edge"'
+    needs:
+    - kernel-sunxi-edge
+    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_odroidc4-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'odroidc4-edge'
+      run: 'echo "fake image: odroidc4-edge"'
+    needs:
+    - kernel-meson64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_nanopia64-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'nanopia64-edge'
+      run: 'echo "fake image: nanopia64-edge"'
+    needs:
+    - kernel-sunxi64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_clockworkpi-a06-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'clockworkpi-a06-edge'
+      run: 'echo "fake image: clockworkpi-a06-edge"'
+    needs:
+    - kernel-rockchip64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_nanopik1plus-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'nanopik1plus-edge'
+      run: 'echo "fake image: nanopik1plus-edge"'
+    needs:
+    - kernel-sunxi64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_bananapim2plus-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'bananapim2plus-edge'
+      run: 'echo "fake image: bananapim2plus-edge"'
+    needs:
+    - kernel-sunxi-edge
+    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_tinkerboard-2-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'tinkerboard-2-edge'
+      run: 'echo "fake image: tinkerboard-2-edge"'
+    needs:
+    - kernel-rockchip64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_uefi-arm64-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'uefi-arm64-edge'
+      run: 'echo "fake image: uefi-arm64-edge"'
+    needs:
+    - kernel-arm64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_pinecube-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'pinecube-edge'
+      run: 'echo "fake image: pinecube-edge"'
+    needs:
+    - kernel-sunxi-edge
+    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_jethubj100-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'jethubj100-edge'
+      run: 'echo "fake image: jethubj100-edge"'
+    needs:
+    - kernel-meson64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_rockpi-4a-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'rockpi-4a-edge'
+      run: 'echo "fake image: rockpi-4a-edge"'
+    needs:
+    - kernel-rockchip64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_olimex-som204-a20-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'olimex-som204-a20-edge'
+      run: 'echo "fake image: olimex-som204-a20-edge"'
+    needs:
+    - kernel-sunxi-edge
+    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_nanopineo3-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'nanopineo3-edge'
+      run: 'echo "fake image: nanopineo3-edge"'
+    needs:
+    - kernel-rockchip64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_macchiatobin-doubleshot-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'macchiatobin-doubleshot-edge'
+      run: 'echo "fake image: macchiatobin-doubleshot-edge"'
+    needs:
+    - kernel-mvebu64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_bananapim2zero-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'bananapim2zero-edge'
+      run: 'echo "fake image: bananapim2zero-edge"'
+    needs:
+    - kernel-sunxi-edge
+    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_orangepioneplus-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'orangepioneplus-edge'
+      run: 'echo "fake image: orangepioneplus-edge"'
+    needs:
+    - kernel-sunxi64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_nanopineo2-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'nanopineo2-edge'
+      run: 'echo "fake image: nanopineo2-edge"'
+    needs:
+    - kernel-sunxi64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_cubieboard2-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'cubieboard2-edge'
+      run: 'echo "fake image: cubieboard2-edge"'
+    needs:
+    - kernel-sunxi-edge
+    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_orangepizeroplus2-h3-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'orangepizeroplus2-h3-edge'
+      run: 'echo "fake image: orangepizeroplus2-h3-edge"'
+    needs:
+    - kernel-sunxi-edge
+    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_rpi4b-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'rpi4b-edge'
+      run: 'echo "fake image: rpi4b-edge"'
+    needs:
+    - kernel-bcm2711-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_rockpro64-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'rockpro64-edge'
+      run: 'echo "fake image: rockpro64-edge"'
+    needs:
+    - kernel-rockchip64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_lamobo-r1-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'lamobo-r1-edge'
+      run: 'echo "fake image: lamobo-r1-edge"'
+    needs:
+    - kernel-sunxi-edge
+    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_helios64-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'helios64-edge'
+      run: 'echo "fake image: helios64-edge"'
+    needs:
+    - kernel-rockchip64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_nanopiduo2-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'nanopiduo2-edge'
+      run: 'echo "fake image: nanopiduo2-edge"'
+    needs:
+    - kernel-sunxi-edge
+    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_orangepi2-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'orangepi2-edge'
+      run: 'echo "fake image: orangepi2-edge"'
+    needs:
+    - kernel-sunxi-edge
+    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_olimex-som-a20-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'olimex-som-a20-edge'
+      run: 'echo "fake image: olimex-som-a20-edge"'
+    needs:
+    - kernel-sunxi-edge
+    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_odroidxu4-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'odroidxu4-edge'
+      run: 'echo "fake image: odroidxu4-edge"'
+    needs:
+    - kernel-odroidxu4-edge
+    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_orangepi-r1-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'orangepi-r1-edge'
+      run: 'echo "fake image: orangepi-r1-edge"'
+    needs:
+    - kernel-sunxi-edge
+    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_olinux-som-a13-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'olinux-som-a13-edge'
+      run: 'echo "fake image: olinux-som-a13-edge"'
+    needs:
+    - kernel-sunxi-edge
+    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_bananapim1plus-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'bananapim1plus-edge'
+      run: 'echo "fake image: bananapim1plus-edge"'
+    needs:
+    - kernel-sunxi-edge
+    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_qemu-uboot-arm64-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'qemu-uboot-arm64-edge'
+      run: 'echo "fake image: qemu-uboot-arm64-edge"'
+    needs:
+    - kernel-arm64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_radxa-zero2-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'radxa-zero2-edge'
+      run: 'echo "fake image: radxa-zero2-edge"'
+    needs:
+    - kernel-meson64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_bananapi-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'bananapi-edge'
+      run: 'echo "fake image: bananapi-edge"'
+    needs:
+    - kernel-sunxi-edge
+    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_orangepizero2-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'orangepizero2-edge'
+      run: 'echo "fake image: orangepizero2-edge"'
+    needs:
+    - kernel-sunxi64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_odroidc2-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'odroidc2-edge'
+      run: 'echo "fake image: odroidc2-edge"'
+    needs:
+    - kernel-meson64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_nanopineo-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'nanopineo-edge'
+      run: 'echo "fake image: nanopineo-edge"'
+    needs:
+    - kernel-sunxi-edge
+    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_station-p1-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'station-p1-edge'
+      run: 'echo "fake image: station-p1-edge"'
+    needs:
+    - kernel-media-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_cubox-i-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'cubox-i-edge'
+      run: 'echo "fake image: cubox-i-edge"'
+    needs:
+    - kernel-imx6-edge
+    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_recore-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'recore-edge'
+      run: 'echo "fake image: recore-edge"'
+    needs:
+    - kernel-sunxi64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_onecloud-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'onecloud-edge'
+      run: 'echo "fake image: onecloud-edge"'
+    needs:
+    - kernel-meson-edge
+    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_udoo-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'udoo-edge'
+      run: 'echo "fake image: udoo-edge"'
+    needs:
+    - kernel-imx6-edge
+    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_station-m1-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'station-m1-edge'
+      run: 'echo "fake image: station-m1-edge"'
+    needs:
+    - kernel-media-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_teres-a64-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'teres-a64-edge'
+      run: 'echo "fake image: teres-a64-edge"'
+    needs:
+    - kernel-sunxi64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_xt-q8l-v10-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'xt-q8l-v10-edge'
+      run: 'echo "fake image: xt-q8l-v10-edge"'
+    needs:
+    - kernel-rockchip-edge
+    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_melea1000-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'melea1000-edge'
+      run: 'echo "fake image: melea1000-edge"'
+    needs:
+    - kernel-sunxi-edge
+    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_odroidm1-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'odroidm1-edge'
+      run: 'echo "fake image: odroidm1-edge"'
+    needs:
+    - kernel-rk3568-odroid-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_lepotato-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'lepotato-edge'
+      run: 'echo "fake image: lepotato-edge"'
+    needs:
+    - kernel-meson64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_lime-a33-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'lime-a33-edge'
+      run: 'echo "fake image: lime-a33-edge"'
+    needs:
+    - kernel-sunxi-edge
+    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_bananapir2pro-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'bananapir2pro-edge'
+      run: 'echo "fake image: bananapir2pro-edge"'
+    needs:
+    - kernel-media-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_orangepi-r1plus-lts-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'orangepi-r1plus-lts-edge'
+      run: 'echo "fake image: orangepi-r1plus-lts-edge"'
+    needs:
+    - kernel-rockchip64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_khadas-vim1-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'khadas-vim1-edge'
+      run: 'echo "fake image: khadas-vim1-edge"'
+    needs:
+    - kernel-meson64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_helios4-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'helios4-edge'
+      run: 'echo "fake image: helios4-edge"'
+    needs:
+    - kernel-mvebu-edge
+    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_nanopi-r2c-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'nanopi-r2c-edge'
+      run: 'echo "fake image: nanopi-r2c-edge"'
+    needs:
+    - kernel-rockchip64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_bananapipro-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'bananapipro-edge'
+      run: 'echo "fake image: bananapipro-edge"'
+    needs:
+    - kernel-sunxi-edge
+    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_lime-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'lime-edge'
+      run: 'echo "fake image: lime-edge"'
+    needs:
+    - kernel-sunxi-edge
+    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_rockpi-s-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'rockpi-s-edge'
+      run: 'echo "fake image: rockpi-s-edge"'
+    needs:
+    - kernel-rockchip64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+  image_cli_khadas-edge-edge:
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - name: Image CLI 'khadas-edge-edge'
+      run: 'echo "fake image: khadas-edge-edge"'
+    needs:
+    - kernel-rockchip64-edge
+    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
