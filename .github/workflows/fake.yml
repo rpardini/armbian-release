@@ -45,65 +45,142 @@ jobs:
     - Linux
     - armbian
     steps:
-    - name: Prepare Kernel 'sunxi-edge'
-      run: 'echo "fake kernel prepare: sunxi-edge"'
-    - name: Prepare Kernel 'rockchip64-edge'
-      run: 'echo "fake kernel prepare: rockchip64-edge"'
-    - name: Prepare Kernel 'sunxi64-edge'
-      run: 'echo "fake kernel prepare: sunxi64-edge"'
-    - name: Prepare Kernel 'meson64-edge'
-      run: 'echo "fake kernel prepare: meson64-edge"'
-    - name: Prepare Kernel 'media-edge'
-      run: 'echo "fake kernel prepare: media-edge"'
-    - name: Prepare Kernel 'starfive-edge'
-      run: 'echo "fake kernel prepare: starfive-edge"'
-    - name: Prepare Kernel 'rockchip-edge'
-      run: 'echo "fake kernel prepare: rockchip-edge"'
-    - name: Prepare Kernel 'mvebu-edge'
-      run: 'echo "fake kernel prepare: mvebu-edge"'
-    - name: Prepare Kernel 'mvebu64-edge'
-      run: 'echo "fake kernel prepare: mvebu64-edge"'
-    - name: Prepare Kernel 'meson-edge'
-      run: 'echo "fake kernel prepare: meson-edge"'
-    - name: Prepare Kernel 'x86-edge'
-      run: 'echo "fake kernel prepare: x86-edge"'
-    - name: Prepare Kernel 'arm64-edge'
-      run: 'echo "fake kernel prepare: arm64-edge"'
-    - name: Prepare Kernel 'imx6-edge'
-      run: 'echo "fake kernel prepare: imx6-edge"'
-    - name: Prepare Kernel 'rk322x-edge'
-      run: 'echo "fake kernel prepare: rk322x-edge"'
-    - name: Prepare Kernel 'rk35xx-edge'
-      run: 'echo "fake kernel prepare: rk35xx-edge"'
-    - name: Prepare Kernel 'riscv64-edge'
-      run: 'echo "fake kernel prepare: riscv64-edge"'
-    - name: Prepare Kernel 'bcm2711-edge'
-      run: 'echo "fake kernel prepare: bcm2711-edge"'
-    - name: Prepare Kernel 'odroidxu4-edge'
-      run: 'echo "fake kernel prepare: odroidxu4-edge"'
-    - name: Prepare Kernel 'rk3568-odroid-edge'
-      run: 'echo "fake kernel prepare: rk3568-odroid-edge"'
+    - id: prepare_sunxi-edge
+      name: Prepare Kernel 'sunxi-edge'
+      run: 'echo "fake kernel prepare: sunxi-edge"
+
+        echo "uptodate=$((( RANDOM % 2 )) && echo -n "yes" || echo -n "no")" >> $GITHUB_OUTPUT'
+    - id: prepare_rockchip64-edge
+      name: Prepare Kernel 'rockchip64-edge'
+      run: 'echo "fake kernel prepare: rockchip64-edge"
+
+        echo "uptodate=$((( RANDOM % 2 )) && echo -n "yes" || echo -n "no")" >> $GITHUB_OUTPUT'
+    - id: prepare_sunxi64-edge
+      name: Prepare Kernel 'sunxi64-edge'
+      run: 'echo "fake kernel prepare: sunxi64-edge"
+
+        echo "uptodate=$((( RANDOM % 2 )) && echo -n "yes" || echo -n "no")" >> $GITHUB_OUTPUT'
+    - id: prepare_meson64-edge
+      name: Prepare Kernel 'meson64-edge'
+      run: 'echo "fake kernel prepare: meson64-edge"
+
+        echo "uptodate=$((( RANDOM % 2 )) && echo -n "yes" || echo -n "no")" >> $GITHUB_OUTPUT'
+    - id: prepare_media-edge
+      name: Prepare Kernel 'media-edge'
+      run: 'echo "fake kernel prepare: media-edge"
+
+        echo "uptodate=$((( RANDOM % 2 )) && echo -n "yes" || echo -n "no")" >> $GITHUB_OUTPUT'
+    - id: prepare_starfive-edge
+      name: Prepare Kernel 'starfive-edge'
+      run: 'echo "fake kernel prepare: starfive-edge"
+
+        echo "uptodate=$((( RANDOM % 2 )) && echo -n "yes" || echo -n "no")" >> $GITHUB_OUTPUT'
+    - id: prepare_rockchip-edge
+      name: Prepare Kernel 'rockchip-edge'
+      run: 'echo "fake kernel prepare: rockchip-edge"
+
+        echo "uptodate=$((( RANDOM % 2 )) && echo -n "yes" || echo -n "no")" >> $GITHUB_OUTPUT'
+    - id: prepare_mvebu-edge
+      name: Prepare Kernel 'mvebu-edge'
+      run: 'echo "fake kernel prepare: mvebu-edge"
+
+        echo "uptodate=$((( RANDOM % 2 )) && echo -n "yes" || echo -n "no")" >> $GITHUB_OUTPUT'
+    - id: prepare_mvebu64-edge
+      name: Prepare Kernel 'mvebu64-edge'
+      run: 'echo "fake kernel prepare: mvebu64-edge"
+
+        echo "uptodate=$((( RANDOM % 2 )) && echo -n "yes" || echo -n "no")" >> $GITHUB_OUTPUT'
+    - id: prepare_meson-edge
+      name: Prepare Kernel 'meson-edge'
+      run: 'echo "fake kernel prepare: meson-edge"
+
+        echo "uptodate=$((( RANDOM % 2 )) && echo -n "yes" || echo -n "no")" >> $GITHUB_OUTPUT'
+    - id: prepare_x86-edge
+      name: Prepare Kernel 'x86-edge'
+      run: 'echo "fake kernel prepare: x86-edge"
+
+        echo "uptodate=$((( RANDOM % 2 )) && echo -n "yes" || echo -n "no")" >> $GITHUB_OUTPUT'
+    - id: prepare_arm64-edge
+      name: Prepare Kernel 'arm64-edge'
+      run: 'echo "fake kernel prepare: arm64-edge"
+
+        echo "uptodate=$((( RANDOM % 2 )) && echo -n "yes" || echo -n "no")" >> $GITHUB_OUTPUT'
+    - id: prepare_imx6-edge
+      name: Prepare Kernel 'imx6-edge'
+      run: 'echo "fake kernel prepare: imx6-edge"
+
+        echo "uptodate=$((( RANDOM % 2 )) && echo -n "yes" || echo -n "no")" >> $GITHUB_OUTPUT'
+    - id: prepare_rk322x-edge
+      name: Prepare Kernel 'rk322x-edge'
+      run: 'echo "fake kernel prepare: rk322x-edge"
+
+        echo "uptodate=$((( RANDOM % 2 )) && echo -n "yes" || echo -n "no")" >> $GITHUB_OUTPUT'
+    - id: prepare_rk35xx-edge
+      name: Prepare Kernel 'rk35xx-edge'
+      run: 'echo "fake kernel prepare: rk35xx-edge"
+
+        echo "uptodate=$((( RANDOM % 2 )) && echo -n "yes" || echo -n "no")" >> $GITHUB_OUTPUT'
+    - id: prepare_riscv64-edge
+      name: Prepare Kernel 'riscv64-edge'
+      run: 'echo "fake kernel prepare: riscv64-edge"
+
+        echo "uptodate=$((( RANDOM % 2 )) && echo -n "yes" || echo -n "no")" >> $GITHUB_OUTPUT'
+    - id: prepare_bcm2711-edge
+      name: Prepare Kernel 'bcm2711-edge'
+      run: 'echo "fake kernel prepare: bcm2711-edge"
+
+        echo "uptodate=$((( RANDOM % 2 )) && echo -n "yes" || echo -n "no")" >> $GITHUB_OUTPUT'
+    - id: prepare_odroidxu4-edge
+      name: Prepare Kernel 'odroidxu4-edge'
+      run: 'echo "fake kernel prepare: odroidxu4-edge"
+
+        echo "uptodate=$((( RANDOM % 2 )) && echo -n "yes" || echo -n "no")" >> $GITHUB_OUTPUT'
+    - id: prepare_rk3568-odroid-edge
+      name: Prepare Kernel 'rk3568-odroid-edge'
+      run: 'echo "fake kernel prepare: rk3568-odroid-edge"
+
+        echo "uptodate=$((( RANDOM % 2 )) && echo -n "yes" || echo -n "no")" >> $GITHUB_OUTPUT'
     outputs:
-      kernel-sunxi-edge: fake output for kernel-sunxi-edge
-      kernel-rockchip64-edge: fake output for kernel-rockchip64-edge
-      kernel-sunxi64-edge: fake output for kernel-sunxi64-edge
-      kernel-meson64-edge: fake output for kernel-meson64-edge
-      kernel-media-edge: fake output for kernel-media-edge
-      kernel-starfive-edge: fake output for kernel-starfive-edge
-      kernel-rockchip-edge: fake output for kernel-rockchip-edge
-      kernel-mvebu-edge: fake output for kernel-mvebu-edge
-      kernel-mvebu64-edge: fake output for kernel-mvebu64-edge
-      kernel-meson-edge: fake output for kernel-meson-edge
-      kernel-x86-edge: fake output for kernel-x86-edge
-      kernel-arm64-edge: fake output for kernel-arm64-edge
-      kernel-imx6-edge: fake output for kernel-imx6-edge
-      kernel-rk322x-edge: fake output for kernel-rk322x-edge
-      kernel-rk35xx-edge: fake output for kernel-rk35xx-edge
-      kernel-riscv64-edge: fake output for kernel-riscv64-edge
-      kernel-bcm2711-edge: fake output for kernel-bcm2711-edge
-      kernel-odroidxu4-edge: fake output for kernel-odroidxu4-edge
-      kernel-rk3568-odroid-edge: fake output for kernel-rk3568-odroid-edge
+      desc_kernel-sunxi-edge: fake output for kernel-sunxi-edge
+      uptodate_kernel-sunxi-edge: ${{ steps.prepare_sunxi-edge.outputs.uptodate }}
+      desc_kernel-rockchip64-edge: fake output for kernel-rockchip64-edge
+      uptodate_kernel-rockchip64-edge: ${{ steps.prepare_rockchip64-edge.outputs.uptodate }}
+      desc_kernel-sunxi64-edge: fake output for kernel-sunxi64-edge
+      uptodate_kernel-sunxi64-edge: ${{ steps.prepare_sunxi64-edge.outputs.uptodate }}
+      desc_kernel-meson64-edge: fake output for kernel-meson64-edge
+      uptodate_kernel-meson64-edge: ${{ steps.prepare_meson64-edge.outputs.uptodate }}
+      desc_kernel-media-edge: fake output for kernel-media-edge
+      uptodate_kernel-media-edge: ${{ steps.prepare_media-edge.outputs.uptodate }}
+      desc_kernel-starfive-edge: fake output for kernel-starfive-edge
+      uptodate_kernel-starfive-edge: ${{ steps.prepare_starfive-edge.outputs.uptodate }}
+      desc_kernel-rockchip-edge: fake output for kernel-rockchip-edge
+      uptodate_kernel-rockchip-edge: ${{ steps.prepare_rockchip-edge.outputs.uptodate }}
+      desc_kernel-mvebu-edge: fake output for kernel-mvebu-edge
+      uptodate_kernel-mvebu-edge: ${{ steps.prepare_mvebu-edge.outputs.uptodate }}
+      desc_kernel-mvebu64-edge: fake output for kernel-mvebu64-edge
+      uptodate_kernel-mvebu64-edge: ${{ steps.prepare_mvebu64-edge.outputs.uptodate }}
+      desc_kernel-meson-edge: fake output for kernel-meson-edge
+      uptodate_kernel-meson-edge: ${{ steps.prepare_meson-edge.outputs.uptodate }}
+      desc_kernel-x86-edge: fake output for kernel-x86-edge
+      uptodate_kernel-x86-edge: ${{ steps.prepare_x86-edge.outputs.uptodate }}
+      desc_kernel-arm64-edge: fake output for kernel-arm64-edge
+      uptodate_kernel-arm64-edge: ${{ steps.prepare_arm64-edge.outputs.uptodate }}
+      desc_kernel-imx6-edge: fake output for kernel-imx6-edge
+      uptodate_kernel-imx6-edge: ${{ steps.prepare_imx6-edge.outputs.uptodate }}
+      desc_kernel-rk322x-edge: fake output for kernel-rk322x-edge
+      uptodate_kernel-rk322x-edge: ${{ steps.prepare_rk322x-edge.outputs.uptodate }}
+      desc_kernel-rk35xx-edge: fake output for kernel-rk35xx-edge
+      uptodate_kernel-rk35xx-edge: ${{ steps.prepare_rk35xx-edge.outputs.uptodate }}
+      desc_kernel-riscv64-edge: fake output for kernel-riscv64-edge
+      uptodate_kernel-riscv64-edge: ${{ steps.prepare_riscv64-edge.outputs.uptodate }}
+      desc_kernel-bcm2711-edge: fake output for kernel-bcm2711-edge
+      uptodate_kernel-bcm2711-edge: ${{ steps.prepare_bcm2711-edge.outputs.uptodate }}
+      desc_kernel-odroidxu4-edge: fake output for kernel-odroidxu4-edge
+      uptodate_kernel-odroidxu4-edge: ${{ steps.prepare_odroidxu4-edge.outputs.uptodate }}
+      desc_kernel-rk3568-odroid-edge: fake output for kernel-rk3568-odroid-edge
+      uptodate_kernel-rk3568-odroid-edge: ${{ steps.prepare_rk3568-odroid-edge.outputs.uptodate }}
   kernel-sunxi-edge:
+    if: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-sunxi-edge == 'no' }}
     runs-on:
     - self-hosted
     - Linux
@@ -114,6 +191,7 @@ jobs:
     - name: Build Kernel 'sunxi-edge'
       run: 'echo "fake kernel: sunxi-edge"'
   kernel-rockchip64-edge:
+    if: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-rockchip64-edge == 'no' }}
     runs-on:
     - self-hosted
     - Linux
@@ -124,6 +202,7 @@ jobs:
     - name: Build Kernel 'rockchip64-edge'
       run: 'echo "fake kernel: rockchip64-edge"'
   kernel-sunxi64-edge:
+    if: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-sunxi64-edge == 'no' }}
     runs-on:
     - self-hosted
     - Linux
@@ -134,6 +213,7 @@ jobs:
     - name: Build Kernel 'sunxi64-edge'
       run: 'echo "fake kernel: sunxi64-edge"'
   kernel-meson64-edge:
+    if: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-meson64-edge == 'no' }}
     runs-on:
     - self-hosted
     - Linux
@@ -144,6 +224,7 @@ jobs:
     - name: Build Kernel 'meson64-edge'
       run: 'echo "fake kernel: meson64-edge"'
   kernel-media-edge:
+    if: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-media-edge == 'no' }}
     runs-on:
     - self-hosted
     - Linux
@@ -154,6 +235,7 @@ jobs:
     - name: Build Kernel 'media-edge'
       run: 'echo "fake kernel: media-edge"'
   kernel-starfive-edge:
+    if: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-starfive-edge == 'no' }}
     runs-on:
     - self-hosted
     - Linux
@@ -164,6 +246,7 @@ jobs:
     - name: Build Kernel 'starfive-edge'
       run: 'echo "fake kernel: starfive-edge"'
   kernel-rockchip-edge:
+    if: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-rockchip-edge == 'no' }}
     runs-on:
     - self-hosted
     - Linux
@@ -174,6 +257,7 @@ jobs:
     - name: Build Kernel 'rockchip-edge'
       run: 'echo "fake kernel: rockchip-edge"'
   kernel-mvebu-edge:
+    if: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-mvebu-edge == 'no' }}
     runs-on:
     - self-hosted
     - Linux
@@ -184,6 +268,7 @@ jobs:
     - name: Build Kernel 'mvebu-edge'
       run: 'echo "fake kernel: mvebu-edge"'
   kernel-mvebu64-edge:
+    if: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-mvebu64-edge == 'no' }}
     runs-on:
     - self-hosted
     - Linux
@@ -194,6 +279,7 @@ jobs:
     - name: Build Kernel 'mvebu64-edge'
       run: 'echo "fake kernel: mvebu64-edge"'
   kernel-meson-edge:
+    if: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-meson-edge == 'no' }}
     runs-on:
     - self-hosted
     - Linux
@@ -204,6 +290,7 @@ jobs:
     - name: Build Kernel 'meson-edge'
       run: 'echo "fake kernel: meson-edge"'
   kernel-x86-edge:
+    if: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-x86-edge == 'no' }}
     runs-on:
     - self-hosted
     - Linux
@@ -214,6 +301,7 @@ jobs:
     - name: Build Kernel 'x86-edge'
       run: 'echo "fake kernel: x86-edge"'
   kernel-arm64-edge:
+    if: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-arm64-edge == 'no' }}
     runs-on:
     - self-hosted
     - Linux
@@ -224,6 +312,7 @@ jobs:
     - name: Build Kernel 'arm64-edge'
       run: 'echo "fake kernel: arm64-edge"'
   kernel-imx6-edge:
+    if: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-imx6-edge == 'no' }}
     runs-on:
     - self-hosted
     - Linux
@@ -234,6 +323,7 @@ jobs:
     - name: Build Kernel 'imx6-edge'
       run: 'echo "fake kernel: imx6-edge"'
   kernel-rk322x-edge:
+    if: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-rk322x-edge == 'no' }}
     runs-on:
     - self-hosted
     - Linux
@@ -244,6 +334,7 @@ jobs:
     - name: Build Kernel 'rk322x-edge'
       run: 'echo "fake kernel: rk322x-edge"'
   kernel-rk35xx-edge:
+    if: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-rk35xx-edge == 'no' }}
     runs-on:
     - self-hosted
     - Linux
@@ -254,6 +345,7 @@ jobs:
     - name: Build Kernel 'rk35xx-edge'
       run: 'echo "fake kernel: rk35xx-edge"'
   kernel-riscv64-edge:
+    if: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-riscv64-edge == 'no' }}
     runs-on:
     - self-hosted
     - Linux
@@ -264,6 +356,7 @@ jobs:
     - name: Build Kernel 'riscv64-edge'
       run: 'echo "fake kernel: riscv64-edge"'
   kernel-bcm2711-edge:
+    if: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-bcm2711-edge == 'no' }}
     runs-on:
     - self-hosted
     - Linux
@@ -274,6 +367,7 @@ jobs:
     - name: Build Kernel 'bcm2711-edge'
       run: 'echo "fake kernel: bcm2711-edge"'
   kernel-odroidxu4-edge:
+    if: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-odroidxu4-edge == 'no' }}
     runs-on:
     - self-hosted
     - Linux
@@ -284,6 +378,7 @@ jobs:
     - name: Build Kernel 'odroidxu4-edge'
       run: 'echo "fake kernel: odroidxu4-edge"'
   kernel-rk3568-odroid-edge:
+    if: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-rk3568-odroid-edge == 'no' }}
     runs-on:
     - self-hosted
     - Linux
