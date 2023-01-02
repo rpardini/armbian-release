@@ -1,3 +1,4 @@
+---
 name: fake
 'on':
   workflow_dispatch:
@@ -7,2354 +8,2503 @@ name: fake
         required: true
         default: World
 jobs:
-  rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01:
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    steps:
-    - name: Build CLI RootFS 'arm64_jammy_45a3600c135f97b07f80e870bb692d01'
-      run: 'echo "fake rootfs: arm64_jammy_45a3600c135f97b07f80e870bb692d01"'
-  rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01:
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    steps:
-    - name: Build CLI RootFS 'armhf_jammy_45a3600c135f97b07f80e870bb692d01'
-      run: 'echo "fake rootfs: armhf_jammy_45a3600c135f97b07f80e870bb692d01"'
-  rootfs-cli-riscv64_jammy_6c0e668ae353c4fb22cc2b94a8bc0493:
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    steps:
-    - name: Build CLI RootFS 'riscv64_jammy_6c0e668ae353c4fb22cc2b94a8bc0493'
-      run: 'echo "fake rootfs: riscv64_jammy_6c0e668ae353c4fb22cc2b94a8bc0493"'
-  rootfs-cli-amd64_jammy_13154b4292817436e52804427edd4f8d:
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    steps:
-    - name: Build CLI RootFS 'amd64_jammy_13154b4292817436e52804427edd4f8d'
-      run: 'echo "fake rootfs: amd64_jammy_13154b4292817436e52804427edd4f8d"'
   kernel-prepare-all:
+    name: Prepare all kernels; each step determines the version hash and if it is already available.
+    outputs:
+      prepare_sunxi-edge_uptodate: ${{ steps.prepare_sunxi-edge.outputs.uptodate }}
+      prepare_rockchip64-edge_uptodate: ${{ steps.prepare_rockchip64-edge.outputs.uptodate }}
+      prepare_sunxi64-edge_uptodate: ${{ steps.prepare_sunxi64-edge.outputs.uptodate }}
+      prepare_meson64-edge_uptodate: ${{ steps.prepare_meson64-edge.outputs.uptodate }}
+      prepare_media-edge_uptodate: ${{ steps.prepare_media-edge.outputs.uptodate }}
+      prepare_starfive-edge_uptodate: ${{ steps.prepare_starfive-edge.outputs.uptodate }}
+      prepare_rockchip-edge_uptodate: ${{ steps.prepare_rockchip-edge.outputs.uptodate }}
+      prepare_mvebu-edge_uptodate: ${{ steps.prepare_mvebu-edge.outputs.uptodate }}
+      prepare_mvebu64-edge_uptodate: ${{ steps.prepare_mvebu64-edge.outputs.uptodate }}
+      prepare_meson-edge_uptodate: ${{ steps.prepare_meson-edge.outputs.uptodate }}
+      prepare_x86-edge_uptodate: ${{ steps.prepare_x86-edge.outputs.uptodate }}
+      prepare_arm64-edge_uptodate: ${{ steps.prepare_arm64-edge.outputs.uptodate }}
+      prepare_imx6-edge_uptodate: ${{ steps.prepare_imx6-edge.outputs.uptodate }}
+      prepare_rk322x-edge_uptodate: ${{ steps.prepare_rk322x-edge.outputs.uptodate }}
+      prepare_rk35xx-edge_uptodate: ${{ steps.prepare_rk35xx-edge.outputs.uptodate }}
+      prepare_riscv64-edge_uptodate: ${{ steps.prepare_riscv64-edge.outputs.uptodate }}
+      prepare_bcm2711-edge_uptodate: ${{ steps.prepare_bcm2711-edge.outputs.uptodate }}
+      prepare_odroidxu4-edge_uptodate: ${{ steps.prepare_odroidxu4-edge.outputs.uptodate }}
+      prepare_rk3568-odroid-edge_uptodate: ${{ steps.prepare_rk3568-odroid-edge.outputs.uptodate }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
     steps:
     - id: prepare_sunxi-edge
-      name: Prepare Kernel 'sunxi-edge'
+      name: Calculate the version and up-to-date-ness for kernel sunxi-edge
       run: 'echo "fake kernel prepare: sunxi-edge"
 
         echo "uptodate=$((( RANDOM % 2 )) && echo -n "yes" || echo -n "no")" >> $GITHUB_OUTPUT'
     - id: prepare_rockchip64-edge
-      name: Prepare Kernel 'rockchip64-edge'
+      name: Calculate the version and up-to-date-ness for kernel rockchip64-edge
       run: 'echo "fake kernel prepare: rockchip64-edge"
 
         echo "uptodate=$((( RANDOM % 2 )) && echo -n "yes" || echo -n "no")" >> $GITHUB_OUTPUT'
     - id: prepare_sunxi64-edge
-      name: Prepare Kernel 'sunxi64-edge'
+      name: Calculate the version and up-to-date-ness for kernel sunxi64-edge
       run: 'echo "fake kernel prepare: sunxi64-edge"
 
         echo "uptodate=$((( RANDOM % 2 )) && echo -n "yes" || echo -n "no")" >> $GITHUB_OUTPUT'
     - id: prepare_meson64-edge
-      name: Prepare Kernel 'meson64-edge'
+      name: Calculate the version and up-to-date-ness for kernel meson64-edge
       run: 'echo "fake kernel prepare: meson64-edge"
 
         echo "uptodate=$((( RANDOM % 2 )) && echo -n "yes" || echo -n "no")" >> $GITHUB_OUTPUT'
     - id: prepare_media-edge
-      name: Prepare Kernel 'media-edge'
+      name: Calculate the version and up-to-date-ness for kernel media-edge
       run: 'echo "fake kernel prepare: media-edge"
 
         echo "uptodate=$((( RANDOM % 2 )) && echo -n "yes" || echo -n "no")" >> $GITHUB_OUTPUT'
     - id: prepare_starfive-edge
-      name: Prepare Kernel 'starfive-edge'
+      name: Calculate the version and up-to-date-ness for kernel starfive-edge
       run: 'echo "fake kernel prepare: starfive-edge"
 
         echo "uptodate=$((( RANDOM % 2 )) && echo -n "yes" || echo -n "no")" >> $GITHUB_OUTPUT'
     - id: prepare_rockchip-edge
-      name: Prepare Kernel 'rockchip-edge'
+      name: Calculate the version and up-to-date-ness for kernel rockchip-edge
       run: 'echo "fake kernel prepare: rockchip-edge"
 
         echo "uptodate=$((( RANDOM % 2 )) && echo -n "yes" || echo -n "no")" >> $GITHUB_OUTPUT'
     - id: prepare_mvebu-edge
-      name: Prepare Kernel 'mvebu-edge'
+      name: Calculate the version and up-to-date-ness for kernel mvebu-edge
       run: 'echo "fake kernel prepare: mvebu-edge"
 
         echo "uptodate=$((( RANDOM % 2 )) && echo -n "yes" || echo -n "no")" >> $GITHUB_OUTPUT'
     - id: prepare_mvebu64-edge
-      name: Prepare Kernel 'mvebu64-edge'
+      name: Calculate the version and up-to-date-ness for kernel mvebu64-edge
       run: 'echo "fake kernel prepare: mvebu64-edge"
 
         echo "uptodate=$((( RANDOM % 2 )) && echo -n "yes" || echo -n "no")" >> $GITHUB_OUTPUT'
     - id: prepare_meson-edge
-      name: Prepare Kernel 'meson-edge'
+      name: Calculate the version and up-to-date-ness for kernel meson-edge
       run: 'echo "fake kernel prepare: meson-edge"
 
         echo "uptodate=$((( RANDOM % 2 )) && echo -n "yes" || echo -n "no")" >> $GITHUB_OUTPUT'
     - id: prepare_x86-edge
-      name: Prepare Kernel 'x86-edge'
+      name: Calculate the version and up-to-date-ness for kernel x86-edge
       run: 'echo "fake kernel prepare: x86-edge"
 
         echo "uptodate=$((( RANDOM % 2 )) && echo -n "yes" || echo -n "no")" >> $GITHUB_OUTPUT'
     - id: prepare_arm64-edge
-      name: Prepare Kernel 'arm64-edge'
+      name: Calculate the version and up-to-date-ness for kernel arm64-edge
       run: 'echo "fake kernel prepare: arm64-edge"
 
         echo "uptodate=$((( RANDOM % 2 )) && echo -n "yes" || echo -n "no")" >> $GITHUB_OUTPUT'
     - id: prepare_imx6-edge
-      name: Prepare Kernel 'imx6-edge'
+      name: Calculate the version and up-to-date-ness for kernel imx6-edge
       run: 'echo "fake kernel prepare: imx6-edge"
 
         echo "uptodate=$((( RANDOM % 2 )) && echo -n "yes" || echo -n "no")" >> $GITHUB_OUTPUT'
     - id: prepare_rk322x-edge
-      name: Prepare Kernel 'rk322x-edge'
+      name: Calculate the version and up-to-date-ness for kernel rk322x-edge
       run: 'echo "fake kernel prepare: rk322x-edge"
 
         echo "uptodate=$((( RANDOM % 2 )) && echo -n "yes" || echo -n "no")" >> $GITHUB_OUTPUT'
     - id: prepare_rk35xx-edge
-      name: Prepare Kernel 'rk35xx-edge'
+      name: Calculate the version and up-to-date-ness for kernel rk35xx-edge
       run: 'echo "fake kernel prepare: rk35xx-edge"
 
         echo "uptodate=$((( RANDOM % 2 )) && echo -n "yes" || echo -n "no")" >> $GITHUB_OUTPUT'
     - id: prepare_riscv64-edge
-      name: Prepare Kernel 'riscv64-edge'
+      name: Calculate the version and up-to-date-ness for kernel riscv64-edge
       run: 'echo "fake kernel prepare: riscv64-edge"
 
         echo "uptodate=$((( RANDOM % 2 )) && echo -n "yes" || echo -n "no")" >> $GITHUB_OUTPUT'
     - id: prepare_bcm2711-edge
-      name: Prepare Kernel 'bcm2711-edge'
+      name: Calculate the version and up-to-date-ness for kernel bcm2711-edge
       run: 'echo "fake kernel prepare: bcm2711-edge"
 
         echo "uptodate=$((( RANDOM % 2 )) && echo -n "yes" || echo -n "no")" >> $GITHUB_OUTPUT'
     - id: prepare_odroidxu4-edge
-      name: Prepare Kernel 'odroidxu4-edge'
+      name: Calculate the version and up-to-date-ness for kernel odroidxu4-edge
       run: 'echo "fake kernel prepare: odroidxu4-edge"
 
         echo "uptodate=$((( RANDOM % 2 )) && echo -n "yes" || echo -n "no")" >> $GITHUB_OUTPUT'
     - id: prepare_rk3568-odroid-edge
-      name: Prepare Kernel 'rk3568-odroid-edge'
+      name: Calculate the version and up-to-date-ness for kernel rk3568-odroid-edge
       run: 'echo "fake kernel prepare: rk3568-odroid-edge"
 
         echo "uptodate=$((( RANDOM % 2 )) && echo -n "yes" || echo -n "no")" >> $GITHUB_OUTPUT'
-    outputs:
-      desc_kernel-sunxi-edge: fake output for kernel-sunxi-edge
-      uptodate_kernel-sunxi-edge: ${{ steps.prepare_sunxi-edge.outputs.uptodate }}
-      desc_kernel-rockchip64-edge: fake output for kernel-rockchip64-edge
-      uptodate_kernel-rockchip64-edge: ${{ steps.prepare_rockchip64-edge.outputs.uptodate }}
-      desc_kernel-sunxi64-edge: fake output for kernel-sunxi64-edge
-      uptodate_kernel-sunxi64-edge: ${{ steps.prepare_sunxi64-edge.outputs.uptodate }}
-      desc_kernel-meson64-edge: fake output for kernel-meson64-edge
-      uptodate_kernel-meson64-edge: ${{ steps.prepare_meson64-edge.outputs.uptodate }}
-      desc_kernel-media-edge: fake output for kernel-media-edge
-      uptodate_kernel-media-edge: ${{ steps.prepare_media-edge.outputs.uptodate }}
-      desc_kernel-starfive-edge: fake output for kernel-starfive-edge
-      uptodate_kernel-starfive-edge: ${{ steps.prepare_starfive-edge.outputs.uptodate }}
-      desc_kernel-rockchip-edge: fake output for kernel-rockchip-edge
-      uptodate_kernel-rockchip-edge: ${{ steps.prepare_rockchip-edge.outputs.uptodate }}
-      desc_kernel-mvebu-edge: fake output for kernel-mvebu-edge
-      uptodate_kernel-mvebu-edge: ${{ steps.prepare_mvebu-edge.outputs.uptodate }}
-      desc_kernel-mvebu64-edge: fake output for kernel-mvebu64-edge
-      uptodate_kernel-mvebu64-edge: ${{ steps.prepare_mvebu64-edge.outputs.uptodate }}
-      desc_kernel-meson-edge: fake output for kernel-meson-edge
-      uptodate_kernel-meson-edge: ${{ steps.prepare_meson-edge.outputs.uptodate }}
-      desc_kernel-x86-edge: fake output for kernel-x86-edge
-      uptodate_kernel-x86-edge: ${{ steps.prepare_x86-edge.outputs.uptodate }}
-      desc_kernel-arm64-edge: fake output for kernel-arm64-edge
-      uptodate_kernel-arm64-edge: ${{ steps.prepare_arm64-edge.outputs.uptodate }}
-      desc_kernel-imx6-edge: fake output for kernel-imx6-edge
-      uptodate_kernel-imx6-edge: ${{ steps.prepare_imx6-edge.outputs.uptodate }}
-      desc_kernel-rk322x-edge: fake output for kernel-rk322x-edge
-      uptodate_kernel-rk322x-edge: ${{ steps.prepare_rk322x-edge.outputs.uptodate }}
-      desc_kernel-rk35xx-edge: fake output for kernel-rk35xx-edge
-      uptodate_kernel-rk35xx-edge: ${{ steps.prepare_rk35xx-edge.outputs.uptodate }}
-      desc_kernel-riscv64-edge: fake output for kernel-riscv64-edge
-      uptodate_kernel-riscv64-edge: ${{ steps.prepare_riscv64-edge.outputs.uptodate }}
-      desc_kernel-bcm2711-edge: fake output for kernel-bcm2711-edge
-      uptodate_kernel-bcm2711-edge: ${{ steps.prepare_bcm2711-edge.outputs.uptodate }}
-      desc_kernel-odroidxu4-edge: fake output for kernel-odroidxu4-edge
-      uptodate_kernel-odroidxu4-edge: ${{ steps.prepare_odroidxu4-edge.outputs.uptodate }}
-      desc_kernel-rk3568-odroid-edge: fake output for kernel-rk3568-odroid-edge
-      uptodate_kernel-rk3568-odroid-edge: ${{ steps.prepare_rk3568-odroid-edge.outputs.uptodate }}
   kernel-sunxi-edge:
-    if: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-sunxi-edge == 'no' }}
+    name: Some kernel sunxi-edge
+    needs:
+    - kernel-prepare-all
+    if: ${{ always() && needs.kernel-prepare-all.outputs.prepare_sunxi-edge_uptodate == 'no' }}
     outputs:
-      up-to-date: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-sunxi-edge }}
+      up-to-date: ${{ needs.kernel-prepare-all.outputs.prepare_sunxi-edge_uptodate }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    needs:
-    - kernel-prepare-all
     steps:
-    - name: Build Kernel 'sunxi-edge'
+    - id: build_kernel_sunxi-edge
+      name: Build Kernel sunxi-edge
       run: 'echo "fake kernel: sunxi-edge"'
   kernel-rockchip64-edge:
-    if: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-rockchip64-edge == 'no' }}
+    name: Some kernel rockchip64-edge
+    needs:
+    - kernel-prepare-all
+    if: ${{ always() && needs.kernel-prepare-all.outputs.prepare_rockchip64-edge_uptodate == 'no' }}
     outputs:
-      up-to-date: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-rockchip64-edge }}
+      up-to-date: ${{ needs.kernel-prepare-all.outputs.prepare_rockchip64-edge_uptodate }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    needs:
-    - kernel-prepare-all
     steps:
-    - name: Build Kernel 'rockchip64-edge'
+    - id: build_kernel_rockchip64-edge
+      name: Build Kernel rockchip64-edge
       run: 'echo "fake kernel: rockchip64-edge"'
   kernel-sunxi64-edge:
-    if: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-sunxi64-edge == 'no' }}
+    name: Some kernel sunxi64-edge
+    needs:
+    - kernel-prepare-all
+    if: ${{ always() && needs.kernel-prepare-all.outputs.prepare_sunxi64-edge_uptodate == 'no' }}
     outputs:
-      up-to-date: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-sunxi64-edge }}
+      up-to-date: ${{ needs.kernel-prepare-all.outputs.prepare_sunxi64-edge_uptodate }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    needs:
-    - kernel-prepare-all
     steps:
-    - name: Build Kernel 'sunxi64-edge'
+    - id: build_kernel_sunxi64-edge
+      name: Build Kernel sunxi64-edge
       run: 'echo "fake kernel: sunxi64-edge"'
   kernel-meson64-edge:
-    if: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-meson64-edge == 'no' }}
+    name: Some kernel meson64-edge
+    needs:
+    - kernel-prepare-all
+    if: ${{ always() && needs.kernel-prepare-all.outputs.prepare_meson64-edge_uptodate == 'no' }}
     outputs:
-      up-to-date: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-meson64-edge }}
+      up-to-date: ${{ needs.kernel-prepare-all.outputs.prepare_meson64-edge_uptodate }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    needs:
-    - kernel-prepare-all
     steps:
-    - name: Build Kernel 'meson64-edge'
+    - id: build_kernel_meson64-edge
+      name: Build Kernel meson64-edge
       run: 'echo "fake kernel: meson64-edge"'
   kernel-media-edge:
-    if: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-media-edge == 'no' }}
+    name: Some kernel media-edge
+    needs:
+    - kernel-prepare-all
+    if: ${{ always() && needs.kernel-prepare-all.outputs.prepare_media-edge_uptodate == 'no' }}
     outputs:
-      up-to-date: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-media-edge }}
+      up-to-date: ${{ needs.kernel-prepare-all.outputs.prepare_media-edge_uptodate }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    needs:
-    - kernel-prepare-all
     steps:
-    - name: Build Kernel 'media-edge'
+    - id: build_kernel_media-edge
+      name: Build Kernel media-edge
       run: 'echo "fake kernel: media-edge"'
   kernel-starfive-edge:
-    if: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-starfive-edge == 'no' }}
+    name: Some kernel starfive-edge
+    needs:
+    - kernel-prepare-all
+    if: ${{ always() && needs.kernel-prepare-all.outputs.prepare_starfive-edge_uptodate == 'no' }}
     outputs:
-      up-to-date: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-starfive-edge }}
+      up-to-date: ${{ needs.kernel-prepare-all.outputs.prepare_starfive-edge_uptodate }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    needs:
-    - kernel-prepare-all
     steps:
-    - name: Build Kernel 'starfive-edge'
+    - id: build_kernel_starfive-edge
+      name: Build Kernel starfive-edge
       run: 'echo "fake kernel: starfive-edge"'
   kernel-rockchip-edge:
-    if: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-rockchip-edge == 'no' }}
+    name: Some kernel rockchip-edge
+    needs:
+    - kernel-prepare-all
+    if: ${{ always() && needs.kernel-prepare-all.outputs.prepare_rockchip-edge_uptodate == 'no' }}
     outputs:
-      up-to-date: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-rockchip-edge }}
+      up-to-date: ${{ needs.kernel-prepare-all.outputs.prepare_rockchip-edge_uptodate }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    needs:
-    - kernel-prepare-all
     steps:
-    - name: Build Kernel 'rockchip-edge'
+    - id: build_kernel_rockchip-edge
+      name: Build Kernel rockchip-edge
       run: 'echo "fake kernel: rockchip-edge"'
   kernel-mvebu-edge:
-    if: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-mvebu-edge == 'no' }}
+    name: Some kernel mvebu-edge
+    needs:
+    - kernel-prepare-all
+    if: ${{ always() && needs.kernel-prepare-all.outputs.prepare_mvebu-edge_uptodate == 'no' }}
     outputs:
-      up-to-date: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-mvebu-edge }}
+      up-to-date: ${{ needs.kernel-prepare-all.outputs.prepare_mvebu-edge_uptodate }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    needs:
-    - kernel-prepare-all
     steps:
-    - name: Build Kernel 'mvebu-edge'
+    - id: build_kernel_mvebu-edge
+      name: Build Kernel mvebu-edge
       run: 'echo "fake kernel: mvebu-edge"'
   kernel-mvebu64-edge:
-    if: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-mvebu64-edge == 'no' }}
+    name: Some kernel mvebu64-edge
+    needs:
+    - kernel-prepare-all
+    if: ${{ always() && needs.kernel-prepare-all.outputs.prepare_mvebu64-edge_uptodate == 'no' }}
     outputs:
-      up-to-date: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-mvebu64-edge }}
+      up-to-date: ${{ needs.kernel-prepare-all.outputs.prepare_mvebu64-edge_uptodate }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    needs:
-    - kernel-prepare-all
     steps:
-    - name: Build Kernel 'mvebu64-edge'
+    - id: build_kernel_mvebu64-edge
+      name: Build Kernel mvebu64-edge
       run: 'echo "fake kernel: mvebu64-edge"'
   kernel-meson-edge:
-    if: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-meson-edge == 'no' }}
+    name: Some kernel meson-edge
+    needs:
+    - kernel-prepare-all
+    if: ${{ always() && needs.kernel-prepare-all.outputs.prepare_meson-edge_uptodate == 'no' }}
     outputs:
-      up-to-date: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-meson-edge }}
+      up-to-date: ${{ needs.kernel-prepare-all.outputs.prepare_meson-edge_uptodate }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    needs:
-    - kernel-prepare-all
     steps:
-    - name: Build Kernel 'meson-edge'
+    - id: build_kernel_meson-edge
+      name: Build Kernel meson-edge
       run: 'echo "fake kernel: meson-edge"'
   kernel-x86-edge:
-    if: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-x86-edge == 'no' }}
+    name: Some kernel x86-edge
+    needs:
+    - kernel-prepare-all
+    if: ${{ always() && needs.kernel-prepare-all.outputs.prepare_x86-edge_uptodate == 'no' }}
     outputs:
-      up-to-date: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-x86-edge }}
+      up-to-date: ${{ needs.kernel-prepare-all.outputs.prepare_x86-edge_uptodate }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    needs:
-    - kernel-prepare-all
     steps:
-    - name: Build Kernel 'x86-edge'
+    - id: build_kernel_x86-edge
+      name: Build Kernel x86-edge
       run: 'echo "fake kernel: x86-edge"'
   kernel-arm64-edge:
-    if: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-arm64-edge == 'no' }}
+    name: Some kernel arm64-edge
+    needs:
+    - kernel-prepare-all
+    if: ${{ always() && needs.kernel-prepare-all.outputs.prepare_arm64-edge_uptodate == 'no' }}
     outputs:
-      up-to-date: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-arm64-edge }}
+      up-to-date: ${{ needs.kernel-prepare-all.outputs.prepare_arm64-edge_uptodate }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    needs:
-    - kernel-prepare-all
     steps:
-    - name: Build Kernel 'arm64-edge'
+    - id: build_kernel_arm64-edge
+      name: Build Kernel arm64-edge
       run: 'echo "fake kernel: arm64-edge"'
   kernel-imx6-edge:
-    if: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-imx6-edge == 'no' }}
+    name: Some kernel imx6-edge
+    needs:
+    - kernel-prepare-all
+    if: ${{ always() && needs.kernel-prepare-all.outputs.prepare_imx6-edge_uptodate == 'no' }}
     outputs:
-      up-to-date: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-imx6-edge }}
+      up-to-date: ${{ needs.kernel-prepare-all.outputs.prepare_imx6-edge_uptodate }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    needs:
-    - kernel-prepare-all
     steps:
-    - name: Build Kernel 'imx6-edge'
+    - id: build_kernel_imx6-edge
+      name: Build Kernel imx6-edge
       run: 'echo "fake kernel: imx6-edge"'
   kernel-rk322x-edge:
-    if: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-rk322x-edge == 'no' }}
+    name: Some kernel rk322x-edge
+    needs:
+    - kernel-prepare-all
+    if: ${{ always() && needs.kernel-prepare-all.outputs.prepare_rk322x-edge_uptodate == 'no' }}
     outputs:
-      up-to-date: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-rk322x-edge }}
+      up-to-date: ${{ needs.kernel-prepare-all.outputs.prepare_rk322x-edge_uptodate }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    needs:
-    - kernel-prepare-all
     steps:
-    - name: Build Kernel 'rk322x-edge'
+    - id: build_kernel_rk322x-edge
+      name: Build Kernel rk322x-edge
       run: 'echo "fake kernel: rk322x-edge"'
   kernel-rk35xx-edge:
-    if: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-rk35xx-edge == 'no' }}
+    name: Some kernel rk35xx-edge
+    needs:
+    - kernel-prepare-all
+    if: ${{ always() && needs.kernel-prepare-all.outputs.prepare_rk35xx-edge_uptodate == 'no' }}
     outputs:
-      up-to-date: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-rk35xx-edge }}
+      up-to-date: ${{ needs.kernel-prepare-all.outputs.prepare_rk35xx-edge_uptodate }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    needs:
-    - kernel-prepare-all
     steps:
-    - name: Build Kernel 'rk35xx-edge'
+    - id: build_kernel_rk35xx-edge
+      name: Build Kernel rk35xx-edge
       run: 'echo "fake kernel: rk35xx-edge"'
   kernel-riscv64-edge:
-    if: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-riscv64-edge == 'no' }}
+    name: Some kernel riscv64-edge
+    needs:
+    - kernel-prepare-all
+    if: ${{ always() && needs.kernel-prepare-all.outputs.prepare_riscv64-edge_uptodate == 'no' }}
     outputs:
-      up-to-date: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-riscv64-edge }}
+      up-to-date: ${{ needs.kernel-prepare-all.outputs.prepare_riscv64-edge_uptodate }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    needs:
-    - kernel-prepare-all
     steps:
-    - name: Build Kernel 'riscv64-edge'
+    - id: build_kernel_riscv64-edge
+      name: Build Kernel riscv64-edge
       run: 'echo "fake kernel: riscv64-edge"'
   kernel-bcm2711-edge:
-    if: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-bcm2711-edge == 'no' }}
+    name: Some kernel bcm2711-edge
+    needs:
+    - kernel-prepare-all
+    if: ${{ always() && needs.kernel-prepare-all.outputs.prepare_bcm2711-edge_uptodate == 'no' }}
     outputs:
-      up-to-date: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-bcm2711-edge }}
+      up-to-date: ${{ needs.kernel-prepare-all.outputs.prepare_bcm2711-edge_uptodate }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    needs:
-    - kernel-prepare-all
     steps:
-    - name: Build Kernel 'bcm2711-edge'
+    - id: build_kernel_bcm2711-edge
+      name: Build Kernel bcm2711-edge
       run: 'echo "fake kernel: bcm2711-edge"'
   kernel-odroidxu4-edge:
-    if: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-odroidxu4-edge == 'no' }}
+    name: Some kernel odroidxu4-edge
+    needs:
+    - kernel-prepare-all
+    if: ${{ always() && needs.kernel-prepare-all.outputs.prepare_odroidxu4-edge_uptodate == 'no' }}
     outputs:
-      up-to-date: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-odroidxu4-edge }}
+      up-to-date: ${{ needs.kernel-prepare-all.outputs.prepare_odroidxu4-edge_uptodate }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    needs:
-    - kernel-prepare-all
     steps:
-    - name: Build Kernel 'odroidxu4-edge'
+    - id: build_kernel_odroidxu4-edge
+      name: Build Kernel odroidxu4-edge
       run: 'echo "fake kernel: odroidxu4-edge"'
   kernel-rk3568-odroid-edge:
-    if: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-rk3568-odroid-edge == 'no' }}
-    outputs:
-      up-to-date: ${{ needs.kernel-prepare-all.outputs.uptodate_kernel-rk3568-odroid-edge }}
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
+    name: Some kernel rk3568-odroid-edge
     needs:
     - kernel-prepare-all
-    steps:
-    - name: Build Kernel 'rk3568-odroid-edge'
-      run: 'echo "fake kernel: rk3568-odroid-edge"'
-  image_cli_espressobin-edge:
+    if: ${{ always() && needs.kernel-prepare-all.outputs.prepare_rk3568-odroid-edge_uptodate == 'no' }}
+    outputs:
+      up-to-date: ${{ needs.kernel-prepare-all.outputs.prepare_rk3568-odroid-edge_uptodate }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-mvebu64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'espressobin-edge'
-      run: 'echo "fake image: espressobin-edge"'
+    - id: build_kernel_rk3568-odroid-edge
+      name: Build Kernel rk3568-odroid-edge
+      run: 'echo "fake kernel: rk3568-odroid-edge"'
+  image_cli_espressobin-edge-jammy:
+    name: Image build for espressobin-edge-jammy
     needs:
     - kernel-mvebu64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_orangepi4-edge:
+    if: ${{ always() && needs.kernel-mvebu64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'orangepi4-edge'
-      run: 'echo "fake image: orangepi4-edge"'
+    - id: build_image_espressobin-edge-jammy
+      name: Build Image espressobin-edge-jammy
+      run: 'echo "fake image: espressobin-edge-jammy"'
+  image_cli_orangepi4-edge-jammy:
+    name: Image build for orangepi4-edge-jammy
     needs:
     - kernel-rockchip64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_sunvell-r69-edge:
+    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'sunvell-r69-edge'
-      run: 'echo "fake image: sunvell-r69-edge"'
+    - id: build_image_orangepi4-edge-jammy
+      name: Build Image orangepi4-edge-jammy
+      run: 'echo "fake image: orangepi4-edge-jammy"'
+  image_cli_sunvell-r69-edge-jammy:
+    name: Image build for sunvell-r69-edge-jammy
     needs:
     - kernel-sunxi-edge
-    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_khadas-vim2-edge:
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-meson64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'khadas-vim2-edge'
-      run: 'echo "fake image: khadas-vim2-edge"'
+    - id: build_image_sunvell-r69-edge-jammy
+      name: Build Image sunvell-r69-edge-jammy
+      run: 'echo "fake image: sunvell-r69-edge-jammy"'
+  image_cli_khadas-vim2-edge-jammy:
+    name: Image build for khadas-vim2-edge-jammy
     needs:
     - kernel-meson64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_odroidc1-edge:
+    if: ${{ always() && needs.kernel-meson64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-meson-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'odroidc1-edge'
-      run: 'echo "fake image: odroidc1-edge"'
+    - id: build_image_khadas-vim2-edge-jammy
+      name: Build Image khadas-vim2-edge-jammy
+      run: 'echo "fake image: khadas-vim2-edge-jammy"'
+  image_cli_odroidc1-edge-jammy:
+    name: Image build for odroidc1-edge-jammy
     needs:
     - kernel-meson-edge
-    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_bananapim64-edge:
+    if: ${{ always() && needs.kernel-meson-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'bananapim64-edge'
-      run: 'echo "fake image: bananapim64-edge"'
+    - id: build_image_odroidc1-edge-jammy
+      name: Build Image odroidc1-edge-jammy
+      run: 'echo "fake image: odroidc1-edge-jammy"'
+  image_cli_bananapim64-edge-jammy:
+    name: Image build for bananapim64-edge-jammy
     needs:
     - kernel-sunxi64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_radxa-zero-edge:
+    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-meson64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'radxa-zero-edge'
-      run: 'echo "fake image: radxa-zero-edge"'
+    - id: build_image_bananapim64-edge-jammy
+      name: Build Image bananapim64-edge-jammy
+      run: 'echo "fake image: bananapim64-edge-jammy"'
+  image_cli_radxa-zero-edge-jammy:
+    name: Image build for radxa-zero-edge-jammy
     needs:
     - kernel-meson64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_orangepipc-edge:
+    if: ${{ always() && needs.kernel-meson64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'orangepipc-edge'
-      run: 'echo "fake image: orangepipc-edge"'
+    - id: build_image_radxa-zero-edge-jammy
+      name: Build Image radxa-zero-edge-jammy
+      run: 'echo "fake image: radxa-zero-edge-jammy"'
+  image_cli_orangepipc-edge-jammy:
+    name: Image build for orangepipc-edge-jammy
     needs:
     - kernel-sunxi-edge
-    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_rockpi-4cplus-edge:
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'rockpi-4cplus-edge'
-      run: 'echo "fake image: rockpi-4cplus-edge"'
+    - id: build_image_orangepipc-edge-jammy
+      name: Build Image orangepipc-edge-jammy
+      run: 'echo "fake image: orangepipc-edge-jammy"'
+  image_cli_rockpi-4cplus-edge-jammy:
+    name: Image build for rockpi-4cplus-edge-jammy
     needs:
     - kernel-rockchip64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_qemu-uboot-x86-edge:
+    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-x86-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'qemu-uboot-x86-edge'
-      run: 'echo "fake image: qemu-uboot-x86-edge"'
+    - id: build_image_rockpi-4cplus-edge-jammy
+      name: Build Image rockpi-4cplus-edge-jammy
+      run: 'echo "fake image: rockpi-4cplus-edge-jammy"'
+  image_cli_qemu-uboot-x86-edge-jammy:
+    name: Image build for qemu-uboot-x86-edge-jammy
     needs:
     - kernel-x86-edge
-    - rootfs-cli-amd64_jammy_13154b4292817436e52804427edd4f8d
-  image_cli_nanopineoplus2-edge:
+    if: ${{ always() && needs.kernel-x86-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'nanopineoplus2-edge'
-      run: 'echo "fake image: nanopineoplus2-edge"'
+    - id: build_image_qemu-uboot-x86-edge-jammy
+      name: Build Image qemu-uboot-x86-edge-jammy
+      run: 'echo "fake image: qemu-uboot-x86-edge-jammy"'
+  image_cli_nanopineoplus2-edge-jammy:
+    name: Image build for nanopineoplus2-edge-jammy
     needs:
     - kernel-sunxi64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_station-m2-edge:
+    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-media-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'station-m2-edge'
-      run: 'echo "fake image: station-m2-edge"'
+    - id: build_image_nanopineoplus2-edge-jammy
+      name: Build Image nanopineoplus2-edge-jammy
+      run: 'echo "fake image: nanopineoplus2-edge-jammy"'
+  image_cli_station-m2-edge-jammy:
+    name: Image build for station-m2-edge-jammy
     needs:
     - kernel-media-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_pinebook-a64-edge:
+    if: ${{ always() && needs.kernel-media-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'pinebook-a64-edge'
-      run: 'echo "fake image: pinebook-a64-edge"'
+    - id: build_image_station-m2-edge-jammy
+      name: Build Image station-m2-edge-jammy
+      run: 'echo "fake image: station-m2-edge-jammy"'
+  image_cli_pinebook-a64-edge-jammy:
+    name: Image build for pinebook-a64-edge-jammy
     needs:
     - kernel-sunxi64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_rk322x-box-edge:
+    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-rk322x-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'rk322x-box-edge'
-      run: 'echo "fake image: rk322x-box-edge"'
+    - id: build_image_pinebook-a64-edge-jammy
+      name: Build Image pinebook-a64-edge-jammy
+      run: 'echo "fake image: pinebook-a64-edge-jammy"'
+  image_cli_rk322x-box-edge-jammy:
+    name: Image build for rk322x-box-edge-jammy
     needs:
     - kernel-rk322x-edge
-    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_beelinkx2-edge:
+    if: ${{ always() && needs.kernel-rk322x-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'beelinkx2-edge'
-      run: 'echo "fake image: beelinkx2-edge"'
+    - id: build_image_rk322x-box-edge-jammy
+      name: Build Image rk322x-box-edge-jammy
+      run: 'echo "fake image: rk322x-box-edge-jammy"'
+  image_cli_beelinkx2-edge-jammy:
+    name: Image build for beelinkx2-edge-jammy
     needs:
     - kernel-sunxi-edge
-    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_khadas-vim3l-edge:
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-meson64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'khadas-vim3l-edge'
-      run: 'echo "fake image: khadas-vim3l-edge"'
+    - id: build_image_beelinkx2-edge-jammy
+      name: Build Image beelinkx2-edge-jammy
+      run: 'echo "fake image: beelinkx2-edge-jammy"'
+  image_cli_khadas-vim3l-edge-jammy:
+    name: Image build for khadas-vim3l-edge-jammy
     needs:
     - kernel-meson64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_rk3318-box-edge:
+    if: ${{ always() && needs.kernel-meson64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'rk3318-box-edge'
-      run: 'echo "fake image: rk3318-box-edge"'
+    - id: build_image_khadas-vim3l-edge-jammy
+      name: Build Image khadas-vim3l-edge-jammy
+      run: 'echo "fake image: khadas-vim3l-edge-jammy"'
+  image_cli_rk3318-box-edge-jammy:
+    name: Image build for rk3318-box-edge-jammy
     needs:
     - kernel-rockchip64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_tritium-h5-edge:
+    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'tritium-h5-edge'
-      run: 'echo "fake image: tritium-h5-edge"'
+    - id: build_image_rk3318-box-edge-jammy
+      name: Build Image rk3318-box-edge-jammy
+      run: 'echo "fake image: rk3318-box-edge-jammy"'
+  image_cli_tritium-h5-edge-jammy:
+    name: Image build for tritium-h5-edge-jammy
     needs:
     - kernel-sunxi64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_roc-rk3399-pc-edge:
+    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'roc-rk3399-pc-edge'
-      run: 'echo "fake image: roc-rk3399-pc-edge"'
+    - id: build_image_tritium-h5-edge-jammy
+      name: Build Image tritium-h5-edge-jammy
+      run: 'echo "fake image: tritium-h5-edge-jammy"'
+  image_cli_roc-rk3399-pc-edge-jammy:
+    name: Image build for roc-rk3399-pc-edge-jammy
     needs:
     - kernel-rockchip64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_beaglev-edge:
+    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-starfive-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'beaglev-edge'
-      run: 'echo "fake image: beaglev-edge"'
+    - id: build_image_roc-rk3399-pc-edge-jammy
+      name: Build Image roc-rk3399-pc-edge-jammy
+      run: 'echo "fake image: roc-rk3399-pc-edge-jammy"'
+  image_cli_beaglev-edge-jammy:
+    name: Image build for beaglev-edge-jammy
     needs:
     - kernel-starfive-edge
-    - rootfs-cli-riscv64_jammy_6c0e668ae353c4fb22cc2b94a8bc0493
-  image_cli_orangepiprime-edge:
+    if: ${{ always() && needs.kernel-starfive-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'orangepiprime-edge'
-      run: 'echo "fake image: orangepiprime-edge"'
+    - id: build_image_beaglev-edge-jammy
+      name: Build Image beaglev-edge-jammy
+      run: 'echo "fake image: beaglev-edge-jammy"'
+  image_cli_orangepiprime-edge-jammy:
+    name: Image build for orangepiprime-edge-jammy
     needs:
     - kernel-sunxi64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_renegade-edge:
+    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'renegade-edge'
-      run: 'echo "fake image: renegade-edge"'
+    - id: build_image_orangepiprime-edge-jammy
+      name: Build Image orangepiprime-edge-jammy
+      run: 'echo "fake image: orangepiprime-edge-jammy"'
+  image_cli_renegade-edge-jammy:
+    name: Image build for renegade-edge-jammy
     needs:
     - kernel-rockchip64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_jetson-nano-edge:
+    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-media-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'jetson-nano-edge'
-      run: 'echo "fake image: jetson-nano-edge"'
+    - id: build_image_renegade-edge-jammy
+      name: Build Image renegade-edge-jammy
+      run: 'echo "fake image: renegade-edge-jammy"'
+  image_cli_jetson-nano-edge-jammy:
+    name: Image build for jetson-nano-edge-jammy
     needs:
     - kernel-media-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_nanopineo2black-edge:
+    if: ${{ always() && needs.kernel-media-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'nanopineo2black-edge'
-      run: 'echo "fake image: nanopineo2black-edge"'
+    - id: build_image_jetson-nano-edge-jammy
+      name: Build Image jetson-nano-edge-jammy
+      run: 'echo "fake image: jetson-nano-edge-jammy"'
+  image_cli_nanopineo2black-edge-jammy:
+    name: Image build for nanopineo2black-edge-jammy
     needs:
     - kernel-sunxi64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_star64-edge:
+    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-starfive-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'star64-edge'
-      run: 'echo "fake image: star64-edge"'
+    - id: build_image_nanopineo2black-edge-jammy
+      name: Build Image nanopineo2black-edge-jammy
+      run: 'echo "fake image: nanopineo2black-edge-jammy"'
+  image_cli_star64-edge-jammy:
+    name: Image build for star64-edge-jammy
     needs:
     - kernel-starfive-edge
-    - rootfs-cli-riscv64_jammy_6c0e668ae353c4fb22cc2b94a8bc0493
-  image_cli_orangepipcplus-edge:
+    if: ${{ always() && needs.kernel-starfive-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'orangepipcplus-edge'
-      run: 'echo "fake image: orangepipcplus-edge"'
+    - id: build_image_star64-edge-jammy
+      name: Build Image star64-edge-jammy
+      run: 'echo "fake image: star64-edge-jammy"'
+  image_cli_orangepipcplus-edge-jammy:
+    name: Image build for orangepipcplus-edge-jammy
     needs:
     - kernel-sunxi-edge
-    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_nanopiduo-edge:
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'nanopiduo-edge'
-      run: 'echo "fake image: nanopiduo-edge"'
+    - id: build_image_orangepipcplus-edge-jammy
+      name: Build Image orangepipcplus-edge-jammy
+      run: 'echo "fake image: orangepipcplus-edge-jammy"'
+  image_cli_nanopiduo-edge-jammy:
+    name: Image build for nanopiduo-edge-jammy
     needs:
     - kernel-sunxi-edge
-    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_nanopiair-edge:
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'nanopiair-edge'
-      run: 'echo "fake image: nanopiair-edge"'
+    - id: build_image_nanopiduo-edge-jammy
+      name: Build Image nanopiduo-edge-jammy
+      run: 'echo "fake image: nanopiduo-edge-jammy"'
+  image_cli_nanopiair-edge-jammy:
+    name: Image build for nanopiair-edge-jammy
     needs:
     - kernel-sunxi-edge
-    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_nanopineocore2-edge:
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'nanopineocore2-edge'
-      run: 'echo "fake image: nanopineocore2-edge"'
+    - id: build_image_nanopiair-edge-jammy
+      name: Build Image nanopiair-edge-jammy
+      run: 'echo "fake image: nanopiair-edge-jammy"'
+  image_cli_nanopineocore2-edge-jammy:
+    name: Image build for nanopineocore2-edge-jammy
     needs:
     - kernel-sunxi64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_orangepizeroplus2-h5-edge:
+    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'orangepizeroplus2-h5-edge'
-      run: 'echo "fake image: orangepizeroplus2-h5-edge"'
+    - id: build_image_nanopineocore2-edge-jammy
+      name: Build Image nanopineocore2-edge-jammy
+      run: 'echo "fake image: nanopineocore2-edge-jammy"'
+  image_cli_orangepizeroplus2-h5-edge-jammy:
+    name: Image build for orangepizeroplus2-h5-edge-jammy
     needs:
     - kernel-sunxi64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_rock-3a-edge:
+    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-rk35xx-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'rock-3a-edge'
-      run: 'echo "fake image: rock-3a-edge"'
+    - id: build_image_orangepizeroplus2-h5-edge-jammy
+      name: Build Image orangepizeroplus2-h5-edge-jammy
+      run: 'echo "fake image: orangepizeroplus2-h5-edge-jammy"'
+  image_cli_rock-3a-edge-jammy:
+    name: Image build for rock-3a-edge-jammy
     needs:
     - kernel-rk35xx-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_cubietruckplus-edge:
+    if: ${{ always() && needs.kernel-rk35xx-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'cubietruckplus-edge'
-      run: 'echo "fake image: cubietruckplus-edge"'
+    - id: build_image_rock-3a-edge-jammy
+      name: Build Image rock-3a-edge-jammy
+      run: 'echo "fake image: rock-3a-edge-jammy"'
+  image_cli_cubietruckplus-edge-jammy:
+    name: Image build for cubietruckplus-edge-jammy
     needs:
     - kernel-sunxi-edge
-    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_nanopim1-edge:
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'nanopim1-edge'
-      run: 'echo "fake image: nanopim1-edge"'
+    - id: build_image_cubietruckplus-edge-jammy
+      name: Build Image cubietruckplus-edge-jammy
+      run: 'echo "fake image: cubietruckplus-edge-jammy"'
+  image_cli_nanopim1-edge-jammy:
+    name: Image build for nanopim1-edge-jammy
     needs:
     - kernel-sunxi-edge
-    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_rockpi-n10-edge:
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'rockpi-n10-edge'
-      run: 'echo "fake image: rockpi-n10-edge"'
+    - id: build_image_nanopim1-edge-jammy
+      name: Build Image nanopim1-edge-jammy
+      run: 'echo "fake image: nanopim1-edge-jammy"'
+  image_cli_rockpi-n10-edge-jammy:
+    name: Image build for rockpi-n10-edge-jammy
     needs:
     - kernel-rockchip64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_orangepi3-lts-edge:
+    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'orangepi3-lts-edge'
-      run: 'echo "fake image: orangepi3-lts-edge"'
+    - id: build_image_rockpi-n10-edge-jammy
+      name: Build Image rockpi-n10-edge-jammy
+      run: 'echo "fake image: rockpi-n10-edge-jammy"'
+  image_cli_orangepi3-lts-edge-jammy:
+    name: Image build for orangepi3-lts-edge-jammy
     needs:
     - kernel-sunxi64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_nanopim4-edge:
+    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'nanopim4-edge'
-      run: 'echo "fake image: nanopim4-edge"'
+    - id: build_image_orangepi3-lts-edge-jammy
+      name: Build Image orangepi3-lts-edge-jammy
+      run: 'echo "fake image: orangepi3-lts-edge-jammy"'
+  image_cli_nanopim4-edge-jammy:
+    name: Image build for nanopim4-edge-jammy
     needs:
     - kernel-rockchip64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_orangepilite2-edge:
+    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'orangepilite2-edge'
-      run: 'echo "fake image: orangepilite2-edge"'
+    - id: build_image_nanopim4-edge-jammy
+      name: Build Image nanopim4-edge-jammy
+      run: 'echo "fake image: nanopim4-edge-jammy"'
+  image_cli_orangepilite2-edge-jammy:
+    name: Image build for orangepilite2-edge-jammy
     needs:
     - kernel-sunxi64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_cubieboard-edge:
+    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'cubieboard-edge'
-      run: 'echo "fake image: cubieboard-edge"'
+    - id: build_image_orangepilite2-edge-jammy
+      name: Build Image orangepilite2-edge-jammy
+      run: 'echo "fake image: orangepilite2-edge-jammy"'
+  image_cli_cubieboard-edge-jammy:
+    name: Image build for cubieboard-edge-jammy
     needs:
     - kernel-sunxi-edge
-    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_station-p2-edge:
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-media-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'station-p2-edge'
-      run: 'echo "fake image: station-p2-edge"'
+    - id: build_image_cubieboard-edge-jammy
+      name: Build Image cubieboard-edge-jammy
+      run: 'echo "fake image: cubieboard-edge-jammy"'
+  image_cli_station-p2-edge-jammy:
+    name: Image build for station-p2-edge-jammy
     needs:
     - kernel-media-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_orangepipc2-edge:
+    if: ${{ always() && needs.kernel-media-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'orangepipc2-edge'
-      run: 'echo "fake image: orangepipc2-edge"'
+    - id: build_image_station-p2-edge-jammy
+      name: Build Image station-p2-edge-jammy
+      run: 'echo "fake image: station-p2-edge-jammy"'
+  image_cli_orangepipc2-edge-jammy:
+    name: Image build for orangepipc2-edge-jammy
     needs:
     - kernel-sunxi64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_pine64so-edge:
+    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'pine64so-edge'
-      run: 'echo "fake image: pine64so-edge"'
+    - id: build_image_orangepipc2-edge-jammy
+      name: Build Image orangepipc2-edge-jammy
+      run: 'echo "fake image: orangepipc2-edge-jammy"'
+  image_cli_pine64so-edge-jammy:
+    name: Image build for pine64so-edge-jammy
     needs:
     - kernel-sunxi64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_lafrite-edge:
+    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-meson64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'lafrite-edge'
-      run: 'echo "fake image: lafrite-edge"'
+    - id: build_image_pine64so-edge-jammy
+      name: Build Image pine64so-edge-jammy
+      run: 'echo "fake image: pine64so-edge-jammy"'
+  image_cli_lafrite-edge-jammy:
+    name: Image build for lafrite-edge-jammy
     needs:
     - kernel-meson64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_tinkerboard-edge:
+    if: ${{ always() && needs.kernel-meson64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-rockchip-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'tinkerboard-edge'
-      run: 'echo "fake image: tinkerboard-edge"'
+    - id: build_image_lafrite-edge-jammy
+      name: Build Image lafrite-edge-jammy
+      run: 'echo "fake image: lafrite-edge-jammy"'
+  image_cli_tinkerboard-edge-jammy:
+    name: Image build for tinkerboard-edge-jammy
     needs:
     - kernel-rockchip-edge
-    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_mk808c-edge:
+    if: ${{ always() && needs.kernel-rockchip-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'mk808c-edge'
-      run: 'echo "fake image: mk808c-edge"'
+    - id: build_image_tinkerboard-edge-jammy
+      name: Build Image tinkerboard-edge-jammy
+      run: 'echo "fake image: tinkerboard-edge-jammy"'
+  image_cli_mk808c-edge-jammy:
+    name: Image build for mk808c-edge-jammy
     needs:
     - kernel-sunxi-edge
-    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_rockpi-4bplus-edge:
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'rockpi-4bplus-edge'
-      run: 'echo "fake image: rockpi-4bplus-edge"'
+    - id: build_image_mk808c-edge-jammy
+      name: Build Image mk808c-edge-jammy
+      run: 'echo "fake image: mk808c-edge-jammy"'
+  image_cli_rockpi-4bplus-edge-jammy:
+    name: Image build for rockpi-4bplus-edge-jammy
     needs:
     - kernel-rockchip64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_khadas-vim3-edge:
+    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-meson64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'khadas-vim3-edge'
-      run: 'echo "fake image: khadas-vim3-edge"'
+    - id: build_image_rockpi-4bplus-edge-jammy
+      name: Build Image rockpi-4bplus-edge-jammy
+      run: 'echo "fake image: rockpi-4bplus-edge-jammy"'
+  image_cli_khadas-vim3-edge-jammy:
+    name: Image build for khadas-vim3-edge-jammy
     needs:
     - kernel-meson64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_pcduino2-edge:
+    if: ${{ always() && needs.kernel-meson64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'pcduino2-edge'
-      run: 'echo "fake image: pcduino2-edge"'
+    - id: build_image_khadas-vim3-edge-jammy
+      name: Build Image khadas-vim3-edge-jammy
+      run: 'echo "fake image: khadas-vim3-edge-jammy"'
+  image_cli_pcduino2-edge-jammy:
+    name: Image build for pcduino2-edge-jammy
     needs:
     - kernel-sunxi-edge
-    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_aml-s9xx-box-edge:
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-meson64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'aml-s9xx-box-edge'
-      run: 'echo "fake image: aml-s9xx-box-edge"'
+    - id: build_image_pcduino2-edge-jammy
+      name: Build Image pcduino2-edge-jammy
+      run: 'echo "fake image: pcduino2-edge-jammy"'
+  image_cli_aml-s9xx-box-edge-jammy:
+    name: Image build for aml-s9xx-box-edge-jammy
     needs:
     - kernel-meson64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_pinebook-pro-edge:
+    if: ${{ always() && needs.kernel-meson64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'pinebook-pro-edge'
-      run: 'echo "fake image: pinebook-pro-edge"'
+    - id: build_image_aml-s9xx-box-edge-jammy
+      name: Build Image aml-s9xx-box-edge-jammy
+      run: 'echo "fake image: aml-s9xx-box-edge-jammy"'
+  image_cli_pinebook-pro-edge-jammy:
+    name: Image build for pinebook-pro-edge-jammy
     needs:
     - kernel-rockchip64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_jethubj80-edge:
+    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-meson64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'jethubj80-edge'
-      run: 'echo "fake image: jethubj80-edge"'
+    - id: build_image_pinebook-pro-edge-jammy
+      name: Build Image pinebook-pro-edge-jammy
+      run: 'echo "fake image: pinebook-pro-edge-jammy"'
+  image_cli_jethubj80-edge-jammy:
+    name: Image build for jethubj80-edge-jammy
     needs:
     - kernel-meson64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_nanopik2-s905-edge:
+    if: ${{ always() && needs.kernel-meson64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-meson64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'nanopik2-s905-edge'
-      run: 'echo "fake image: nanopik2-s905-edge"'
+    - id: build_image_jethubj80-edge-jammy
+      name: Build Image jethubj80-edge-jammy
+      run: 'echo "fake image: jethubj80-edge-jammy"'
+  image_cli_nanopik2-s905-edge-jammy:
+    name: Image build for nanopik2-s905-edge-jammy
     needs:
     - kernel-meson64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_orangepione-edge:
+    if: ${{ always() && needs.kernel-meson64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'orangepione-edge'
-      run: 'echo "fake image: orangepione-edge"'
+    - id: build_image_nanopik2-s905-edge-jammy
+      name: Build Image nanopik2-s905-edge-jammy
+      run: 'echo "fake image: nanopik2-s905-edge-jammy"'
+  image_cli_orangepione-edge-jammy:
+    name: Image build for orangepione-edge-jammy
     needs:
     - kernel-sunxi-edge
-    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_nanopi-r1s-h5-edge:
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'nanopi-r1s-h5-edge'
-      run: 'echo "fake image: nanopi-r1s-h5-edge"'
+    - id: build_image_orangepione-edge-jammy
+      name: Build Image orangepione-edge-jammy
+      run: 'echo "fake image: orangepione-edge-jammy"'
+  image_cli_nanopi-r1s-h5-edge-jammy:
+    name: Image build for nanopi-r1s-h5-edge-jammy
     needs:
     - kernel-sunxi64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_micro-edge:
+    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'micro-edge'
-      run: 'echo "fake image: micro-edge"'
+    - id: build_image_nanopi-r1s-h5-edge-jammy
+      name: Build Image nanopi-r1s-h5-edge-jammy
+      run: 'echo "fake image: nanopi-r1s-h5-edge-jammy"'
+  image_cli_micro-edge-jammy:
+    name: Image build for micro-edge-jammy
     needs:
     - kernel-sunxi-edge
-    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_tritium-h3-edge:
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'tritium-h3-edge'
-      run: 'echo "fake image: tritium-h3-edge"'
+    - id: build_image_micro-edge-jammy
+      name: Build Image micro-edge-jammy
+      run: 'echo "fake image: micro-edge-jammy"'
+  image_cli_tritium-h3-edge-jammy:
+    name: Image build for tritium-h3-edge-jammy
     needs:
     - kernel-sunxi-edge
-    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_orangepi-rk3399-edge:
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'orangepi-rk3399-edge'
-      run: 'echo "fake image: orangepi-rk3399-edge"'
+    - id: build_image_tritium-h3-edge-jammy
+      name: Build Image tritium-h3-edge-jammy
+      run: 'echo "fake image: tritium-h3-edge-jammy"'
+  image_cli_orangepi-rk3399-edge-jammy:
+    name: Image build for orangepi-rk3399-edge-jammy
     needs:
     - kernel-rockchip64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_nanopim1plus2-edge:
+    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'nanopim1plus2-edge'
-      run: 'echo "fake image: nanopim1plus2-edge"'
+    - id: build_image_orangepi-rk3399-edge-jammy
+      name: Build Image orangepi-rk3399-edge-jammy
+      run: 'echo "fake image: orangepi-rk3399-edge-jammy"'
+  image_cli_nanopim1plus2-edge-jammy:
+    name: Image build for nanopim1plus2-edge-jammy
     needs:
     - kernel-sunxi64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_clearfogpro-edge:
+    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-mvebu-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'clearfogpro-edge'
-      run: 'echo "fake image: clearfogpro-edge"'
+    - id: build_image_nanopim1plus2-edge-jammy
+      name: Build Image nanopim1plus2-edge-jammy
+      run: 'echo "fake image: nanopim1plus2-edge-jammy"'
+  image_cli_clearfogpro-edge-jammy:
+    name: Image build for clearfogpro-edge-jammy
     needs:
     - kernel-mvebu-edge
-    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_pcduino3nano-edge:
+    if: ${{ always() && needs.kernel-mvebu-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'pcduino3nano-edge'
-      run: 'echo "fake image: pcduino3nano-edge"'
+    - id: build_image_clearfogpro-edge-jammy
+      name: Build Image clearfogpro-edge-jammy
+      run: 'echo "fake image: clearfogpro-edge-jammy"'
+  image_cli_pcduino3nano-edge-jammy:
+    name: Image build for pcduino3nano-edge-jammy
     needs:
     - kernel-sunxi-edge
-    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_orangepi4-lts-edge:
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'orangepi4-lts-edge'
-      run: 'echo "fake image: orangepi4-lts-edge"'
+    - id: build_image_pcduino3nano-edge-jammy
+      name: Build Image pcduino3nano-edge-jammy
+      run: 'echo "fake image: pcduino3nano-edge-jammy"'
+  image_cli_orangepi4-lts-edge-jammy:
+    name: Image build for orangepi4-lts-edge-jammy
     needs:
     - kernel-rockchip64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_nanopineo4-edge:
+    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'nanopineo4-edge'
-      run: 'echo "fake image: nanopineo4-edge"'
+    - id: build_image_orangepi4-lts-edge-jammy
+      name: Build Image orangepi4-lts-edge-jammy
+      run: 'echo "fake image: orangepi4-lts-edge-jammy"'
+  image_cli_nanopineo4-edge-jammy:
+    name: Image build for nanopineo4-edge-jammy
     needs:
     - kernel-rockchip64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_clearfogbase-edge:
+    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-mvebu-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'clearfogbase-edge'
-      run: 'echo "fake image: clearfogbase-edge"'
+    - id: build_image_nanopineo4-edge-jammy
+      name: Build Image nanopineo4-edge-jammy
+      run: 'echo "fake image: nanopineo4-edge-jammy"'
+  image_cli_clearfogbase-edge-jammy:
+    name: Image build for clearfogbase-edge-jammy
     needs:
     - kernel-mvebu-edge
-    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_pineh64-edge:
+    if: ${{ always() && needs.kernel-mvebu-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'pineh64-edge'
-      run: 'echo "fake image: pineh64-edge"'
+    - id: build_image_clearfogbase-edge-jammy
+      name: Build Image clearfogbase-edge-jammy
+      run: 'echo "fake image: clearfogbase-edge-jammy"'
+  image_cli_pineh64-edge-jammy:
+    name: Image build for pineh64-edge-jammy
     needs:
     - kernel-sunxi64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_zeropi-edge:
+    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'zeropi-edge'
-      run: 'echo "fake image: zeropi-edge"'
+    - id: build_image_pineh64-edge-jammy
+      name: Build Image pineh64-edge-jammy
+      run: 'echo "fake image: pineh64-edge-jammy"'
+  image_cli_zeropi-edge-jammy:
+    name: Image build for zeropi-edge-jammy
     needs:
     - kernel-sunxi-edge
-    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_nanopi-r2s-edge:
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'nanopi-r2s-edge'
-      run: 'echo "fake image: nanopi-r2s-edge"'
+    - id: build_image_zeropi-edge-jammy
+      name: Build Image zeropi-edge-jammy
+      run: 'echo "fake image: zeropi-edge-jammy"'
+  image_cli_nanopi-r2s-edge-jammy:
+    name: Image build for nanopi-r2s-edge-jammy
     needs:
     - kernel-rockchip64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_orangepilite-edge:
+    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'orangepilite-edge'
-      run: 'echo "fake image: orangepilite-edge"'
+    - id: build_image_nanopi-r2s-edge-jammy
+      name: Build Image nanopi-r2s-edge-jammy
+      run: 'echo "fake image: nanopi-r2s-edge-jammy"'
+  image_cli_orangepilite-edge-jammy:
+    name: Image build for orangepilite-edge-jammy
     needs:
     - kernel-sunxi-edge
-    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_visionfive-edge:
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-starfive-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'visionfive-edge'
-      run: 'echo "fake image: visionfive-edge"'
+    - id: build_image_orangepilite-edge-jammy
+      name: Build Image orangepilite-edge-jammy
+      run: 'echo "fake image: orangepilite-edge-jammy"'
+  image_cli_visionfive-edge-jammy:
+    name: Image build for visionfive-edge-jammy
     needs:
     - kernel-starfive-edge
-    - rootfs-cli-riscv64_jammy_6c0e668ae353c4fb22cc2b94a8bc0493
-  image_cli_orangepiwin-edge:
+    if: ${{ always() && needs.kernel-starfive-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'orangepiwin-edge'
-      run: 'echo "fake image: orangepiwin-edge"'
+    - id: build_image_visionfive-edge-jammy
+      name: Build Image visionfive-edge-jammy
+      run: 'echo "fake image: visionfive-edge-jammy"'
+  image_cli_orangepiwin-edge-jammy:
+    name: Image build for orangepiwin-edge-jammy
     needs:
     - kernel-sunxi64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_rockpi-4c-edge:
+    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'rockpi-4c-edge'
-      run: 'echo "fake image: rockpi-4c-edge"'
+    - id: build_image_orangepiwin-edge-jammy
+      name: Build Image orangepiwin-edge-jammy
+      run: 'echo "fake image: orangepiwin-edge-jammy"'
+  image_cli_rockpi-4c-edge-jammy:
+    name: Image build for rockpi-4c-edge-jammy
     needs:
     - kernel-rockchip64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_firefly-rk3399-edge:
+    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-media-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'firefly-rk3399-edge'
-      run: 'echo "fake image: firefly-rk3399-edge"'
+    - id: build_image_rockpi-4c-edge-jammy
+      name: Build Image rockpi-4c-edge-jammy
+      run: 'echo "fake image: rockpi-4c-edge-jammy"'
+  image_cli_firefly-rk3399-edge-jammy:
+    name: Image build for firefly-rk3399-edge-jammy
     needs:
     - kernel-media-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_pine64-edge:
+    if: ${{ always() && needs.kernel-media-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'pine64-edge'
-      run: 'echo "fake image: pine64-edge"'
+    - id: build_image_firefly-rk3399-edge-jammy
+      name: Build Image firefly-rk3399-edge-jammy
+      run: 'echo "fake image: firefly-rk3399-edge-jammy"'
+  image_cli_pine64-edge-jammy:
+    name: Image build for pine64-edge-jammy
     needs:
     - kernel-sunxi64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_cubietruck-edge:
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
-    steps:
-    - name: Image CLI 'cubietruck-edge'
-      run: 'echo "fake image: cubietruck-edge"'
-    needs:
-    - kernel-sunxi-edge
-    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_orangepiplus2e-edge:
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
-    steps:
-    - name: Image CLI 'orangepiplus2e-edge'
-      run: 'echo "fake image: orangepiplus2e-edge"'
-    needs:
-    - kernel-sunxi-edge
-    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_nanopim4v2-edge:
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
-    steps:
-    - name: Image CLI 'nanopim4v2-edge'
-      run: 'echo "fake image: nanopim4v2-edge"'
-    needs:
-    - kernel-rockchip64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_rock64-edge:
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
-    steps:
-    - name: Image CLI 'rock64-edge'
-      run: 'echo "fake image: rock64-edge"'
-    needs:
-    - kernel-rockchip64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_nanopim1plus-edge:
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
-    steps:
-    - name: Image CLI 'nanopim1plus-edge'
-      run: 'echo "fake image: nanopim1plus-edge"'
-    needs:
-    - kernel-sunxi-edge
-    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_bananapim5-edge:
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    if: ${{ always() && needs.kernel-meson64-edge.outputs.up-to-date == 'no' }}
-    steps:
-    - name: Image CLI 'bananapim5-edge'
-      run: 'echo "fake image: bananapim5-edge"'
-    needs:
-    - kernel-meson64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_orangepizero-edge:
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
-    steps:
-    - name: Image CLI 'orangepizero-edge'
-      run: 'echo "fake image: orangepizero-edge"'
-    needs:
-    - kernel-sunxi-edge
-    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_odroidhc4-edge:
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    if: ${{ always() && needs.kernel-meson64-edge.outputs.up-to-date == 'no' }}
-    steps:
-    - name: Image CLI 'odroidhc4-edge'
-      run: 'echo "fake image: odroidhc4-edge"'
-    needs:
-    - kernel-meson64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_rockpi-4b-edge:
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
-    steps:
-    - name: Image CLI 'rockpi-4b-edge'
-      run: 'echo "fake image: rockpi-4b-edge"'
-    needs:
-    - kernel-rockchip64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_pineh64-b-edge:
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
     if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
     steps:
-    - name: Image CLI 'pineh64-b-edge'
-      run: 'echo "fake image: pineh64-b-edge"'
+    - id: build_image_pine64-edge-jammy
+      name: Build Image pine64-edge-jammy
+      run: 'echo "fake image: pine64-edge-jammy"'
+  image_cli_cubietruck-edge-jammy:
+    name: Image build for cubietruck-edge-jammy
+    needs:
+    - kernel-sunxi-edge
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - id: build_image_cubietruck-edge-jammy
+      name: Build Image cubietruck-edge-jammy
+      run: 'echo "fake image: cubietruck-edge-jammy"'
+  image_cli_orangepiplus2e-edge-jammy:
+    name: Image build for orangepiplus2e-edge-jammy
+    needs:
+    - kernel-sunxi-edge
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - id: build_image_orangepiplus2e-edge-jammy
+      name: Build Image orangepiplus2e-edge-jammy
+      run: 'echo "fake image: orangepiplus2e-edge-jammy"'
+  image_cli_nanopim4v2-edge-jammy:
+    name: Image build for nanopim4v2-edge-jammy
+    needs:
+    - kernel-rockchip64-edge
+    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - id: build_image_nanopim4v2-edge-jammy
+      name: Build Image nanopim4v2-edge-jammy
+      run: 'echo "fake image: nanopim4v2-edge-jammy"'
+  image_cli_rock64-edge-jammy:
+    name: Image build for rock64-edge-jammy
+    needs:
+    - kernel-rockchip64-edge
+    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - id: build_image_rock64-edge-jammy
+      name: Build Image rock64-edge-jammy
+      run: 'echo "fake image: rock64-edge-jammy"'
+  image_cli_nanopim1plus-edge-jammy:
+    name: Image build for nanopim1plus-edge-jammy
+    needs:
+    - kernel-sunxi-edge
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - id: build_image_nanopim1plus-edge-jammy
+      name: Build Image nanopim1plus-edge-jammy
+      run: 'echo "fake image: nanopim1plus-edge-jammy"'
+  image_cli_bananapim5-edge-jammy:
+    name: Image build for bananapim5-edge-jammy
+    needs:
+    - kernel-meson64-edge
+    if: ${{ always() && needs.kernel-meson64-edge.outputs.up-to-date == 'no' }}
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - id: build_image_bananapim5-edge-jammy
+      name: Build Image bananapim5-edge-jammy
+      run: 'echo "fake image: bananapim5-edge-jammy"'
+  image_cli_orangepizero-edge-jammy:
+    name: Image build for orangepizero-edge-jammy
+    needs:
+    - kernel-sunxi-edge
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - id: build_image_orangepizero-edge-jammy
+      name: Build Image orangepizero-edge-jammy
+      run: 'echo "fake image: orangepizero-edge-jammy"'
+  image_cli_odroidhc4-edge-jammy:
+    name: Image build for odroidhc4-edge-jammy
+    needs:
+    - kernel-meson64-edge
+    if: ${{ always() && needs.kernel-meson64-edge.outputs.up-to-date == 'no' }}
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - id: build_image_odroidhc4-edge-jammy
+      name: Build Image odroidhc4-edge-jammy
+      run: 'echo "fake image: odroidhc4-edge-jammy"'
+  image_cli_rockpi-4b-edge-jammy:
+    name: Image build for rockpi-4b-edge-jammy
+    needs:
+    - kernel-rockchip64-edge
+    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - id: build_image_rockpi-4b-edge-jammy
+      name: Build Image rockpi-4b-edge-jammy
+      run: 'echo "fake image: rockpi-4b-edge-jammy"'
+  image_cli_pineh64-b-edge-jammy:
+    name: Image build for pineh64-b-edge-jammy
     needs:
     - kernel-sunxi64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_miqi-edge:
+    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-rockchip-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'miqi-edge'
-      run: 'echo "fake image: miqi-edge"'
+    - id: build_image_pineh64-b-edge-jammy
+      name: Build Image pineh64-b-edge-jammy
+      run: 'echo "fake image: pineh64-b-edge-jammy"'
+  image_cli_miqi-edge-jammy:
+    name: Image build for miqi-edge-jammy
     needs:
     - kernel-rockchip-edge
-    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_odroidn2-edge:
+    if: ${{ always() && needs.kernel-rockchip-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-meson64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'odroidn2-edge'
-      run: 'echo "fake image: odroidn2-edge"'
+    - id: build_image_miqi-edge-jammy
+      name: Build Image miqi-edge-jammy
+      run: 'echo "fake image: miqi-edge-jammy"'
+  image_cli_odroidn2-edge-jammy:
+    name: Image build for odroidn2-edge-jammy
     needs:
     - kernel-meson64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_orangepi3-edge:
+    if: ${{ always() && needs.kernel-meson64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'orangepi3-edge'
-      run: 'echo "fake image: orangepi3-edge"'
+    - id: build_image_odroidn2-edge-jammy
+      name: Build Image odroidn2-edge-jammy
+      run: 'echo "fake image: odroidn2-edge-jammy"'
+  image_cli_orangepi3-edge-jammy:
+    name: Image build for orangepi3-edge-jammy
     needs:
     - kernel-sunxi64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_orangepi-edge:
+    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'orangepi-edge'
-      run: 'echo "fake image: orangepi-edge"'
+    - id: build_image_orangepi3-edge-jammy
+      name: Build Image orangepi3-edge-jammy
+      run: 'echo "fake image: orangepi3-edge-jammy"'
+  image_cli_orangepi-edge-jammy:
+    name: Image build for orangepi-edge-jammy
     needs:
     - kernel-sunxi-edge
-    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_orangepi-r1plus-edge:
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
-    steps:
-    - name: Image CLI 'orangepi-r1plus-edge'
-      run: 'echo "fake image: orangepi-r1plus-edge"'
-    needs:
-    - kernel-rockchip64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_nanopi-r4s-edge:
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
-    steps:
-    - name: Image CLI 'nanopi-r4s-edge'
-      run: 'echo "fake image: nanopi-r4s-edge"'
-    needs:
-    - kernel-rockchip64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_lime-a10-edge:
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
     if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
     steps:
-    - name: Image CLI 'lime-a10-edge'
-      run: 'echo "fake image: lime-a10-edge"'
+    - id: build_image_orangepi-edge-jammy
+      name: Build Image orangepi-edge-jammy
+      run: 'echo "fake image: orangepi-edge-jammy"'
+  image_cli_orangepi-r1plus-edge-jammy:
+    name: Image build for orangepi-r1plus-edge-jammy
+    needs:
+    - kernel-rockchip64-edge
+    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - id: build_image_orangepi-r1plus-edge-jammy
+      name: Build Image orangepi-r1plus-edge-jammy
+      run: 'echo "fake image: orangepi-r1plus-edge-jammy"'
+  image_cli_nanopi-r4s-edge-jammy:
+    name: Image build for nanopi-r4s-edge-jammy
+    needs:
+    - kernel-rockchip64-edge
+    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - id: build_image_nanopi-r4s-edge-jammy
+      name: Build Image nanopi-r4s-edge-jammy
+      run: 'echo "fake image: nanopi-r4s-edge-jammy"'
+  image_cli_lime-a10-edge-jammy:
+    name: Image build for lime-a10-edge-jammy
     needs:
     - kernel-sunxi-edge
-    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_nanopct4-edge:
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-media-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'nanopct4-edge'
-      run: 'echo "fake image: nanopct4-edge"'
+    - id: build_image_lime-a10-edge-jammy
+      name: Build Image lime-a10-edge-jammy
+      run: 'echo "fake image: lime-a10-edge-jammy"'
+  image_cli_nanopct4-edge-jammy:
+    name: Image build for nanopct4-edge-jammy
     needs:
     - kernel-media-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_uefi-riscv64-edge:
+    if: ${{ always() && needs.kernel-media-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-riscv64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'uefi-riscv64-edge'
-      run: 'echo "fake image: uefi-riscv64-edge"'
+    - id: build_image_nanopct4-edge-jammy
+      name: Build Image nanopct4-edge-jammy
+      run: 'echo "fake image: nanopct4-edge-jammy"'
+  image_cli_uefi-riscv64-edge-jammy:
+    name: Image build for uefi-riscv64-edge-jammy
     needs:
     - kernel-riscv64-edge
-    - rootfs-cli-riscv64_jammy_6c0e668ae353c4fb22cc2b94a8bc0493
-  image_cli_pcduino3-edge:
+    if: ${{ always() && needs.kernel-riscv64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'pcduino3-edge'
-      run: 'echo "fake image: pcduino3-edge"'
+    - id: build_image_uefi-riscv64-edge-jammy
+      name: Build Image uefi-riscv64-edge-jammy
+      run: 'echo "fake image: uefi-riscv64-edge-jammy"'
+  image_cli_pcduino3-edge-jammy:
+    name: Image build for pcduino3-edge-jammy
     needs:
     - kernel-sunxi-edge
-    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_orangepimini-edge:
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'orangepimini-edge'
-      run: 'echo "fake image: orangepimini-edge"'
+    - id: build_image_pcduino3-edge-jammy
+      name: Build Image pcduino3-edge-jammy
+      run: 'echo "fake image: pcduino3-edge-jammy"'
+  image_cli_orangepimini-edge-jammy:
+    name: Image build for orangepimini-edge-jammy
     needs:
     - kernel-sunxi-edge
-    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_nanopi-r1-edge:
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'nanopi-r1-edge'
-      run: 'echo "fake image: nanopi-r1-edge"'
+    - id: build_image_orangepimini-edge-jammy
+      name: Build Image orangepimini-edge-jammy
+      run: 'echo "fake image: orangepimini-edge-jammy"'
+  image_cli_nanopi-r1-edge-jammy:
+    name: Image build for nanopi-r1-edge-jammy
     needs:
     - kernel-sunxi-edge
-    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_fe-som-rk3399-edge:
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'fe-som-rk3399-edge'
-      run: 'echo "fake image: fe-som-rk3399-edge"'
+    - id: build_image_nanopi-r1-edge-jammy
+      name: Build Image nanopi-r1-edge-jammy
+      run: 'echo "fake image: nanopi-r1-edge-jammy"'
+  image_cli_fe-som-rk3399-edge-jammy:
+    name: Image build for fe-som-rk3399-edge-jammy
     needs:
     - kernel-rockchip64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_cubieboard4-edge:
+    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'cubieboard4-edge'
-      run: 'echo "fake image: cubieboard4-edge"'
+    - id: build_image_fe-som-rk3399-edge-jammy
+      name: Build Image fe-som-rk3399-edge-jammy
+      run: 'echo "fake image: fe-som-rk3399-edge-jammy"'
+  image_cli_cubieboard4-edge-jammy:
+    name: Image build for cubieboard4-edge-jammy
     needs:
     - kernel-sunxi-edge
-    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_rockpi-e-edge:
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'rockpi-e-edge'
-      run: 'echo "fake image: rockpi-e-edge"'
+    - id: build_image_cubieboard4-edge-jammy
+      name: Build Image cubieboard4-edge-jammy
+      run: 'echo "fake image: cubieboard4-edge-jammy"'
+  image_cli_rockpi-e-edge-jammy:
+    name: Image build for rockpi-e-edge-jammy
     needs:
     - kernel-rockchip64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_bananapim2ultra-edge:
+    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'bananapim2ultra-edge'
-      run: 'echo "fake image: bananapim2ultra-edge"'
+    - id: build_image_rockpi-e-edge-jammy
+      name: Build Image rockpi-e-edge-jammy
+      run: 'echo "fake image: rockpi-e-edge-jammy"'
+  image_cli_bananapim2ultra-edge-jammy:
+    name: Image build for bananapim2ultra-edge-jammy
     needs:
     - kernel-sunxi-edge
-    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_quartz64a-edge:
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-media-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'quartz64a-edge'
-      run: 'echo "fake image: quartz64a-edge"'
+    - id: build_image_bananapim2ultra-edge-jammy
+      name: Build Image bananapim2ultra-edge-jammy
+      run: 'echo "fake image: bananapim2ultra-edge-jammy"'
+  image_cli_quartz64a-edge-jammy:
+    name: Image build for quartz64a-edge-jammy
     needs:
     - kernel-media-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_lime2-edge:
+    if: ${{ always() && needs.kernel-media-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'lime2-edge'
-      run: 'echo "fake image: lime2-edge"'
+    - id: build_image_quartz64a-edge-jammy
+      name: Build Image quartz64a-edge-jammy
+      run: 'echo "fake image: quartz64a-edge-jammy"'
+  image_cli_lime2-edge-jammy:
+    name: Image build for lime2-edge-jammy
     needs:
     - kernel-sunxi-edge
-    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_orangepizeroplus-edge:
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'orangepizeroplus-edge'
-      run: 'echo "fake image: orangepizeroplus-edge"'
+    - id: build_image_lime2-edge-jammy
+      name: Build Image lime2-edge-jammy
+      run: 'echo "fake image: lime2-edge-jammy"'
+  image_cli_orangepizeroplus-edge-jammy:
+    name: Image build for orangepizeroplus-edge-jammy
     needs:
     - kernel-sunxi64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_lime-a64-edge:
+    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'lime-a64-edge'
-      run: 'echo "fake image: lime-a64-edge"'
+    - id: build_image_orangepizeroplus-edge-jammy
+      name: Build Image orangepizeroplus-edge-jammy
+      run: 'echo "fake image: orangepizeroplus-edge-jammy"'
+  image_cli_lime-a64-edge-jammy:
+    name: Image build for lime-a64-edge-jammy
     needs:
     - kernel-sunxi64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_uefi-x86-edge:
+    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-x86-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'uefi-x86-edge'
-      run: 'echo "fake image: uefi-x86-edge"'
+    - id: build_image_lime-a64-edge-jammy
+      name: Build Image lime-a64-edge-jammy
+      run: 'echo "fake image: lime-a64-edge-jammy"'
+  image_cli_uefi-x86-edge-jammy:
+    name: Image build for uefi-x86-edge-jammy
     needs:
     - kernel-x86-edge
-    - rootfs-cli-amd64_jammy_13154b4292817436e52804427edd4f8d
-  image_cli_visionfive2-edge:
+    if: ${{ always() && needs.kernel-x86-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-starfive-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'visionfive2-edge'
-      run: 'echo "fake image: visionfive2-edge"'
+    - id: build_image_uefi-x86-edge-jammy
+      name: Build Image uefi-x86-edge-jammy
+      run: 'echo "fake image: uefi-x86-edge-jammy"'
+  image_cli_visionfive2-edge-jammy:
+    name: Image build for visionfive2-edge-jammy
     needs:
     - kernel-starfive-edge
-    - rootfs-cli-riscv64_jammy_6c0e668ae353c4fb22cc2b94a8bc0493
-  image_cli_orangepiplus-edge:
+    if: ${{ always() && needs.kernel-starfive-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'orangepiplus-edge'
-      run: 'echo "fake image: orangepiplus-edge"'
+    - id: build_image_visionfive2-edge-jammy
+      name: Build Image visionfive2-edge-jammy
+      run: 'echo "fake image: visionfive2-edge-jammy"'
+  image_cli_orangepiplus-edge-jammy:
+    name: Image build for orangepiplus-edge-jammy
     needs:
     - kernel-sunxi-edge
-    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_bananapim3-edge:
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'bananapim3-edge'
-      run: 'echo "fake image: bananapim3-edge"'
+    - id: build_image_orangepiplus-edge-jammy
+      name: Build Image orangepiplus-edge-jammy
+      run: 'echo "fake image: orangepiplus-edge-jammy"'
+  image_cli_bananapim3-edge-jammy:
+    name: Image build for bananapim3-edge-jammy
     needs:
     - kernel-sunxi-edge
-    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_odroidc4-edge:
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-meson64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'odroidc4-edge'
-      run: 'echo "fake image: odroidc4-edge"'
+    - id: build_image_bananapim3-edge-jammy
+      name: Build Image bananapim3-edge-jammy
+      run: 'echo "fake image: bananapim3-edge-jammy"'
+  image_cli_odroidc4-edge-jammy:
+    name: Image build for odroidc4-edge-jammy
     needs:
     - kernel-meson64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_nanopia64-edge:
+    if: ${{ always() && needs.kernel-meson64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'nanopia64-edge'
-      run: 'echo "fake image: nanopia64-edge"'
+    - id: build_image_odroidc4-edge-jammy
+      name: Build Image odroidc4-edge-jammy
+      run: 'echo "fake image: odroidc4-edge-jammy"'
+  image_cli_nanopia64-edge-jammy:
+    name: Image build for nanopia64-edge-jammy
     needs:
     - kernel-sunxi64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_clockworkpi-a06-edge:
+    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'clockworkpi-a06-edge'
-      run: 'echo "fake image: clockworkpi-a06-edge"'
+    - id: build_image_nanopia64-edge-jammy
+      name: Build Image nanopia64-edge-jammy
+      run: 'echo "fake image: nanopia64-edge-jammy"'
+  image_cli_clockworkpi-a06-edge-jammy:
+    name: Image build for clockworkpi-a06-edge-jammy
     needs:
     - kernel-rockchip64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_nanopik1plus-edge:
+    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'nanopik1plus-edge'
-      run: 'echo "fake image: nanopik1plus-edge"'
+    - id: build_image_clockworkpi-a06-edge-jammy
+      name: Build Image clockworkpi-a06-edge-jammy
+      run: 'echo "fake image: clockworkpi-a06-edge-jammy"'
+  image_cli_nanopik1plus-edge-jammy:
+    name: Image build for nanopik1plus-edge-jammy
     needs:
     - kernel-sunxi64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_bananapim2plus-edge:
+    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'bananapim2plus-edge'
-      run: 'echo "fake image: bananapim2plus-edge"'
+    - id: build_image_nanopik1plus-edge-jammy
+      name: Build Image nanopik1plus-edge-jammy
+      run: 'echo "fake image: nanopik1plus-edge-jammy"'
+  image_cli_bananapim2plus-edge-jammy:
+    name: Image build for bananapim2plus-edge-jammy
     needs:
     - kernel-sunxi-edge
-    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_tinkerboard-2-edge:
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'tinkerboard-2-edge'
-      run: 'echo "fake image: tinkerboard-2-edge"'
+    - id: build_image_bananapim2plus-edge-jammy
+      name: Build Image bananapim2plus-edge-jammy
+      run: 'echo "fake image: bananapim2plus-edge-jammy"'
+  image_cli_tinkerboard-2-edge-jammy:
+    name: Image build for tinkerboard-2-edge-jammy
     needs:
     - kernel-rockchip64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_uefi-arm64-edge:
+    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-arm64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'uefi-arm64-edge'
-      run: 'echo "fake image: uefi-arm64-edge"'
+    - id: build_image_tinkerboard-2-edge-jammy
+      name: Build Image tinkerboard-2-edge-jammy
+      run: 'echo "fake image: tinkerboard-2-edge-jammy"'
+  image_cli_uefi-arm64-edge-jammy:
+    name: Image build for uefi-arm64-edge-jammy
     needs:
     - kernel-arm64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_pinecube-edge:
+    if: ${{ always() && needs.kernel-arm64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'pinecube-edge'
-      run: 'echo "fake image: pinecube-edge"'
+    - id: build_image_uefi-arm64-edge-jammy
+      name: Build Image uefi-arm64-edge-jammy
+      run: 'echo "fake image: uefi-arm64-edge-jammy"'
+  image_cli_pinecube-edge-jammy:
+    name: Image build for pinecube-edge-jammy
     needs:
     - kernel-sunxi-edge
-    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_jethubj100-edge:
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-meson64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'jethubj100-edge'
-      run: 'echo "fake image: jethubj100-edge"'
+    - id: build_image_pinecube-edge-jammy
+      name: Build Image pinecube-edge-jammy
+      run: 'echo "fake image: pinecube-edge-jammy"'
+  image_cli_jethubj100-edge-jammy:
+    name: Image build for jethubj100-edge-jammy
     needs:
     - kernel-meson64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_rockpi-4a-edge:
+    if: ${{ always() && needs.kernel-meson64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'rockpi-4a-edge'
-      run: 'echo "fake image: rockpi-4a-edge"'
+    - id: build_image_jethubj100-edge-jammy
+      name: Build Image jethubj100-edge-jammy
+      run: 'echo "fake image: jethubj100-edge-jammy"'
+  image_cli_rockpi-4a-edge-jammy:
+    name: Image build for rockpi-4a-edge-jammy
     needs:
     - kernel-rockchip64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_olimex-som204-a20-edge:
+    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'olimex-som204-a20-edge'
-      run: 'echo "fake image: olimex-som204-a20-edge"'
+    - id: build_image_rockpi-4a-edge-jammy
+      name: Build Image rockpi-4a-edge-jammy
+      run: 'echo "fake image: rockpi-4a-edge-jammy"'
+  image_cli_olimex-som204-a20-edge-jammy:
+    name: Image build for olimex-som204-a20-edge-jammy
     needs:
     - kernel-sunxi-edge
-    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_nanopineo3-edge:
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'nanopineo3-edge'
-      run: 'echo "fake image: nanopineo3-edge"'
+    - id: build_image_olimex-som204-a20-edge-jammy
+      name: Build Image olimex-som204-a20-edge-jammy
+      run: 'echo "fake image: olimex-som204-a20-edge-jammy"'
+  image_cli_nanopineo3-edge-jammy:
+    name: Image build for nanopineo3-edge-jammy
     needs:
     - kernel-rockchip64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_macchiatobin-doubleshot-edge:
+    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-mvebu64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'macchiatobin-doubleshot-edge'
-      run: 'echo "fake image: macchiatobin-doubleshot-edge"'
+    - id: build_image_nanopineo3-edge-jammy
+      name: Build Image nanopineo3-edge-jammy
+      run: 'echo "fake image: nanopineo3-edge-jammy"'
+  image_cli_macchiatobin-doubleshot-edge-jammy:
+    name: Image build for macchiatobin-doubleshot-edge-jammy
     needs:
     - kernel-mvebu64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_bananapim2zero-edge:
+    if: ${{ always() && needs.kernel-mvebu64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'bananapim2zero-edge'
-      run: 'echo "fake image: bananapim2zero-edge"'
+    - id: build_image_macchiatobin-doubleshot-edge-jammy
+      name: Build Image macchiatobin-doubleshot-edge-jammy
+      run: 'echo "fake image: macchiatobin-doubleshot-edge-jammy"'
+  image_cli_bananapim2zero-edge-jammy:
+    name: Image build for bananapim2zero-edge-jammy
     needs:
     - kernel-sunxi-edge
-    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_orangepioneplus-edge:
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'orangepioneplus-edge'
-      run: 'echo "fake image: orangepioneplus-edge"'
+    - id: build_image_bananapim2zero-edge-jammy
+      name: Build Image bananapim2zero-edge-jammy
+      run: 'echo "fake image: bananapim2zero-edge-jammy"'
+  image_cli_orangepioneplus-edge-jammy:
+    name: Image build for orangepioneplus-edge-jammy
     needs:
     - kernel-sunxi64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_nanopineo2-edge:
+    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'nanopineo2-edge'
-      run: 'echo "fake image: nanopineo2-edge"'
+    - id: build_image_orangepioneplus-edge-jammy
+      name: Build Image orangepioneplus-edge-jammy
+      run: 'echo "fake image: orangepioneplus-edge-jammy"'
+  image_cli_nanopineo2-edge-jammy:
+    name: Image build for nanopineo2-edge-jammy
     needs:
     - kernel-sunxi64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_cubieboard2-edge:
+    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'cubieboard2-edge'
-      run: 'echo "fake image: cubieboard2-edge"'
+    - id: build_image_nanopineo2-edge-jammy
+      name: Build Image nanopineo2-edge-jammy
+      run: 'echo "fake image: nanopineo2-edge-jammy"'
+  image_cli_cubieboard2-edge-jammy:
+    name: Image build for cubieboard2-edge-jammy
     needs:
     - kernel-sunxi-edge
-    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_orangepizeroplus2-h3-edge:
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'orangepizeroplus2-h3-edge'
-      run: 'echo "fake image: orangepizeroplus2-h3-edge"'
+    - id: build_image_cubieboard2-edge-jammy
+      name: Build Image cubieboard2-edge-jammy
+      run: 'echo "fake image: cubieboard2-edge-jammy"'
+  image_cli_orangepizeroplus2-h3-edge-jammy:
+    name: Image build for orangepizeroplus2-h3-edge-jammy
     needs:
     - kernel-sunxi-edge
-    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_rpi4b-edge:
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-bcm2711-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'rpi4b-edge'
-      run: 'echo "fake image: rpi4b-edge"'
+    - id: build_image_orangepizeroplus2-h3-edge-jammy
+      name: Build Image orangepizeroplus2-h3-edge-jammy
+      run: 'echo "fake image: orangepizeroplus2-h3-edge-jammy"'
+  image_cli_rpi4b-edge-jammy:
+    name: Image build for rpi4b-edge-jammy
     needs:
     - kernel-bcm2711-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_rockpro64-edge:
+    if: ${{ always() && needs.kernel-bcm2711-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'rockpro64-edge'
-      run: 'echo "fake image: rockpro64-edge"'
+    - id: build_image_rpi4b-edge-jammy
+      name: Build Image rpi4b-edge-jammy
+      run: 'echo "fake image: rpi4b-edge-jammy"'
+  image_cli_rockpro64-edge-jammy:
+    name: Image build for rockpro64-edge-jammy
     needs:
     - kernel-rockchip64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_lamobo-r1-edge:
+    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'lamobo-r1-edge'
-      run: 'echo "fake image: lamobo-r1-edge"'
+    - id: build_image_rockpro64-edge-jammy
+      name: Build Image rockpro64-edge-jammy
+      run: 'echo "fake image: rockpro64-edge-jammy"'
+  image_cli_lamobo-r1-edge-jammy:
+    name: Image build for lamobo-r1-edge-jammy
     needs:
     - kernel-sunxi-edge
-    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_helios64-edge:
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'helios64-edge'
-      run: 'echo "fake image: helios64-edge"'
+    - id: build_image_lamobo-r1-edge-jammy
+      name: Build Image lamobo-r1-edge-jammy
+      run: 'echo "fake image: lamobo-r1-edge-jammy"'
+  image_cli_helios64-edge-jammy:
+    name: Image build for helios64-edge-jammy
     needs:
     - kernel-rockchip64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_nanopiduo2-edge:
+    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'nanopiduo2-edge'
-      run: 'echo "fake image: nanopiduo2-edge"'
+    - id: build_image_helios64-edge-jammy
+      name: Build Image helios64-edge-jammy
+      run: 'echo "fake image: helios64-edge-jammy"'
+  image_cli_nanopiduo2-edge-jammy:
+    name: Image build for nanopiduo2-edge-jammy
     needs:
     - kernel-sunxi-edge
-    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_orangepi2-edge:
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'orangepi2-edge'
-      run: 'echo "fake image: orangepi2-edge"'
+    - id: build_image_nanopiduo2-edge-jammy
+      name: Build Image nanopiduo2-edge-jammy
+      run: 'echo "fake image: nanopiduo2-edge-jammy"'
+  image_cli_orangepi2-edge-jammy:
+    name: Image build for orangepi2-edge-jammy
     needs:
     - kernel-sunxi-edge
-    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_olimex-som-a20-edge:
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'olimex-som-a20-edge'
-      run: 'echo "fake image: olimex-som-a20-edge"'
+    - id: build_image_orangepi2-edge-jammy
+      name: Build Image orangepi2-edge-jammy
+      run: 'echo "fake image: orangepi2-edge-jammy"'
+  image_cli_olimex-som-a20-edge-jammy:
+    name: Image build for olimex-som-a20-edge-jammy
     needs:
     - kernel-sunxi-edge
-    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_odroidxu4-edge:
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-odroidxu4-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'odroidxu4-edge'
-      run: 'echo "fake image: odroidxu4-edge"'
+    - id: build_image_olimex-som-a20-edge-jammy
+      name: Build Image olimex-som-a20-edge-jammy
+      run: 'echo "fake image: olimex-som-a20-edge-jammy"'
+  image_cli_odroidxu4-edge-jammy:
+    name: Image build for odroidxu4-edge-jammy
     needs:
     - kernel-odroidxu4-edge
-    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_orangepi-r1-edge:
+    if: ${{ always() && needs.kernel-odroidxu4-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'orangepi-r1-edge'
-      run: 'echo "fake image: orangepi-r1-edge"'
+    - id: build_image_odroidxu4-edge-jammy
+      name: Build Image odroidxu4-edge-jammy
+      run: 'echo "fake image: odroidxu4-edge-jammy"'
+  image_cli_orangepi-r1-edge-jammy:
+    name: Image build for orangepi-r1-edge-jammy
     needs:
     - kernel-sunxi-edge
-    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_olinux-som-a13-edge:
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'olinux-som-a13-edge'
-      run: 'echo "fake image: olinux-som-a13-edge"'
+    - id: build_image_orangepi-r1-edge-jammy
+      name: Build Image orangepi-r1-edge-jammy
+      run: 'echo "fake image: orangepi-r1-edge-jammy"'
+  image_cli_olinux-som-a13-edge-jammy:
+    name: Image build for olinux-som-a13-edge-jammy
     needs:
     - kernel-sunxi-edge
-    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_bananapim1plus-edge:
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'bananapim1plus-edge'
-      run: 'echo "fake image: bananapim1plus-edge"'
+    - id: build_image_olinux-som-a13-edge-jammy
+      name: Build Image olinux-som-a13-edge-jammy
+      run: 'echo "fake image: olinux-som-a13-edge-jammy"'
+  image_cli_bananapim1plus-edge-jammy:
+    name: Image build for bananapim1plus-edge-jammy
     needs:
     - kernel-sunxi-edge
-    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_qemu-uboot-arm64-edge:
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-arm64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'qemu-uboot-arm64-edge'
-      run: 'echo "fake image: qemu-uboot-arm64-edge"'
+    - id: build_image_bananapim1plus-edge-jammy
+      name: Build Image bananapim1plus-edge-jammy
+      run: 'echo "fake image: bananapim1plus-edge-jammy"'
+  image_cli_qemu-uboot-arm64-edge-jammy:
+    name: Image build for qemu-uboot-arm64-edge-jammy
     needs:
     - kernel-arm64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_radxa-zero2-edge:
+    if: ${{ always() && needs.kernel-arm64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-meson64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'radxa-zero2-edge'
-      run: 'echo "fake image: radxa-zero2-edge"'
+    - id: build_image_qemu-uboot-arm64-edge-jammy
+      name: Build Image qemu-uboot-arm64-edge-jammy
+      run: 'echo "fake image: qemu-uboot-arm64-edge-jammy"'
+  image_cli_radxa-zero2-edge-jammy:
+    name: Image build for radxa-zero2-edge-jammy
     needs:
     - kernel-meson64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_bananapi-edge:
+    if: ${{ always() && needs.kernel-meson64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'bananapi-edge'
-      run: 'echo "fake image: bananapi-edge"'
+    - id: build_image_radxa-zero2-edge-jammy
+      name: Build Image radxa-zero2-edge-jammy
+      run: 'echo "fake image: radxa-zero2-edge-jammy"'
+  image_cli_bananapi-edge-jammy:
+    name: Image build for bananapi-edge-jammy
     needs:
     - kernel-sunxi-edge
-    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_orangepizero2-edge:
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'orangepizero2-edge'
-      run: 'echo "fake image: orangepizero2-edge"'
+    - id: build_image_bananapi-edge-jammy
+      name: Build Image bananapi-edge-jammy
+      run: 'echo "fake image: bananapi-edge-jammy"'
+  image_cli_orangepizero2-edge-jammy:
+    name: Image build for orangepizero2-edge-jammy
     needs:
     - kernel-sunxi64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_odroidc2-edge:
+    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-meson64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'odroidc2-edge'
-      run: 'echo "fake image: odroidc2-edge"'
+    - id: build_image_orangepizero2-edge-jammy
+      name: Build Image orangepizero2-edge-jammy
+      run: 'echo "fake image: orangepizero2-edge-jammy"'
+  image_cli_odroidc2-edge-jammy:
+    name: Image build for odroidc2-edge-jammy
     needs:
     - kernel-meson64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_nanopineo-edge:
+    if: ${{ always() && needs.kernel-meson64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'nanopineo-edge'
-      run: 'echo "fake image: nanopineo-edge"'
+    - id: build_image_odroidc2-edge-jammy
+      name: Build Image odroidc2-edge-jammy
+      run: 'echo "fake image: odroidc2-edge-jammy"'
+  image_cli_nanopineo-edge-jammy:
+    name: Image build for nanopineo-edge-jammy
     needs:
     - kernel-sunxi-edge
-    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_station-p1-edge:
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-media-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'station-p1-edge'
-      run: 'echo "fake image: station-p1-edge"'
+    - id: build_image_nanopineo-edge-jammy
+      name: Build Image nanopineo-edge-jammy
+      run: 'echo "fake image: nanopineo-edge-jammy"'
+  image_cli_station-p1-edge-jammy:
+    name: Image build for station-p1-edge-jammy
     needs:
     - kernel-media-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_cubox-i-edge:
+    if: ${{ always() && needs.kernel-media-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-imx6-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'cubox-i-edge'
-      run: 'echo "fake image: cubox-i-edge"'
+    - id: build_image_station-p1-edge-jammy
+      name: Build Image station-p1-edge-jammy
+      run: 'echo "fake image: station-p1-edge-jammy"'
+  image_cli_cubox-i-edge-jammy:
+    name: Image build for cubox-i-edge-jammy
     needs:
     - kernel-imx6-edge
-    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_recore-edge:
+    if: ${{ always() && needs.kernel-imx6-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'recore-edge'
-      run: 'echo "fake image: recore-edge"'
+    - id: build_image_cubox-i-edge-jammy
+      name: Build Image cubox-i-edge-jammy
+      run: 'echo "fake image: cubox-i-edge-jammy"'
+  image_cli_recore-edge-jammy:
+    name: Image build for recore-edge-jammy
     needs:
     - kernel-sunxi64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_onecloud-edge:
+    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-meson-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'onecloud-edge'
-      run: 'echo "fake image: onecloud-edge"'
+    - id: build_image_recore-edge-jammy
+      name: Build Image recore-edge-jammy
+      run: 'echo "fake image: recore-edge-jammy"'
+  image_cli_onecloud-edge-jammy:
+    name: Image build for onecloud-edge-jammy
     needs:
     - kernel-meson-edge
-    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_udoo-edge:
+    if: ${{ always() && needs.kernel-meson-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-imx6-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'udoo-edge'
-      run: 'echo "fake image: udoo-edge"'
+    - id: build_image_onecloud-edge-jammy
+      name: Build Image onecloud-edge-jammy
+      run: 'echo "fake image: onecloud-edge-jammy"'
+  image_cli_udoo-edge-jammy:
+    name: Image build for udoo-edge-jammy
     needs:
     - kernel-imx6-edge
-    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_station-m1-edge:
+    if: ${{ always() && needs.kernel-imx6-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-media-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'station-m1-edge'
-      run: 'echo "fake image: station-m1-edge"'
+    - id: build_image_udoo-edge-jammy
+      name: Build Image udoo-edge-jammy
+      run: 'echo "fake image: udoo-edge-jammy"'
+  image_cli_station-m1-edge-jammy:
+    name: Image build for station-m1-edge-jammy
     needs:
     - kernel-media-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_teres-a64-edge:
+    if: ${{ always() && needs.kernel-media-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'teres-a64-edge'
-      run: 'echo "fake image: teres-a64-edge"'
+    - id: build_image_station-m1-edge-jammy
+      name: Build Image station-m1-edge-jammy
+      run: 'echo "fake image: station-m1-edge-jammy"'
+  image_cli_teres-a64-edge-jammy:
+    name: Image build for teres-a64-edge-jammy
     needs:
     - kernel-sunxi64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_xt-q8l-v10-edge:
+    if: ${{ always() && needs.kernel-sunxi64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-rockchip-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'xt-q8l-v10-edge'
-      run: 'echo "fake image: xt-q8l-v10-edge"'
+    - id: build_image_teres-a64-edge-jammy
+      name: Build Image teres-a64-edge-jammy
+      run: 'echo "fake image: teres-a64-edge-jammy"'
+  image_cli_xt-q8l-v10-edge-jammy:
+    name: Image build for xt-q8l-v10-edge-jammy
     needs:
     - kernel-rockchip-edge
-    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_melea1000-edge:
+    if: ${{ always() && needs.kernel-rockchip-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'melea1000-edge'
-      run: 'echo "fake image: melea1000-edge"'
+    - id: build_image_xt-q8l-v10-edge-jammy
+      name: Build Image xt-q8l-v10-edge-jammy
+      run: 'echo "fake image: xt-q8l-v10-edge-jammy"'
+  image_cli_melea1000-edge-jammy:
+    name: Image build for melea1000-edge-jammy
     needs:
     - kernel-sunxi-edge
-    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_odroidm1-edge:
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-rk3568-odroid-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'odroidm1-edge'
-      run: 'echo "fake image: odroidm1-edge"'
+    - id: build_image_melea1000-edge-jammy
+      name: Build Image melea1000-edge-jammy
+      run: 'echo "fake image: melea1000-edge-jammy"'
+  image_cli_odroidm1-edge-jammy:
+    name: Image build for odroidm1-edge-jammy
     needs:
     - kernel-rk3568-odroid-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_lepotato-edge:
+    if: ${{ always() && needs.kernel-rk3568-odroid-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-meson64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'lepotato-edge'
-      run: 'echo "fake image: lepotato-edge"'
+    - id: build_image_odroidm1-edge-jammy
+      name: Build Image odroidm1-edge-jammy
+      run: 'echo "fake image: odroidm1-edge-jammy"'
+  image_cli_lepotato-edge-jammy:
+    name: Image build for lepotato-edge-jammy
     needs:
     - kernel-meson64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_lime-a33-edge:
+    if: ${{ always() && needs.kernel-meson64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'lime-a33-edge'
-      run: 'echo "fake image: lime-a33-edge"'
+    - id: build_image_lepotato-edge-jammy
+      name: Build Image lepotato-edge-jammy
+      run: 'echo "fake image: lepotato-edge-jammy"'
+  image_cli_lime-a33-edge-jammy:
+    name: Image build for lime-a33-edge-jammy
     needs:
     - kernel-sunxi-edge
-    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_bananapir2pro-edge:
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-media-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'bananapir2pro-edge'
-      run: 'echo "fake image: bananapir2pro-edge"'
+    - id: build_image_lime-a33-edge-jammy
+      name: Build Image lime-a33-edge-jammy
+      run: 'echo "fake image: lime-a33-edge-jammy"'
+  image_cli_bananapir2pro-edge-jammy:
+    name: Image build for bananapir2pro-edge-jammy
     needs:
     - kernel-media-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_orangepi-r1plus-lts-edge:
+    if: ${{ always() && needs.kernel-media-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'orangepi-r1plus-lts-edge'
-      run: 'echo "fake image: orangepi-r1plus-lts-edge"'
+    - id: build_image_bananapir2pro-edge-jammy
+      name: Build Image bananapir2pro-edge-jammy
+      run: 'echo "fake image: bananapir2pro-edge-jammy"'
+  image_cli_orangepi-r1plus-lts-edge-jammy:
+    name: Image build for orangepi-r1plus-lts-edge-jammy
     needs:
     - kernel-rockchip64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_khadas-vim1-edge:
+    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-meson64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'khadas-vim1-edge'
-      run: 'echo "fake image: khadas-vim1-edge"'
+    - id: build_image_orangepi-r1plus-lts-edge-jammy
+      name: Build Image orangepi-r1plus-lts-edge-jammy
+      run: 'echo "fake image: orangepi-r1plus-lts-edge-jammy"'
+  image_cli_khadas-vim1-edge-jammy:
+    name: Image build for khadas-vim1-edge-jammy
     needs:
     - kernel-meson64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_helios4-edge:
+    if: ${{ always() && needs.kernel-meson64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-mvebu-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'helios4-edge'
-      run: 'echo "fake image: helios4-edge"'
+    - id: build_image_khadas-vim1-edge-jammy
+      name: Build Image khadas-vim1-edge-jammy
+      run: 'echo "fake image: khadas-vim1-edge-jammy"'
+  image_cli_helios4-edge-jammy:
+    name: Image build for helios4-edge-jammy
     needs:
     - kernel-mvebu-edge
-    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_nanopi-r2c-edge:
+    if: ${{ always() && needs.kernel-mvebu-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'nanopi-r2c-edge'
-      run: 'echo "fake image: nanopi-r2c-edge"'
+    - id: build_image_helios4-edge-jammy
+      name: Build Image helios4-edge-jammy
+      run: 'echo "fake image: helios4-edge-jammy"'
+  image_cli_nanopi-r2c-edge-jammy:
+    name: Image build for nanopi-r2c-edge-jammy
     needs:
     - kernel-rockchip64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_bananapipro-edge:
+    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'bananapipro-edge'
-      run: 'echo "fake image: bananapipro-edge"'
+    - id: build_image_nanopi-r2c-edge-jammy
+      name: Build Image nanopi-r2c-edge-jammy
+      run: 'echo "fake image: nanopi-r2c-edge-jammy"'
+  image_cli_bananapipro-edge-jammy:
+    name: Image build for bananapipro-edge-jammy
     needs:
     - kernel-sunxi-edge
-    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_lime-edge:
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'lime-edge'
-      run: 'echo "fake image: lime-edge"'
+    - id: build_image_bananapipro-edge-jammy
+      name: Build Image bananapipro-edge-jammy
+      run: 'echo "fake image: bananapipro-edge-jammy"'
+  image_cli_lime-edge-jammy:
+    name: Image build for lime-edge-jammy
     needs:
     - kernel-sunxi-edge
-    - rootfs-cli-armhf_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_rockpi-s-edge:
+    if: ${{ always() && needs.kernel-sunxi-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'rockpi-s-edge'
-      run: 'echo "fake image: rockpi-s-edge"'
+    - id: build_image_lime-edge-jammy
+      name: Build Image lime-edge-jammy
+      run: 'echo "fake image: lime-edge-jammy"'
+  image_cli_rockpi-s-edge-jammy:
+    name: Image build for rockpi-s-edge-jammy
     needs:
     - kernel-rockchip64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
-  image_cli_khadas-edge-edge:
+    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     runs-on:
     - self-hosted
     - Linux
     - armbian
-    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
     steps:
-    - name: Image CLI 'khadas-edge-edge'
-      run: 'echo "fake image: khadas-edge-edge"'
+    - id: build_image_rockpi-s-edge-jammy
+      name: Build Image rockpi-s-edge-jammy
+      run: 'echo "fake image: rockpi-s-edge-jammy"'
+  image_cli_khadas-edge-edge-jammy:
+    name: Image build for khadas-edge-edge-jammy
     needs:
     - kernel-rockchip64-edge
-    - rootfs-cli-arm64_jammy_45a3600c135f97b07f80e870bb692d01
+    if: ${{ always() && needs.kernel-rockchip64-edge.outputs.up-to-date == 'no' }}
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    steps:
+    - id: build_image_khadas-edge-edge-jammy
+      name: Build Image khadas-edge-edge-jammy
+      run: 'echo "fake image: khadas-edge-edge-jammy"'
