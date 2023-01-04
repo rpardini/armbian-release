@@ -44,9 +44,9 @@ jobs:
           # 0500+ other stuff
           - aa: 0002
             board: clearfogpro
-            desc: clearfogpro, current, cli
+            desc: clearfogpro, edge, cli
             runnerLabel: armbian-armhf-mvebu
-            vars: "CLOUD_IMAGE=no BRANCH=current"
+            vars: "CLOUD_IMAGE=no BRANCH=edge"
 
           - aa: 0005
             board: rock-5b
