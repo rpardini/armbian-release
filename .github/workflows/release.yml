@@ -63,8 +63,8 @@ jobs:
 
           # 0100 = meson64 stuff (fixed version), boards I own first, then others
           - aa: 0112
-            board: bananapi-m2s
-            desc: BananaPi-M2S, edge, regular CLI
+            board: bananapim2s
+            desc: BananaPi M2S, edge, regular CLI
             runnerLabel: armbian-arm64-meson64
             vars: "CLOUD_IMAGE=no BRANCH=edge"
 
