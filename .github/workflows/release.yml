@@ -42,6 +42,12 @@ jobs:
           # 0100 = meson64 stuff (fixed version), boards I own first, then others
           # 0200 = uefi stuff (fixed version)
           # 0500+ other stuff
+          - aa: 0002
+            board: clearfogpro
+            desc: clearfogpro, current, cli
+            runnerLabel: armbian-armhf-mvebu
+            vars: "CLOUD_IMAGE=no BRANCH=current"
+
           - aa: 0005
             board: rock-5b
             desc: rock-5b, edge (6.2+), cli; very experimental
