@@ -42,18 +42,6 @@ jobs:
           # 0100 = meson64 stuff (fixed version), boards I own first, then others
           # 0200 = uefi stuff (fixed version)
           # 0500+ other stuff
-          - aa: 0002
-            board: clearfogpro
-            desc: clearfogpro, edge, cli
-            runnerLabel: armbian-armhf-mvebu
-            vars: "CLOUD_IMAGE=no BRANCH=edge"
-
-          - aa: 0005
-            board: rock-5b
-            desc: rock-5b, edge (6.2+), cli; very experimental
-            runnerLabel: armbian-arm64-rockchip-rk3588-edge
-            vars: "CLOUD_IMAGE=no BRANCH=edge"
-
           - aa: 0019
             board: uefi-arm64
             desc: UEFI Generic ARM64 Rescue e2img, ddk, cloud image, user-data at /boot, *always Jammy*
@@ -104,11 +92,11 @@ jobs:
             runnerLabel: armbian-arm64-meson64
             vars: "CLOUD_IMAGE=no BRANCH=edge"
 
-          - aa: 0145
-            board: nanopik2-s905
-            desc: nanopik2-s905, edge regular CLI
-            runnerLabel: armbian-arm64-meson64
-            vars: "CLOUD_IMAGE=no BRANCH=edge"
+          #- aa: 0145
+          #  board: nanopik2-s905
+          #  desc: nanopik2-s905, edge regular CLI
+          #  runnerLabel: armbian-arm64-meson64
+          #  vars: "CLOUD_IMAGE=no BRANCH=edge"
 
           - aa: 0150
             board: radxa-zero
@@ -134,11 +122,11 @@ jobs:
             runnerLabel: armbian-arm64-meson64
             vars: "CLOUD_IMAGE=no BRANCH=edge"
 
-          - aa: 0170
-            board: khadas-vim1
-            desc: khadas-vim1, edge, regular CLI
-            runnerLabel: armbian-arm64-meson64
-            vars: "CLOUD_IMAGE=no BRANCH=edge"
+          #- aa: 0170
+          #  board: khadas-vim1
+          #  desc: khadas-vim1, edge, regular CLI
+          #  runnerLabel: armbian-arm64-meson64
+          #  vars: "CLOUD_IMAGE=no BRANCH=edge"
 
           - aa: 0175
             board: khadas-vim3
@@ -267,6 +255,12 @@ jobs:
             runnerLabel: armbian-arm64-rockchip-rk3588
             vars: "CLOUD_IMAGE=no BRANCH=legacy"
 
+          - aa: 0722
+            board: rock-5b
+            desc: rock-5b, edge (6.2+), cli; very experimental
+            runnerLabel: armbian-arm64-rockchip-rk3588-edge
+            vars: "CLOUD_IMAGE=no BRANCH=edge"
+
           - aa: 0725
             board: orangepi5
             desc: orangepi5, legacy (5.10), cli
@@ -347,6 +341,14 @@ jobs:
             desc: tritium-h5, edge, cli
             runnerLabel: armbian-armhf-sunxi64
             vars: "CLOUD_IMAGE=no BRANCH=edge"
+
+          # mvebu
+          - aa: 0975
+            board: clearfogpro
+            desc: clearfogpro, edge, cli
+            runnerLabel: armbian-armhf-mvebu
+            vars: "CLOUD_IMAGE=no BRANCH=edge"
+
 
     steps:
 
