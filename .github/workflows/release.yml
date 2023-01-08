@@ -42,18 +42,11 @@ jobs:
           # 0100 = meson64 stuff (fixed version), boards I own first, then others
           # 0200 = uefi stuff (fixed version)
           # 0500+ other stuff
-          - aa: 0019
-            board: uefi-arm64
-            desc: UEFI Generic ARM64 Rescue e2img, ddk, cloud image, user-data at /boot, *always Jammy*
-            runnerLabel: armbian-arm64-ddk
-            vars: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=uefi-rescue BRANCH=ddk RELEASE=jammy"
-
-          # RPI4b, ddk
-          - aa: 0020
-            board: rpi4b
-            desc: Raspberry Pi 4B, ddk, cli
-            runnerLabel: armbian-arm64-ddk
-            vars: "CLOUD_IMAGE=no BRANCH=ddk"
+          - aa: 0001
+            board: phytium-d2000
+            desc: phytium-d2000, legacy, Feiteng vendor kernel 4.19.y
+            runnerLabel: armbian-phytium-d2000-legacy
+            vars: "CLOUD_IMAGE=no BRANCH=legacy"
 
           # 0100 = meson64 stuff (fixed version), boards I own first, then others
           - aa: 0112
@@ -146,6 +139,13 @@ jobs:
             runnerLabel: armbian-arm64-meson64
             vars: "CLOUD_IMAGE=no BRANCH=edge"
 
+          # other stuff
+          - aa: 0202
+            board: uefi-arm64
+            desc: UEFI Generic arm64, with Armbian mainline kernel (edge), regular CLI
+            runnerLabel: armbian-arm64-uefi
+            vars: "CLOUD_IMAGE=no BRANCH=edge "
+
           # e2img for oracle cloud
           - aa: 0205
             board: uefi-arm64
@@ -168,12 +168,6 @@ jobs:
             runnerLabel: armbian-x86-ddk
             vars: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=uefi-rescue BRANCH=ddk RELEASE=jammy"
 
-          # other stuff
-          - aa: 0210
-            board: uefi-arm64
-            desc: UEFI Generic arm64, with Armbian mainline kernel (edge), regular CLI
-            runnerLabel: armbian-arm64-uefi
-            vars: "CLOUD_IMAGE=no BRANCH=edge "
 
           - aa: 0220
             board: uefi-arm64
@@ -348,6 +342,21 @@ jobs:
             desc: clearfogpro, edge, cli
             runnerLabel: armbian-armhf-mvebu
             vars: "CLOUD_IMAGE=no BRANCH=edge"
+
+          # ddks last
+          - aa: 0995
+            board: uefi-arm64
+            desc: UEFI Generic ARM64 Rescue e2img, ddk, cloud image, user-data at /boot, *always Jammy*
+            runnerLabel: armbian-arm64-ddk
+            vars: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=uefi-rescue BRANCH=ddk RELEASE=jammy"
+
+          # RPI4b, ddk
+          - aa: 0996
+            board: rpi4b
+            desc: Raspberry Pi 4B, ddk, cli
+            runnerLabel: armbian-arm64-ddk
+            vars: "CLOUD_IMAGE=no BRANCH=ddk"
+
 
 
     steps:
