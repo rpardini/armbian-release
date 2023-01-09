@@ -42,13 +42,13 @@ jobs:
           # 0100 = meson64 stuff (fixed version), boards I own first, then others
           # 0200 = uefi stuff (fixed version)
           # 0500+ other stuff
-          - aa: 0001
-            board: phytium-d2000
-            desc: phytium-d2000, legacy, Feiteng vendor kernel 4.19.y
-            runnerLabel: armbian-phytium-d2000-legacy
-            vars: "CLOUD_IMAGE=no BRANCH=legacy"
-
           # 0100 = meson64 stuff (fixed version), boards I own first, then others
+          - aa: 0111
+            board: bananapim5
+            desc: BananaPi M5, edge, regular CLI
+            runnerLabel: armbian-arm64-meson64
+            vars: "CLOUD_IMAGE=no BRANCH=edge"
+
           - aa: 0112
             board: bananapim2s
             desc: BananaPi M2S, edge, regular CLI
@@ -342,6 +342,15 @@ jobs:
             desc: clearfogpro, edge, cli
             runnerLabel: armbian-armhf-mvebu
             vars: "CLOUD_IMAGE=no BRANCH=edge"
+
+          # vendor kernel for Phytium
+          - aa: 0980
+            board: phytium-d2000
+            desc: phytium-d2000, legacy, Feiteng vendor kernel 4.19.y
+            runnerLabel: armbian-phytium-d2000-legacy
+            vars: "CLOUD_IMAGE=no BRANCH=legacy"
+
+
 
           # ddks last
           - aa: 0995
