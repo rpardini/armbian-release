@@ -5,6 +5,7 @@ on:
   #  branches: [ main ]
   schedule:
     - cron: '0 3 * * *' # Scheduled runs every day at 3am UTC
+  workflow_dispatch:
 
 
 jobs:
@@ -24,6 +25,12 @@ jobs:
             release: "bullseye"
           - os: "debian"
             release: "sid"
+          - os: "debian"
+            release: "bookworm"
+          - os: "ubuntu"
+            release: "focal" # to make sure -- not really "supported"
+          - os: "ubuntu"
+            release: "lunar" # better be early than late
     env:
       DOCKERFILE_OS: "${{ matrix.os }}"
       DOCKERFILE_RELEASE: "${{ matrix.release }}"
