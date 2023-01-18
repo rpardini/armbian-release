@@ -7,7 +7,6 @@ on:
     - cron: '0 3 * * *' # Scheduled runs every day at 3am UTC
   workflow_dispatch:
 
-
 jobs:
 
   "D": # short name because GH will expand with the matrix values
@@ -34,6 +33,7 @@ jobs:
     env:
       DOCKERFILE_OS: "${{ matrix.os }}"
       DOCKERFILE_RELEASE: "${{ matrix.release }}"
+    concurrency: docker-latest-os-${{ matrix.os }} # only build 1 debian and 1 ubuntu at a time
     steps:
 
       - name: Checkout build repo
