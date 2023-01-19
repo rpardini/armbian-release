@@ -33,7 +33,6 @@ jobs:
     env:
       DOCKERFILE_OS: "${{ matrix.os }}"
       DOCKERFILE_RELEASE: "${{ matrix.release }}"
-    concurrency: docker-latest-os-${{ matrix.os }} # only build 1 debian and 1 ubuntu at a time
     steps:
 
       - name: Checkout build repo
