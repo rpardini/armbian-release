@@ -70,6 +70,7 @@ jobs:
       - name: Build and push ${{env.DOCKERFILE_OS}}:${{env.DOCKERFILE_RELEASE}} (first try)
         id: docker_build_first
         continue-on-error: true
+        timeout-minutes: 40
         uses: docker/build-push-action@v3
         with:
           context: .
@@ -99,6 +100,7 @@ jobs:
         id: docker_build_second
         if: steps.docker_build_first.outcome == 'failure'
         continue-on-error: false # let the build break if the two tries fail
+        timeout-minutes: 40
         uses: docker/build-push-action@v3
         with:
           context: .
