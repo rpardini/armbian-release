@@ -1,0 +1,46 @@
+name: rootfs-simple
+
+on:
+  #schedule:
+  #  - cron: '0 2 * * *' # Scheduled runs every day at 2am UTC
+  workflow_dispatch:
+
+jobs:
+
+  "R": # short name because GH will expand with the matrix values
+    runs-on: ubuntu-latest
+    if: ${{ github.repository_owner == 'rpardini' }}
+    strategy:
+      fail-fast: false # let other jobs try to complete if one fails
+      matrix:
+        release: [ "jammy" ]
+        arch: [ "riscv64", "amd64" ]
+        variant:
+          - "EXT=cloud-init,more_like_ubuntu_cloud"
+    env:
+      RELEASE: "${{ matrix.release }}"
+      ARCH: "${{ matrix.arch }}"
+      VARIANT: "${{ matrix.variant }}"
+    steps:
+
+      - name: Checkout build repo
+        uses: actions/checkout@v3
+        with:
+          repository: ${{ github.repository_owner }}/armbian-build
+          depth: 1
+          ref: extensions # extensions has cloud-init, etc
+          clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
+          path: "" # use default path
+
+      # Login to ghcr.io, for later uploading rootfs to ghcr.io
+      - name: Docker Login to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }} # GitHub username or org
+          password: ${{ secrets.GITHUB_TOKEN }}    # GitHub actions builtin token. repo has to have pkg access.
+
+      - name: Create rootfs ${{env.RELEASE}}:${{env.ARCH}} (variant ${{env.VARIANT}})
+        id: rootfs
+        run: |
+          bash ./compile.sh rootfs "RELEASE=${{env.RELEASE}}" "ARCH=${{env.ARCH}}" ${{env.VARIANT}}
