@@ -14,7 +14,7 @@ jobs:
       fail-fast: false # let other jobs try to complete if one fails
       matrix:
         release: [ "jammy" ]
-        arch: [ "riscv64", "amd64" ]
+        arch: [ "riscv64", "amd64", "armhf", "arm64" ]
         variant:
           - "EXT=cloud-init,more_like_ubuntu_cloud"
     env:
