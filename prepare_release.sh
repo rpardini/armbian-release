@@ -56,6 +56,7 @@ pixz -0 "${LOGS_TARBALL}" "${LOGS_TARBALL}.xz" || true
 echo "Chown images back to regular user (${REGULAR_USER})..."
 chown -R "${REGULAR_USER}":"${REGULAR_USER}" ./images || true
 
-echo "Write the .md logfile to the GHA-defined magical place, GITHUB_STEP_SUMMARY: ${GITHUB_STEP_SUMMARY}"
-ls -laht logs || true
-cat logs/*.md > "${GITHUB_STEP_SUMMARY}" || true
+# No longer, Armbian writes directly to GHA if such is the case
+#echo "Write the .md logfile to the GHA-defined magical place, GITHUB_STEP_SUMMARY: ${GITHUB_STEP_SUMMARY}"
+#ls -laht logs || true
+#cat logs/*.md > "${GITHUB_STEP_SUMMARY}" || true
