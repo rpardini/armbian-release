@@ -1,8 +1,6 @@
 name: rootfs-simple
 
 on:
-  #schedule:
-  #  - cron: '0 2 * * *' # Scheduled runs every day at 2am UTC
   workflow_dispatch:
 
 jobs:
@@ -13,24 +11,27 @@ jobs:
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
       matrix:
-        release: [ "jammy" ]
-        arch: [ "amd64" ] #"riscv64",  "armhf", "arm64" ]
+
+        # this matrix is not enough:
+        # we might build desktops for one arch, but not for the another: "riscv gets no desktops"
+        # we might build "just a CLI" for a given one release: "lunar gets no desktops"
+        # so JSON generator (which is TODO) will have to generate matrix.include pre-expanded
+        # also, any GHA matrix is risky, since they are limited to 256 jobs.
+        # in rootfs case, we can manage using a workflow_call per-release, but that would split the logic in two jobs
+
+        release: [ "bullseye", "kinetic" ]
+        arch: [ "amd64", "riscv64", "armhf", "arm64" ]
         variant:
-          - "EXT=cloud-init,more_like_ubuntu_cloud"
+          - "HELLO=igor" # no real variant, it's just a CLI
+          - "EXT=cloud-init,more_like_ubuntu_cloud" # rpardini's crazy cloud stuff, still missing prefix in rootfs, but hash will be different
+          # - "BUILD_DESKTOP....=whatever DESKTOP_..._APPGROUPS=none"
+          # suggestion: create extension for each desktop combo instead of long incantation
+
     env:
       RELEASE: "${{ matrix.release }}"
       ARCH: "${{ matrix.arch }}"
       VARIANT: "${{ matrix.variant }}"
     steps:
-
-      - name: Checkout build repo
-        uses: actions/checkout@v3
-        with:
-          repository: ${{ github.repository_owner }}/armbian-build
-          depth: 1
-          ref: extensions # extensions has cloud-init, etc
-          clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
-          path: "" # use default path
 
       # Login to ghcr.io, for later uploading rootfs to ghcr.io
       - name: Docker Login to GitHub Container Registry
@@ -40,10 +41,23 @@ jobs:
           username: ${{ github.repository_owner }} # GitHub username or org
           password: ${{ secrets.GITHUB_TOKEN }}    # GitHub actions builtin token. repo has to have pkg access.
 
+
+      - name: Checkout build repo
+        uses: actions/checkout@v3 # We don't need to clone git, really. A wget would suffice for GH-hosted runners. But using clone is better for Igor-hosted runners.
+        with:
+          repository: ${{ github.repository_owner }}/armbian-build
+          fetch-depth: 1
+          ref: extensions # extensions has cloud-init, etc used here for demo purposes
+          clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
+          path: "" # use default path
+
       - name: Create rootfs ${{env.RELEASE}}:${{env.ARCH}} (variant ${{env.VARIANT}})
         id: rootfs
+        env:
+          SKIP_ARMBIAN_REPO: "yes" # since it's borked, htop et al.
         run: |
-          bash ./compile.sh rootfs "RELEASE=${{env.RELEASE}}" "ARCH=${{env.ARCH}}" ${{env.VARIANT}}
+          # let VARIANT expand
+          bash ./compile.sh rootfs ${{env.VARIANT}}
 
       - name: Push rootfs to ghcr.io ${{env.RELEASE}}:${{env.ARCH}} (variant ${{env.VARIANT}})
         id: upload-ghcr
