@@ -19,10 +19,10 @@ jobs:
         # also, any GHA matrix is risky, since they are limited to 256 jobs.
         # in rootfs case, we can manage using a workflow_call per-release, but that would split the logic in two jobs
 
-        release: [ "bullseye", "kinetic" ]
-        arch: [ "amd64", "riscv64", "armhf", "arm64" ]
+        release: [ "bullseye" ] # , "kinetic" ]
+        arch: [ "amd64" ] #, "riscv64", "armhf", "arm64" ]
         variant:
-          - "HELLO=igor" # no real variant, it's just a CLI
+          #- "HELLO=igor" # no real variant, it's just a CLI
           - "EXT=cloud-init,more_like_ubuntu_cloud" # rpardini's crazy cloud stuff, still missing prefix in rootfs, but hash will be different
           # - "BUILD_DESKTOP....=whatever DESKTOP_..._APPGROUPS=none"
           # suggestion: create extension for each desktop combo instead of long incantation
