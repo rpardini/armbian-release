@@ -61,8 +61,8 @@ jobs:
 
       - name: Push rootfs to ghcr.io ${{env.RELEASE}}:${{env.ARCH}} (variant ${{env.VARIANT}})
         id: upload-ghcr
-        env:
+        env: # rootfs_cache_id has not the date/version, only type+hash; that is enough for OCI storage; having version would only pollute.
           OCI_TARGET: "ghcr.io/${{ github.repository }}/rootfs-${{env.ARCH}}-${{env.RELEASE}}:${{ steps.rootfs.outputs.rootfs_cache_id }}"
-          UPLOAD_FILE: "cache/rootfs/${{env.ARCH}}-${{env.RELEASE}}-${{ steps.rootfs.outputs.rootfs_cache_id }}.tar.zst"
+          UPLOAD_FILE: "${{ steps.rootfs.outputs.rootfs_out_filename_relative }}"
         run: |
           bash ./compile.sh oras-upload
