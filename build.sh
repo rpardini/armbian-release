@@ -30,10 +30,6 @@ runtime_seconds=$((end_time - start_time))
 # Remove stuff we added before the build, so working copy is clean again.
 rm -f .ignore_changes userpatches/VERSION || true
 
-# Done, chown the output back to regular user.
-#echo "output chown to ${REGULAR_USER}"
-chown -R "${REGULAR_USER}":"${REGULAR_USER}" output || true
-
 if [[ $BUILD_OK -gt 0 ]]; then
 	#echo "::notice file=${MATRIX_BOARD}::$(hostname -s) SUCCESSFULLY built ${MATRIX_BOARD} cloud=${CLOUD_IMAGE} ok=${BUILD_OK} in ${runtime_seconds} seconds."
 	echo "OK"

@@ -414,7 +414,7 @@ jobs:
         working-directory: build
         continue-on-error: true # so we get to upload logs later
         run: |
-          sudo --preserve-env ${{ matrix.vars }} \
+            ${{ matrix.vars }} \
             REGULAR_USER="$(whoami)" \
             RELEASE_OWNER="${{ github.repository_owner }}" \
             RELEASE_OWNER_AND_REPO="${{ github.repository }}" \
