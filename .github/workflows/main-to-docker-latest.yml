@@ -16,16 +16,16 @@ jobs:
         include:
           - os: "ubuntu"
             release: "jammy"
-          - os: "ubuntu"
-            release: "kinetic"
+          #- os: "ubuntu"
+          #  release: "kinetic"
           - os: "debian"
             release: "bullseye"
           - os: "debian"
             release: "sid"
-          - os: "debian"
-            release: "bookworm"
-          - os: "ubuntu"
-            release: "focal" # to make sure -- not really "supported"
+          #- os: "debian"
+          #  release: "bookworm"
+          #- os: "ubuntu"
+          #  release: "focal" # to make sure -- not really "supported"
           - os: "ubuntu"
             release: "lunar" # better be early than late
     env:
