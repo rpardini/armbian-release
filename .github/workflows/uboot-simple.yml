@@ -38,7 +38,6 @@ jobs:
           ref: extensions # extensions has cloud-init, etc used here for demo purposes
           clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
           path: build # @TODO: non-default path, only due to rpardini's crazy old runners scheme
-          #path: "" # use default path
 
       - name: Build U-Boot ${{env.BOARD}}:${{env.BRANCH}} (variant ${{env.VARIANT}})
         id: uboot
@@ -51,11 +50,3 @@ jobs:
             "BRANCH=${{env.BRANCH}}" "BOARD=${{env.BOARD}}" ${{env.VARIANT}} \
             SHARE_LOG=yes \
             OCI_TARGET_BASE="ghcr.io/${{ github.repository }}/"
-
-      #- name: Push u-boot to ghcr.io ${{env.BOARD}}:${{env.BRANCH}} (variant ${{env.VARIANT}})
-      #  id: upload-ghcr
-      #  env: # rootfs_cache_id has not the date/version, only type+hash; that is enough for OCI storage; having version would only pollute.
-      #    OCI_TARGET: "ghcr.io/${{ github.repository }}/rootfs-${{env.ARCH}}-${{env.RELEASE}}:${{ steps.rootfs.outputs.rootfs_cache_id }}"
-      #    UPLOAD_FILE: "${{ steps.rootfs.outputs.rootfs_out_filename_relative }}"
-      #  run: |
-      #    bash ./compile.sh oras-upload
