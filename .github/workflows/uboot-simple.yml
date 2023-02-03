@@ -11,7 +11,7 @@ jobs:
       fail-fast: false # let other jobs try to complete if one fails
       matrix:
         include:
-          - board: "odroidhc4"
+          - board: "odroidn2"
             branch: "edge"
             runner_tag: "armbian-arm64-meson64"
             variant: "" # empty
