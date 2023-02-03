@@ -47,7 +47,10 @@ jobs:
           # BRANCH and BOARD are in the env, but Docker doesn't know that; (sudo has --preserve-env). So we need to pass them as args.
           # let VARIANT expand
           # SHARE_LOG=yes to share logs to pastebin
-          bash ./compile.sh artifact WHAT=uboot "BRANCH=${{env.BRANCH}}" "BOARD=${{env.BOARD}}" ${{env.VARIANT}} SHARE_LOG=yes
+          bash ./compile.sh artifact WHAT=uboot \
+            "BRANCH=${{env.BRANCH}}" "BOARD=${{env.BOARD}}" ${{env.VARIANT}} \
+            SHARE_LOG=yes \
+            OCI_TARGET_BASE="ghcr.io/${{ github.repository }}/uboot-${{env.BOARD}}-${{env.BRANCH}}"
 
       #- name: Push u-boot to ghcr.io ${{env.BOARD}}:${{env.BRANCH}} (variant ${{env.VARIANT}})
       #  id: upload-ghcr
