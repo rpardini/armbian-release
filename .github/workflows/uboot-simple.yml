@@ -1,0 +1,58 @@
+name: uboot-simple
+
+on:
+  workflow_dispatch:
+
+jobs:
+
+  "K": # short name because GH will expand with the matrix values
+    if: ${{ github.repository_owner == 'rpardini' }}
+    strategy:
+      fail-fast: false # let other jobs try to complete if one fails
+      matrix:
+        include:
+          - board: "odroidhc4"
+            branch: "edge"
+            runner_tag: "armbian-arm64-meson64"
+            variant: "" # empty
+    runs-on: [ "self-hosted", "Linux", 'armbian', "${{ matrix.runner_tag }}" ]
+    env:
+      BOARD: "${{ matrix.board }}"
+      BRANCH: "${{ matrix.branch }}"
+      VARIANT: "${{ matrix.variant }}"
+    steps:
+
+      # Login to ghcr.io, for later uploading rootfs to ghcr.io
+      - name: Docker Login to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }} # GitHub username or org
+          password: ${{ secrets.GITHUB_TOKEN }}    # GitHub actions builtin token. repo has to have pkg access.
+
+      - name: Checkout build repo
+        uses: actions/checkout@v3 # We don't need to clone git, really. A wget would suffice for GH-hosted runners. But using clone is better for Igor-hosted runners.
+        with:
+          repository: ${{ github.repository_owner }}/armbian-build
+          fetch-depth: 1
+          ref: extensions # extensions has cloud-init, etc used here for demo purposes
+          clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
+          path: build # @TODO: non-default path, only due to rpardini's crazy old runners scheme
+          #path: "" # use default path
+
+      - name: Build U-Boot ${{env.BOARD}}:${{env.BRANCH}} (variant ${{env.VARIANT}})
+        id: uboot
+        working-directory: build # @TODO: non-default path, only due to rpardini's crazy old runners scheme
+        run: |
+          # BRANCH and BOARD are in the env, but Docker doesn't know that; (sudo has --preserve-env). So we need to pass them as args.
+          # let VARIANT expand
+          # SHARE_LOG=yes to share logs to pastebin
+          bash ./compile.sh artifact WHAT=uboot "BRANCH=${{env.BRANCH}}" "BOARD=${{env.BOARD}}" ${{env.VARIANT}} SHARE_LOG=yes
+
+      #- name: Push u-boot to ghcr.io ${{env.BOARD}}:${{env.BRANCH}} (variant ${{env.VARIANT}})
+      #  id: upload-ghcr
+      #  env: # rootfs_cache_id has not the date/version, only type+hash; that is enough for OCI storage; having version would only pollute.
+      #    OCI_TARGET: "ghcr.io/${{ github.repository }}/rootfs-${{env.ARCH}}-${{env.RELEASE}}:${{ steps.rootfs.outputs.rootfs_cache_id }}"
+      #    UPLOAD_FILE: "${{ steps.rootfs.outputs.rootfs_out_filename_relative }}"
+      #  run: |
+      #    bash ./compile.sh oras-upload
