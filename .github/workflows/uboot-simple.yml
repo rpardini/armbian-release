@@ -15,6 +15,10 @@ jobs:
             branch: "edge"
             runner_tag: "armbian-arm64-meson64"
             variant: "" # empty
+          - board: "khadas-vim3l"
+            branch: "edge"
+            runner_tag: "armbian-arm64-meson64"
+            variant: "" # empty
     runs-on: [ "self-hosted", "Linux", 'armbian', "${{ matrix.runner_tag }}" ]
     env:
       BOARD: "${{ matrix.board }}"
