@@ -13,17 +13,18 @@ jobs:
         include:
           - board: "odroidn2"
             branch: "edge"
-            runner_tag: "armbian-arm64-meson64"
+            runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-uboot" ]
             variant: "" # empty
           - board: "khadas-vim3l"
             branch: "edge"
-            runner_tag: "armbian-arm64-meson64"
+            runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-uboot" ]
             variant: "" # empty
-    runs-on: [ "self-hosted", "Linux", 'armbian', "${{ matrix.runner_tag }}" ]
+    runs-on: "${{ matrix.runner_tags }}"
     env:
       BOARD: "${{ matrix.board }}"
       BRANCH: "${{ matrix.branch }}"
       VARIANT: "${{ matrix.variant }}"
+      OCI_TARGET_BASE: "ghcr.io/${{ github.repository }}/" # This is picked up by the Docker launcher automatically
     steps:
 
       # Login to ghcr.io, for later uploading rootfs to ghcr.io
@@ -52,5 +53,4 @@ jobs:
           # SHARE_LOG=yes to share logs to pastebin
           bash ./compile.sh artifact WHAT=uboot \
             "BRANCH=${{env.BRANCH}}" "BOARD=${{env.BOARD}}" ${{env.VARIANT}} \
-            SHARE_LOG=yes \
-            OCI_TARGET_BASE="ghcr.io/${{ github.repository }}/"
+            SHARE_LOG=yes

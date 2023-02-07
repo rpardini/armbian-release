@@ -20,6 +20,7 @@ jobs:
       BOARD: "${{ matrix.board }}"
       BRANCH: "${{ matrix.branch }}"
       VARIANT: "${{ matrix.variant }}"
+      OCI_TARGET_BASE: "ghcr.io/${{ github.repository }}/" # This is picked up by the Docker launcher automatically
     steps:
 
       # Login to ghcr.io, for later uploading rootfs to ghcr.io
@@ -48,5 +49,4 @@ jobs:
           # SHARE_LOG=yes to share logs to pastebin
           bash ./compile.sh artifact WHAT=kernel \
             "BRANCH=${{env.BRANCH}}" "BOARD=${{env.BOARD}}" ${{env.VARIANT}} \
-            SHARE_LOG=yes \
-            OCI_TARGET_BASE="ghcr.io/${{ github.repository }}/"
+            SHARE_LOG=yes
