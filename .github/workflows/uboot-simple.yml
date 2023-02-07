@@ -5,7 +5,7 @@ on:
 
 jobs:
 
-  "K": # short name because GH will expand with the matrix values
+  "U":
     if: ${{ github.repository_owner == 'rpardini' }}
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
@@ -20,6 +20,7 @@ jobs:
             runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-uboot" ]
             variant: "" # empty
     runs-on: "${{ matrix.runner_tags }}"
+    name: "U: ${{ matrix.board }}:${{ matrix.branch }} (variant ${{ matrix.variant }})"
     env:
       BOARD: "${{ matrix.board }}"
       BRANCH: "${{ matrix.branch }}"
