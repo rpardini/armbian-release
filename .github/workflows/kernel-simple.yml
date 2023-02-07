@@ -5,7 +5,7 @@ on:
 
 jobs:
 
-  "K": # short name because GH will expand with the matrix values
+  "Kernel":
     if: ${{ github.repository_owner == 'rpardini' }}
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
@@ -13,9 +13,10 @@ jobs:
         include:
           - board: "odroidhc4"
             branch: "edge"
-            runner_tag: "armbian-arm64-meson64"
+            runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
             variant: "EXT=lsmod" # tiny kernel
-    runs-on: [ "self-hosted", "Linux", 'armbian', "${{ matrix.runner_tag }}" ]
+    runs-on: "${{ matrix.runner_tags }}"
+    name: "${{ matrix.board }} ${{ matrix.branch }} (${{ matrix.variant }})"
     env:
       BOARD: "${{ matrix.board }}"
       BRANCH: "${{ matrix.branch }}"
