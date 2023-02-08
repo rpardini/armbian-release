@@ -14,7 +14,88 @@ jobs:
           - board: "odroidhc4"
             branch: "edge"
             runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
-            variant: "EXT=lsmod" # tiny kernel
+            variant: ""
+
+          - board: "uefi-arm64"
+            branch: "edge"
+            runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
+            variant: ""
+
+          - board: "uefi-x86"
+            branch: "edge"
+            runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
+            variant: ""
+
+          - board: "rock-5b"
+            branch: "legacy"
+            runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
+            variant: ""
+
+          - board: "odroidm1"
+            branch: "edge"
+            runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
+            variant: ""
+
+          - board: "rock-5b"
+            branch: "edge"
+            runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
+            variant: ""
+
+          - board: "rpi4b"
+            branch: "edge"
+            runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
+            variant: ""
+
+          - board: "tinkerboard-2"
+            branch: "edge"
+            runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
+            variant: ""
+
+          - board: "oneplus5"
+            branch: "edge"
+            runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
+            variant: ""
+
+          - board: "quartz64a"
+            branch: "edge"
+            runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
+            variant: ""
+
+          - board: "tritium-h3"
+            branch: "edge"
+            runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
+            variant: ""
+
+          - board: "tritium-h5"
+            branch: "edge"
+            runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
+            variant: ""
+
+          - board: "clearfogpro"
+            branch: "edge"
+            runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
+            variant: ""
+
+          - board: "phytium-d2000"
+            branch: "legacy"
+            runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
+            variant: ""
+
+          - board: "tinkerboard"
+            branch: "edge"
+            runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
+            variant: ""
+
+          - board: "uefi-riscv64"
+            branch: "edge"
+            runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
+            variant: ""
+
+          - board: "visionfive"
+            branch: "edge"
+            runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
+            variant: ""
+
     runs-on: "${{ matrix.runner_tags }}"
     name: "${{ matrix.board }} ${{ matrix.branch }} (${{ matrix.variant }})"
     env:
