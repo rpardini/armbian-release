@@ -179,6 +179,6 @@ jobs:
           # BRANCH and BOARD are in the env, but Docker doesn't know that; (sudo has --preserve-env). So we need to pass them as args.
           # let VARIANT expand
           # SHARE_LOG=yes to share logs to pastebin
-          bash ./compile.sh artifact WHAT=kernel \
+          bash ./compile.sh kernel \
             "BRANCH=${{env.BRANCH}}" "BOARD=${{env.BOARD}}" ${{env.VARIANT}} \
             SHARE_LOG=yes

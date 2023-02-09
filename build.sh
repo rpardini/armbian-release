@@ -8,7 +8,7 @@
 declare -i BUILD_OK=1
 MATRIX_BOARD="$1"
 EXTRA_VARS="$2"
-DEFAULT_VARS="CLEAN_LEVEL=none DEB_COMPRESS=none SHOW_LOG=yes DONT_BUILD_ARTIFACTS=kernel" # SHOW_DEBUG=yes
+DEFAULT_VARS="CLEAN_LEVEL=none DEB_COMPRESS=none SHOW_LOG=yes DONT_BUILD_ARTIFACTS=kernel,uboot,firmware,full_firmware" # SHOW_DEBUG=yes
 
 # Write the userpatches/VERSION file with our info.
 # RELEASE_TAG needs to start with a digit otherwise Debian packaging rules will be violated
