@@ -6,8 +6,8 @@ on:
 jobs:
 
   "R": # short name because GH will expand with the matrix values
-    runs-on: ubuntu-latest
     if: ${{ github.repository_owner == 'rpardini' }}
+    runs-on: ubuntu-latest # GH hosted runners
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
       matrix:
@@ -25,12 +25,15 @@ jobs:
           - "" # no real variant, it's just a CLI
           - "EXT=cloud-init,more_like_ubuntu_cloud" # rpardini's crazy cloud stuff, still missing prefix in rootfs, but hash will be different
           # - "BUILD_DESKTOP....=whatever DESKTOP_..._APPGROUPS=none"
+          # @TODO: MINIMAL
           # suggestion: create extension for each desktop combo instead of long incantation
 
+    name: "${{ matrix.release }} ${{ matrix.arch }} (${{ matrix.variant }})"
     env:
       RELEASE: "${{ matrix.release }}"
       ARCH: "${{ matrix.arch }}"
       VARIANT: "${{ matrix.variant }}"
+      OCI_TARGET_BASE: "ghcr.io/${{ github.repository }}/" # This is picked up by the Docker launcher automatically
     steps:
 
       # Login to ghcr.io, for later uploading rootfs to ghcr.io
@@ -41,7 +44,6 @@ jobs:
           username: ${{ github.repository_owner }} # GitHub username or org
           password: ${{ secrets.GITHUB_TOKEN }}    # GitHub actions builtin token. repo has to have pkg access.
 
-
       - name: Checkout build repo
         uses: actions/checkout@v3 # We don't need to clone git, really. A wget would suffice for GH-hosted runners. But using clone is better for Igor-hosted runners.
         with:
@@ -49,20 +51,8 @@ jobs:
           fetch-depth: 1
           ref: extensions # extensions has cloud-init, etc used here for demo purposes
           clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
-          path: "" # use default path
 
       - name: Create rootfs ${{env.RELEASE}}:${{env.ARCH}} (variant ${{env.VARIANT}})
         id: rootfs
         run: |
-          # RELEASE and ARCH are in the env, but Docker doesn't know that; (sudo has --preserve-env). So we need to pass them as args.
-          # let VARIANT expand
-          # SKIP_ARMBIAN_REPO=yes due to repo being borked, htop et al
           bash ./compile.sh rootfs "RELEASE=${{env.RELEASE}}" "ARCH=${{env.ARCH}}" ${{env.VARIANT}} SKIP_ARMBIAN_REPO=yes
-
-      - name: Push rootfs to ghcr.io ${{env.RELEASE}}:${{env.ARCH}} (variant ${{env.VARIANT}})
-        id: upload-ghcr
-        env: # rootfs_cache_id has not the date/version, only type+hash; that is enough for OCI storage; having version would only pollute.
-          OCI_TARGET: "ghcr.io/${{ github.repository }}/rootfs-${{env.ARCH}}-${{env.RELEASE}}:${{ steps.rootfs.outputs.rootfs_cache_id }}"
-          UPLOAD_FILE: "${{ steps.rootfs.outputs.rootfs_out_filename_relative }}"
-        run: |
-          bash ./compile.sh oras-upload
