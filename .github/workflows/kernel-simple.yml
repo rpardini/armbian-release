@@ -16,13 +16,28 @@ jobs:
             runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
             variant: ""
 
+          - board: "odroidhc4"
+            branch: "current"
+            runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
+            variant: ""
+
           - board: "uefi-arm64"
             branch: "edge"
             runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
             variant: ""
 
+          - board: "uefi-arm64"
+            branch: "current"
+            runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
+            variant: ""
+
           - board: "uefi-x86"
             branch: "edge"
+            runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
+            variant: ""
+
+          - board: "uefi-x86"
+            branch: "current"
             runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
             variant: ""
 
@@ -46,8 +61,18 @@ jobs:
             runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
             variant: ""
 
+          - board: "rpi4b"
+            branch: "current"
+            runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
+            variant: ""
+
           - board: "tinkerboard-2"
             branch: "edge"
+            runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
+            variant: ""
+
+          - board: "tinkerboard-2"
+            branch: "current"
             runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
             variant: ""
 
@@ -61,8 +86,18 @@ jobs:
             runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
             variant: ""
 
+          - board: "quartz64a"
+            branch: "current"
+            runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
+            variant: ""
+
           - board: "tritium-h3"
             branch: "edge"
+            runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
+            variant: ""
+
+          - board: "tritium-h3"
+            branch: "current"
             runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
             variant: ""
 
@@ -71,8 +106,18 @@ jobs:
             runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
             variant: ""
 
+          - board: "tritium-h5"
+            branch: "current"
+            runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
+            variant: ""
+
           - board: "clearfogpro"
             branch: "edge"
+            runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
+            variant: ""
+
+          - board: "clearfogpro"
+            branch: "current"
             runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
             variant: ""
 
@@ -83,6 +128,11 @@ jobs:
 
           - board: "tinkerboard"
             branch: "edge"
+            runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
+            variant: ""
+
+          - board: "tinkerboard"
+            branch: "current"
             runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
             variant: ""
 
