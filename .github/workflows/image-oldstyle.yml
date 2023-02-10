@@ -1,4 +1,4 @@
-name: Release
+name: image-oldstyle
 on:
   push:
     tags:
@@ -23,7 +23,7 @@ jobs:
           body: |
             ### Release ${{ steps.tagName.outputs.tag }} images below, in no particular order
 
-  "A": # short name because GH will expand with the matrix values
+  "Images": # short name because GH will expand with the matrix values
     needs: [ prepare ]
     runs-on: [ self-hosted, Linux, 'armbian', '${{ matrix.runnerLabelImage }}' ]
     timeout-minutes: 480 # First builds on new machines can take extremely long until caches are primed
@@ -422,7 +422,7 @@ jobs:
             runnerLabelImage: image-arm64
             vars: "CLOUD_IMAGE=no BRANCH=ddk"
 
-
+    name: "${{ matrix.aa }} ${{ matrix.desc }}"
 
     steps:
 

@@ -1,4 +1,4 @@
-name: main-to-docker-latest
+name: docker-image-simple
 
 on:
   schedule:
