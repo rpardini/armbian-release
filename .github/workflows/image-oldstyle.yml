@@ -179,13 +179,6 @@ jobs:
 
           #- aa: 0215 #  was moved up so it builds early at 0001
 
-          - aa: 0233
-            board: uefi-x86
-            desc: UEFI Generic x86 desktop XFCE, *always Lunar*
-            runnerLabel: armbian-x86-uefi
-            runnerLabelImage: image-amd64
-            vars: "CLOUD_IMAGE=no BRANCH=edge BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=browsers DESKTOP_ENVIRONMENT=xfce DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base RELEASE=lunar"
-
           # e2img fo4r x86 baremetal/cloud
           - aa: 0235
             board: uefi-x86

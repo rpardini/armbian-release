@@ -19,14 +19,73 @@ jobs:
         # also, any GHA matrix is risky, since they are limited to 256 jobs.
         # in rootfs case, we can manage using a workflow_call per-release, but that would split the logic in two jobs
 
-        release: [ "sid" , "kinetic" ]
-        arch: [ "amd64" , "riscv64", "armhf", "arm64" ]
-        variant:
-          - "" # no real variant, it's just a CLI
-          - "EXT=cloud-init,more_like_ubuntu_cloud" # rpardini's crazy cloud stuff, still missing prefix in rootfs, but hash will be different
-          # - "BUILD_DESKTOP....=whatever DESKTOP_..._APPGROUPS=none"
-          # @TODO: MINIMAL
-          # suggestion: create extension for each desktop combo instead of long incantation
+        # - "BUILD_DESKTOP....=whatever DESKTOP_..._APPGROUPS=none"
+        # suggestion: create extension for each desktop combo instead of long incantation
+        include:
+          # Kinetic CLI
+          - release: "kinetic"
+            arch: "arm64"
+            runner_tags: [ "self-hosted", "Linux", 'armbian', "rootfs-arm64" ]
+            variant: ""  # no real variant, it's just a CLI
+          - release: "kinetic"
+            arch: "armhf"
+            runner_tags: [ "self-hosted", "Linux", 'armbian', "rootfs-armhf" ]
+            variant: ""  # no real variant, it's just a CLI
+          - release: "kinetic"
+            arch: "riscv64"
+            runner_tags: [ "self-hosted", "Linux", 'armbian', "rootfs-riscv64" ]
+            variant: ""  # no real variant, it's just a CLI
+          - release: "kinetic"
+            arch: "amd64"
+            runner_tags: "ubuntu-latest" # GH hosted runner
+            variant: ""  # no real variant, it's just a CLI
+
+          # Kinetic cloud (arm64/amd64 only)
+          - release: "kinetic"
+            arch: "arm64"
+            runner_tags: [ "self-hosted", "Linux", 'armbian', "rootfs-arm64" ]
+            variant: "EXT=cloud-init,more_like_ubuntu_cloud"
+          - release: "kinetic"
+            arch: "amd64"
+            runner_tags: "ubuntu-latest" # GH hosted runner
+            variant: "EXT=cloud-init,more_like_ubuntu_cloud"
+
+          # Kinetic Desktop Gnome sans-appgroups (arm64/amd64 only)
+          - release: "kinetic"
+            arch: "arm64"
+            runner_tags: [ "self-hosted", "Linux", 'armbian', "rootfs-arm64" ]
+            variant: "BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=x DESKTOP_ENVIRONMENT=gnome DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
+          - release: "kinetic"
+            arch: "amd64"
+            runner_tags: "ubuntu-latest" # GH hosted runner
+            variant: "BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=browsers DESKTOP_ENVIRONMENT=gnome DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
+
+          # sid CLI
+          - release: "sid"
+            arch: "arm64"
+            runner_tags: [ "self-hosted", "Linux", 'armbian', "rootfs-arm64" ]
+            variant: ""  # no real variant, it's just a CLI
+          - release: "sid"
+            arch: "armhf"
+            runner_tags: [ "self-hosted", "Linux", 'armbian', "rootfs-armhf" ]
+            variant: ""  # no real variant, it's just a CLI
+          - release: "sid"
+            arch: "riscv64"
+            runner_tags: [ "self-hosted", "Linux", 'armbian', "rootfs-riscv64" ]
+            variant: ""  # no real variant, it's just a CLI
+          - release: "sid"
+            arch: "amd64"
+            runner_tags: "ubuntu-latest" # GH hosted runner
+            variant: ""  # no real variant, it's just a CLI
+          # sid cloud (arm64/amd64 only)
+          - release: "sid"
+            arch: "arm64"
+            runner_tags: [ "self-hosted", "Linux", 'armbian', "rootfs-arm64" ]
+            variant: "EXT=cloud-init,more_like_ubuntu_cloud"
+          - release: "sid"
+            arch: "amd64"
+            runner_tags: "ubuntu-latest" # GH hosted runner
+            variant: "EXT=cloud-init,more_like_ubuntu_cloud"
 
     name: "${{ matrix.release }} ${{ matrix.arch }} (${{ matrix.variant }})"
     env:
