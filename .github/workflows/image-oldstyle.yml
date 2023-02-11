@@ -57,6 +57,13 @@ jobs:
             runnerLabelImage: image-arm64
             vars: "CLOUD_IMAGE=no BRANCH=edge"
 
+          - aa: 0113
+            board: bananapim2pro
+            desc: BananaPi M2Pro, edge, regular CLI
+            runnerLabel: armbian-arm64-meson64
+            runnerLabelImage: image-arm64
+            vars: "CLOUD_IMAGE=no BRANCH=edge"
+
           - aa: 0115
             board: odroidn2
             desc: ODROID N2+, edge, regular CLI
