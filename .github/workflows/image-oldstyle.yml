@@ -475,7 +475,7 @@ jobs:
       - name: Compress/Prepare release ${{ matrix.board }}
         id: compress
         working-directory: build/output
-        continue-on-error: true # so we get to upload logs later
+        continue-on-error: false # if true, we upload logs too; no longer required since build summary/SHARE_LOG=yes
         run: |
           sudo --preserve-env ${{ matrix.vars }} \
             MATRIX_DESC="${{ matrix.desc }}" \

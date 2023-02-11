@@ -8,7 +8,7 @@
 declare -i BUILD_OK=1
 MATRIX_BOARD="$1"
 EXTRA_VARS="$2"
-DEFAULT_VARS="CLEAN_LEVEL=none DEB_COMPRESS=none SHOW_LOG=yes DONT_BUILD_ARTIFACTS=kernel,firmware,full_firmware" # SHOW_DEBUG=yes
+DEFAULT_VARS="DONT_BUILD_ARTIFACTS=kernel,firmware,full_firmware" # SHOW_DEBUG=yes
 
 # Write the userpatches/VERSION file with our info.
 # RELEASE_TAG needs to start with a digit otherwise Debian packaging rules will be violated
@@ -31,8 +31,6 @@ runtime_seconds=$((end_time - start_time))
 rm -f .ignore_changes userpatches/VERSION || true
 
 if [[ $BUILD_OK -gt 0 ]]; then
-	#echo "::notice file=${MATRIX_BOARD}::$(hostname -s) SUCCESSFULLY built ${MATRIX_BOARD} cloud=${CLOUD_IMAGE} ok=${BUILD_OK} in ${runtime_seconds} seconds."
-	echo "OK"
 	exit 0
 else
 	echo "::error file=${MATRIX_BOARD}::$(hostname -s) FAILED to build ${MATRIX_BOARD} cloud=${CLOUD_IMAGE} ok=${BUILD_OK} in ${runtime_seconds} seconds."

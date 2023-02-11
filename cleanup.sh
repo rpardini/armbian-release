@@ -37,8 +37,8 @@ if [[ -d build/output/images ]]; then
 fi
 
 if [[ "${IS_FIRST_RUN}" == "yes" ]]; then
-	echo "First run detected, cleaning previous run output/debs"...
-	rm -rf build/output/debs build/output/debs-beta
+	echo "First run detected, but NOT cleaning previous run output/debs"...
+	#rm -rf build/output/debs build/output/debs-beta
 fi
 
 if [[ -d preserved_cache ]]; then
@@ -60,15 +60,5 @@ if [[ -d build/output ]]; then
 	echo "Moving build/output to preserved_output..."
 	mv build/output preserved_output
 fi
-
-echo "Chown build dir back to regular user (${REGULAR_USER})..."
-chown -R "${REGULAR_USER}":"${REGULAR_USER}" build || true
-
-echo "Show ccache status"
-ccache -s || true
-
-echo "Restart apt-cacher-ng."
-systemctl restart apt-cacher-ng.service || true
-systemctl status apt-cacher-ng.service || true
 
 echo "Done cleanup run."
