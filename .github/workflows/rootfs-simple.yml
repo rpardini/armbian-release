@@ -53,11 +53,19 @@ jobs:
           - release: "kinetic"
             arch: "arm64"
             runner_tags: [ "self-hosted", "Linux", 'armbian', "rootfs-arm64" ]
-            variant: "BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=x DESKTOP_ENVIRONMENT=gnome DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
+            variant: "CLOUD_IMAGE=no BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=x DESKTOP_ENVIRONMENT=gnome DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
+          - release: "kinetic"
+            arch: "arm64"
+            runner_tags: [ "self-hosted", "Linux", 'armbian', "rootfs-arm64" ]
+            variant: "CLOUD_IMAGE=no BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=browsers DESKTOP_ENVIRONMENT=gnome DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
           - release: "kinetic"
             arch: "amd64"
             runner_tags: "ubuntu-latest" # GH hosted runner
-            variant: "BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=browsers DESKTOP_ENVIRONMENT=gnome DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
+            variant: "CLOUD_IMAGE=no BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=browsers DESKTOP_ENVIRONMENT=gnome DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
+          - release: "kinetic"
+            arch: "amd64"
+            runner_tags: "ubuntu-latest" # GH hosted runner
+            variant: "CLOUD_IMAGE=no BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=x DESKTOP_ENVIRONMENT=gnome DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
 
           # Jammy CLI
           - release: "jammy"
