@@ -1,4 +1,4 @@
-name: image-oldstyle
+name: image-simple
 on:
   push:
     tags:
@@ -214,19 +214,19 @@ jobs:
           - aa: 0340
             board: uefi-riscv64
             desc: UEFI Generic RISC-V 64 (edge)
-            runner_tags: [ self-hosted, Linux, 'armbian', 'image-riscv64' ]
+            runner_tags: ubuntu-latest # gh runner, to use hosted: runner_tags: [ self-hosted, Linux, 'armbian', 'image-riscv64' ]
             variant: "CLOUD_IMAGE=no BRANCH=edge"
 
           - aa: 0342
             board: visionfive
             desc: VisionFive RISC-V 64 (edge)
-            runner_tags: [ self-hosted, Linux, 'armbian', 'image-riscv64' ]
+            runner_tags: ubuntu-latest # gh runner, to use hosted: runner_tags: [ self-hosted, Linux, 'armbian', 'image-riscv64' ]
             variant: "CLOUD_IMAGE=no BRANCH=edge"
 
           - aa: 0344
             board: beaglev
             desc: BeagleV RISC-V 64 (edge)
-            runner_tags: [ self-hosted, Linux, 'armbian', 'image-riscv64' ]
+            runner_tags: ubuntu-latest # gh runner, to use hosted: runner_tags: [ self-hosted, Linux, 'armbian', 'image-riscv64' ]
             variant: "CLOUD_IMAGE=no BRANCH=edge"
 
           - aa: 0710
@@ -264,7 +264,7 @@ jobs:
           - aa: 0905
             board: tinkerboard
             desc: Tinkerboard, edge, cli
-            runner_tags: [ self-hosted, Linux, 'armbian', 'image-armhf' ]
+            runner_tags: ubuntu-latest # gh runner, to use hosted: runner_tags: [ self-hosted, Linux, 'armbian', 'image-armhf' ]
             variant: "CLOUD_IMAGE=no BRANCH=edge"
 
           - aa: 0910
@@ -307,13 +307,13 @@ jobs:
           - aa: 0955
             board: tritium-h3
             desc: tritium-h3, current, cli
-            runner_tags: [ self-hosted, Linux, 'armbian', 'image-armhf' ]
+            runner_tags: ubuntu-latest # gh runner, to use hosted: runner_tags: [ self-hosted, Linux, 'armbian', 'image-armhf' ]
             variant: "CLOUD_IMAGE=no BRANCH=current"
 
           - aa: 0960
             board: tritium-h3
             desc: tritium-h3, edge, cli
-            runner_tags: [ self-hosted, Linux, 'armbian', 'image-armhf' ]
+            runner_tags: ubuntu-latest # gh runner, to use hosted: runner_tags: [ self-hosted, Linux, 'armbian', 'image-armhf' ]
             variant: "CLOUD_IMAGE=no BRANCH=edge"
 
           - aa: 0965
@@ -332,7 +332,7 @@ jobs:
           - aa: 0975
             board: clearfogpro
             desc: clearfogpro, edge, cli
-            runner_tags: [ self-hosted, Linux, 'armbian', 'image-armhf' ]
+            runner_tags: ubuntu-latest # gh runner, to use hosted: runner_tags: [ self-hosted, Linux, 'armbian', 'image-armhf' ]
             variant: "CLOUD_IMAGE=no BRANCH=edge"
 
           # vendor kernel for Phytium

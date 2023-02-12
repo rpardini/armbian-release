@@ -28,11 +28,11 @@ jobs:
             variant: ""  # no real variant, it's just a CLI
           - release: "kinetic"
             arch: "armhf"
-            runner_tags: [ "self-hosted", "Linux", 'armbian', "rootfs-armhf" ]
+            runner_tags: ubuntu-latest # gh runner, to use hosted: runner_tags: [ "self-hosted", "Linux", 'armbian', "rootfs-armhf" ]
             variant: ""  # no real variant, it's just a CLI
           - release: "kinetic"
             arch: "riscv64"
-            runner_tags: [ "self-hosted", "Linux", 'armbian', "rootfs-riscv64" ]
+            runner_tags: ubuntu-latest # gh runner, to use hosted: runner_tags: [ "self-hosted", "Linux", 'armbian', "rootfs-riscv64" ]
             variant: ""  # no real variant, it's just a CLI
           - release: "kinetic"
             arch: "amd64"
@@ -66,11 +66,11 @@ jobs:
             variant: ""  # no real variant, it's just a CLI
           - release: "sid"
             arch: "armhf"
-            runner_tags: [ "self-hosted", "Linux", 'armbian', "rootfs-armhf" ]
+            runner_tags: ubuntu-latest # gh runner, to use hosted: runner_tags: [ "self-hosted", "Linux", 'armbian', "rootfs-armhf" ]
             variant: ""  # no real variant, it's just a CLI
           - release: "sid"
             arch: "riscv64"
-            runner_tags: [ "self-hosted", "Linux", 'armbian', "rootfs-riscv64" ]
+            runner_tags: ubuntu-latest # gh runner, to use hosted: runner_tags: [ "self-hosted", "Linux", 'armbian', "rootfs-riscv64" ]
             variant: ""  # no real variant, it's just a CLI
           - release: "sid"
             arch: "amd64"
