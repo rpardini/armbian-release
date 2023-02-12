@@ -13,11 +13,11 @@ jobs:
         include:
           - board: "odroidn2"
             branch: "edge"
-            runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-uboot" ]
+            runner_tags: ubuntu-latest #[ "self-hosted", "Linux", 'armbian', "artifact-uboot" ]
             variant: "" # empty
           - board: "khadas-vim3l"
             branch: "edge"
-            runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-uboot" ]
+            runner_tags: ubuntu-latest #[[ "self-hosted", "Linux", 'armbian', "artifact-uboot" ]
             variant: "" # empty
     runs-on: "${{ matrix.runner_tags }}"
     name: "${{ matrix.board }} ${{ matrix.branch }} (${{ matrix.variant }})"
@@ -43,11 +43,9 @@ jobs:
           fetch-depth: 1
           ref: extensions # extensions has cloud-init, etc used here for demo purposes
           clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
-          path: build # @TODO: non-default path, only due to rpardini's crazy old runners scheme
 
       - name: Build U-Boot ${{env.BOARD}}:${{env.BRANCH}} (variant ${{env.VARIANT}})
         id: uboot
-        working-directory: build # @TODO: non-default path, only due to rpardini's crazy old runners scheme
         run: |
           # BRANCH and BOARD are in the env, but Docker doesn't know that; (sudo has --preserve-env). So we need to pass them as args.
           # let VARIANT expand
