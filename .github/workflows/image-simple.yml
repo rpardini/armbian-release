@@ -163,9 +163,9 @@ jobs:
 
           - aa: 0220
             board: uefi-arm64
-            desc: UTM 3.x arm64 UEFI Builder Virtual Machine, with Armbian mainline kernel (edge), regular CLI
+            desc: UTM 3.x arm64 UEFI Virtual Machine, with Armbian mainline kernel (edge), regular CLI
             runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
-            variant: "CLOUD_IMAGE=no ENABLE_EXTENSIONS=image-output-utm,build-machine-image BRANCH=edge"
+            variant: "CLOUD_IMAGE=no ENABLE_EXTENSIONS=image-output-utm BRANCH=edge"
 
           # UEFI x86
           - aa: 0220
@@ -188,9 +188,9 @@ jobs:
 
           - aa: 0320
             board: uefi-x86
-            desc: VMWare x86 UEFI Builder Virtual Machine, with Armbian mainline kernel (edge), regular CLI
+            desc: VMWare x86 UEFI Virtual Machine, with Armbian mainline kernel (edge), regular CLI
             runner_tags: ubuntu-latest # gh runner
-            variant: "CLOUD_IMAGE=no ENABLE_EXTENSIONS=vmware-vm,build-machine-image OVF_KEEP_IMG=yes BRANCH=edge"
+            variant: "CLOUD_IMAGE=no ENABLE_EXTENSIONS=vmware-vm OVF_KEEP_IMG=yes BRANCH=edge"
 
           - aa: 0322
             board: uefi-x86
@@ -200,9 +200,9 @@ jobs:
 
           - aa: 0324
             board: uefi-x86
-            desc: UTM 3.x x86 UEFI Builder Virtual Machine, with Armbian mainline kernel (edge), regular CLI
+            desc: UTM 3.x x86 UEFI Virtual Machine, with Armbian mainline kernel (edge), regular CLI
             runner_tags: ubuntu-latest # gh runner
-            variant: "CLOUD_IMAGE=no ENABLE_EXTENSIONS=image-output-utm,build-machine-image BRANCH=edge"
+            variant: "CLOUD_IMAGE=no ENABLE_EXTENSIONS=image-output-utm BRANCH=edge"
 
           - aa: 0326
             board: qemu-uboot-x86
