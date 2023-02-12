@@ -59,6 +59,34 @@ jobs:
             runner_tags: "ubuntu-latest" # GH hosted runner
             variant: "BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=browsers DESKTOP_ENVIRONMENT=gnome DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
 
+          # Jammy CLI
+          - release: "jammy"
+            arch: "arm64"
+            runner_tags: [ "self-hosted", "Linux", 'armbian', "rootfs-arm64" ]
+            variant: ""  # no real variant, it's just a CLI
+          - release: "jammy"
+            arch: "armhf"
+            runner_tags: ubuntu-latest # gh runner, to use hosted: runner_tags: [ "self-hosted", "Linux", 'armbian', "rootfs-armhf" ]
+            variant: ""  # no real variant, it's just a CLI
+          - release: "jammy"
+            arch: "riscv64"
+            runner_tags: ubuntu-latest # gh runner, to use hosted: runner_tags: [ "self-hosted", "Linux", 'armbian', "rootfs-riscv64" ]
+            variant: ""  # no real variant, it's just a CLI
+          - release: "jammy"
+            arch: "amd64"
+            runner_tags: "ubuntu-latest" # GH hosted runner
+            variant: ""  # no real variant, it's just a CLI
+
+          # jammy cloud (arm64/amd64 only)
+          - release: "jammy"
+            arch: "arm64"
+            runner_tags: [ "self-hosted", "Linux", 'armbian', "rootfs-arm64" ]
+            variant: "EXT=cloud-init,more_like_ubuntu_cloud"
+          - release: "jammy"
+            arch: "amd64"
+            runner_tags: "ubuntu-latest" # GH hosted runner
+            variant: "EXT=cloud-init,more_like_ubuntu_cloud"
+
           # sid CLI
           - release: "sid"
             arch: "arm64"
