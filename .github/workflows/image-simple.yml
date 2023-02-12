@@ -362,7 +362,7 @@ jobs:
     env:
       BOARD: "${{ matrix.board }}"
       VARIANT: "${{ matrix.variant }}"
-      EXTRA: "'DONT_BUILD_ARTIFACTS=kernel,firmware,full_firmware' COMPRESS_OUTPUTIMAGE=xz "
+      EXTRA: "'DONT_BUILD_ARTIFACTS=kernel,firmware,full_firmware,rootfs' COMPRESS_OUTPUTIMAGE=xz "
     steps:
 
       - name: Checkout build repo
