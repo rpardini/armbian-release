@@ -7,7 +7,6 @@ jobs:
 
   "R": # short name because GH will expand with the matrix values
     if: ${{ github.repository_owner == 'rpardini' }}
-    runs-on: ubuntu-latest # GH hosted runners
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
       matrix:
@@ -87,6 +86,7 @@ jobs:
             runner_tags: "ubuntu-latest" # GH hosted runner
             variant: "EXT=cloud-init,more_like_ubuntu_cloud"
 
+    runs-on: "${{ matrix.runner_tags }}"
     name: "${{ matrix.release }} ${{ matrix.arch }} (${{ matrix.variant }})"
     env:
       RELEASE: "${{ matrix.release }}"
