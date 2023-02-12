@@ -141,7 +141,17 @@ jobs:
             runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
             variant: ""
 
-          - board: "visionfive"
+          - board: "visionfive" # starfive
+            branch: "edge"
+            runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
+            variant: ""
+
+          - board: "visionfive2" # starfive2
+            branch: "edge"
+            runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
+            variant: ""
+
+          - board: "nezha" # d1
             branch: "edge"
             runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
             variant: ""
