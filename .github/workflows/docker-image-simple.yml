@@ -39,7 +39,6 @@ jobs:
           repository: ${{ github.repository_owner }}/armbian-build
           ref: extensions # branch to build from.
           clean: true # true is default. it *will* delete the hosts /dev if mounted inside.
-          path: "" # use default path
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2

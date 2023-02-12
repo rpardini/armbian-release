@@ -7,7 +7,7 @@ on:
 jobs:
 
   prepare:
-    runs-on: [ self-hosted, Linux ]
+    runs-on: ubuntu-latest
     if: ${{ github.repository_owner == 'rpardini' }}
     outputs:
       tagName: ${{ steps.tagName.outputs.tag }}
@@ -25,16 +25,14 @@ jobs:
 
   "Images": # short name because GH will expand with the matrix values
     needs: [ prepare ]
-    runs-on: [ self-hosted, Linux, 'armbian', '${{ matrix.runnerLabelImage }}' ]
-    timeout-minutes: 480 # First builds on new machines can take extremely long until caches are primed
+    timeout-minutes: 60
     if: ${{ github.repository_owner == 'rpardini' }}
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
       matrix:
         # board: the BOARD= to build
         # desc: markdown for description in release notes
-        # runnerLabel: goes into runs-on to select preferred builder via label
-        # vars: env vars to pass both to scripts and ./compile.sh
+        # variant: env vars to pass both to scripts and ./compile.sh
         # aa: GH Actions orders the jobs by the first key value. 'aa' should be first. it never is. it is actually quite pointless trying. it's effectively random.
 
         include:
@@ -46,136 +44,106 @@ jobs:
           - aa: 0111
             board: bananapim5
             desc: BananaPi M5, edge, regular CLI
-            runnerLabel: armbian-arm64-meson64
-            runnerLabelImage: image-arm64
-            vars: "CLOUD_IMAGE=no BRANCH=edge"
+            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+            variant: "CLOUD_IMAGE=no BRANCH=edge"
 
           - aa: 0112
             board: bananapim2s
             desc: BananaPi M2S, edge, regular CLI
-            runnerLabel: armbian-arm64-meson64
-            runnerLabelImage: image-arm64
-            vars: "CLOUD_IMAGE=no BRANCH=edge"
+            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+            variant: "CLOUD_IMAGE=no BRANCH=edge"
 
           - aa: 0113
             board: bananapim2pro
             desc: BananaPi M2Pro, edge, regular CLI
-            runnerLabel: armbian-arm64-meson64
-            runnerLabelImage: image-arm64
-            vars: "CLOUD_IMAGE=no BRANCH=edge"
+            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+            variant: "CLOUD_IMAGE=no BRANCH=edge"
 
           - aa: 0115
             board: odroidn2
             desc: ODROID N2+, edge, regular CLI
-            runnerLabel: armbian-arm64-meson64
-            runnerLabelImage: image-arm64
-            vars: "CLOUD_IMAGE=no BRANCH=edge"
+            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+            variant: "CLOUD_IMAGE=no BRANCH=edge"
 
           - aa: 0120
             board: odroidhc4
             desc: ODROID HC4, edge, regular CLI
-            runnerLabel: armbian-arm64-meson64
-            runnerLabelImage: image-arm64
-            vars: "CLOUD_IMAGE=no BRANCH=edge"
+            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+            variant: "CLOUD_IMAGE=no BRANCH=edge"
 
           - aa: 0130
             board: khadas-vim3l
             desc: khadas-vim3l, edge, regular CLI
-            runnerLabel: armbian-arm64-meson64
-            runnerLabelImage: image-arm64
-            vars: "CLOUD_IMAGE=no BRANCH=edge"
+            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+            variant: "CLOUD_IMAGE=no BRANCH=edge"
 
           - aa: 0135
             board: lafrite
             desc: lafrite, edge, regular CLI
-            runnerLabel: armbian-arm64-meson64
-            runnerLabelImage: image-arm64
-            vars: "CLOUD_IMAGE=no BRANCH=edge"
+            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+            variant: "CLOUD_IMAGE=no BRANCH=edge"
 
           - aa: 0140
             board: lepotato
             desc: lepotato, edge, regular CLI
-            runnerLabel: armbian-arm64-meson64
-            runnerLabelImage: image-arm64
-            vars: "CLOUD_IMAGE=no BRANCH=edge"
-
-          #- aa: 0145
-          #  board: nanopik2-s905
-          #  desc: nanopik2-s905, edge regular CLI
-          #  runnerLabel: armbian-arm64-meson64
-          #  runnerLabelImage: image-arm64
-          #  vars: "CLOUD_IMAGE=no BRANCH=edge"
+            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+            variant: "CLOUD_IMAGE=no BRANCH=edge"
 
           - aa: 0150
             board: radxa-zero
             desc: radxa-zero, edge, regular CLI
-            runnerLabel: armbian-arm64-meson64
-            runnerLabelImage: image-arm64
-            vars: "CLOUD_IMAGE=no BRANCH=edge"
+            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+            variant: "CLOUD_IMAGE=no BRANCH=edge"
 
           - aa: 0155
             board: radxa-zero2
             desc: radxa-zero2, edge, regular CLI
-            runnerLabel: armbian-arm64-meson64
-            runnerLabelImage: image-arm64
-            vars: "CLOUD_IMAGE=no BRANCH=edge"
+            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+            variant: "CLOUD_IMAGE=no BRANCH=edge"
 
           - aa: 0160
             board: odroidc2
             desc: odroidc2, edge, regular CLI
-            runnerLabel: armbian-arm64-meson64
-            runnerLabelImage: image-arm64
-            vars: "CLOUD_IMAGE=no BRANCH=edge"
+            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+            variant: "CLOUD_IMAGE=no BRANCH=edge"
 
           - aa: 0165
             board: khadas-vim2
             desc: khadas-vim2, edge, regular CLI
-            runnerLabel: armbian-arm64-meson64
-            runnerLabelImage: image-arm64
-            vars: "CLOUD_IMAGE=no BRANCH=edge"
-
-          #- aa: 0170
-          #  board: khadas-vim1
-          #  desc: khadas-vim1, edge, regular CLI
-          #  runnerLabel: armbian-arm64-meson64
-          #  vars: "CLOUD_IMAGE=no BRANCH=edge"
+            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+            variant: "CLOUD_IMAGE=no BRANCH=edge"
 
           - aa: 0175
             board: khadas-vim3
             desc: Khadas VIM3 (not L), edge, regular CLI
-            runnerLabel: armbian-arm64-meson64
-            runnerLabelImage: image-arm64
-            vars: "CLOUD_IMAGE=no BRANCH=edge"
+            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+            variant: "CLOUD_IMAGE=no BRANCH=edge"
 
           - aa: 0180
             board: odroidc4
             desc: ODROID C4, edge, regular CLI
-            runnerLabel: armbian-arm64-meson64
-            runnerLabelImage: image-arm64
-            vars: "CLOUD_IMAGE=no BRANCH=edge"
+            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+            variant: "CLOUD_IMAGE=no BRANCH=edge"
 
           - aa: 0185
             board: t95z
             desc: t95z, edge, regular CLI
-            runnerLabel: armbian-arm64-meson64
-            runnerLabelImage: image-arm64
-            vars: "CLOUD_IMAGE=no BRANCH=edge"
+            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+            variant: "CLOUD_IMAGE=no BRANCH=edge"
 
           # other stuff
           - aa: 0202
             board: uefi-arm64
             desc: UEFI Generic arm64, with Armbian mainline kernel (edge), regular CLI
-            runnerLabel: armbian-arm64-uefi
-            runnerLabelImage: image-arm64
-            vars: "CLOUD_IMAGE=no BRANCH=edge "
+            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+            variant: "CLOUD_IMAGE=no BRANCH=edge "
 
           # e2img for oracle cloud
           - aa: 0205
             board: uefi-arm64
             desc: UEFI Generic ARM64 Rescue e2img, edge, cloud image, user-data at /boot, *always Jammy*
-            runnerLabel: armbian-arm64-uefi
-            runnerLabelImage: image-arm64
-            vars: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=uefi-rescue BRANCH=edge RELEASE=jammy"
+            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+            variant: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=uefi-rescue BRANCH=edge RELEASE=jammy"
 
           #- aa: 0215 #  was moved up so it builds early at 0001
 
@@ -183,309 +151,232 @@ jobs:
           - aa: 0235
             board: uefi-x86
             desc: UEFI Generic x86 Rescue e2img, edge, cloud image, user-data at /boot, *always Jammy*
-            runnerLabel: armbian-x86-uefi
-            runnerLabelImage: image-amd64
-            vars: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=uefi-rescue BRANCH=edge RELEASE=jammy"
+            runner_tags: ubuntu-latest # gh runner
+            variant: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=uefi-rescue BRANCH=edge RELEASE=jammy"
 
           - aa: 0235
             board: uefi-x86
             desc: UEFI Generic x86 Rescue e2img, ddk, cloud image, user-data at /boot, *always Jammy*
-            runnerLabel: armbian-x86-ddk
-            runnerLabelImage: image-amd64
-            vars: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=uefi-rescue BRANCH=ddk RELEASE=jammy"
+            runner_tags: ubuntu-latest # gh runner
+            variant: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=uefi-rescue BRANCH=ddk RELEASE=jammy"
 
 
           - aa: 0220
             board: uefi-arm64
             desc: UTM 3.x arm64 UEFI Builder Virtual Machine, with Armbian mainline kernel (edge), regular CLI
-            runnerLabel: armbian-arm64-uefi
-            runnerLabelImage: image-arm64
-            vars: "CLOUD_IMAGE=no ENABLE_EXTENSIONS=image-output-utm,build-machine-image BRANCH=edge"
+            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+            variant: "CLOUD_IMAGE=no ENABLE_EXTENSIONS=image-output-utm,build-machine-image BRANCH=edge"
 
           # UEFI x86
           - aa: 0220
             board: uefi-x86
             desc: UEFI Generic x86 cloud image, with Armbian mainline kernel (edge), for metadata-capable clouds (AWS/GCP/OCI/OpenStack/KVM/etc), includes external kernel and initrd for kexec
-            runnerLabel: armbian-x86-uefi
-            runnerLabelImage: image-amd64
-            vars: "CLOUD_IMAGE=yes BRANCH=edge ENABLE_EXTENSIONS=cloud-metadata"
+            runner_tags: ubuntu-latest # gh runner
+            variant: "CLOUD_IMAGE=yes BRANCH=edge ENABLE_EXTENSIONS=cloud-metadata"
 
           - aa: 0225
             board: uefi-x86
             desc: UEFI Generic x86 cloud image, with -generic Ubuntu kernel (ddk), for metadata-capable clouds (AWS/GCP/OCI/OpenStack/KVM/etc), includes external kernel and initrd for kexec
-            runnerLabel: armbian-x86-ddk
-            runnerLabelImage: image-amd64
-            vars: "CLOUD_IMAGE=yes BRANCH=ddk ENABLE_EXTENSIONS=cloud-metadata"
+            runner_tags: ubuntu-latest # gh runner
+            variant: "CLOUD_IMAGE=yes BRANCH=ddk ENABLE_EXTENSIONS=cloud-metadata"
 
           - aa: 0230
             board: uefi-arm64
             desc: UEFI Generic ARM64, with -generic Ubuntu kernel (ddk), cloud image for metadata-capable clouds (AWS/GCP/OCI/OpenStack/KVM/etc), includes external kernel and initrd for kexec
-            runnerLabel: armbian-arm64-ddk
-            runnerLabelImage: image-arm64
-            vars: "CLOUD_IMAGE=yes BRANCH=ddk ENABLE_EXTENSIONS=cloud-metadata"
+            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+            variant: "CLOUD_IMAGE=yes BRANCH=ddk ENABLE_EXTENSIONS=cloud-metadata"
 
           - aa: 0320
             board: uefi-x86
             desc: VMWare x86 UEFI Builder Virtual Machine, with Armbian mainline kernel (edge), regular CLI
-            runnerLabel: armbian-x86-uefi
-            runnerLabelImage: image-amd64
-            vars: "CLOUD_IMAGE=no ENABLE_EXTENSIONS=vmware-vm,build-machine-image OVF_KEEP_IMG=yes BRANCH=edge"
+            runner_tags: ubuntu-latest # gh runner
+            variant: "CLOUD_IMAGE=no ENABLE_EXTENSIONS=vmware-vm,build-machine-image OVF_KEEP_IMG=yes BRANCH=edge"
 
           - aa: 0322
             board: uefi-x86
             desc: VMWare x86 UEFI Virtual Machine, with Armbian mainline kernel (edge), desktop Gnome
-            runnerLabel: armbian-x86-uefi
-            runnerLabelImage: image-amd64
-            vars: "CLOUD_IMAGE=no ENABLE_EXTENSIONS=vmware-vm BRANCH=edge BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=x DESKTOP_ENVIRONMENT=gnome DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
+            runner_tags: ubuntu-latest # gh runner
+            variant: "CLOUD_IMAGE=no ENABLE_EXTENSIONS=vmware-vm BRANCH=edge BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=x DESKTOP_ENVIRONMENT=gnome DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
 
           - aa: 0324
             board: uefi-x86
             desc: UTM 3.x x86 UEFI Builder Virtual Machine, with Armbian mainline kernel (edge), regular CLI
-            runnerLabel: armbian-x86-uefi
-            runnerLabelImage: image-amd64
-            vars: "CLOUD_IMAGE=no ENABLE_EXTENSIONS=image-output-utm,build-machine-image BRANCH=edge"
+            runner_tags: ubuntu-latest # gh runner
+            variant: "CLOUD_IMAGE=no ENABLE_EXTENSIONS=image-output-utm,build-machine-image BRANCH=edge"
 
           - aa: 0326
             board: qemu-uboot-x86
             desc: qemu-uboot-x86 (edge), regular CLI; for development only
-            runnerLabel: armbian-x86-uefi
-            runnerLabelImage: image-amd64
-            vars: "CLOUD_IMAGE=no BRANCH=edge"
+            runner_tags: ubuntu-latest # gh runner
+            variant: "CLOUD_IMAGE=no BRANCH=edge"
 
           # RISCV64
           - aa: 0340
             board: uefi-riscv64
             desc: UEFI Generic RISC-V 64 (edge)
-            runnerLabel: armbian-riscv64-uefi
-            runnerLabelImage: image-riscv64
-            vars: "CLOUD_IMAGE=no BRANCH=edge"
+            runner_tags: [ self-hosted, Linux, 'armbian', 'image-riscv64' ]
+            variant: "CLOUD_IMAGE=no BRANCH=edge"
 
           - aa: 0342
             board: visionfive
             desc: VisionFive RISC-V 64 (edge)
-            runnerLabel: armbian-riscv64-visionfive
-            runnerLabelImage: image-riscv64
-            vars: "CLOUD_IMAGE=no BRANCH=edge"
+            runner_tags: [ self-hosted, Linux, 'armbian', 'image-riscv64' ]
+            variant: "CLOUD_IMAGE=no BRANCH=edge"
 
           - aa: 0344
             board: beaglev
             desc: BeagleV RISC-V 64 (edge)
-            runnerLabel: armbian-riscv64-beaglev
-            runnerLabelImage: image-riscv64
-            vars: "CLOUD_IMAGE=no BRANCH=edge"
+            runner_tags: [ self-hosted, Linux, 'armbian', 'image-riscv64' ]
+            variant: "CLOUD_IMAGE=no BRANCH=edge"
 
           - aa: 0710
             board: odroidm1
             desc: odroidm1, edge, regular CLI #, built on x86
-            runnerLabel: armbian-arm64-odroidm1
-            runnerLabelImage: image-arm64
-            vars: "CLOUD_IMAGE=no BRANCH=edge"
+            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+            variant: "CLOUD_IMAGE=no BRANCH=edge"
 
           - aa: 0720
             board: rock-5b
             desc: rock-5b, legacy (5.10), cli
-            runnerLabel: armbian-arm64-rockchip-rk3588
-            runnerLabelImage: image-arm64
-            vars: "CLOUD_IMAGE=no BRANCH=legacy"
+            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+            variant: "CLOUD_IMAGE=no BRANCH=legacy"
 
           - aa: 0722
             board: rock-5b
             desc: rock-5b, edge (6.2+), cli; very experimental
-            runnerLabel: armbian-arm64-rockchip-rk3588-edge
-            runnerLabelImage: image-arm64
-            vars: "CLOUD_IMAGE=no BRANCH=edge"
+            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+            variant: "CLOUD_IMAGE=no BRANCH=edge"
 
           - aa: 0725
             board: orangepi5
             desc: orangepi5, legacy (5.10), cli
-            runnerLabel: armbian-arm64-rockchip-rk3588
-            runnerLabelImage: image-arm64
-            vars: "CLOUD_IMAGE=no BRANCH=legacy"
+            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+            variant: "CLOUD_IMAGE=no BRANCH=legacy"
 
 
           # RPI4b, edge
           - aa: 0805
             board: rpi4b
             desc: Raspberry Pi 4B, with Armbian mainline kernel (edge), cli
-            runnerLabel: armbian-arm64-bcm2711
-            runnerLabelImage: image-arm64
-            vars: "CLOUD_IMAGE=no BRANCH=edge"
+            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+            variant: "CLOUD_IMAGE=no BRANCH=edge"
 
           - aa: 0905
             board: tinkerboard
             desc: Tinkerboard, edge, cli
-            runnerLabel: armbian-armhf-rockchip
-            runnerLabelImage: image-arm64 # @TODO
-            vars: "CLOUD_IMAGE=no BRANCH=edge"
+            runner_tags: [ self-hosted, Linux, 'armbian', 'image-armhf' ]
+            variant: "CLOUD_IMAGE=no BRANCH=edge"
 
           - aa: 0910
             board: tinkerboard-2
             desc: Tinkerboard-2, edge, cli
-            runnerLabel: armbian-arm64-rockchip64
-            runnerLabelImage: image-arm64
-            vars: "CLOUD_IMAGE=no BRANCH=edge"
+            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+            variant: "CLOUD_IMAGE=no BRANCH=edge"
 
           - aa: 0912
             board: oneplus5
             desc: OnePlus 5, fastboot-compatible, edge, CLI
-            runnerLabel: armbian-arm64-msm8998
-            runnerLabelImage: image-arm64
-            vars: "CLOUD_IMAGE=no BRANCH=edge"
+            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+            variant: "CLOUD_IMAGE=no BRANCH=edge"
 
           - aa: 0915
             board: rockpro64
             desc: RockPro64, cli, edge
-            runnerLabel: armbian-arm64-rockchip64
-            runnerLabelImage: image-arm64
-            vars: "CLOUD_IMAGE=no BRANCH=edge"
+            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+            variant: "CLOUD_IMAGE=no BRANCH=edge"
 
           - aa: 0925
             board: quartz64a
             desc: quartz64a, cli, edge # media kernel
-            runnerLabel: armbian-arm64-media
-            runnerLabelImage: image-arm64
-            vars: "CLOUD_IMAGE=no BRANCH=edge"
+            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+            variant: "CLOUD_IMAGE=no BRANCH=edge"
 
           - aa: 0930
             board: nanopct4
             desc: nanopct4, Desktop gnome, edge # uses media kernel
-            runnerLabel: armbian-arm64-media
-            runnerLabelImage: image-arm64
-            vars: "CLOUD_IMAGE=no BRANCH=edge BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=browsers DESKTOP_ENVIRONMENT=gnome DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
+            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+            variant: "CLOUD_IMAGE=no BRANCH=edge BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=browsers DESKTOP_ENVIRONMENT=gnome DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
 
           # Sunxi, Sunxi64 and jetson-nano
           - aa: 0951
             board: jetson-nano
             desc: jetson-nano, cli, edge # media kernel
-            runnerLabel: armbian-arm64-media
-            runnerLabelImage: image-arm64
-            vars: "CLOUD_IMAGE=no BRANCH=edge"
+            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+            variant: "CLOUD_IMAGE=no BRANCH=edge"
 
           - aa: 0955
             board: tritium-h3
             desc: tritium-h3, current, cli
-            runnerLabel: armbian-armhf-sunxi
-            runnerLabelImage: image-armhf
-            vars: "CLOUD_IMAGE=no BRANCH=current"
+            runner_tags: [ self-hosted, Linux, 'armbian', 'image-armhf' ]
+            variant: "CLOUD_IMAGE=no BRANCH=current"
 
           - aa: 0960
             board: tritium-h3
             desc: tritium-h3, edge, cli
-            runnerLabel: armbian-armhf-sunxi
-            runnerLabelImage: image-armhf
-            vars: "CLOUD_IMAGE=no BRANCH=edge"
+            runner_tags: [ self-hosted, Linux, 'armbian', 'image-armhf' ]
+            variant: "CLOUD_IMAGE=no BRANCH=edge"
 
           - aa: 0965
             board: tritium-h5
             desc: tritium-h5, current, cli
-            runnerLabel: armbian-armhf-sunxi64
-            runnerLabelImage: image-armhf
-            vars: "CLOUD_IMAGE=no BRANCH=current"
+            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+            variant: "CLOUD_IMAGE=no BRANCH=current"
 
           - aa: 0970
             board: tritium-h5
             desc: tritium-h5, edge, cli
-            runnerLabel: armbian-armhf-sunxi64
-            runnerLabelImage: image-armhf
-            vars: "CLOUD_IMAGE=no BRANCH=edge"
+            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+            variant: "CLOUD_IMAGE=no BRANCH=edge"
 
           # mvebu
           - aa: 0975
             board: clearfogpro
             desc: clearfogpro, edge, cli
-            runnerLabel: armbian-armhf-mvebu
-            runnerLabelImage: image-armhf
-            vars: "CLOUD_IMAGE=no BRANCH=edge"
+            runner_tags: [ self-hosted, Linux, 'armbian', 'image-armhf' ]
+            variant: "CLOUD_IMAGE=no BRANCH=edge"
 
           # vendor kernel for Phytium
           - aa: 0980
             board: phytium-d2000
             desc: phytium-d2000, legacy, Feiteng vendor kernel 4.19.y
-            runnerLabel: armbian-phytium-d2000-legacy
-            runnerLabelImage: image-arm64
-            vars: "CLOUD_IMAGE=no BRANCH=legacy"
+            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+            variant: "CLOUD_IMAGE=no BRANCH=legacy"
 
 
           # ddks last
           - aa: 0995
             board: uefi-arm64
             desc: UEFI Generic ARM64 Rescue e2img, ddk, cloud image, user-data at /boot, *always Jammy*
-            runnerLabel: armbian-arm64-ddk
-            runnerLabelImage: image-arm64
-            vars: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=uefi-rescue BRANCH=ddk RELEASE=jammy"
+            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+            variant: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=uefi-rescue BRANCH=ddk RELEASE=jammy"
 
           # RPI4b, ddk
           - aa: 0996
             board: rpi4b
             desc: Raspberry Pi 4B, ddk, cli
-            runnerLabel: armbian-arm64-ddk
-            runnerLabelImage: image-arm64
-            vars: "CLOUD_IMAGE=no BRANCH=ddk"
+            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+            variant: "CLOUD_IMAGE=no BRANCH=ddk"
 
+    runs-on: "${{ matrix.runner_tags }}"
     name: "${{ matrix.aa }} ${{ matrix.desc }}"
-
+    env:
+      BOARD: "${{ matrix.board }}"
+      VARIANT: "${{ matrix.variant }}"
+      EXTRA: "'DONT_BUILD_ARTIFACTS=kernel,firmware,full_firmware' COMPRESS_OUTPUTIMAGE=xz "
     steps:
-
-      - name: Checkout this (release) repo into release dir
-        uses: actions/checkout@v3
-        with:
-          path: release
-
-      - name: Preserve previous run caches and cleanup
-        run: |
-          sudo --preserve-env \
-            REGULAR_USER="$(whoami)" \
-            RELEASE_OWNER="${{ github.repository_owner }}" \
-            RELEASE_OWNER_AND_REPO="${{ github.repository }}" \
-            RELEASE_TAG="${{needs.prepare.outputs.tagName}}" \
-            GH_FULL_RUN_ID="${{ github.run_id }}_${{github.run_number}}_${{github.run_attempt}}" \
-            bash --noprofile --norc -e release/cleanup.sh
 
       - name: Checkout build repo
         uses: actions/checkout@v3
         with:
           repository: ${{ github.repository_owner }}/armbian-build
           ref: extensions # branch to build from.
-          clean: true # true is default. it *will* delete the hosts /dev if mounted inside.
-          path: build
-
-      - name: Restore caches
-        run: |
-          sudo --preserve-env \
-            REGULAR_USER="$(whoami)" \
-            RELEASE_OWNER="${{ github.repository_owner }}" \
-            RELEASE_OWNER_AND_REPO="${{ github.repository }}" \
-            RELEASE_TAG="${{needs.prepare.outputs.tagName}}" \
-            GH_FULL_RUN_ID="${{ github.run_id }}_${{github.run_number}}_${{github.run_attempt}}" \
-            bash --noprofile --norc -e release/restore_cache.sh
+          clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
 
       - name: Build board ${{ matrix.board }}
         id: buildBoard
-        working-directory: build
-        continue-on-error: true # so we get to upload logs later
         run: |
-          ${{ matrix.vars }} \
-          REGULAR_USER="$(whoami)" \
-          RELEASE_OWNER="${{ github.repository_owner }}" \
-          RELEASE_OWNER_AND_REPO="${{ github.repository }}" \
-          RELEASE_TAG="${{needs.prepare.outputs.tagName}}" \
-          bash --noprofile --norc -e ../release/build.sh \
-          "${{ matrix.board }}" "${{ matrix.vars }}"
-
-      - name: Compress/Prepare release ${{ matrix.board }}
-        id: compress
-        working-directory: build/output
-        continue-on-error: false # if true, we upload logs too; no longer required since build summary/SHARE_LOG=yes
-        run: |
-          sudo --preserve-env ${{ matrix.vars }} \
-            MATRIX_DESC="${{ matrix.desc }}" \
-            MATRIX_ID="${{ matrix.aa }}" \
-            REGULAR_USER="$(whoami)" \
-            RELEASE_OWNER="${{ github.repository_owner }}" \
-            RELEASE_OWNER_AND_REPO="${{ github.repository }}" \
-            RELEASE_TAG="${{needs.prepare.outputs.tagName}}" \
-            bash --noprofile --norc -e ../../release/prepare_release.sh \
-            "${{ matrix.board }}" "${{ matrix.vars }}"
+          echo "${{needs.prepare.outputs.tagName}}-${{ github.repository_owner }}" > userpatches/VERSION
+          bash ./compile.sh rpardini-generic "BOARD=${{env.BOARD}}" ${{env.VARIANT}} ${{env.EXTRA}}
 
       - name: Release ${{ matrix.board }}
         id: release1
@@ -493,24 +384,18 @@ jobs:
         uses: softprops/action-gh-release@de2c0eb89ae2a093876385947365aca7b0e5f844 # de2c0eb8 = v0.1.5; already with koplo199's node16 fixes
         if: startsWith(github.ref, 'refs/tags/') # only for tags. GitHub requires tags for releases.
         with:
-          append_body: true # append to existing release body
-          body_path: build/output/release.md # created by prepare_release.sh
           files: |
-            build/output/images/*.xz
+            output/images/*.xz
 
       - name: Release ${{ matrix.board }} (retry if 1st failed)
         id: release2
         if: steps.release1.outcome == 'failure'
         uses: softprops/action-gh-release@de2c0eb89ae2a093876385947365aca7b0e5f844 # de2c0eb8 = v0.1.5; already with koplo199's node16 fixes
         with:
-          append_body: true # append to existing release body
-          body_path: build/output/release.md # created by prepare_release.sh
           files: |
-            build/output/images/*.xz
+            output/images/*.xz
 
-      - name: Finish build with status
+      - name: Cleanup output images
+        if: always()
         run: |
-          if [[ "${{ steps.buildBoard.outcome }}" == "failure" ]]; then
-            echo "buildBoard failed"
-            exit 2
-          fi
+          rm -rf output/images userpatches/VERSION
