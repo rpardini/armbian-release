@@ -1,6 +1,8 @@
 name: rootfs-simple
 
 on:
+  schedule:
+    - cron: '0 1 * * *' # Scheduled runs every day at 1am UTC
   workflow_dispatch:
 
 jobs:
@@ -39,15 +41,15 @@ jobs:
             runner_tags: "ubuntu-latest" # GH hosted runner
             variant: ""  # no real variant, it's just a CLI
 
-          # Kinetic cloud (arm64/amd64 only)
+          # Kinetic minimal (arm64/amd64 only)
           - release: "kinetic"
             arch: "arm64"
             runner_tags: [ "self-hosted", "Linux", 'armbian', "rootfs-arm64" ]
-            variant: "EXT=cloud-init,more_like_ubuntu_cloud"
+            variant: "BUILD_MINIMAL=yes"
           - release: "kinetic"
             arch: "amd64"
             runner_tags: "ubuntu-latest" # GH hosted runner
-            variant: "EXT=cloud-init,more_like_ubuntu_cloud"
+            variant: "BUILD_MINIMAL=yes"
 
           # Kinetic Desktop Gnome sans-appgroups (arm64/amd64 only)
           - release: "kinetic"
@@ -85,15 +87,15 @@ jobs:
             runner_tags: "ubuntu-latest" # GH hosted runner
             variant: ""  # no real variant, it's just a CLI
 
-          # jammy cloud (arm64/amd64 only)
+          # jammy minimal (arm64/amd64 only)
           - release: "jammy"
             arch: "arm64"
             runner_tags: [ "self-hosted", "Linux", 'armbian', "rootfs-arm64" ]
-            variant: "EXT=cloud-init,more_like_ubuntu_cloud"
+            variant: "BUILD_MINIMAL=yes"
           - release: "jammy"
             arch: "amd64"
             runner_tags: "ubuntu-latest" # GH hosted runner
-            variant: "EXT=cloud-init,more_like_ubuntu_cloud"
+            variant: "BUILD_MINIMAL=yes"
 
           # sid CLI
           - release: "sid"
@@ -112,15 +114,15 @@ jobs:
             arch: "amd64"
             runner_tags: "ubuntu-latest" # GH hosted runner
             variant: ""  # no real variant, it's just a CLI
-          # sid cloud (arm64/amd64 only)
+          # sid minimal (arm64/amd64 only)
           - release: "sid"
             arch: "arm64"
             runner_tags: [ "self-hosted", "Linux", 'armbian', "rootfs-arm64" ]
-            variant: "EXT=cloud-init,more_like_ubuntu_cloud"
+            variant: "BUILD_MINIMAL=yes"
           - release: "sid"
             arch: "amd64"
             runner_tags: "ubuntu-latest" # GH hosted runner
-            variant: "EXT=cloud-init,more_like_ubuntu_cloud"
+            variant: "BUILD_MINIMAL=yes"
 
     runs-on: "${{ matrix.runner_tags }}"
     name: "${{ matrix.release }} ${{ matrix.arch }} (${{ matrix.variant }})"
@@ -142,9 +144,9 @@ jobs:
       - name: Checkout build repo
         uses: actions/checkout@v3 # We don't need to clone git, really. A wget would suffice for GH-hosted runners. But using clone is better for Igor-hosted runners.
         with:
-          repository: ${{ github.repository_owner }}/armbian-build
+          repository: armbian/build #${{ github.repository_owner }}/armbian-build
+          ref: armbian-next 
           fetch-depth: 1
-          ref: extensions # extensions has cloud-init, etc used here for demo purposes
           clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
 
       - name: Create rootfs ${{env.RELEASE}}:${{env.ARCH}} (variant ${{env.VARIANT}})

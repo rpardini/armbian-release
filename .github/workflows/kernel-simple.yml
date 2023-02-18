@@ -1,6 +1,8 @@
 name: kernel-simple
 
 on:
+  schedule:
+    - cron: '0 1 * * *' # Scheduled runs every day at 1am UTC
   workflow_dispatch:
 
 jobs:
@@ -76,10 +78,10 @@ jobs:
             runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
             variant: ""
 
-          - board: "oneplus5"
-            branch: "edge"
-            runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
-            variant: ""
+          #- board: "oneplus5"
+          #  branch: "edge"
+          #  runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
+          #  variant: ""
 
           - board: "quartz64a"
             branch: "edge"
@@ -121,10 +123,10 @@ jobs:
             runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
             variant: ""
 
-          - board: "phytium-d2000"
-            branch: "legacy"
-            runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
-            variant: ""
+          #- board: "phytium-d2000"
+          #  branch: "legacy"
+          #  runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
+          #  variant: ""
 
           - board: "tinkerboard"
             branch: "edge"
@@ -176,9 +178,9 @@ jobs:
       - name: Checkout build repo
         uses: actions/checkout@v3 # We don't need to clone git, really. A wget would suffice for GH-hosted runners. But using clone is better for Igor-hosted runners.
         with:
-          repository: ${{ github.repository_owner }}/armbian-build
+          repository: armbian/build #${{ github.repository_owner }}/armbian-build
+          ref: armbian-next
           fetch-depth: 1
-          ref: extensions # extensions has cloud-init, etc used here for demo purposes
           clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
 
       - name: Build Kernel ${{env.BOARD}}:${{env.BRANCH}} (variant ${{env.VARIANT}})
