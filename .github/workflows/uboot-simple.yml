@@ -17,6 +17,10 @@ jobs:
             branch: "edge"
             runner_tags: ubuntu-latest #[ "self-hosted", "Linux", 'armbian', "artifact-uboot" ]
             variant: "" # empty
+          - board: "odroidhc4"
+            branch: "edge"
+            runner_tags: ubuntu-latest #[ "self-hosted", "Linux", 'armbian', "artifact-uboot" ]
+            variant: "" # empty
           - board: "khadas-vim3l"
             branch: "edge"
             runner_tags: ubuntu-latest #[[ "self-hosted", "Linux", 'armbian', "artifact-uboot" ]
@@ -41,8 +45,8 @@ jobs:
       - name: Checkout build repo
         uses: actions/checkout@v3 # We don't need to clone git, really. A wget would suffice for GH-hosted runners. But using clone is better for Igor-hosted runners.
         with:
-          repository: armbian/build #${{ github.repository_owner }}/armbian-build
-          ref: armbian-next
+          repository: ${{ github.repository_owner }}/armbian-build
+          ref: extensions
           fetch-depth: 1
           clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
 
