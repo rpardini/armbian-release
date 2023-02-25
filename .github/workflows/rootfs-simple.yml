@@ -41,15 +41,15 @@ jobs:
             runner_tags: "ubuntu-latest" # GH hosted runner
             variant: ""  # no real variant, it's just a CLI
 
-          # Kinetic minimal (arm64/amd64 only)
+          # Kinetic cloud (arm64/amd64 only)
           - release: "kinetic"
             arch: "arm64"
             runner_tags: [ "self-hosted", "Linux", 'armbian', "rootfs-arm64" ]
-            variant: "BUILD_MINIMAL=yes"
+            variant: "EXT=cloud-init,more_like_ubuntu_cloud"
           - release: "kinetic"
             arch: "amd64"
             runner_tags: "ubuntu-latest" # GH hosted runner
-            variant: "BUILD_MINIMAL=yes"
+            variant: "EXT=cloud-init,more_like_ubuntu_cloud"
 
           # Kinetic Desktop Gnome sans-appgroups (arm64/amd64 only)
           - release: "kinetic"
@@ -87,15 +87,15 @@ jobs:
             runner_tags: "ubuntu-latest" # GH hosted runner
             variant: ""  # no real variant, it's just a CLI
 
-          # jammy minimal (arm64/amd64 only)
+          # jammy cloud (arm64/amd64 only)
           - release: "jammy"
             arch: "arm64"
             runner_tags: [ "self-hosted", "Linux", 'armbian', "rootfs-arm64" ]
-            variant: "BUILD_MINIMAL=yes"
+            variant: "EXT=cloud-init,more_like_ubuntu_cloud"
           - release: "jammy"
             arch: "amd64"
             runner_tags: "ubuntu-latest" # GH hosted runner
-            variant: "BUILD_MINIMAL=yes"
+            variant: "EXT=cloud-init,more_like_ubuntu_cloud"
 
           # sid CLI
           - release: "sid"
@@ -114,15 +114,15 @@ jobs:
             arch: "amd64"
             runner_tags: "ubuntu-latest" # GH hosted runner
             variant: ""  # no real variant, it's just a CLI
-          # sid minimal (arm64/amd64 only)
+          # sid cloud (arm64/amd64 only)
           - release: "sid"
             arch: "arm64"
             runner_tags: [ "self-hosted", "Linux", 'armbian', "rootfs-arm64" ]
-            variant: "BUILD_MINIMAL=yes"
+            variant: "EXT=cloud-init,more_like_ubuntu_cloud"
           - release: "sid"
             arch: "amd64"
             runner_tags: "ubuntu-latest" # GH hosted runner
-            variant: "BUILD_MINIMAL=yes"
+            variant: "EXT=cloud-init,more_like_ubuntu_cloud"
 
     runs-on: "${{ matrix.runner_tags }}"
     name: "${{ matrix.release }} ${{ matrix.arch }} (${{ matrix.variant }})"
