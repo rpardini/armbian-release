@@ -78,10 +78,10 @@ jobs:
             runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
             variant: ""
 
-          #- board: "oneplus5"
-          #  branch: "edge"
-          #  runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
-          #  variant: ""
+          - board: "oneplus5"
+            branch: "edge"
+            runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
+            variant: ""
 
           - board: "quartz64a"
             branch: "edge"
@@ -123,10 +123,10 @@ jobs:
             runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
             variant: ""
 
-          #- board: "phytium-d2000"
-          #  branch: "legacy"
-          #  runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
-          #  variant: ""
+          - board: "phytium-d2000"
+            branch: "legacy"
+            runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
+            variant: ""
 
           - board: "tinkerboard"
             branch: "edge"
