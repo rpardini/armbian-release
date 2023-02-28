@@ -1,4 +1,4 @@
-name: kernel-simple
+name: kernel-only-one
 
 on:
   workflow_dispatch:
