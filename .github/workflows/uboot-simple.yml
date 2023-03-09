@@ -25,6 +25,26 @@ jobs:
             branch: "edge"
             runner_tags: ubuntu-latest #[[ "self-hosted", "Linux", 'armbian', "artifact-uboot" ]
             variant: "" # empty
+          - board: "espressobin"
+            branch: "current"
+            runner_tags: ubuntu-latest #[[ "self-hosted", "Linux", 'armbian', "artifact-uboot" ]
+            variant: "" # empty
+          - board: "odroidxu4"
+            branch: "current"
+            runner_tags: ubuntu-latest #[[ "self-hosted", "Linux", 'armbian', "artifact-uboot" ]
+            variant: "" # empty
+          - board: "tinkerboard"
+            branch: "current"
+            runner_tags: ubuntu-latest #[[ "self-hosted", "Linux", 'armbian', "artifact-uboot" ]
+            variant: "" # empty
+          - board: "tinkerboard-2"
+            branch: "current"
+            runner_tags: ubuntu-latest #[[ "self-hosted", "Linux", 'armbian', "artifact-uboot" ]
+            variant: "" # empty
+          - board: "nanopct4"
+            branch: "current"
+            runner_tags: ubuntu-latest #[[ "self-hosted", "Linux", 'armbian', "artifact-uboot" ]
+            variant: "" # empty
     runs-on: "${{ matrix.runner_tags }}"
     name: "${{ matrix.board }} ${{ matrix.branch }} (${{ matrix.variant }})"
     env:
