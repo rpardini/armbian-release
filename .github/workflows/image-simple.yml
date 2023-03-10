@@ -41,6 +41,12 @@ jobs:
           # 0200 = uefi stuff (fixed version)
           # 0500+ other stuff
           # 0100 = meson64 stuff (fixed version), boards I own first, then others
+          - aa: 0011
+            board: rock-5b
+            desc: rock-5b, midstream (6.y + downstream), cli
+            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+            variant: "CLOUD_IMAGE=no BRANCH=midstream"
+
           - aa: 0111
             board: bananapim5
             desc: BananaPi M5, edge, regular CLI
