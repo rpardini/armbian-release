@@ -113,10 +113,10 @@ jobs:
             runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
             variant: ""
 
-          - board: "clearfogpro"
-            branch: "edge"
-            runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
-            variant: ""
+          #- board: "clearfogpro" # broken waiting for fixes
+          #  branch: "edge"
+          #  runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
+          #  variant: ""
 
           - board: "clearfogpro"
             branch: "current"
