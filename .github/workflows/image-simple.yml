@@ -334,12 +334,12 @@ jobs:
             runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
             variant: "CLOUD_IMAGE=no BRANCH=edge"
 
-          # mvebu
-          - aa: 0975
-            board: clearfogpro
-            desc: clearfogpro, edge, cli
-            runner_tags: ubuntu-latest # gh runner, to use hosted: runner_tags: [ self-hosted, Linux, 'armbian', 'image-armhf' ]
-            variant: "CLOUD_IMAGE=no BRANCH=edge"
+          ## mvebu
+          #- aa: 0975
+          #  board: clearfogpro
+          #  desc: clearfogpro, edge, cli
+          #  runner_tags: ubuntu-latest # gh runner, to use hosted: runner_tags: [ self-hosted, Linux, 'armbian', 'image-armhf' ]
+          #  variant: "CLOUD_IMAGE=no BRANCH=edge"
 
           # vendor kernel for Phytium
           - aa: 0980
