@@ -47,6 +47,18 @@ jobs:
             runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
             variant: "CLOUD_IMAGE=no BRANCH=midstream"
 
+          - aa: 0020
+            board: bananapicm4io
+            desc: BananaPi CM4 CM4IO, edge, regular CLI
+            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+            variant: "CLOUD_IMAGE=no BRANCH=edge"
+
+          - aa: 0021
+            board: aml-s9xx-box
+            desc: aml-s9xx-box, edge, regular CLI
+            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+            variant: "CLOUD_IMAGE=no BRANCH=edge"
+
           - aa: 0111
             board: bananapim5
             desc: BananaPi M5, edge, regular CLI
