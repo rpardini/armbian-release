@@ -123,6 +123,16 @@ jobs:
             runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
             variant: ""
 
+          - board: "odroidxu4"
+            branch: "current"
+            runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
+            variant: ""
+
+          - board: "odroidxu4"
+            branch: "edge"
+            runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
+            variant: ""
+
           - board: "phytium-d2000"
             branch: "legacy"
             runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
@@ -143,20 +153,20 @@ jobs:
             runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
             variant: ""
 
-          - board: "visionfive" # starfive
-            branch: "edge"
-            runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
-            variant: ""
+          #- board: "visionfive" # starfive
+          #  branch: "edge"
+          #  runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
+          #  variant: ""
 
-          - board: "visionfive2" # starfive2
-            branch: "edge"
-            runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
-            variant: ""
+          #- board: "visionfive2" # starfive2
+          #  branch: "edge"
+          #  runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
+          #  variant: ""
 
-          - board: "nezha" # d1
-            branch: "edge"
-            runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
-            variant: ""
+          #- board: "nezha" # d1
+          #  branch: "edge"
+          #  runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
+          #  variant: ""
 
     runs-on: "${{ matrix.runner_tags }}"
     name: "${{ matrix.board }} ${{ matrix.branch }} (${{ matrix.variant }})"
