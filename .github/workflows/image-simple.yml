@@ -394,8 +394,8 @@ jobs:
       - name: Build board ${{ matrix.board }}
         id: buildBoard
         run: |
-          echo "${{needs.prepare.outputs.tagName}}-${{ github.repository_owner }}" > userpatches/VERSION
-          bash ./compile.sh rpardini-generic "BOARD=${{env.BOARD}}" ${{env.VARIANT}} ${{env.EXTRA}}
+          rm -f userpatches/VERSION # Remove, used to exist before
+          bash ./compile.sh rpardini-generic "IMAGE_VERSION=${{needs.prepare.outputs.tagName}}-${{ github.repository_owner }}"  "BOARD=${{env.BOARD}}" ${{env.VARIANT}} ${{env.EXTRA}}
 
       - name: Release ${{ matrix.board }}
         id: release1
