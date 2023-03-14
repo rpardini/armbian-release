@@ -47,6 +47,12 @@ jobs:
             runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
             variant: "CLOUD_IMAGE=no BRANCH=midstream"
 
+          - aa: 0012
+            board: odroidxu4
+            desc: ODROID XU4, current, regular CLI
+            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+            variant: "CLOUD_IMAGE=no BRANCH=current"
+
           - aa: 0020
             board: bananapicm4io
             desc: BananaPi CM4 CM4IO, edge, regular CLI
