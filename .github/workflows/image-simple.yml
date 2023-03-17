@@ -241,17 +241,17 @@ jobs:
             runner_tags: ubuntu-latest # gh runner, to use hosted: runner_tags: [ self-hosted, Linux, 'armbian', 'image-riscv64' ]
             variant: "CLOUD_IMAGE=no BRANCH=edge"
 
-          - aa: 0342
-            board: visionfive
-            desc: VisionFive RISC-V 64 (edge)
-            runner_tags: ubuntu-latest # gh runner, to use hosted: runner_tags: [ self-hosted, Linux, 'armbian', 'image-riscv64' ]
-            variant: "CLOUD_IMAGE=no BRANCH=edge"
-
-          - aa: 0344
-            board: beaglev
-            desc: BeagleV RISC-V 64 (edge)
-            runner_tags: ubuntu-latest # gh runner, to use hosted: runner_tags: [ self-hosted, Linux, 'armbian', 'image-riscv64' ]
-            variant: "CLOUD_IMAGE=no BRANCH=edge"
+          #- aa: 0342
+          #  board: visionfive
+          #  desc: VisionFive RISC-V 64 (edge)
+          #  runner_tags: ubuntu-latest # gh runner, to use hosted: runner_tags: [ self-hosted, Linux, 'armbian', 'image-riscv64' ]
+          #  variant: "CLOUD_IMAGE=no BRANCH=edge"
+          #
+          #- aa: 0344
+          #  board: beaglev
+          #  desc: BeagleV RISC-V 64 (edge)
+          #  runner_tags: ubuntu-latest # gh runner, to use hosted: runner_tags: [ self-hosted, Linux, 'armbian', 'image-riscv64' ]
+          #  variant: "CLOUD_IMAGE=no BRANCH=edge"
 
           - aa: 0710
             board: odroidm1
@@ -281,9 +281,15 @@ jobs:
           # RPI4b, edge
           - aa: 0805
             board: rpi4b
-            desc: Raspberry Pi 4B, with Armbian mainline kernel (edge), cli
+            desc: Raspberry Pi 4B, with Armbian + RPiFoundation kernel (edge), cli
             runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
             variant: "CLOUD_IMAGE=no BRANCH=edge"
+
+          - aa: 0805
+            board: rpi4b
+            desc: Raspberry Pi 4B, with Armbian + RPiFoundation kernel (current), cli
+            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+            variant: "CLOUD_IMAGE=no BRANCH=current"
 
           - aa: 0905
             board: tinkerboard
