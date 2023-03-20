@@ -48,6 +48,11 @@ jobs:
             runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
             variant: ""
 
+          - board: "rock-5b"
+            branch: "midstream"
+            runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
+            variant: ""
+
           - board: "odroidm1"
             branch: "edge"
             runner_tags: [ "self-hosted", "Linux", 'armbian', "artifact-kernel" ]
