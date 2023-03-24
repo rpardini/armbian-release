@@ -1,8 +1,7 @@
 name: Create a daily release
 on:
   schedule:
-    # Daily at sixteen minutes past midnight UTC
-    - cron: '16 0 * * *'
+    - cron: '0 2 * * *' # Scheduled runs every day at 2am UTC
 jobs:
   create_release:
     runs-on: ubuntu-latest
