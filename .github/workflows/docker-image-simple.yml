@@ -17,18 +17,26 @@ jobs:
         include:
           - os: "ubuntu"
             release: "jammy"
+            cache-from: "type=gha" # all-automatic Github Actions caching
+            cache-to: "type=gha,mode=max" # all-automatic Github Actions caching, max mode
           #- os: "ubuntu"
           #  release: "kinetic"
           - os: "debian"
             release: "bullseye"
+            cache-from: ""
+            cache-to: ""
           #- os: "debian"
           #  release: "sid"
           - os: "debian"
             release: "bookworm"
+            cache-from: ""
+            cache-to: ""
           #- os: "ubuntu"
           #  release: "focal" # to make sure -- not really "supported"
           - os: "ubuntu"
             release: "lunar" # better be early than late
+            cache-from: ""
+            cache-to: ""
     env:
       DOCKERFILE_OS: "${{ matrix.os }}"
       DOCKERFILE_RELEASE: "${{ matrix.release }}"
@@ -86,8 +94,8 @@ jobs:
             org.opencontainers.image.created=${{ steps.prep.outputs.created }}
             org.opencontainers.image.revision=${{ github.sha }}
             org.opencontainers.image.licenses=${{ github.event.repository.license.spdx_id }}
-          cache-from: type=gha # all-automatic Github Actions caching
-          cache-to: type=gha,mode=min # Minimal caching exports only the final layer, no intermediates
+          cache-from: "${{ matrix.cache-from }}"
+          cache-to: "${{ matrix.cache-to }}"
           tags: ghcr.io/${{ github.repository }}:armbian-next-${{env.DOCKERFILE_OS}}-${{env.DOCKERFILE_RELEASE}}-latest
 
       - name: sleep a random amount of seconds, up to 60, if build/push failed, before trying again
@@ -116,7 +124,7 @@ jobs:
             org.opencontainers.image.created=${{ steps.prep.outputs.created }}
             org.opencontainers.image.revision=${{ github.sha }}
             org.opencontainers.image.licenses=${{ github.event.repository.license.spdx_id }}
-          #cache-from: type=gha # do NOT reload cache when retrying
-          cache-to: type=gha,mode=min # Minimal caching exports only the final layer, no intermediates
+          #cache-from: "${{ matrix.cache-from }}" # do NOT reload cache when retrying
+          cache-to: "${{ matrix.cache-to }}" # but do save cache
           tags: ghcr.io/${{ github.repository }}:armbian-next-${{env.DOCKERFILE_OS}}-${{env.DOCKERFILE_RELEASE}}-latest
 
