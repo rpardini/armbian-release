@@ -1,18 +1,18 @@
-name: firmware-simple
+name: packages-simple
 
 on:
   schedule:
     - cron: '0 1 * * *' # Scheduled runs every day at 1am UTC
   workflow_dispatch:
-  workflow_call: 
-    
+  workflow_call:
+
 
 jobs:
 
-  "Firmware":
+  "Packages":
     if: ${{ github.repository_owner == 'rpardini' }}
     runs-on: ubuntu-latest
-    name: "Firmware (small and full)"
+    name: "Packages"
     env:
       OCI_TARGET_BASE: "ghcr.io/${{ github.repository }}/" # This is picked up by the Docker launcher automatically
     steps:
@@ -32,6 +32,26 @@ jobs:
           ref: extensions
           fetch-depth: 1
           clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
+
+      - name: Build armbian-config
+        id: armbian-config
+        run: |
+          bash ./compile.sh armbian-config SHARE_LOG=yes
+
+      - name: Build armbian-zsh
+        id: armbian-zsh
+        run: |
+          bash ./compile.sh armbian-zsh SHARE_LOG=yes
+
+      - name: Build armbian-plymouth-theme
+        id: armbian-plymouth-theme
+        run: |
+          bash ./compile.sh armbian-plymouth-theme SHARE_LOG=yes
+
+      - name: Build fake_ubuntu_advantage_tools
+        id: fake_ubuntu_advantage_tools
+        run: |
+          bash ./compile.sh fake-ubuntu-advantage-tools SHARE_LOG=yes
 
       - name: Build firmware (small)
         id: firmware
