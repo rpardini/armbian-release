@@ -37,6 +37,7 @@ jobs:
             release: "lunar" # better be early than late
             cache-from: ""
             cache-to: ""
+    name: "${{ matrix.release }} (${{ matrix.os }})"
     env:
       DOCKERFILE_OS: "${{ matrix.os }}"
       DOCKERFILE_RELEASE: "${{ matrix.release }}"
