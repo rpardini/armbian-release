@@ -390,10 +390,14 @@ jobs:
     runs-on: "${{ matrix.runner_tags }}"
     name: "${{ matrix.aa }} ${{ matrix.desc }}"
     env:
-      OCI_TARGET_BASE: "ghcr.io/${{ github.repository }}/" # This is picked up by the Docker launcher automatically
       BOARD: "${{ matrix.board }}"
       VARIANT: "${{ matrix.variant }}"
       EXTRA: "'DONT_BUILD_ARTIFACTS=kernel,firmware,full_firmware,rootfs' COMPRESS_OUTPUTIMAGE=xz "
+
+      OCI_TARGET_BASE: "ghcr.io/${{ github.repository }}/" # This is picked up by the Docker launcher automatically
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: "ghcr.io/${{ github.repository }}:armbian-next-" # Use Docker image in same repo
+      DOCKER_SKIP_UPDATE: "yes" # Do not apt update/install/requirements/etc during Dockerfile build, trust DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX's images are up-to-date
+
     steps:
 
       - name: Checkout build repo

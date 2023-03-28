@@ -15,6 +15,9 @@ jobs:
     name: "Packages"
     env:
       OCI_TARGET_BASE: "ghcr.io/${{ github.repository }}/" # This is picked up by the Docker launcher automatically
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: "ghcr.io/${{ github.repository }}:armbian-next-" # Use Docker image in same repo
+      DOCKER_SKIP_UPDATE: "yes" # Do not apt update/install/requirements/etc during Dockerfile build, trust DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX's images are up-to-date
+
     steps:
 
       # Login to ghcr.io, for later uploading rootfs to ghcr.io
