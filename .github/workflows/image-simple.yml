@@ -41,6 +41,18 @@ jobs:
           # 0200 = uefi stuff (fixed version)
           # 0500+ other stuff
           # 0100 = meson64 stuff (fixed version), boards I own first, then others
+          - aa: 0009
+            board: mekotronics-r58
+            desc: mekotronics-r58, legacy, cli
+            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+            variant: "CLOUD_IMAGE=no BRANCH=legacy"
+
+          - aa: 0009
+            board: mekotronics-r58
+            desc: mekotronics-r58, desktop gnome(+browsers), cli
+            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+            variant: "CLOUD_IMAGE=no BRANCH=legacy BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=browsers DESKTOP_ENVIRONMENT=gnome DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
+
           - aa: 0011
             board: rock-5b
             desc: rock-5b, midstream (6.y + downstream), cli
