@@ -41,17 +41,44 @@ jobs:
           # 0200 = uefi stuff (fixed version)
           # 0500+ other stuff
           # 0100 = meson64 stuff (fixed version), boards I own first, then others
-          - aa: 0009
+          - aa: 0005
             board: mekotronics-r58x-4g
-            desc: mekotronics-r58x-4g, legacy, cli
+            desc: mekotronics-r58x-4g, bookworm, legacy, cli
             runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
-            variant: "CLOUD_IMAGE=no BRANCH=legacy"
+            variant: "CLOUD_IMAGE=no BRANCH=legacy RELEASE=bookworm"
+
+          - aa: 0006
+            board: mekotronics-r58x-4g
+            desc: mekotronics-r58x-4g, Jammy Desktop Cinnamon(+browsers), cli
+            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+            variant: "CLOUD_IMAGE=no RELEASE=jammy BRANCH=legacy BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=browsers DESKTOP_ENVIRONMENT=cinnamon DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
+
+
+          - aa: 0007
+            board: mekotronics-r58x
+            desc: mekotronics-r58x, bookworm, legacy, cli
+            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+            variant: "CLOUD_IMAGE=no BRANCH=legacy RELEASE=bookworm"
+
+          - aa: 0008
+            board: mekotronics-r58x
+            desc: mekotronics-r58x, Jammy Desktop Cinnamon(+browsers), cli
+            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+            variant: "CLOUD_IMAGE=no RELEASE=jammy BRANCH=legacy BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=browsers DESKTOP_ENVIRONMENT=cinnamon DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
+
 
           - aa: 0009
-            board: mekotronics-r58x-4g
-            desc: mekotronics-r58x-4g, desktop gnome(+browsers), cli
+            board: mekotronics-r58-minipc
+            desc: mekotronics-r58-minipc, bookworm, legacy, cli
             runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
-            variant: "CLOUD_IMAGE=no BRANCH=legacy BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=browsers DESKTOP_ENVIRONMENT=gnome DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
+            variant: "CLOUD_IMAGE=no BRANCH=legacy RELEASE=bookworm"
+
+          - aa: 0010
+            board: mekotronics-r58-minipc
+            desc: mekotronics-r58-minipc, Jammy Desktop Cinnamon(+browsers), cli
+            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+            variant: "CLOUD_IMAGE=no RELEASE=jammy BRANCH=legacy BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=browsers DESKTOP_ENVIRONMENT=cinnamon DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
+
 
           - aa: 0011
             board: rock-5b
@@ -125,11 +152,11 @@ jobs:
             runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
             variant: "CLOUD_IMAGE=no BRANCH=edge"
 
-          - aa: 0150
-            board: radxa-zero
-            desc: radxa-zero, edge, regular CLI
-            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
-            variant: "CLOUD_IMAGE=no BRANCH=edge"
+          #- aa: 0150
+          #  board: radxa-zero
+          #  desc: radxa-zero, edge, regular CLI
+          #  runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+          #  variant: "CLOUD_IMAGE=no BRANCH=edge"
 
           - aa: 0155
             board: radxa-zero2
@@ -230,9 +257,9 @@ jobs:
 
           - aa: 0322
             board: uefi-x86
-            desc: VMWare x86 UEFI Virtual Machine, with Armbian mainline kernel (edge), desktop Gnome
+            desc: VMWare x86 UEFI Virtual Machine, with Armbian mainline kernel (edge), Bookworm desktop Cinammon
             runner_tags: ubuntu-latest # gh runner
-            variant: "CLOUD_IMAGE=no ENABLE_EXTENSIONS=vmware-vm BRANCH=edge BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=x DESKTOP_ENVIRONMENT=gnome DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
+            variant: "CLOUD_IMAGE=no ENABLE_EXTENSIONS=vmware-vm BRANCH=edge RELEASE=bookworm BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=browsers DESKTOP_ENVIRONMENT=cinnamon DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
 
           - aa: 0324
             board: uefi-x86
@@ -246,12 +273,12 @@ jobs:
             runner_tags: ubuntu-latest # gh runner
             variant: "CLOUD_IMAGE=no BRANCH=edge"
 
-          # RISCV64
-          - aa: 0340
-            board: uefi-riscv64
-            desc: UEFI Generic RISC-V 64 (edge)
-            runner_tags: ubuntu-latest # gh runner, to use hosted: runner_tags: [ self-hosted, Linux, 'armbian', 'image-riscv64' ]
-            variant: "CLOUD_IMAGE=no BRANCH=edge"
+          ## RISCV64
+          #- aa: 0340
+          #  board: uefi-riscv64
+          #  desc: UEFI Generic RISC-V 64 (edge)
+          #  runner_tags: ubuntu-latest # gh runner, to use hosted: runner_tags: [ self-hosted, Linux, 'armbian', 'image-riscv64' ]
+          #  variant: "CLOUD_IMAGE=no BRANCH=edge"
 
           #- aa: 0342
           #  board: visionfive
@@ -271,23 +298,23 @@ jobs:
             runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
             variant: "CLOUD_IMAGE=no BRANCH=edge"
 
-          - aa: 0720
-            board: rock-5b
-            desc: rock-5b, legacy (5.10), cli
-            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
-            variant: "CLOUD_IMAGE=no BRANCH=legacy"
-
-          - aa: 0722
-            board: rock-5b
-            desc: rock-5b, edge (6.2+), cli; very experimental
-            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
-            variant: "CLOUD_IMAGE=no BRANCH=edge"
-
-          - aa: 0725
-            board: orangepi5
-            desc: orangepi5, legacy (5.10), cli
-            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
-            variant: "CLOUD_IMAGE=no BRANCH=legacy"
+          #- aa: 0720
+          #  board: rock-5b
+          #  desc: rock-5b, legacy (5.10), cli
+          #  runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+          #  variant: "CLOUD_IMAGE=no BRANCH=legacy"
+          #
+          #- aa: 0722
+          #  board: rock-5b
+          #  desc: rock-5b, edge (6.2+), cli; very experimental
+          #  runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+          #  variant: "CLOUD_IMAGE=no BRANCH=edge"
+          #
+          #- aa: 0725
+          #  board: orangepi5
+          #  desc: orangepi5, legacy (5.10), cli
+          #  runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+          #  variant: "CLOUD_IMAGE=no BRANCH=legacy"
 
 
           # RPI4b, edge
@@ -332,12 +359,6 @@ jobs:
             desc: quartz64a, cli, edge # media kernel
             runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
             variant: "CLOUD_IMAGE=no BRANCH=edge"
-
-          - aa: 0930
-            board: nanopct4
-            desc: nanopct4, Desktop gnome, edge # uses media kernel
-            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
-            variant: "CLOUD_IMAGE=no BRANCH=edge BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=browsers DESKTOP_ENVIRONMENT=gnome DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
 
           # Sunxi, Sunxi64 and jetson-nano
           - aa: 0951

@@ -35,10 +35,6 @@ jobs:
             runner_tags: ubuntu-latest # gh runner, to use hosted: runner_tags: [ "self-hosted", "Linux", 'armbian', "rootfs-armhf" ]
             variant: ""  # no real variant, it's just a CLI
           - release: "kinetic"
-            arch: "riscv64"
-            runner_tags: ubuntu-latest # gh runner, to use hosted: runner_tags: [ "self-hosted", "Linux", 'armbian', "rootfs-riscv64" ]
-            variant: ""  # no real variant, it's just a CLI
-          - release: "kinetic"
             arch: "amd64"
             runner_tags: "ubuntu-latest" # GH hosted runner
             variant: ""  # no real variant, it's just a CLI
@@ -53,24 +49,6 @@ jobs:
             runner_tags: "ubuntu-latest" # GH hosted runner
             variant: "EXT=cloud-init,more_like_ubuntu_cloud"
 
-          # Kinetic Desktop Gnome sans-appgroups (arm64/amd64 only)
-          - release: "kinetic"
-            arch: "arm64"
-            runner_tags: [ "self-hosted", "Linux", 'armbian', "rootfs-arm64" ]
-            variant: "CLOUD_IMAGE=no BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=x DESKTOP_ENVIRONMENT=gnome DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
-          - release: "kinetic"
-            arch: "arm64"
-            runner_tags: [ "self-hosted", "Linux", 'armbian', "rootfs-arm64" ]
-            variant: "CLOUD_IMAGE=no BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=browsers DESKTOP_ENVIRONMENT=gnome DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
-          - release: "kinetic"
-            arch: "amd64"
-            runner_tags: "ubuntu-latest" # GH hosted runner
-            variant: "CLOUD_IMAGE=no BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=browsers DESKTOP_ENVIRONMENT=gnome DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
-          - release: "kinetic"
-            arch: "amd64"
-            runner_tags: "ubuntu-latest" # GH hosted runner
-            variant: "CLOUD_IMAGE=no BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=x DESKTOP_ENVIRONMENT=gnome DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
-
           # Jammy CLI
           - release: "jammy"
             arch: "arm64"
@@ -81,14 +59,20 @@ jobs:
             runner_tags: ubuntu-latest # gh runner, to use hosted: runner_tags: [ "self-hosted", "Linux", 'armbian', "rootfs-armhf" ]
             variant: ""  # no real variant, it's just a CLI
           - release: "jammy"
-            arch: "riscv64"
-            runner_tags: ubuntu-latest # gh runner, to use hosted: runner_tags: [ "self-hosted", "Linux", 'armbian', "rootfs-riscv64" ]
-            variant: ""  # no real variant, it's just a CLI
-          - release: "jammy"
             arch: "amd64"
             runner_tags: "ubuntu-latest" # GH hosted runner
             variant: ""  # no real variant, it's just a CLI
-
+          
+          # Jammy Desktop Cinnamon, browsers appgroup, (arm64/amd64 only)
+          - release: "jammy"
+            arch: "arm64"
+            runner_tags: [ "self-hosted", "Linux", 'armbian', "rootfs-arm64" ]
+            variant: "CLOUD_IMAGE=no BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=browsers DESKTOP_ENVIRONMENT=cinnamon DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
+          - release: "jammy"
+            arch: "amd64"
+            runner_tags: "ubuntu-latest" # GH hosted runner
+            variant: "CLOUD_IMAGE=no BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=browsers DESKTOP_ENVIRONMENT=gnome DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
+          
           # jammy cloud (arm64/amd64 only)
           - release: "jammy"
             arch: "arm64"
@@ -99,29 +83,34 @@ jobs:
             runner_tags: "ubuntu-latest" # GH hosted runner
             variant: "EXT=cloud-init,more_like_ubuntu_cloud"
 
-          # sid CLI
-          - release: "sid"
+          # bookworm CLI
+          - release: "bookworm"
             arch: "arm64"
             runner_tags: [ "self-hosted", "Linux", 'armbian', "rootfs-arm64" ]
             variant: ""  # no real variant, it's just a CLI
-          - release: "sid"
+          - release: "bookworm"
             arch: "armhf"
             runner_tags: ubuntu-latest # gh runner, to use hosted: runner_tags: [ "self-hosted", "Linux", 'armbian', "rootfs-armhf" ]
             variant: ""  # no real variant, it's just a CLI
-          - release: "sid"
-            arch: "riscv64"
-            runner_tags: ubuntu-latest # gh runner, to use hosted: runner_tags: [ "self-hosted", "Linux", 'armbian', "rootfs-riscv64" ]
-            variant: ""  # no real variant, it's just a CLI
-          - release: "sid"
+          - release: "bookworm"
             arch: "amd64"
             runner_tags: "ubuntu-latest" # GH hosted runner
             variant: ""  # no real variant, it's just a CLI
-          # sid cloud (arm64/amd64 only)
-          - release: "sid"
+          # Bookworm Desktop Cinnamon, browsers appgroup, (arm64/amd64 only)
+          - release: "bookworm"
+            arch: "arm64"
+            runner_tags: [ "self-hosted", "Linux", 'armbian', "rootfs-arm64" ]
+            variant: "CLOUD_IMAGE=no BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=browsers DESKTOP_ENVIRONMENT=cinnamon DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
+          - release: "bookworm"
+            arch: "amd64"
+            runner_tags: "ubuntu-latest" # GH hosted runner
+            variant: "CLOUD_IMAGE=no BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=browsers DESKTOP_ENVIRONMENT=gnome DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
+          # bookworm cloud (arm64/amd64 only)
+          - release: "bookworm"
             arch: "arm64"
             runner_tags: [ "self-hosted", "Linux", 'armbian', "rootfs-arm64" ]
             variant: "EXT=cloud-init,more_like_ubuntu_cloud"
-          - release: "sid"
+          - release: "bookworm"
             arch: "amd64"
             runner_tags: "ubuntu-latest" # GH hosted runner
             variant: "EXT=cloud-init,more_like_ubuntu_cloud"
@@ -152,7 +141,7 @@ jobs:
           repository: ${{ github.repository_owner }}/armbian-build
           ref: extensions
           fetch-depth: 1
-          clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
+          clean: false # true is default. it *will* delete the hosts /dev if mounted inbookworme.
 
       - name: Create rootfs ${{env.RELEASE}}:${{env.ARCH}} (variant ${{env.VARIANT}})
         id: rootfs
