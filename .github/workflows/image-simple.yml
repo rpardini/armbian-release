@@ -80,11 +80,11 @@ jobs:
             variant: "CLOUD_IMAGE=no RELEASE=jammy BRANCH=legacy BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=browsers DESKTOP_ENVIRONMENT=cinnamon DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
 
 
-          - aa: 0011
-            board: rock-5b
-            desc: rock-5b, midstream (6.y + downstream), cli
-            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
-            variant: "CLOUD_IMAGE=no BRANCH=midstream"
+          #- aa: 0011
+          #  board: rock-5b
+          #  desc: rock-5b, midstream (6.y + downstream), cli
+          #  runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+          #  variant: "CLOUD_IMAGE=no BRANCH=midstream"
 
           - aa: 0012
             board: odroidxu4
@@ -104,29 +104,29 @@ jobs:
             runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
             variant: "CLOUD_IMAGE=no BRANCH=edge"
 
-          - aa: 0111
-            board: bananapim5
-            desc: BananaPi M5, edge, regular CLI
-            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
-            variant: "CLOUD_IMAGE=no BRANCH=edge"
-
-          - aa: 0112
-            board: bananapim2s
-            desc: BananaPi M2S, edge, regular CLI
-            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
-            variant: "CLOUD_IMAGE=no BRANCH=edge"
-
-          - aa: 0113
-            board: bananapim2pro
-            desc: BananaPi M2Pro, edge, regular CLI
-            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
-            variant: "CLOUD_IMAGE=no BRANCH=edge"
-
-          - aa: 0115
-            board: odroidn2
-            desc: ODROID N2+, edge, regular CLI
-            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
-            variant: "CLOUD_IMAGE=no BRANCH=edge"
+          #- aa: 0111
+          #  board: bananapim5
+          #  desc: BananaPi M5, edge, regular CLI
+          #  runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+          #  variant: "CLOUD_IMAGE=no BRANCH=edge"
+          #
+          #- aa: 0112
+          #  board: bananapim2s
+          #  desc: BananaPi M2S, edge, regular CLI
+          #  runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+          #  variant: "CLOUD_IMAGE=no BRANCH=edge"
+          #
+          #- aa: 0113
+          #  board: bananapim2pro
+          #  desc: BananaPi M2Pro, edge, regular CLI
+          #  runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+          #  variant: "CLOUD_IMAGE=no BRANCH=edge"
+          #
+          #- aa: 0115
+          #  board: odroidn2
+          #  desc: ODROID N2+, edge, regular CLI
+          #  runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+          #  variant: "CLOUD_IMAGE=no BRANCH=edge"
 
           - aa: 0120
             board: odroidhc4
@@ -140,17 +140,17 @@ jobs:
             runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
             variant: "CLOUD_IMAGE=no BRANCH=edge"
 
-          - aa: 0135
-            board: lafrite
-            desc: lafrite, edge, regular CLI
-            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
-            variant: "CLOUD_IMAGE=no BRANCH=edge"
-
-          - aa: 0140
-            board: lepotato
-            desc: lepotato, edge, regular CLI
-            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
-            variant: "CLOUD_IMAGE=no BRANCH=edge"
+          #- aa: 0135
+          #  board: lafrite
+          #  desc: lafrite, edge, regular CLI
+          #  runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+          #  variant: "CLOUD_IMAGE=no BRANCH=edge"
+          #
+          #- aa: 0140
+          #  board: lepotato
+          #  desc: lepotato, edge, regular CLI
+          #  runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+          #  variant: "CLOUD_IMAGE=no BRANCH=edge"
 
           #- aa: 0150
           #  board: radxa-zero
@@ -164,17 +164,17 @@ jobs:
             runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
             variant: "CLOUD_IMAGE=no BRANCH=edge"
 
-          - aa: 0160
-            board: odroidc2
-            desc: odroidc2, edge, regular CLI
-            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
-            variant: "CLOUD_IMAGE=no BRANCH=edge"
-
-          - aa: 0165
-            board: khadas-vim2
-            desc: khadas-vim2, edge, regular CLI
-            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
-            variant: "CLOUD_IMAGE=no BRANCH=edge"
+          #- aa: 0160
+          #  board: odroidc2
+          #  desc: odroidc2, edge, regular CLI
+          #  runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+          #  variant: "CLOUD_IMAGE=no BRANCH=edge"
+          #
+          #- aa: 0165
+          #  board: khadas-vim2
+          #  desc: khadas-vim2, edge, regular CLI
+          #  runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+          #  variant: "CLOUD_IMAGE=no BRANCH=edge"
 
           - aa: 0175
             board: khadas-vim3
@@ -182,11 +182,11 @@ jobs:
             runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
             variant: "CLOUD_IMAGE=no BRANCH=edge"
 
-          - aa: 0180
-            board: odroidc4
-            desc: ODROID C4, edge, regular CLI
-            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
-            variant: "CLOUD_IMAGE=no BRANCH=edge"
+          #- aa: 0180
+          #  board: odroidc4
+          #  desc: ODROID C4, edge, regular CLI
+          #  runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+          #  variant: "CLOUD_IMAGE=no BRANCH=edge"
 
           - aa: 0185
             board: t95z
@@ -237,23 +237,23 @@ jobs:
             runner_tags: ubuntu-latest # gh runner
             variant: "CLOUD_IMAGE=yes BRANCH=edge ENABLE_EXTENSIONS=cloud-metadata"
 
-          - aa: 0225
-            board: uefi-x86
-            desc: UEFI Generic x86 cloud image, with -generic Ubuntu kernel (ddk), for metadata-capable clouds (AWS/GCP/OCI/OpenStack/KVM/etc), includes external kernel and initrd for kexec
-            runner_tags: ubuntu-latest # gh runner
-            variant: "CLOUD_IMAGE=yes BRANCH=ddk ENABLE_EXTENSIONS=cloud-metadata"
+          #- aa: 0225
+          #  board: uefi-x86
+          #  desc: UEFI Generic x86 cloud image, with -generic Ubuntu kernel (ddk), for metadata-capable clouds (AWS/GCP/OCI/OpenStack/KVM/etc), includes external kernel and initrd for kexec
+          #  runner_tags: ubuntu-latest # gh runner
+          #  variant: "CLOUD_IMAGE=yes BRANCH=ddk ENABLE_EXTENSIONS=cloud-metadata"
+          #
+          #- aa: 0230
+          #  board: uefi-arm64
+          #  desc: UEFI Generic ARM64, with -generic Ubuntu kernel (ddk), cloud image for metadata-capable clouds (AWS/GCP/OCI/OpenStack/KVM/etc), includes external kernel and initrd for kexec
+          #  runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+          #  variant: "CLOUD_IMAGE=yes BRANCH=ddk ENABLE_EXTENSIONS=cloud-metadata"
 
-          - aa: 0230
-            board: uefi-arm64
-            desc: UEFI Generic ARM64, with -generic Ubuntu kernel (ddk), cloud image for metadata-capable clouds (AWS/GCP/OCI/OpenStack/KVM/etc), includes external kernel and initrd for kexec
-            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
-            variant: "CLOUD_IMAGE=yes BRANCH=ddk ENABLE_EXTENSIONS=cloud-metadata"
-
-          - aa: 0320
-            board: uefi-x86
-            desc: VMWare x86 UEFI Virtual Machine, with Armbian mainline kernel (edge), regular CLI
-            runner_tags: ubuntu-latest # gh runner
-            variant: "CLOUD_IMAGE=no ENABLE_EXTENSIONS=vmware-vm OVF_KEEP_IMG=yes BRANCH=edge"
+          #- aa: 0320
+          #  board: uefi-x86
+          #  desc: VMWare x86 UEFI Virtual Machine, with Armbian mainline kernel (edge), regular CLI
+          #  runner_tags: ubuntu-latest # gh runner
+          #  variant: "CLOUD_IMAGE=no ENABLE_EXTENSIONS=vmware-vm OVF_KEEP_IMG=yes BRANCH=edge"
 
           - aa: 0322
             board: uefi-x86
@@ -267,11 +267,11 @@ jobs:
             runner_tags: ubuntu-latest # gh runner
             variant: "CLOUD_IMAGE=no ENABLE_EXTENSIONS=image-output-utm BRANCH=edge"
 
-          - aa: 0326
-            board: qemu-uboot-x86
-            desc: qemu-uboot-x86 (edge), regular CLI; for development only
-            runner_tags: ubuntu-latest # gh runner
-            variant: "CLOUD_IMAGE=no BRANCH=edge"
+          #- aa: 0326
+          #  board: qemu-uboot-x86
+          #  desc: qemu-uboot-x86 (edge), regular CLI; for development only
+          #  runner_tags: ubuntu-latest # gh runner
+          #  variant: "CLOUD_IMAGE=no BRANCH=edge"
 
           ## RISCV64
           #- aa: 0340
@@ -318,11 +318,11 @@ jobs:
 
 
           # RPI4b, edge
-          - aa: 0805
-            board: rpi4b
-            desc: Raspberry Pi 4B, with Armbian + RPiFoundation kernel (edge), cli
-            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
-            variant: "CLOUD_IMAGE=no BRANCH=edge"
+          #- aa: 0805
+          #  board: rpi4b
+          #  desc: Raspberry Pi 4B, with Armbian + RPiFoundation kernel (edge), cli
+          #  runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+          #  variant: "CLOUD_IMAGE=no BRANCH=edge"
 
           - aa: 0805
             board: rpi4b
@@ -354,42 +354,42 @@ jobs:
             runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
             variant: "CLOUD_IMAGE=no BRANCH=edge"
 
-          - aa: 0925
-            board: quartz64a
-            desc: quartz64a, cli, edge # media kernel
-            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
-            variant: "CLOUD_IMAGE=no BRANCH=edge"
+          #- aa: 0925
+          #  board: quartz64a
+          #  desc: quartz64a, cli, edge # media kernel
+          #  runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+          #  variant: "CLOUD_IMAGE=no BRANCH=edge"
+          #
+          ## Sunxi, Sunxi64 and jetson-nano
+          #- aa: 0951
+          #  board: jetson-nano
+          #  desc: jetson-nano, cli, edge # media kernel
+          #  runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+          #  variant: "CLOUD_IMAGE=no BRANCH=edge"
 
-          # Sunxi, Sunxi64 and jetson-nano
-          - aa: 0951
-            board: jetson-nano
-            desc: jetson-nano, cli, edge # media kernel
-            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
-            variant: "CLOUD_IMAGE=no BRANCH=edge"
-
-          - aa: 0955
-            board: tritium-h3
-            desc: tritium-h3, current, cli
-            runner_tags: ubuntu-latest # gh runner, to use hosted: runner_tags: [ self-hosted, Linux, 'armbian', 'image-armhf' ]
-            variant: "CLOUD_IMAGE=no BRANCH=current"
-
-          - aa: 0960
-            board: tritium-h3
-            desc: tritium-h3, edge, cli
-            runner_tags: ubuntu-latest # gh runner, to use hosted: runner_tags: [ self-hosted, Linux, 'armbian', 'image-armhf' ]
-            variant: "CLOUD_IMAGE=no BRANCH=edge"
-
-          - aa: 0965
-            board: tritium-h5
-            desc: tritium-h5, current, cli
-            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
-            variant: "CLOUD_IMAGE=no BRANCH=current"
-
-          - aa: 0970
-            board: tritium-h5
-            desc: tritium-h5, edge, cli
-            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
-            variant: "CLOUD_IMAGE=no BRANCH=edge"
+          #- aa: 0955
+          #  board: tritium-h3
+          #  desc: tritium-h3, current, cli
+          #  runner_tags: ubuntu-latest # gh runner, to use hosted: runner_tags: [ self-hosted, Linux, 'armbian', 'image-armhf' ]
+          #  variant: "CLOUD_IMAGE=no BRANCH=current"
+          #
+          #- aa: 0960
+          #  board: tritium-h3
+          #  desc: tritium-h3, edge, cli
+          #  runner_tags: ubuntu-latest # gh runner, to use hosted: runner_tags: [ self-hosted, Linux, 'armbian', 'image-armhf' ]
+          #  variant: "CLOUD_IMAGE=no BRANCH=edge"
+          #
+          #- aa: 0965
+          #  board: tritium-h5
+          #  desc: tritium-h5, current, cli
+          #  runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+          #  variant: "CLOUD_IMAGE=no BRANCH=current"
+          #
+          #- aa: 0970
+          #  board: tritium-h5
+          #  desc: tritium-h5, edge, cli
+          #  runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+          #  variant: "CLOUD_IMAGE=no BRANCH=edge"
 
           ## mvebu
           #- aa: 0975
@@ -398,12 +398,12 @@ jobs:
           #  runner_tags: ubuntu-latest # gh runner, to use hosted: runner_tags: [ self-hosted, Linux, 'armbian', 'image-armhf' ]
           #  variant: "CLOUD_IMAGE=no BRANCH=edge"
 
-          # vendor kernel for Phytium
-          - aa: 0980
-            board: phytium-d2000
-            desc: phytium-d2000, legacy, Feiteng vendor kernel 4.19.y
-            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
-            variant: "CLOUD_IMAGE=no BRANCH=legacy"
+          ## vendor kernel for Phytium
+          #- aa: 0980
+          #  board: phytium-d2000
+          #  desc: phytium-d2000, legacy, Feiteng vendor kernel 4.19.y
+          #  runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+          #  variant: "CLOUD_IMAGE=no BRANCH=legacy"
 
 
           # ddks last
@@ -413,12 +413,12 @@ jobs:
             runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
             variant: "CLOUD_IMAGE=yes ENABLE_EXTENSIONS=uefi-rescue BRANCH=ddk RELEASE=jammy"
 
-          # RPI4b, ddk
-          - aa: 0996
-            board: rpi4b
-            desc: Raspberry Pi 4B, ddk, cli
-            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
-            variant: "CLOUD_IMAGE=no BRANCH=ddk"
+          ## RPI4b, ddk
+          #- aa: 0996
+          #  board: rpi4b
+          #  desc: Raspberry Pi 4B, ddk, cli
+          #  runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+          #  variant: "CLOUD_IMAGE=no BRANCH=ddk"
 
     runs-on: "${{ matrix.runner_tags }}"
     name: "${{ matrix.aa }} ${{ matrix.desc }}"
