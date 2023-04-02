@@ -19,6 +19,14 @@ jobs:
             branch: "legacy"
             runner_tags: ubuntu-latest #[ "self-hosted", "Linux", 'armbian', "artifact-uboot" ]
             variant: "" # empty
+          - board: "mekotronics-r58x"
+            branch: "legacy"
+            runner_tags: ubuntu-latest #[ "self-hosted", "Linux", 'armbian', "artifact-uboot" ]
+            variant: "" # empty
+          - board: "mekotronics-r58-minipc"
+            branch: "legacy"
+            runner_tags: ubuntu-latest #[ "self-hosted", "Linux", 'armbian', "artifact-uboot" ]
+            variant: "" # empty
           - board: "odroidn2"
             branch: "edge"
             runner_tags: ubuntu-latest #[ "self-hosted", "Linux", 'armbian', "artifact-uboot" ]
