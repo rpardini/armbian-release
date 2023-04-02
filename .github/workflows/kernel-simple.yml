@@ -200,7 +200,7 @@ jobs:
           #  variant: ""
 
     runs-on: "${{ matrix.runner_tags }}"
-    name: "$${{ matrix.aa}}=${{ matrix.board }} ${{ matrix.branch }} (${{ matrix.variant }})"
+    name: "${{ matrix.aa}}=${{ matrix.board }} ${{ matrix.branch }} (${{ matrix.variant }})"
     env:
       BOARD: "${{ matrix.board }}"
       BRANCH: "${{ matrix.branch }}"
