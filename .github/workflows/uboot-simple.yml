@@ -15,7 +15,7 @@ jobs:
       fail-fast: false # let other jobs try to complete if one fails
       matrix:
         include:
-          - board: "mekotronics-r58"
+          - board: "mekotronics-r58x-4g"
             branch: "legacy"
             runner_tags: ubuntu-latest #[ "self-hosted", "Linux", 'armbian', "artifact-uboot" ]
             variant: "" # empty

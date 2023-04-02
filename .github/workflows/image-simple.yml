@@ -42,14 +42,14 @@ jobs:
           # 0500+ other stuff
           # 0100 = meson64 stuff (fixed version), boards I own first, then others
           - aa: 0009
-            board: mekotronics-r58
-            desc: mekotronics-r58, legacy, cli
+            board: mekotronics-r58x-4g
+            desc: mekotronics-r58x-4g, legacy, cli
             runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
             variant: "CLOUD_IMAGE=no BRANCH=legacy"
 
           - aa: 0009
-            board: mekotronics-r58
-            desc: mekotronics-r58, desktop gnome(+browsers), cli
+            board: mekotronics-r58x-4g
+            desc: mekotronics-r58x-4g, desktop gnome(+browsers), cli
             runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
             variant: "CLOUD_IMAGE=no BRANCH=legacy BUILD_DESKTOP=yes DESKTOP_APPGROUPS_SELECTED=browsers DESKTOP_ENVIRONMENT=gnome DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base"
 
