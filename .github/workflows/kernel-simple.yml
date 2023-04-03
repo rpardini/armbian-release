@@ -236,4 +236,4 @@ jobs:
           # SHARE_LOG=yes to share logs to pastebin
           bash ./compile.sh kernel \
             "BRANCH=${{env.BRANCH}}" "BOARD=${{env.BOARD}}" ${{env.VARIANT}} \
-            SHARE_LOG=yes
+            SHARE_LOG=yes rpardini-generic

@@ -146,4 +146,4 @@ jobs:
       - name: Create rootfs ${{env.RELEASE}}:${{env.ARCH}} (variant ${{env.VARIANT}})
         id: rootfs
         run: |
-          bash ./compile.sh rootfs "RELEASE=${{env.RELEASE}}" "ARCH=${{env.ARCH}}" ${{env.VARIANT}} SKIP_ARMBIAN_REPO=yes
+          bash ./compile.sh rootfs "RELEASE=${{env.RELEASE}}" "ARCH=${{env.ARCH}}" ${{env.VARIANT}} SKIP_ARMBIAN_REPO=yes  rpardini-generic

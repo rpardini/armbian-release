@@ -39,29 +39,29 @@ jobs:
       - name: Build armbian-config
         id: armbian-config
         run: |
-          bash ./compile.sh armbian-config SHARE_LOG=yes
+          bash ./compile.sh armbian-config SHARE_LOG=yes rpardini-generic
 
       - name: Build armbian-zsh
         id: armbian-zsh
         run: |
-          bash ./compile.sh armbian-zsh SHARE_LOG=yes
+          bash ./compile.sh armbian-zsh SHARE_LOG=yes rpardini-generic
 
       - name: Build armbian-plymouth-theme
         id: armbian-plymouth-theme
         run: |
-          bash ./compile.sh armbian-plymouth-theme SHARE_LOG=yes
+          bash ./compile.sh armbian-plymouth-theme SHARE_LOG=yes rpardini-generic
 
       - name: Build fake_ubuntu_advantage_tools
         id: fake_ubuntu_advantage_tools
         run: |
-          bash ./compile.sh fake-ubuntu-advantage-tools SHARE_LOG=yes
+          bash ./compile.sh fake-ubuntu-advantage-tools SHARE_LOG=yes rpardini-generic
 
       - name: Build firmware (small)
         id: firmware
         run: |
-          bash ./compile.sh firmware SHARE_LOG=yes
+          bash ./compile.sh firmware SHARE_LOG=yes rpardini-generic
 
       - name: Build firmware (full)
         id: firmware_full
         run: |
-          bash ./compile.sh firmware-full SHARE_LOG=yes
+          bash ./compile.sh firmware-full SHARE_LOG=yes rpardini-generic
