@@ -41,6 +41,12 @@ jobs:
           # 0200 = uefi stuff (fixed version)
           # 0500+ other stuff
           # 0100 = meson64 stuff (fixed version), boards I own first, then others
+          - aa: 0003
+            board: orangepizero2
+            desc: orangepizero2, bookworm, legacy, cli
+            runner_tags: [ self-hosted, Linux, 'armbian', 'image-arm64' ]
+            variant: "CLOUD_IMAGE=no BRANCH=legacy RELEASE=bookworm"
+
           - aa: 0005
             board: mekotronics-r58x-4g
             desc: mekotronics-r58x-4g, bookworm, legacy, cli
