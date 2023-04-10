@@ -52,13 +52,13 @@ jobs:
           echo "${{ steps.prepare-matrix.outputs.artifact-matrix }}"
 
     outputs:
-      artifact-matrix: ${{ steps.prepare-matrix.outputs.artifact-matrix }}
+      artifact: ${{ steps.prepare-matrix.outputs.artifact-matrix }}
       #image-matrix: ${{ steps.prepare-matrix.outputs.image-matrix }}
 
   build-artifacts:
     needs: matrix_prep
     strategy:
-      matrix: ${{fromJson(needs.matrix_prep.outputs.artifact-matrix)}}
+      matrix: ${{ fromJSON(needs.matrix_prep.outputs.artifact) }}
     name: Build Artifact ${{ matrix.desc }}
     runs-on: ${{ matrix.runs_on }}
     #if: ${{ matrix.skip != true }}
