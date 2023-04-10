@@ -25,11 +25,32 @@ jobs:
           fetch-depth: 1
           clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
 
+      - name: Restore cached memoize
+        uses: actions/cache@v3
+        with:
+          path: cache/memoize
+          key: memoize-cache
+
+      - name: Restore cached oci
+        uses: actions/cache@v3
+        with:
+          path: cache/oci
+          key: oci-cache
+
       - name: Prepare Info JSON and Matrices
         id: prepare-matrix
         run: |
           # this sets outputs "artifact-matrix" #and "image-matrix" 
-          bash ./compile.sh json-info-boards 
+          bash ./compile.sh json-info-boards DEBUG=yes
+
+      - name: chown cache back
+        run: |
+          sudo chown -R $USER:$USER cache
+
+      - name: echo stuff
+        run: |
+          echo "${{ steps.prepare-matrix.outputs.artifact-matrix }}"
+
     outputs:
       artifact-matrix: ${{ steps.prepare-matrix.outputs.artifact-matrix }}
       #image-matrix: ${{ steps.prepare-matrix.outputs.image-matrix }}
