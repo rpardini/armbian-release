@@ -9,7 +9,7 @@ on:
 
 jobs:
   
-  "matrix-prep":
+  matrix_prep:
     if: ${{ github.repository_owner == 'rpardini' }}
     runs-on: "ubuntu-latest"
     env:
