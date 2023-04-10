@@ -49,7 +49,7 @@ jobs:
 
       - name: echo stuff
         run: |
-          echo "${{ steps.prepare-matrix.outputs.artifact-matrix }}"
+          echo '${{ steps.prepare-matrix.outputs.artifact-matrix }}' | jq .
 
     outputs:
       artifact: ${{ steps.prepare-matrix.outputs.artifact-matrix }}
@@ -60,11 +60,11 @@ jobs:
     strategy:
       matrix: ${{ fromJSON(needs.matrix_prep.outputs.artifact) }}
     name: Build Artifact ${{ matrix.desc }}
-    runs-on: ${{ matrix.runs_on }}
+    runs-on: ubuntu-latest # ${{ matrix.runs_on }}
     #if: ${{ matrix.skip != true }}
     steps:
       - name: Echo
-        run: echo "${{ matrix.invocation }}"
+        run: echo "${{ matrix.desc }}"
 
 
 
