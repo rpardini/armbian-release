@@ -9,10 +9,9 @@ on:
 
 jobs:
   
-  "Prepare":
+  "matrix-prep":
     if: ${{ github.repository_owner == 'rpardini' }}
     runs-on: "ubuntu-latest"
-    name: "prepare"
     env:
       OCI_TARGET_BASE: "ghcr.io/${{ github.repository }}/" # This is picked up by the Docker launcher automatically
       DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: "ghcr.io/${{ github.repository }}:armbian-next-" # Use Docker image in same repo
@@ -29,10 +28,24 @@ jobs:
       - name: Prepare Info JSON and Matrices
         id: prepare-matrix
         run: |
+          # this sets outputs "artifact-matrix" #and "image-matrix" 
           bash ./compile.sh json-info-boards 
-  
-  
-  
+    outputs:
+      artifact-matrix: ${{ steps.prepare-matrix.outputs.artifact-matrix }}
+      #image-matrix: ${{ steps.prepare-matrix.outputs.image-matrix }}
+
+  build-artifacts:
+    needs: matrix_prep
+    strategy:
+      matrix: ${{fromJson(needs.matrix_prep.outputs.artifact-matrix)}}
+    name: Build Artifact ${{ matrix.desc }}
+    runs-on: ${{ matrix.runs_on }}
+    if: ${{ matrix.skip != true }}
+    steps:
+      - name: Echo
+        run: echo "${{ matrix.invocation }}"
+
+
 
 #  "Artifacts":
 #    if: ${{ github.repository_owner == 'rpardini' }}
