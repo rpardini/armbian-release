@@ -64,7 +64,7 @@ jobs:
     needs: matrix_prep
     strategy:
       matrix: ${{ fromJSON(needs.matrix_prep.outputs.artifact) }}
-    name: Build Artifact ${{ matrix.desc }}
+    name: ${{ matrix.desc }}
     runs-on: ${{ matrix.runs_on }}
     steps:
       - name: Echo
