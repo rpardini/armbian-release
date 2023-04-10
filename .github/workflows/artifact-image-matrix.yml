@@ -25,17 +25,14 @@ jobs:
           fetch-depth: 1
           clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
 
-      - name: Restore cached memoize
-        uses: actions/cache@v3
+      - name: Restore cached
+        uses: actions/cache/restore@v3
+        id: cache-restore
         with:
-          path: cache/memoize
-          key: memoize-cache
-
-      - name: Restore cached oci
-        uses: actions/cache@v3
-        with:
-          path: cache/oci
-          key: oci-cache
+          path: |
+            cache/memoize
+            cache/oci
+          key: ${{ runner.os }}-matrix-cache
 
       - name: Prepare Info JSON and Matrices
         id: prepare-matrix
@@ -46,6 +43,14 @@ jobs:
       - name: chown cache back
         run: |
           sudo chown -R $USER:$USER cache
+
+      - name: Save cache
+        uses: actions/cache/save@v3
+        with:
+          path: |
+            cache/memoize
+            cache/oci
+          key: ${{ steps.cache-restore.outputs.cache-primary-key }}
 
       - name: echo stuff
         run: |
@@ -60,13 +65,10 @@ jobs:
     strategy:
       matrix: ${{ fromJSON(needs.matrix_prep.outputs.artifact) }}
     name: Build Artifact ${{ matrix.desc }}
-    runs-on: ubuntu-latest # ${{ matrix.runs_on }}
-    #if: ${{ matrix.skip != true }}
+    runs-on: ${{ matrix.runs_on }}
     steps:
       - name: Echo
-        run: echo "${{ matrix.desc }}"
-
-
+        run: echo "${{ matrix.invocation }}"
 
 #  "Artifacts":
 #    if: ${{ github.repository_owner == 'rpardini' }}
