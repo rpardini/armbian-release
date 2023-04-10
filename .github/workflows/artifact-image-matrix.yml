@@ -1,0 +1,82 @@
+name: artifact-image-matrix
+
+on:
+  #schedule:
+  #  - cron: '0 1 * * *' # Scheduled runs every day at 1am UTC
+  workflow_dispatch:
+  #workflow_call:
+
+
+jobs:
+  
+  "Prepare":
+    if: ${{ github.repository_owner == 'rpardini' }}
+    runs-on: "ubuntu-latest"
+    name: "prepare"
+    env:
+      OCI_TARGET_BASE: "ghcr.io/${{ github.repository }}/" # This is picked up by the Docker launcher automatically
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: "ghcr.io/${{ github.repository }}:armbian-next-" # Use Docker image in same repo
+      DOCKER_SKIP_UPDATE: "yes" # Do not apt update/install/requirements/etc during Dockerfile build, trust DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX's images are up-to-date
+    steps:
+      - name: Checkout build repo
+        uses: actions/checkout@v3 # We don't need to clone git, really. A wget would suffice for GH-hosted runners. But using clone is better for Igor-hosted runners.
+        with:
+          repository: ${{ github.repository_owner }}/armbian-build
+          ref: extensions
+          fetch-depth: 1
+          clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
+
+      - name: Prepare Info JSON and Matrices
+        id: prepare-matrix
+        run: |
+          bash ./compile.sh json-info-boards 
+  
+  
+  
+
+#  "Artifacts":
+#    if: ${{ github.repository_owner == 'rpardini' }}
+#    strategy:
+#      fail-fast: false # let other jobs try to complete if one fails
+#      matrix:
+#        include:
+#          - { bla:00 }
+#    runs-on: "${{ matrix.runner_tags }}"
+#    name: "${{ matrix.aa}}=${{ matrix.board }} ${{ matrix.branch }} (${{ matrix.variant }})"
+#    env:
+#      BOARD: "${{ matrix.board }}"
+#      BRANCH: "${{ matrix.branch }}"
+#      VARIANT: "${{ matrix.variant }}"
+#      
+#      OCI_TARGET_BASE: "ghcr.io/${{ github.repository }}/" # This is picked up by the Docker launcher automatically
+#      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: "ghcr.io/${{ github.repository }}:armbian-next-" # Use Docker image in same repo
+#      DOCKER_SKIP_UPDATE: "yes" # Do not apt update/install/requirements/etc during Dockerfile build, trust DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX's images are up-to-date
+#
+#    steps:
+#
+#      # Login to ghcr.io, for later uploading rootfs to ghcr.io
+#      - name: Docker Login to GitHub Container Registry
+#        uses: docker/login-action@v2
+#        with:
+#          registry: ghcr.io
+#          username: ${{ github.repository_owner }} # GitHub username or org
+#          password: ${{ secrets.GITHUB_TOKEN }}    # GitHub actions builtin token. repo has to have pkg access.
+#
+#      - name: Checkout build repo
+#        uses: actions/checkout@v3 # We don't need to clone git, really. A wget would suffice for GH-hosted runners. But using clone is better for Igor-hosted runners.
+#        with:
+#          repository: ${{ github.repository_owner }}/armbian-build
+#          ref: extensions
+#          fetch-depth: 1
+#          clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
+#
+#      - name: Build Kernel ${{env.BOARD}}:${{env.BRANCH}} (variant ${{env.VARIANT}})
+#        id: kernel
+#        run: |
+#          # BRANCH and BOARD are in the env, but Docker doesn't know that; (sudo has --preserve-env). So we need to pass them as args.
+#          # let VARIANT expand
+#          # SHARE_LOG=yes to share logs to pastebin
+#          bash ./compile.sh kernel \
+#            "BRANCH=${{env.BRANCH}}" "BOARD=${{env.BOARD}}" ${{env.VARIANT}} \
+#            SHARE_LOG=yes rpardini-generic
+#
