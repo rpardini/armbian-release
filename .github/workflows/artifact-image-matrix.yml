@@ -40,7 +40,7 @@ jobs:
       matrix: ${{fromJson(needs.matrix_prep.outputs.artifact-matrix)}}
     name: Build Artifact ${{ matrix.desc }}
     runs-on: ${{ matrix.runs_on }}
-    if: ${{ matrix.skip != true }}
+    #if: ${{ matrix.skip != true }}
     steps:
       - name: Echo
         run: echo "${{ matrix.invocation }}"
