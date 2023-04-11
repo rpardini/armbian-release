@@ -58,9 +58,13 @@ jobs:
             cache/oci/positive
           key: ${{ steps.cache-restore.outputs.cache-primary-key }}
 
-      - name: echo stuff
+      - name: echo stuff artifact
         run: |
           echo '${{ steps.prepare-matrix.outputs.artifact-matrix }}' | jq .
+
+      - name: echo stuff image
+        run: |
+          echo '${{ steps.prepare-matrix.outputs.image-matrix }}' | jq .
 
     outputs:
       artifact: ${{ steps.prepare-matrix.outputs.artifact-matrix }}
