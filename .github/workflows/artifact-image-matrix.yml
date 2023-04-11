@@ -11,7 +11,7 @@ jobs:
   
   matrix_prep:
     if: ${{ github.repository_owner == 'rpardini' }}
-    runs-on: "macos-latest" # is mac faster? "ubuntu-latest"
+    runs-on: "ubuntu-latest" # "macos-latest" # is mac faster? not really. 
     env:
       OCI_TARGET_BASE: "ghcr.io/${{ github.repository }}/" # This is picked up by the Docker launcher automatically
       DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: "ghcr.io/${{ github.repository }}:armbian-next-" # Use Docker image in same repo
@@ -34,11 +34,11 @@ jobs:
             cache/oci/positive
           key: ${{ runner.os }}-matrix-cache
 
-      - name: Prepare MacOS Machine
-        id: prepare-machine-macos
-        run: |
-          brew install bash coreutils git docker
-          colima start
+      #- name: Prepare MacOS Machine
+      #  id: prepare-machine-macos
+      #  run: |
+      #    brew install bash coreutils git docker
+      #    colima start
 
       - name: Prepare Info JSON and Matrices
         id: prepare-matrix
