@@ -38,7 +38,7 @@ jobs:
         id: prepare-matrix
         run: |
           # this sets outputs "artifact-matrix" #and "image-matrix" 
-          bash ./compile.sh json-info-boards DEBUG=yes
+          bash ./compile.sh json-info-boards # DEBUG=yes
 
       - name: chown cache back
         run: |
@@ -58,11 +58,11 @@ jobs:
 
     outputs:
       artifact: ${{ steps.prepare-matrix.outputs.artifact-matrix }}
-      #image-matrix: ${{ steps.prepare-matrix.outputs.image-matrix }}
+      image: ${{ steps.prepare-matrix.outputs.image-matrix }}
 
   build-artifacts:
     if: ${{ github.repository_owner == 'rpardini' }}
-    needs: matrix_prep
+    needs: [ "matrix_prep" ]
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
       matrix: ${{ fromJSON(needs.matrix_prep.outputs.artifact) }}
@@ -94,3 +94,48 @@ jobs:
       - name: Build  ${{matrix.desc}}
         run: |
           bash ./compile.sh ${{ matrix.invocation }} SHARE_LOG=yes
+
+  build-images:
+    needs: [ "matrix_prep", "build-artifacts" ]
+    timeout-minutes: 15
+    if: ${{ github.repository_owner == 'rpardini' }}
+
+    strategy:
+      fail-fast: false # let other jobs try to complete if one fails
+      matrix: ${{ fromJSON(needs.matrix_prep.outputs.image) }}
+    name: ${{ matrix.desc }}
+    runs-on: ${{ matrix.runs_on }}
+    env:
+      EXTRA: "'DONT_BUILD_ARTIFACTS=kernel,firmware,full_firmware,rootfs,fake_ubuntu_advantage_tools,armbian-config,armbian-zsh,armbian-plymouth-theme' COMPRESS_OUTPUTIMAGE=xz SHOW_DEBIAN=yes SHARE_LOG=yes "
+
+      OCI_TARGET_BASE: "ghcr.io/${{ github.repository }}/" # This is picked up by the Docker launcher automatically
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: "ghcr.io/${{ github.repository }}:armbian-next-" # Use Docker image in same repo
+      DOCKER_SKIP_UPDATE: "yes" # Do not apt update/install/requirements/etc during Dockerfile build, trust DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX's images are up-to-date
+    steps:
+
+      - name: Checkout build repo
+        uses: actions/checkout@v3
+        with:
+          repository: ${{ github.repository_owner }}/armbian-build
+          ref: extensions
+          clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
+
+      - name: ${{matrix.desc}}
+        id: build-one-image
+        run: |
+          bash ./compile.sh ${{ matrix.invocation }} "IMAGE_VERSION=20220400-${{ github.repository_owner }}" ${{env.EXTRA}}
+
+      - name: "Release: ${{matrix.desc}}"
+        uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest-images"
+          prerelease: false
+          title: "Latest ${{matrix.desc}} images"
+          files: |
+            output/images/*.xz
+
+      - name: Cleanup output images
+        if: always()
+        run: |
+          rm -rf output/images userpatches/VERSION
