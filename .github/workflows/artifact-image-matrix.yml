@@ -66,6 +66,14 @@ jobs:
         run: |
           echo '${{ steps.prepare-matrix.outputs.image-matrix }}' | jq .
 
+      - name: Prepare GH Release
+        uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest-images"
+          prerelease: false
+          title: "Latest images"
+    
     outputs:
       artifact: ${{ steps.prepare-matrix.outputs.artifact-matrix }}
       image: ${{ steps.prepare-matrix.outputs.image-matrix }}
@@ -142,7 +150,6 @@ jobs:
 
       - name: "Release: ${{matrix.desc}}"
         uses: "marvinpinto/action-automatic-releases@latest"
-        if: ${{matrix.really == 'yes'}}
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: "latest-images"
@@ -150,6 +157,16 @@ jobs:
           title: "Latest ${{matrix.desc}} images"
           files: |
             output/images/*.xz
+
+      - name: Upload binaries to release
+        uses: svenstaro/upload-release-action@v2
+        if: ${{matrix.really == 'yes'}}
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: output/images/*.xz
+          tag: latest-images # created in prepare above
+          overwrite: true
+          file_glob: true
 
       - name: Cleanup output images
         if: always() && ${{matrix.really == 'yes' }}
