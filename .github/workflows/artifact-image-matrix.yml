@@ -150,7 +150,21 @@ jobs:
 
       - name: Upload binaries to release
         uses: svenstaro/upload-release-action@v2
+        id: release1
+        continue-on-error: true
         if: ${{matrix.really == 'yes'}}
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: output/images/*.xz
+          tag: latest-images # created in prepare above
+          overwrite: true
+          file_glob: true
+
+      - name: Upload binaries to release (retry)
+        uses: svenstaro/upload-release-action@v2
+        id: release1
+        continue-on-error: true
+        if: ${{matrix.really == 'yes' && steps.release1.outcome == 'failure'}}
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: output/images/*.xz
