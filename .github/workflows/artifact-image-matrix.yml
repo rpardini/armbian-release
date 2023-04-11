@@ -148,16 +148,6 @@ jobs:
         run: |
           bash ./compile.sh ${{ matrix.invocation }} "IMAGE_VERSION=20220400-${{ github.repository_owner }}" ${{env.EXTRA}}
 
-      - name: "Release: ${{matrix.desc}}"
-        uses: "marvinpinto/action-automatic-releases@latest"
-        with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "latest-images"
-          prerelease: false
-          title: "Latest ${{matrix.desc}} images"
-          files: |
-            output/images/*.xz
-
       - name: Upload binaries to release
         uses: svenstaro/upload-release-action@v2
         if: ${{matrix.really == 'yes'}}
