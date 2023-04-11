@@ -34,6 +34,11 @@ jobs:
             cache/oci/positive
           key: ${{ runner.os }}-matrix-cache
 
+      - name: Prepare MacOS Machine
+        id: prepare-machine-macos
+        run: |
+          brew install bash coreutils git 
+
       - name: Prepare Info JSON and Matrices
         id: prepare-matrix
         run: |
