@@ -15,7 +15,7 @@ jobs:
     env:
       OCI_TARGET_BASE: "ghcr.io/${{ github.repository }}/" # This is picked up by the Docker launcher automatically
       DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: "ghcr.io/${{ github.repository }}:armbian-next-" # Use Docker image in same repo
-      #DOCKER_SKIP_UPDATE: "yes" # Do not apt update/install/requirements/etc during Dockerfile build, trust DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX's images are up-to-date
+      DOCKER_SKIP_UPDATE: "yes" # Do not apt update/install/requirements/etc during Dockerfile build, trust DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX's images are up-to-date
     steps:
       - name: Checkout build repo
         uses: actions/checkout@v3 # We don't need to clone git, really. A wget would suffice for GH-hosted runners. But using clone is better for Igor-hosted runners.
@@ -31,7 +31,7 @@ jobs:
         with:
           path: |
             cache/memoize
-            cache/oci
+            cache/oci/positive
           key: ${{ runner.os }}-matrix-cache
 
       - name: Prepare Info JSON and Matrices
@@ -49,7 +49,7 @@ jobs:
         with:
           path: |
             cache/memoize
-            cache/oci
+            cache/oci/positive
           key: ${{ steps.cache-restore.outputs.cache-primary-key }}
 
       - name: echo stuff
