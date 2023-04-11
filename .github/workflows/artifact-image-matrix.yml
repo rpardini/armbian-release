@@ -78,6 +78,7 @@ jobs:
       # Login to ghcr.io, for later uploading rootfs to ghcr.io
       - name: Docker Login to GitHub Container Registry
         uses: docker/login-action@v2
+        if: ${{matrix.really}}
         with:
           registry: ghcr.io
           username: ${{ github.repository_owner }} # GitHub username or org
@@ -85,6 +86,7 @@ jobs:
 
       - name: Checkout build repo
         uses: actions/checkout@v3 # We don't need to clone git, really. A wget would suffice for GH-hosted runners. But using clone is better for Igor-hosted runners.
+        if: ${{matrix.really}}
         with:
           repository: ${{ github.repository_owner }}/armbian-build
           ref: extensions
@@ -92,6 +94,7 @@ jobs:
           clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
 
       - name: Build  ${{matrix.desc}}
+        if: ${{matrix.really}}
         run: |
           bash ./compile.sh ${{ matrix.invocation }} SHARE_LOG=yes
 
@@ -115,6 +118,7 @@ jobs:
 
       - name: Checkout build repo
         uses: actions/checkout@v3
+        if: ${{matrix.really}}
         with:
           repository: ${{ github.repository_owner }}/armbian-build
           ref: extensions
@@ -122,11 +126,13 @@ jobs:
 
       - name: ${{matrix.desc}}
         id: build-one-image
+        if: ${{matrix.really}}
         run: |
           bash ./compile.sh ${{ matrix.invocation }} "IMAGE_VERSION=20220400-${{ github.repository_owner }}" ${{env.EXTRA}}
 
       - name: "Release: ${{matrix.desc}}"
         uses: "marvinpinto/action-automatic-releases@latest"
+        if: ${{matrix.really}}
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: "latest-images"
@@ -136,6 +142,6 @@ jobs:
             output/images/*.xz
 
       - name: Cleanup output images
-        if: always()
+        if: always() && ${{matrix.really}}
         run: |
           rm -rf output/images userpatches/VERSION
