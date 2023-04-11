@@ -162,8 +162,7 @@ jobs:
 
       - name: Upload binaries to release (retry)
         uses: svenstaro/upload-release-action@v2
-        id: release1
-        continue-on-error: true
+        id: release2
         if: ${{matrix.really == 'yes' && steps.release1.outcome == 'failure'}}
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
