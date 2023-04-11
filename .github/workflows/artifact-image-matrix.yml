@@ -37,13 +37,14 @@ jobs:
       - name: Prepare MacOS Machine
         id: prepare-machine-macos
         run: |
-          brew install bash coreutils git 
+          brew install bash coreutils git docker
+          colima start
 
       - name: Prepare Info JSON and Matrices
         id: prepare-matrix
         run: |
           # this sets outputs "artifact-matrix" #and "image-matrix" 
-          bash ./compile.sh json-info-boards # DEBUG=yes
+          bash ./compile.sh json-info-boards DEBUG=yes
 
       - name: chown cache back
         run: |
