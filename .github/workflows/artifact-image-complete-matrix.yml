@@ -1,4 +1,4 @@
-name: artifact-image-matrix
+name: artifact-image-complete-matrix
 
 on:
   #schedule:
