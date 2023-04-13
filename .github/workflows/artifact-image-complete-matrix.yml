@@ -11,7 +11,8 @@ jobs:
   
   matrix_prep:
     if: ${{ github.repository_owner == 'rpardini' }}
-    runs-on: "ubuntu-latest" # "macos-latest" # is mac faster? not really. 
+    # runs-on: "ubuntu-latest" # "macos-latest" # is mac faster? not really. 
+    runs-on: [ "self-hosted", "Linux", 'armbian', "matrix-prepare" ]
     env:
       OCI_TARGET_BASE: "ghcr.io/${{ github.repository }}/" # This is picked up by the Docker launcher automatically
       DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: "ghcr.io/${{ github.repository }}:armbian-next-" # Use Docker image in same repo
@@ -25,15 +26,17 @@ jobs:
           fetch-depth: 1
           clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
 
-      - name: Restore cached
-        uses: actions/cache/restore@v3
+      - name: GitHub cache
         id: cache-restore
+        uses: actions/cache@v3
         with:
           path: |
             cache/memoize
             cache/oci/positive
-          key: ${{ runner.os }}-matrix-cache
-
+          key: ${{ runner.os }}-matrix-cache-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-matrix-cache-
+      
       #- name: Prepare MacOS Machine
       #  id: prepare-machine-macos
       #  run: |
@@ -50,24 +53,16 @@ jobs:
         run: |
           sudo chown -R $USER:$USER cache
 
-      - name: Save cache
-        uses: actions/cache/save@v3
-        with:
-          path: |
-            cache/memoize
-            cache/oci/positive
-          key: ${{ steps.cache-restore.outputs.cache-primary-key }}
-
       - name: echo stuff artifact
         run: |
-          echo '${{ steps.prepare-matrix.outputs.artifact-matrix }}' | jq .
+          echo '${{ steps.prepare-matrix.outputs.artifact-matrix }}' | jq --color-output .
 
       - name: echo stuff image
         run: |
-          echo '${{ steps.prepare-matrix.outputs.image-matrix }}' | jq .
+          echo '${{ steps.prepare-matrix.outputs.image-matrix }}' | jq --color-output .
 
       - name: Prepare GH Release
-        uses: "marvinpinto/action-automatic-releases@latest"
+        uses: "marvinpinto/action-automatic-releases@latest" # @TODO this is outdated, needs replacement.
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: "latest-images"
@@ -151,8 +146,9 @@ jobs:
         id: build-one-image
         if: ${{matrix.really == 'yes'}}
         run: |
-          bash ./compile.sh ${{ matrix.invocation }} "IMAGE_VERSION=20220400-${{ github.repository_owner }}" ${{env.EXTRA}}
+          bash ./compile.sh ${{ matrix.invocation }} "IMAGE_VERSION=20230400-${{ github.repository_owner }}" ${{env.EXTRA}}
 
+      # @TODO lets upload to GHR release ourselves instead of this shit
       - name: Release ${{ matrix.board }}
         id: release1
         if: ${{matrix.really == 'yes'}}
