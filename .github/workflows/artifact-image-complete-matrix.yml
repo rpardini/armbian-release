@@ -49,9 +49,9 @@ jobs:
           # this sets outputs "artifact-matrix" #and "image-matrix" 
           bash ./compile.sh json-info-boards DEBUG=yes
 
-      - name: chown cache back
+      - name: chown cache memoize/oci back to normal user
         run: |
-          sudo chown -R $USER:$USER cache
+          sudo chown -R $USER:$USER cache/memoize cache/oci/positive
 
       - name: echo stuff artifact
         run: |
