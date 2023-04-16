@@ -26,6 +26,10 @@ jobs:
           fetch-depth: 1
           clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
 
+      - name: grab the sha1 of the latest commit # do NOT use set-output, it's deprecated. https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/
+        id: latest-commit
+        run: echo "sha1=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
+
       - name: GitHub cache
         id: cache-restore
         uses: actions/cache@v3
@@ -33,7 +37,7 @@ jobs:
           path: |
             cache/memoize
             cache/oci/positive
-          key: ${{ runner.os }}-matrix-cache-${{ github.sha }}
+          key: ${{ runner.os }}-matrix-cache-${{ github.sha }}-${{ steps.latest-commit.outputs.sha1 }}"
           restore-keys: |
             ${{ runner.os }}-matrix-cache-
       
@@ -42,12 +46,20 @@ jobs:
       #  run: |
       #    brew install bash coreutils git docker
       #    colima start
+      
+      # Login to ghcr.io, we're gonna do a lot of OCI lookups.
+      - name: Docker Login to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }} # GitHub username or org
+          password: ${{ secrets.GITHUB_TOKEN }}    # GitHub actions builtin token. repo has to have pkg access.
 
       - name: Prepare Info JSON and Matrices
         id: prepare-matrix
         run: |
           # this sets outputs "artifact-matrix" #and "image-matrix" 
-          bash ./compile.sh json-info-boards rpardini-generic DEBUG=yes
+          bash ./compile.sh json-info-boards rpardini-generic # DEBUG=yes
 
       - name: chown cache memoize/oci back to normal user
         run: |
@@ -62,7 +74,7 @@ jobs:
           echo '${{ steps.prepare-matrix.outputs.image-matrix }}' | jq --color-output .
 
       - name: Prepare GH Release
-        uses: "marvinpinto/action-automatic-releases@latest" # @TODO this is outdated, needs replacement.
+        uses: "marvinpinto/action-automatic-releases@latest" # @TODO this is outdated, needs replacement. Also it deletes the release if it already exists, which is not what we want. Might be necessary to move the tag.
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: "latest-images"
