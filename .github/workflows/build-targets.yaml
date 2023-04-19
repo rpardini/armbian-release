@@ -29,6 +29,87 @@ jobs:
       check-up-to-date_u2d-0000000010: ${{ steps.check-up-to-date.outputs.u2d-0000000010 }}
       check-up-to-date_u2d-0000000011: ${{ steps.check-up-to-date.outputs.u2d-0000000011 }}
       check-up-to-date_u2d-0000000012: ${{ steps.check-up-to-date.outputs.u2d-0000000012 }}
+      check-up-to-date_u2d-0000000013: ${{ steps.check-up-to-date.outputs.u2d-0000000013 }}
+      check-up-to-date_u2d-0000000014: ${{ steps.check-up-to-date.outputs.u2d-0000000014 }}
+      check-up-to-date_u2d-0000000015: ${{ steps.check-up-to-date.outputs.u2d-0000000015 }}
+      check-up-to-date_u2d-0000000016: ${{ steps.check-up-to-date.outputs.u2d-0000000016 }}
+      check-up-to-date_u2d-0000000017: ${{ steps.check-up-to-date.outputs.u2d-0000000017 }}
+      check-up-to-date_u2d-0000000018: ${{ steps.check-up-to-date.outputs.u2d-0000000018 }}
+      check-up-to-date_u2d-0000000019: ${{ steps.check-up-to-date.outputs.u2d-0000000019 }}
+      check-up-to-date_u2d-0000000020: ${{ steps.check-up-to-date.outputs.u2d-0000000020 }}
+      check-up-to-date_u2d-0000000021: ${{ steps.check-up-to-date.outputs.u2d-0000000021 }}
+      check-up-to-date_u2d-0000000022: ${{ steps.check-up-to-date.outputs.u2d-0000000022 }}
+      check-up-to-date_u2d-0000000023: ${{ steps.check-up-to-date.outputs.u2d-0000000023 }}
+      check-up-to-date_u2d-0000000024: ${{ steps.check-up-to-date.outputs.u2d-0000000024 }}
+      check-up-to-date_u2d-0000000025: ${{ steps.check-up-to-date.outputs.u2d-0000000025 }}
+      check-up-to-date_u2d-0000000026: ${{ steps.check-up-to-date.outputs.u2d-0000000026 }}
+      check-up-to-date_u2d-0000000027: ${{ steps.check-up-to-date.outputs.u2d-0000000027 }}
+      check-up-to-date_u2d-0000000028: ${{ steps.check-up-to-date.outputs.u2d-0000000028 }}
+      check-up-to-date_u2d-0000000029: ${{ steps.check-up-to-date.outputs.u2d-0000000029 }}
+      check-up-to-date_u2d-0000000030: ${{ steps.check-up-to-date.outputs.u2d-0000000030 }}
+      check-up-to-date_u2d-0000000031: ${{ steps.check-up-to-date.outputs.u2d-0000000031 }}
+      check-up-to-date_u2d-0000000032: ${{ steps.check-up-to-date.outputs.u2d-0000000032 }}
+      check-up-to-date_u2d-0000000033: ${{ steps.check-up-to-date.outputs.u2d-0000000033 }}
+      check-up-to-date_u2d-0000000034: ${{ steps.check-up-to-date.outputs.u2d-0000000034 }}
+      check-up-to-date_u2d-0000000035: ${{ steps.check-up-to-date.outputs.u2d-0000000035 }}
+      check-up-to-date_u2d-0000000036: ${{ steps.check-up-to-date.outputs.u2d-0000000036 }}
+      check-up-to-date_u2d-0000000037: ${{ steps.check-up-to-date.outputs.u2d-0000000037 }}
+      check-up-to-date_u2d-0000000038: ${{ steps.check-up-to-date.outputs.u2d-0000000038 }}
+      check-up-to-date_u2d-0000000039: ${{ steps.check-up-to-date.outputs.u2d-0000000039 }}
+      check-up-to-date_u2d-0000000040: ${{ steps.check-up-to-date.outputs.u2d-0000000040 }}
+      check-up-to-date_u2d-0000000041: ${{ steps.check-up-to-date.outputs.u2d-0000000041 }}
+      check-up-to-date_u2d-0000000042: ${{ steps.check-up-to-date.outputs.u2d-0000000042 }}
+      check-up-to-date_u2d-0000000043: ${{ steps.check-up-to-date.outputs.u2d-0000000043 }}
+      check-up-to-date_u2d-0000000044: ${{ steps.check-up-to-date.outputs.u2d-0000000044 }}
+      check-up-to-date_u2d-0000000045: ${{ steps.check-up-to-date.outputs.u2d-0000000045 }}
+      check-up-to-date_u2d-0000000046: ${{ steps.check-up-to-date.outputs.u2d-0000000046 }}
+      check-up-to-date_u2d-0000000047: ${{ steps.check-up-to-date.outputs.u2d-0000000047 }}
+      check-up-to-date_u2d-0000000048: ${{ steps.check-up-to-date.outputs.u2d-0000000048 }}
+      check-up-to-date_u2d-0000000049: ${{ steps.check-up-to-date.outputs.u2d-0000000049 }}
+      check-up-to-date_u2d-0000000050: ${{ steps.check-up-to-date.outputs.u2d-0000000050 }}
+      check-up-to-date_u2d-0000000051: ${{ steps.check-up-to-date.outputs.u2d-0000000051 }}
+      check-up-to-date_u2d-0000000052: ${{ steps.check-up-to-date.outputs.u2d-0000000052 }}
+      check-up-to-date_u2d-0000000053: ${{ steps.check-up-to-date.outputs.u2d-0000000053 }}
+      check-up-to-date_u2d-0000000054: ${{ steps.check-up-to-date.outputs.u2d-0000000054 }}
+      check-up-to-date_u2d-0000000055: ${{ steps.check-up-to-date.outputs.u2d-0000000055 }}
+      check-up-to-date_u2d-0000000056: ${{ steps.check-up-to-date.outputs.u2d-0000000056 }}
+      check-up-to-date_u2d-0000000057: ${{ steps.check-up-to-date.outputs.u2d-0000000057 }}
+      check-up-to-date_u2d-0000000058: ${{ steps.check-up-to-date.outputs.u2d-0000000058 }}
+      check-up-to-date_u2d-0000000059: ${{ steps.check-up-to-date.outputs.u2d-0000000059 }}
+      check-up-to-date_u2d-0000000060: ${{ steps.check-up-to-date.outputs.u2d-0000000060 }}
+      check-up-to-date_u2d-0000000061: ${{ steps.check-up-to-date.outputs.u2d-0000000061 }}
+      check-up-to-date_u2d-0000000062: ${{ steps.check-up-to-date.outputs.u2d-0000000062 }}
+      check-up-to-date_u2d-0000000063: ${{ steps.check-up-to-date.outputs.u2d-0000000063 }}
+      check-up-to-date_u2d-0000000064: ${{ steps.check-up-to-date.outputs.u2d-0000000064 }}
+      check-up-to-date_u2d-0000000065: ${{ steps.check-up-to-date.outputs.u2d-0000000065 }}
+      check-up-to-date_u2d-0000000066: ${{ steps.check-up-to-date.outputs.u2d-0000000066 }}
+      check-up-to-date_u2d-0000000067: ${{ steps.check-up-to-date.outputs.u2d-0000000067 }}
+      check-up-to-date_u2d-0000000068: ${{ steps.check-up-to-date.outputs.u2d-0000000068 }}
+      check-up-to-date_u2d-0000000069: ${{ steps.check-up-to-date.outputs.u2d-0000000069 }}
+      check-up-to-date_u2d-0000000070: ${{ steps.check-up-to-date.outputs.u2d-0000000070 }}
+      check-up-to-date_u2d-0000000071: ${{ steps.check-up-to-date.outputs.u2d-0000000071 }}
+      check-up-to-date_u2d-0000000072: ${{ steps.check-up-to-date.outputs.u2d-0000000072 }}
+      check-up-to-date_u2d-0000000073: ${{ steps.check-up-to-date.outputs.u2d-0000000073 }}
+      check-up-to-date_u2d-0000000074: ${{ steps.check-up-to-date.outputs.u2d-0000000074 }}
+      check-up-to-date_u2d-0000000075: ${{ steps.check-up-to-date.outputs.u2d-0000000075 }}
+      check-up-to-date_u2d-0000000076: ${{ steps.check-up-to-date.outputs.u2d-0000000076 }}
+      check-up-to-date_u2d-0000000077: ${{ steps.check-up-to-date.outputs.u2d-0000000077 }}
+      check-up-to-date_u2d-0000000078: ${{ steps.check-up-to-date.outputs.u2d-0000000078 }}
+      check-up-to-date_u2d-0000000079: ${{ steps.check-up-to-date.outputs.u2d-0000000079 }}
+      check-up-to-date_u2d-0000000080: ${{ steps.check-up-to-date.outputs.u2d-0000000080 }}
+      check-up-to-date_u2d-0000000081: ${{ steps.check-up-to-date.outputs.u2d-0000000081 }}
+      check-up-to-date_u2d-0000000082: ${{ steps.check-up-to-date.outputs.u2d-0000000082 }}
+      check-up-to-date_u2d-0000000083: ${{ steps.check-up-to-date.outputs.u2d-0000000083 }}
+      check-up-to-date_u2d-0000000084: ${{ steps.check-up-to-date.outputs.u2d-0000000084 }}
+      check-up-to-date_u2d-0000000085: ${{ steps.check-up-to-date.outputs.u2d-0000000085 }}
+      check-up-to-date_u2d-0000000086: ${{ steps.check-up-to-date.outputs.u2d-0000000086 }}
+      check-up-to-date_u2d-0000000087: ${{ steps.check-up-to-date.outputs.u2d-0000000087 }}
+      check-up-to-date_u2d-0000000088: ${{ steps.check-up-to-date.outputs.u2d-0000000088 }}
+      check-up-to-date_u2d-0000000089: ${{ steps.check-up-to-date.outputs.u2d-0000000089 }}
+      check-up-to-date_u2d-0000000090: ${{ steps.check-up-to-date.outputs.u2d-0000000090 }}
+      check-up-to-date_u2d-0000000091: ${{ steps.check-up-to-date.outputs.u2d-0000000091 }}
+      check-up-to-date_u2d-0000000092: ${{ steps.check-up-to-date.outputs.u2d-0000000092 }}
+      check-up-to-date_u2d-0000000093: ${{ steps.check-up-to-date.outputs.u2d-0000000093 }}
     runs-on:
     - self-hosted
     - Linux
@@ -146,7 +227,7 @@ jobs:
       name: Build artifact armbian-plymouth-theme
       run: 'echo "fake artifact: artifact BOARD=odroidn2 BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm WHAT=armbian-plymouth-theme rpardini-generic"'
   artifact-0000000004:
-    name: arm64-bookworm-cli
+    name: armbian-firmware
     env:
       OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
       DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
@@ -156,6 +237,29 @@ jobs:
     if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000004 == 'no' )  }}
     outputs:
       up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000004 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact armbian-firmware
+      run: 'echo "fake artifact: artifact BOARD=odroidn2 BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm WHAT=firmware rpardini-generic"'
+  artifact-0000000005:
+    name: arm64-bookworm-cli
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000005 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000005 }}
     runs-on:
     - self-hosted
     - Linux
@@ -172,17 +276,17 @@ jobs:
     - id: build-artifact
       name: Build artifact arm64-bookworm-cli
       run: 'echo "fake artifact: artifact BOARD=odroidn2 BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm WHAT=rootfs rpardini-generic"'
-  artifact-0000000005:
-    name: uboot-odroidn2-edge
+  artifact-0000000006:
+    name: armbian-firmware-full
     env:
       OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
       DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
       DOCKER_SKIP_UPDATE: 'yes'
     needs:
     - prepare
-    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000005 == 'no' )  }}
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000006 == 'no' )  }}
     outputs:
-      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000005 }}
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000006 }}
     runs-on: ubuntu-latest
     steps:
     - id: docker-login-ghcr
@@ -193,37 +297,10 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
       uses: docker/login-action@v2
     - id: build-artifact
-      name: Build artifact uboot-odroidn2-edge
-      run: 'echo "fake artifact: artifact BOARD=odroidn2 BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm WHAT=uboot rpardini-generic"'
-  artifact-0000000006:
-    name: kernel-meson64-edge
-    env:
-      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
-      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
-      DOCKER_SKIP_UPDATE: 'yes'
-    needs:
-    - prepare
-    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000006 == 'no' )  }}
-    outputs:
-      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000006 }}
-    runs-on:
-    - self-hosted
-    - Linux
-    - armbian
-    - artifact-kernel
-    steps:
-    - id: docker-login-ghcr
-      name: Docker Login to GitHub Container Registry
-      with:
-        registry: ghcr.io
-        username: ${{ github.repository_owner }}
-        password: ${{ secrets.GITHUB_TOKEN }}
-      uses: docker/login-action@v2
-    - id: build-artifact
-      name: Build artifact kernel-meson64-edge
-      run: 'echo "fake artifact: artifact BOARD=odroidn2 BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm WHAT=kernel rpardini-generic"'
+      name: Build artifact armbian-firmware-full
+      run: 'echo "fake artifact: artifact BOARD=tinkerboard-2 BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm WHAT=full_firmware rpardini-generic"'
   artifact-0000000007:
-    name: armbian-firmware
+    name: fake-ubuntu-advantage-tools
     env:
       OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
       DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
@@ -243,10 +320,10 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
       uses: docker/login-action@v2
     - id: build-artifact
-      name: Build artifact armbian-firmware
-      run: 'echo "fake artifact: artifact BOARD=odroidn2 BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm WHAT=firmware rpardini-generic"'
+      name: Build artifact fake-ubuntu-advantage-tools
+      run: 'echo "fake artifact: artifact BOARD=rpi4b BRANCH=current BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=lunar WHAT=fake_ubuntu_advantage_tools rpardini-generic"'
   artifact-0000000008:
-    name: armbian-bsp-cli-odroidn2-edge
+    name: kernel-meson64-edge
     env:
       OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
       DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
@@ -256,7 +333,11 @@ jobs:
     if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000008 == 'no' )  }}
     outputs:
       up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000008 }}
-    runs-on: ubuntu-latest
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    - artifact-kernel
     steps:
     - id: docker-login-ghcr
       name: Docker Login to GitHub Container Registry
@@ -266,10 +347,10 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
       uses: docker/login-action@v2
     - id: build-artifact
-      name: Build artifact armbian-bsp-cli-odroidn2-edge
-      run: 'echo "fake artifact: artifact BOARD=odroidn2 BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm WHAT=armbian-bsp-cli rpardini-generic"'
+      name: Build artifact kernel-meson64-edge
+      run: 'echo "fake artifact: artifact BOARD=odroidn2 BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm WHAT=kernel rpardini-generic"'
   artifact-0000000009:
-    name: uboot-tinkerboard-2-edge
+    name: kernel-x86-edge
     env:
       OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
       DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
@@ -279,7 +360,11 @@ jobs:
     if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000009 == 'no' )  }}
     outputs:
       up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000009 }}
-    runs-on: ubuntu-latest
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    - artifact-kernel
     steps:
     - id: docker-login-ghcr
       name: Docker Login to GitHub Container Registry
@@ -289,10 +374,10 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
       uses: docker/login-action@v2
     - id: build-artifact
-      name: Build artifact uboot-tinkerboard-2-edge
-      run: 'echo "fake artifact: artifact BOARD=tinkerboard-2 BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm WHAT=uboot rpardini-generic"'
+      name: Build artifact kernel-x86-edge
+      run: 'echo "fake artifact: artifact BOARD=uefi-x86 BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no ENABLE_EXTENSIONS=image-output-utm RELEASE=bookworm WHAT=kernel rpardini-generic"'
   artifact-0000000010:
-    name: kernel-rockchip64-edge
+    name: kernel-arm64-edge
     env:
       OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
       DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
@@ -316,10 +401,10 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
       uses: docker/login-action@v2
     - id: build-artifact
-      name: Build artifact kernel-rockchip64-edge
-      run: 'echo "fake artifact: artifact BOARD=tinkerboard-2 BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm WHAT=kernel rpardini-generic"'
+      name: Build artifact kernel-arm64-edge
+      run: 'echo "fake artifact: artifact BOARD=uefi-arm64 BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no ENABLE_EXTENSIONS=image-output-utm RELEASE=bookworm WHAT=kernel rpardini-generic"'
   artifact-0000000011:
-    name: armbian-firmware-full
+    name: kernel-rockchip-rk3588-legacy
     env:
       OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
       DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
@@ -329,7 +414,11 @@ jobs:
     if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000011 == 'no' )  }}
     outputs:
       up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000011 }}
-    runs-on: ubuntu-latest
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    - artifact-kernel
     steps:
     - id: docker-login-ghcr
       name: Docker Login to GitHub Container Registry
@@ -339,10 +428,10 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
       uses: docker/login-action@v2
     - id: build-artifact
-      name: Build artifact armbian-firmware-full
-      run: 'echo "fake artifact: artifact BOARD=tinkerboard-2 BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm WHAT=full_firmware rpardini-generic"'
+      name: Build artifact kernel-rockchip-rk3588-legacy
+      run: 'echo "fake artifact: artifact BOARD=mekotronics-r58x BRANCH=legacy BUILD_DESKTOP=yes BUILD_MINIMAL=no CLOUD_IMAGE=no DESKTOP_APPGROUPS_SELECTED=browsers DESKTOP_ENVIRONMENT=gnome DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base ENABLE_EXTENSIONS=v4l2loopback-dkms,amazingfated-rk3588 RELEASE=jammy WHAT=kernel rpardini-generic"'
   artifact-0000000012:
-    name: armbian-bsp-cli-tinkerboard-2-edge
+    name: armbian-jammy-desktop-gnome
     env:
       OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
       DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
@@ -362,24 +451,1955 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
       uses: docker/login-action@v2
     - id: build-artifact
+      name: Build artifact armbian-jammy-desktop-gnome
+      run: 'echo "fake artifact: artifact BOARD=mekotronics-r58x BRANCH=legacy BUILD_DESKTOP=yes BUILD_MINIMAL=no CLOUD_IMAGE=no DESKTOP_APPGROUPS_SELECTED=browsers DESKTOP_ENVIRONMENT=gnome DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base ENABLE_EXTENSIONS=v4l2loopback-dkms,amazingfated-rk3588 RELEASE=jammy WHAT=armbian-desktop rpardini-generic"'
+  artifact-0000000013:
+    name: arm64-jammy-gnome
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000013 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000013 }}
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    - rootfs-arm64
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact arm64-jammy-gnome
+      run: 'echo "fake artifact: artifact BOARD=mekotronics-r58x BRANCH=legacy BUILD_DESKTOP=yes BUILD_MINIMAL=no CLOUD_IMAGE=no DESKTOP_APPGROUPS_SELECTED=browsers DESKTOP_ENVIRONMENT=gnome DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base ENABLE_EXTENSIONS=v4l2loopback-dkms,amazingfated-rk3588 RELEASE=jammy WHAT=rootfs rpardini-generic"'
+  artifact-0000000014:
+    name: kernel-rockchip64-edge
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000014 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000014 }}
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    - artifact-kernel
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact kernel-rockchip64-edge
+      run: 'echo "fake artifact: artifact BOARD=tinkerboard-2 BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm WHAT=kernel rpardini-generic"'
+  artifact-0000000015:
+    name: armbian-bsp-cli-uefi-x86-edge-grub
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000015 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000015 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact armbian-bsp-cli-uefi-x86-edge-grub
+      run: 'echo "fake artifact: artifact BOARD=uefi-x86 BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no ENABLE_EXTENSIONS=image-output-utm RELEASE=bookworm WHAT=armbian-bsp-cli rpardini-generic"'
+  artifact-0000000016:
+    name: armhf-bookworm-cli
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000016 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000016 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact armhf-bookworm-cli
+      run: 'echo "fake artifact: artifact BOARD=odroidxu4 BRANCH=current BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm WHAT=rootfs rpardini-generic"'
+  artifact-0000000017:
+    name: armbian-bsp-cli-uefi-arm64-edge-grub-mluc-cloud
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000017 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000017 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact armbian-bsp-cli-uefi-arm64-edge-grub-mluc-cloud
+      run: 'echo "fake artifact: artifact BOARD=uefi-arm64 BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=yes ENABLE_EXTENSIONS=uefi-rescue RELEASE=jammy WHAT=armbian-bsp-cli rpardini-generic"'
+  artifact-0000000018:
+    name: armbian-bsp-cli-uefi-x86-edge-grub-mluc-cloud
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000018 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000018 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact armbian-bsp-cli-uefi-x86-edge-grub-mluc-cloud
+      run: 'echo "fake artifact: artifact BOARD=uefi-x86 BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=yes ENABLE_EXTENSIONS=uefi-rescue RELEASE=jammy WHAT=armbian-bsp-cli rpardini-generic"'
+  artifact-0000000019:
+    name: arm64-bookworm-cli
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000019 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000019 }}
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    - rootfs-arm64
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact arm64-bookworm-cli
+      run: 'echo "fake artifact: artifact BOARD=uefi-arm64 BRANCH=ddk BUILD_MINIMAL=no CLOUD_IMAGE=yes ENABLE_EXTENSIONS=uefi-rescue RELEASE=bookworm WHAT=rootfs rpardini-generic"'
+  artifact-0000000020:
+    name: amd64-bookworm-cli
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000020 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000020 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact amd64-bookworm-cli
+      run: 'echo "fake artifact: artifact BOARD=uefi-x86 BRANCH=ddk BUILD_MINIMAL=no CLOUD_IMAGE=yes ENABLE_EXTENSIONS=uefi-rescue RELEASE=bookworm WHAT=rootfs rpardini-generic"'
+  artifact-0000000021:
+    name: arm64-bullseye-cli
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000021 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000021 }}
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    - rootfs-arm64
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact arm64-bullseye-cli
+      run: 'echo "fake artifact: artifact BOARD=mekotronics-r58x-4g BRANCH=legacy BUILD_DESKTOP=no BUILD_MINIMAL=no CLOUD_IMAGE=no ENABLE_EXTENSIONS=ha RELEASE=bullseye WHAT=rootfs rpardini-generic"'
+  artifact-0000000022:
+    name: uboot-tinkerboard-2-edge
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000022 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000022 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact uboot-tinkerboard-2-edge
+      run: 'echo "fake artifact: artifact BOARD=tinkerboard-2 BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm WHAT=uboot rpardini-generic"'
+  artifact-0000000023:
+    name: armbian-bsp-cli-uefi-arm64-edge-grub
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000023 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000023 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact armbian-bsp-cli-uefi-arm64-edge-grub
+      run: 'echo "fake artifact: artifact BOARD=uefi-arm64 BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no ENABLE_EXTENSIONS=image-output-utm RELEASE=bookworm WHAT=armbian-bsp-cli rpardini-generic"'
+  artifact-0000000024:
+    name: uboot-mekotronics-r58x-4g-legacy
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000024 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000024 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact uboot-mekotronics-r58x-4g-legacy
+      run: 'echo "fake artifact: artifact BOARD=mekotronics-r58x-4g BRANCH=legacy BUILD_DESKTOP=yes BUILD_MINIMAL=no CLOUD_IMAGE=no DESKTOP_APPGROUPS_SELECTED=browsers DESKTOP_ENVIRONMENT=gnome DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base ENABLE_EXTENSIONS=v4l2loopback-dkms,amazingfated-rk3588 RELEASE=jammy WHAT=uboot rpardini-generic"'
+  artifact-0000000025:
+    name: armbian-bsp-cli-uefi-arm64-ddk-grub-mluc-cloud
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000025 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000025 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact armbian-bsp-cli-uefi-arm64-ddk-grub-mluc-cloud
+      run: 'echo "fake artifact: artifact BOARD=uefi-arm64 BRANCH=ddk BUILD_MINIMAL=no CLOUD_IMAGE=yes ENABLE_EXTENSIONS=uefi-rescue RELEASE=jammy WHAT=armbian-bsp-cli rpardini-generic"'
+  artifact-0000000026:
+    name: arm64-jammy-cli
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000026 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000026 }}
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    - rootfs-arm64
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact arm64-jammy-cli
+      run: 'echo "fake artifact: artifact BOARD=uefi-arm64 BRANCH=ddk BUILD_MINIMAL=no CLOUD_IMAGE=yes ENABLE_EXTENSIONS=uefi-rescue RELEASE=jammy WHAT=rootfs rpardini-generic"'
+  artifact-0000000027:
+    name: armbian-bsp-cli-uefi-x86-ddk-grub-mluc-cloud
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000027 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000027 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact armbian-bsp-cli-uefi-x86-ddk-grub-mluc-cloud
+      run: 'echo "fake artifact: artifact BOARD=uefi-x86 BRANCH=ddk BUILD_MINIMAL=no CLOUD_IMAGE=yes ENABLE_EXTENSIONS=uefi-rescue RELEASE=jammy WHAT=armbian-bsp-cli rpardini-generic"'
+  artifact-0000000028:
+    name: amd64-jammy-cli
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000028 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000028 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact amd64-jammy-cli
+      run: 'echo "fake artifact: artifact BOARD=uefi-x86 BRANCH=ddk BUILD_MINIMAL=no CLOUD_IMAGE=yes ENABLE_EXTENSIONS=uefi-rescue RELEASE=jammy WHAT=rootfs rpardini-generic"'
+  artifact-0000000029:
+    name: uboot-odroidn2-edge
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000029 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000029 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact uboot-odroidn2-edge
+      run: 'echo "fake artifact: artifact BOARD=odroidn2 BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm WHAT=uboot rpardini-generic"'
+  artifact-0000000030:
+    name: armbian-bsp-cli-odroidn2-edge
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000030 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000030 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact armbian-bsp-cli-odroidn2-edge
+      run: 'echo "fake artifact: artifact BOARD=odroidn2 BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm WHAT=armbian-bsp-cli rpardini-generic"'
+  artifact-0000000031:
+    name: uboot-odroidhc4-edge
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000031 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000031 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact uboot-odroidhc4-edge
+      run: 'echo "fake artifact: artifact BOARD=odroidhc4 BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm WHAT=uboot rpardini-generic"'
+  artifact-0000000032:
+    name: armbian-bsp-cli-odroidhc4-edge
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000032 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000032 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact armbian-bsp-cli-odroidhc4-edge
+      run: 'echo "fake artifact: artifact BOARD=odroidhc4 BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm WHAT=armbian-bsp-cli rpardini-generic"'
+  artifact-0000000033:
+    name: uboot-khadas-vim3l-edge
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000033 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000033 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact uboot-khadas-vim3l-edge
+      run: 'echo "fake artifact: artifact BOARD=khadas-vim3l BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm WHAT=uboot rpardini-generic"'
+  artifact-0000000034:
+    name: armbian-bsp-cli-khadas-vim3l-edge
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000034 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000034 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact armbian-bsp-cli-khadas-vim3l-edge
+      run: 'echo "fake artifact: artifact BOARD=khadas-vim3l BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm WHAT=armbian-bsp-cli rpardini-generic"'
+  artifact-0000000035:
+    name: uboot-khadas-vim3-edge
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000035 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000035 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact uboot-khadas-vim3-edge
+      run: 'echo "fake artifact: artifact BOARD=khadas-vim3 BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm WHAT=uboot rpardini-generic"'
+  artifact-0000000036:
+    name: armbian-bsp-cli-khadas-vim3-edge
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000036 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000036 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact armbian-bsp-cli-khadas-vim3-edge
+      run: 'echo "fake artifact: artifact BOARD=khadas-vim3 BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm WHAT=armbian-bsp-cli rpardini-generic"'
+  artifact-0000000037:
+    name: uboot-radxa-zero2-edge
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000037 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000037 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact uboot-radxa-zero2-edge
+      run: 'echo "fake artifact: artifact BOARD=radxa-zero2 BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm WHAT=uboot rpardini-generic"'
+  artifact-0000000038:
+    name: armbian-bsp-cli-radxa-zero2-edge
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000038 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000038 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact armbian-bsp-cli-radxa-zero2-edge
+      run: 'echo "fake artifact: artifact BOARD=radxa-zero2 BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm WHAT=armbian-bsp-cli rpardini-generic"'
+  artifact-0000000039:
+    name: kernel-rk3568-odroid-edge
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000039 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000039 }}
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    - artifact-kernel
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact kernel-rk3568-odroid-edge
+      run: 'echo "fake artifact: artifact BOARD=odroidm1 BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm WHAT=kernel rpardini-generic"'
+  artifact-0000000040:
+    name: armbian-bsp-cli-odroidm1-edge
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000040 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000040 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact armbian-bsp-cli-odroidm1-edge
+      run: 'echo "fake artifact: artifact BOARD=odroidm1 BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm WHAT=armbian-bsp-cli rpardini-generic"'
+  artifact-0000000041:
+    name: armbian-bsp-cli-tinkerboard-2-edge
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000041 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000041 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
       name: Build artifact armbian-bsp-cli-tinkerboard-2-edge
       run: 'echo "fake artifact: artifact BOARD=tinkerboard-2 BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm WHAT=armbian-bsp-cli rpardini-generic"'
-  image-00000000010000000002:
-    name: Odroidn2_bookworm_edge_6.2.y 00000000010000000002
+  artifact-0000000042:
+    name: kernel-bcm2711-current
     env:
       OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
       DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
       DOCKER_SKIP_UPDATE: 'yes'
     needs:
-    - artifact-0000000003
-    - artifact-0000000004
-    - artifact-0000000002
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000042 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000042 }}
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    - artifact-kernel
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact kernel-bcm2711-current
+      run: 'echo "fake artifact: artifact BOARD=rpi4b BRANCH=current BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=lunar WHAT=kernel rpardini-generic"'
+  artifact-0000000043:
+    name: armbian-bsp-cli-rpi4b-current-fkraspi
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000043 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000043 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact armbian-bsp-cli-rpi4b-current-fkraspi
+      run: 'echo "fake artifact: artifact BOARD=rpi4b BRANCH=current BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=lunar WHAT=armbian-bsp-cli rpardini-generic"'
+  artifact-0000000044:
+    name: arm64-lunar-cli
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000044 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000044 }}
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    - rootfs-arm64
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact arm64-lunar-cli
+      run: 'echo "fake artifact: artifact BOARD=rpi4b BRANCH=current BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=lunar WHAT=rootfs rpardini-generic"'
+  artifact-0000000045:
+    name: uboot-rockpro64-edge
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000045 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000045 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact uboot-rockpro64-edge
+      run: 'echo "fake artifact: artifact BOARD=rockpro64 BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm WHAT=uboot rpardini-generic"'
+  artifact-0000000046:
+    name: armbian-bsp-cli-rockpro64-edge
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000046 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000046 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact armbian-bsp-cli-rockpro64-edge
+      run: 'echo "fake artifact: artifact BOARD=rockpro64 BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm WHAT=armbian-bsp-cli rpardini-generic"'
+  artifact-0000000047:
+    name: uboot-t95z-edge
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000047 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000047 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact uboot-t95z-edge
+      run: 'echo "fake artifact: artifact BOARD=t95z BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm WHAT=uboot rpardini-generic"'
+  artifact-0000000048:
+    name: armbian-bsp-cli-t95z-edge
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000048 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000048 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact armbian-bsp-cli-t95z-edge
+      run: 'echo "fake artifact: artifact BOARD=t95z BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm WHAT=armbian-bsp-cli rpardini-generic"'
+  artifact-0000000049:
+    name: kernel-msm8998-edge
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000049 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000049 }}
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    - artifact-kernel
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact kernel-msm8998-edge
+      run: 'echo "fake artifact: artifact BOARD=oneplus5 BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm WHAT=kernel rpardini-generic"'
+  artifact-0000000050:
+    name: armbian-bsp-cli-oneplus5-edge
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000050 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000050 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact armbian-bsp-cli-oneplus5-edge
+      run: 'echo "fake artifact: artifact BOARD=oneplus5 BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm WHAT=armbian-bsp-cli rpardini-generic"'
+  artifact-0000000051:
+    name: kernel-phytium-legacy
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000051 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000051 }}
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    - artifact-kernel
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact kernel-phytium-legacy
+      run: 'echo "fake artifact: artifact BOARD=phytium-d2000 BRANCH=legacy BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm WHAT=kernel rpardini-generic"'
+  artifact-0000000052:
+    name: armbian-bsp-cli-phytium-d2000-legacy-grub
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000052 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000052 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact armbian-bsp-cli-phytium-d2000-legacy-grub
+      run: 'echo "fake artifact: artifact BOARD=phytium-d2000 BRANCH=legacy BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm WHAT=armbian-bsp-cli rpardini-generic"'
+  artifact-0000000053:
+    name: amd64-bookworm-cli
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000053 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000053 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact amd64-bookworm-cli
+      run: 'echo "fake artifact: artifact BOARD=uefi-x86 BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no ENABLE_EXTENSIONS=image-output-utm RELEASE=bookworm WHAT=rootfs rpardini-generic"'
+  artifact-0000000054:
+    name: arm64-bookworm-cli
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000054 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000054 }}
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    - rootfs-arm64
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact arm64-bookworm-cli
+      run: 'echo "fake artifact: artifact BOARD=uefi-arm64 BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no ENABLE_EXTENSIONS=build-machine-image RELEASE=bookworm WHAT=rootfs rpardini-generic"'
+  artifact-0000000055:
+    name: amd64-bookworm-cli
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000055 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000055 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact amd64-bookworm-cli
+      run: 'echo "fake artifact: artifact BOARD=uefi-x86 BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no ENABLE_EXTENSIONS=build-machine-image RELEASE=bookworm WHAT=rootfs rpardini-generic"'
+  artifact-0000000056:
+    name: uboot-orangepizero2-legacy
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000056 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000056 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact uboot-orangepizero2-legacy
+      run: 'echo "fake artifact: artifact BOARD=orangepizero2 BRANCH=legacy BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm WHAT=uboot rpardini-generic"'
+  artifact-0000000057:
+    name: kernel-sun50iw9-legacy
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000057 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000057 }}
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    - artifact-kernel
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact kernel-sun50iw9-legacy
+      run: 'echo "fake artifact: artifact BOARD=orangepizero2 BRANCH=legacy BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm WHAT=kernel rpardini-generic"'
+  artifact-0000000058:
+    name: armbian-bsp-cli-orangepizero2-legacy
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000058 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000058 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact armbian-bsp-cli-orangepizero2-legacy
+      run: 'echo "fake artifact: artifact BOARD=orangepizero2 BRANCH=legacy BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm WHAT=armbian-bsp-cli rpardini-generic"'
+  artifact-0000000059:
+    name: uboot-odroidxu4-current
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000059 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000059 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact uboot-odroidxu4-current
+      run: 'echo "fake artifact: artifact BOARD=odroidxu4 BRANCH=current BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm WHAT=uboot rpardini-generic"'
+  artifact-0000000060:
+    name: kernel-odroidxu4-current
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000060 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000060 }}
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    - artifact-kernel
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact kernel-odroidxu4-current
+      run: 'echo "fake artifact: artifact BOARD=odroidxu4 BRANCH=current BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm WHAT=kernel rpardini-generic"'
+  artifact-0000000061:
+    name: armbian-bsp-cli-odroidxu4-current
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000061 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000061 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact armbian-bsp-cli-odroidxu4-current
+      run: 'echo "fake artifact: artifact BOARD=odroidxu4 BRANCH=current BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm WHAT=armbian-bsp-cli rpardini-generic"'
+  artifact-0000000062:
+    name: uboot-bananapicm4io-edge
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000062 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000062 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact uboot-bananapicm4io-edge
+      run: 'echo "fake artifact: artifact BOARD=bananapicm4io BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm WHAT=uboot rpardini-generic"'
+  artifact-0000000063:
+    name: armbian-bsp-cli-bananapicm4io-edge
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000063 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000063 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact armbian-bsp-cli-bananapicm4io-edge
+      run: 'echo "fake artifact: artifact BOARD=bananapicm4io BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm WHAT=armbian-bsp-cli rpardini-generic"'
+  artifact-0000000064:
+    name: uboot-aml-s9xx-box-edge
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000064 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000064 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact uboot-aml-s9xx-box-edge
+      run: 'echo "fake artifact: artifact BOARD=aml-s9xx-box BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm WHAT=uboot rpardini-generic"'
+  artifact-0000000065:
+    name: armbian-bsp-cli-aml-s9xx-box-edge
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000065 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000065 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact armbian-bsp-cli-aml-s9xx-box-edge
+      run: 'echo "fake artifact: artifact BOARD=aml-s9xx-box BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm WHAT=armbian-bsp-cli rpardini-generic"'
+  artifact-0000000066:
+    name: uboot-tinkerboard-edge
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000066 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000066 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact uboot-tinkerboard-edge
+      run: 'echo "fake artifact: artifact BOARD=tinkerboard BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm WHAT=uboot rpardini-generic"'
+  artifact-0000000067:
+    name: kernel-rockchip-edge
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000067 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000067 }}
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    - artifact-kernel
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact kernel-rockchip-edge
+      run: 'echo "fake artifact: artifact BOARD=tinkerboard BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm WHAT=kernel rpardini-generic"'
+  artifact-0000000068:
+    name: armbian-bsp-cli-tinkerboard-edge
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000068 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000068 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact armbian-bsp-cli-tinkerboard-edge
+      run: 'echo "fake artifact: artifact BOARD=tinkerboard BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm WHAT=armbian-bsp-cli rpardini-generic"'
+  artifact-0000000069:
+    name: uboot-tritium-h3-edge
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000069 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000069 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact uboot-tritium-h3-edge
+      run: 'echo "fake artifact: artifact BOARD=tritium-h3 BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm WHAT=uboot rpardini-generic"'
+  artifact-0000000070:
+    name: kernel-sunxi-edge
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000070 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000070 }}
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    - artifact-kernel
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact kernel-sunxi-edge
+      run: 'echo "fake artifact: artifact BOARD=tritium-h3 BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm WHAT=kernel rpardini-generic"'
+  artifact-0000000071:
+    name: armbian-bsp-cli-tritium-h3-edge
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000071 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000071 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact armbian-bsp-cli-tritium-h3-edge
+      run: 'echo "fake artifact: artifact BOARD=tritium-h3 BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm WHAT=armbian-bsp-cli rpardini-generic"'
+  artifact-0000000072:
+    name: uboot-tritium-h5-edge
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000072 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000072 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact uboot-tritium-h5-edge
+      run: 'echo "fake artifact: artifact BOARD=tritium-h5 BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm WHAT=uboot rpardini-generic"'
+  artifact-0000000073:
+    name: kernel-sunxi64-edge
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000073 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000073 }}
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    - artifact-kernel
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact kernel-sunxi64-edge
+      run: 'echo "fake artifact: artifact BOARD=tritium-h5 BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm WHAT=kernel rpardini-generic"'
+  artifact-0000000074:
+    name: armbian-bsp-cli-tritium-h5-edge
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000074 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000074 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact armbian-bsp-cli-tritium-h5-edge
+      run: 'echo "fake artifact: artifact BOARD=tritium-h5 BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm WHAT=armbian-bsp-cli rpardini-generic"'
+  artifact-0000000075:
+    name: uboot-mekotronics-r58x-legacy
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000075 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000075 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact uboot-mekotronics-r58x-legacy
+      run: 'echo "fake artifact: artifact BOARD=mekotronics-r58x BRANCH=legacy BUILD_DESKTOP=yes BUILD_MINIMAL=no CLOUD_IMAGE=no DESKTOP_APPGROUPS_SELECTED=browsers DESKTOP_ENVIRONMENT=gnome DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base ENABLE_EXTENSIONS=v4l2loopback-dkms,amazingfated-rk3588 RELEASE=jammy WHAT=uboot rpardini-generic"'
+  artifact-0000000076:
+    name: armbian-bsp-cli-mekotronics-r58x-legacy
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000076 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000076 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact armbian-bsp-cli-mekotronics-r58x-legacy
+      run: 'echo "fake artifact: artifact BOARD=mekotronics-r58x BRANCH=legacy BUILD_DESKTOP=yes BUILD_MINIMAL=no CLOUD_IMAGE=no DESKTOP_APPGROUPS_SELECTED=browsers DESKTOP_ENVIRONMENT=gnome DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base ENABLE_EXTENSIONS=v4l2loopback-dkms,amazingfated-rk3588 RELEASE=jammy WHAT=armbian-bsp-cli rpardini-generic"'
+  artifact-0000000077:
+    name: armbian-bsp-desktop-mekotronics-r58x-legacy
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000077 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000077 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact armbian-bsp-desktop-mekotronics-r58x-legacy
+      run: 'echo "fake artifact: artifact BOARD=mekotronics-r58x BRANCH=legacy BUILD_DESKTOP=yes BUILD_MINIMAL=no CLOUD_IMAGE=no DESKTOP_APPGROUPS_SELECTED=browsers DESKTOP_ENVIRONMENT=gnome DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base ENABLE_EXTENSIONS=v4l2loopback-dkms,amazingfated-rk3588 RELEASE=jammy WHAT=armbian-bsp-desktop rpardini-generic"'
+  artifact-0000000078:
+    name: armbian-bsp-cli-mekotronics-r58x-4g-legacy
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000078 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000078 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact armbian-bsp-cli-mekotronics-r58x-4g-legacy
+      run: 'echo "fake artifact: artifact BOARD=mekotronics-r58x-4g BRANCH=legacy BUILD_DESKTOP=yes BUILD_MINIMAL=no CLOUD_IMAGE=no DESKTOP_APPGROUPS_SELECTED=browsers DESKTOP_ENVIRONMENT=gnome DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base ENABLE_EXTENSIONS=v4l2loopback-dkms,amazingfated-rk3588 RELEASE=jammy WHAT=armbian-bsp-cli rpardini-generic"'
+  artifact-0000000079:
+    name: armbian-bsp-desktop-mekotronics-r58x-4g-legacy
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000079 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000079 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact armbian-bsp-desktop-mekotronics-r58x-4g-legacy
+      run: 'echo "fake artifact: artifact BOARD=mekotronics-r58x-4g BRANCH=legacy BUILD_DESKTOP=yes BUILD_MINIMAL=no CLOUD_IMAGE=no DESKTOP_APPGROUPS_SELECTED=browsers DESKTOP_ENVIRONMENT=gnome DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base ENABLE_EXTENSIONS=v4l2loopback-dkms,amazingfated-rk3588 RELEASE=jammy WHAT=armbian-bsp-desktop rpardini-generic"'
+  artifact-0000000080:
+    name: uboot-mekotronics-r58-minipc-legacy
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000080 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000080 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact uboot-mekotronics-r58-minipc-legacy
+      run: 'echo "fake artifact: artifact BOARD=mekotronics-r58-minipc BRANCH=legacy BUILD_DESKTOP=yes BUILD_MINIMAL=no CLOUD_IMAGE=no DESKTOP_APPGROUPS_SELECTED=browsers DESKTOP_ENVIRONMENT=gnome DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base ENABLE_EXTENSIONS=v4l2loopback-dkms,amazingfated-rk3588 RELEASE=jammy WHAT=uboot rpardini-generic"'
+  artifact-0000000081:
+    name: armbian-bsp-cli-mekotronics-r58-minipc-legacy
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000081 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000081 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact armbian-bsp-cli-mekotronics-r58-minipc-legacy
+      run: 'echo "fake artifact: artifact BOARD=mekotronics-r58-minipc BRANCH=legacy BUILD_DESKTOP=yes BUILD_MINIMAL=no CLOUD_IMAGE=no DESKTOP_APPGROUPS_SELECTED=browsers DESKTOP_ENVIRONMENT=gnome DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base ENABLE_EXTENSIONS=v4l2loopback-dkms,amazingfated-rk3588 RELEASE=jammy WHAT=armbian-bsp-cli rpardini-generic"'
+  artifact-0000000082:
+    name: armbian-bsp-desktop-mekotronics-r58-minipc-legacy
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000082 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000082 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact armbian-bsp-desktop-mekotronics-r58-minipc-legacy
+      run: 'echo "fake artifact: artifact BOARD=mekotronics-r58-minipc BRANCH=legacy BUILD_DESKTOP=yes BUILD_MINIMAL=no CLOUD_IMAGE=no DESKTOP_APPGROUPS_SELECTED=browsers DESKTOP_ENVIRONMENT=gnome DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base ENABLE_EXTENSIONS=v4l2loopback-dkms,amazingfated-rk3588 RELEASE=jammy WHAT=armbian-bsp-desktop rpardini-generic"'
+  artifact-0000000083:
+    name: uboot-nanopi-r6s-legacy
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000083 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000083 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact uboot-nanopi-r6s-legacy
+      run: 'echo "fake artifact: artifact BOARD=nanopi-r6s BRANCH=legacy BUILD_DESKTOP=yes BUILD_MINIMAL=no CLOUD_IMAGE=no DESKTOP_APPGROUPS_SELECTED=browsers DESKTOP_ENVIRONMENT=gnome DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base ENABLE_EXTENSIONS=v4l2loopback-dkms,amazingfated-rk3588 RELEASE=jammy WHAT=uboot rpardini-generic"'
+  artifact-0000000084:
+    name: armbian-bsp-cli-nanopi-r6s-legacy
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000084 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000084 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact armbian-bsp-cli-nanopi-r6s-legacy
+      run: 'echo "fake artifact: artifact BOARD=nanopi-r6s BRANCH=legacy BUILD_DESKTOP=yes BUILD_MINIMAL=no CLOUD_IMAGE=no DESKTOP_APPGROUPS_SELECTED=browsers DESKTOP_ENVIRONMENT=gnome DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base ENABLE_EXTENSIONS=v4l2loopback-dkms,amazingfated-rk3588 RELEASE=jammy WHAT=armbian-bsp-cli rpardini-generic"'
+  artifact-0000000085:
+    name: armbian-bsp-desktop-nanopi-r6s-legacy
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000085 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000085 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact armbian-bsp-desktop-nanopi-r6s-legacy
+      run: 'echo "fake artifact: artifact BOARD=nanopi-r6s BRANCH=legacy BUILD_DESKTOP=yes BUILD_MINIMAL=no CLOUD_IMAGE=no DESKTOP_APPGROUPS_SELECTED=browsers DESKTOP_ENVIRONMENT=gnome DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base ENABLE_EXTENSIONS=v4l2loopback-dkms,amazingfated-rk3588 RELEASE=jammy WHAT=armbian-bsp-desktop rpardini-generic"'
+  artifact-0000000086:
+    name: armbian-bookworm-desktop-gnome
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000086 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000086 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact armbian-bookworm-desktop-gnome
+      run: 'echo "fake artifact: artifact BOARD=uefi-x86 BRANCH=edge BUILD_DESKTOP=yes BUILD_MINIMAL=no CLOUD_IMAGE=no DESKTOP_APPGROUPS_SELECTED=browsers DESKTOP_ENVIRONMENT=gnome DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base ENABLE_EXTENSIONS=vmware-vm RELEASE=bookworm WHAT=armbian-desktop rpardini-generic"'
+  artifact-0000000087:
+    name: armbian-bsp-desktop-uefi-x86-edge
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000087 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000087 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact armbian-bsp-desktop-uefi-x86-edge
+      run: 'echo "fake artifact: artifact BOARD=uefi-x86 BRANCH=edge BUILD_DESKTOP=yes BUILD_MINIMAL=no CLOUD_IMAGE=no DESKTOP_APPGROUPS_SELECTED=browsers DESKTOP_ENVIRONMENT=gnome DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base ENABLE_EXTENSIONS=vmware-vm RELEASE=bookworm WHAT=armbian-bsp-desktop rpardini-generic"'
+  artifact-0000000088:
+    name: amd64-bookworm-gnome
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000088 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000088 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact amd64-bookworm-gnome
+      run: 'echo "fake artifact: artifact BOARD=uefi-x86 BRANCH=edge BUILD_DESKTOP=yes BUILD_MINIMAL=no CLOUD_IMAGE=no DESKTOP_APPGROUPS_SELECTED=browsers DESKTOP_ENVIRONMENT=gnome DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base ENABLE_EXTENSIONS=vmware-vm RELEASE=bookworm WHAT=rootfs rpardini-generic"'
+  artifact-0000000089:
+    name: armbian-bsp-cli-mekotronics-r58x-4g-legacy-ha
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000089 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000089 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact armbian-bsp-cli-mekotronics-r58x-4g-legacy-ha
+      run: 'echo "fake artifact: artifact BOARD=mekotronics-r58x-4g BRANCH=legacy BUILD_DESKTOP=no BUILD_MINIMAL=no CLOUD_IMAGE=no ENABLE_EXTENSIONS=ha RELEASE=bullseye WHAT=armbian-bsp-cli rpardini-generic"'
+  artifact-0000000090:
+    name: uboot-odroidhc4-current
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000090 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000090 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact uboot-odroidhc4-current
+      run: 'echo "fake artifact: artifact BOARD=odroidhc4 BRANCH=current BUILD_DESKTOP=no BUILD_MINIMAL=no CLOUD_IMAGE=no ENABLE_EXTENSIONS=ha RELEASE=bullseye WHAT=uboot rpardini-generic"'
+  artifact-0000000091:
+    name: kernel-meson64-current
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000091 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000091 }}
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    - artifact-kernel
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact kernel-meson64-current
+      run: 'echo "fake artifact: artifact BOARD=odroidhc4 BRANCH=current BUILD_DESKTOP=no BUILD_MINIMAL=no CLOUD_IMAGE=no ENABLE_EXTENSIONS=ha RELEASE=bullseye WHAT=kernel rpardini-generic"'
+  artifact-0000000092:
+    name: armbian-bsp-cli-odroidhc4-current-ha
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000092 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000092 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact armbian-bsp-cli-odroidhc4-current-ha
+      run: 'echo "fake artifact: artifact BOARD=odroidhc4 BRANCH=current BUILD_DESKTOP=no BUILD_MINIMAL=no CLOUD_IMAGE=no ENABLE_EXTENSIONS=ha RELEASE=bullseye WHAT=armbian-bsp-cli rpardini-generic"'
+  artifact-0000000093:
+    name: armbian-bsp-cli-tinkerboard-2-edge-ha
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - prepare
+    if: ${{ always() && ( needs.prepare.outputs.check-up-to-date_u2d-0000000093 == 'no' )  }}
+    outputs:
+      up-to-date-artifact: ${{ needs.prepare.outputs.check-up-to-date_u2d-0000000093 }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-artifact
+      name: Build artifact armbian-bsp-cli-tinkerboard-2-edge-ha
+      run: 'echo "fake artifact: artifact BOARD=tinkerboard-2 BRANCH=edge BUILD_DESKTOP=no BUILD_MINIMAL=no CLOUD_IMAGE=no ENABLE_EXTENSIONS=ha RELEASE=bullseye WHAT=armbian-bsp-cli rpardini-generic"'
+  image-00000000010000000041:
+    name: Odroidn2_bookworm_edge_6.2.y 00000000010000000041
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
     - artifact-0000000005
-    - artifact-0000000008
-    - artifact-0000000007
-    - artifact-0000000006
+    - artifact-0000000002
     - artifact-0000000001
-    if: ${{ always() && ( needs.artifact-0000000001.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000002.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000003.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000004.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000005.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000006.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000007.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000008.outputs.up-to-date-artifact == 'no' )  }}
+    - artifact-0000000029
+    - artifact-0000000030
+    - artifact-0000000003
+    - artifact-0000000008
+    - artifact-0000000004
+    if: ${{ always() && ( needs.artifact-0000000001.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000002.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000003.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000004.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000005.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000008.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000029.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000030.outputs.up-to-date-artifact == 'no' )  }}
     runs-on:
     - self-hosted
     - Linux
@@ -394,24 +2414,24 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
       uses: docker/login-action@v2
     - id: build-image
-      name: Build image Odroidn2_bookworm_edge_6.2.y 00000000010000000002
+      name: Build image Odroidn2_bookworm_edge_6.2.y 00000000010000000041
       run: 'echo "fake image: BOARD=odroidn2 BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm rpardini-generic"'
-  image-00000000020000000002:
-    name: Tinkerboard-2_bookworm_edge_6.1.y 00000000020000000002
+  image-00000000020000000041:
+    name: Odroidhc4_bookworm_edge_6.2.y 00000000020000000041
     env:
       OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
       DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
       DOCKER_SKIP_UPDATE: 'yes'
     needs:
-    - artifact-0000000003
-    - artifact-0000000004
+    - artifact-0000000005
     - artifact-0000000002
-    - artifact-0000000010
-    - artifact-0000000011
-    - artifact-0000000009
     - artifact-0000000001
-    - artifact-0000000012
-    if: ${{ always() && ( needs.artifact-0000000001.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000002.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000003.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000004.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000009.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000010.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000011.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000012.outputs.up-to-date-artifact == 'no' )  }}
+    - artifact-0000000031
+    - artifact-0000000032
+    - artifact-0000000003
+    - artifact-0000000008
+    - artifact-0000000004
+    if: ${{ always() && ( needs.artifact-0000000001.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000002.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000003.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000004.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000005.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000008.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000031.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000032.outputs.up-to-date-artifact == 'no' )  }}
     runs-on:
     - self-hosted
     - Linux
@@ -426,5 +2446,1200 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
       uses: docker/login-action@v2
     - id: build-image
-      name: Build image Tinkerboard-2_bookworm_edge_6.1.y 00000000020000000002
+      name: Build image Odroidhc4_bookworm_edge_6.2.y 00000000020000000041
+      run: 'echo "fake image: BOARD=odroidhc4 BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm rpardini-generic"'
+  image-00000000030000000041:
+    name: Khadas-vim3l_bookworm_edge_6.2.y 00000000030000000041
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - artifact-0000000005
+    - artifact-0000000002
+    - artifact-0000000001
+    - artifact-0000000033
+    - artifact-0000000003
+    - artifact-0000000034
+    - artifact-0000000008
+    - artifact-0000000004
+    if: ${{ always() && ( needs.artifact-0000000001.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000002.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000003.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000004.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000005.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000008.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000033.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000034.outputs.up-to-date-artifact == 'no' )  }}
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    - image-arm64
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-image
+      name: Build image Khadas-vim3l_bookworm_edge_6.2.y 00000000030000000041
+      run: 'echo "fake image: BOARD=khadas-vim3l BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm rpardini-generic"'
+  image-00000000040000000041:
+    name: Khadas-vim3_bookworm_edge_6.2.y 00000000040000000041
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - artifact-0000000005
+    - artifact-0000000002
+    - artifact-0000000001
+    - artifact-0000000003
+    - artifact-0000000035
+    - artifact-0000000008
+    - artifact-0000000036
+    - artifact-0000000004
+    if: ${{ always() && ( needs.artifact-0000000001.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000002.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000003.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000004.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000005.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000008.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000035.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000036.outputs.up-to-date-artifact == 'no' )  }}
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    - image-arm64
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-image
+      name: Build image Khadas-vim3_bookworm_edge_6.2.y 00000000040000000041
+      run: 'echo "fake image: BOARD=khadas-vim3 BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm rpardini-generic"'
+  image-00000000050000000041:
+    name: Radxa-zero2_bookworm_edge_6.2.y 00000000050000000041
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - artifact-0000000005
+    - artifact-0000000002
+    - artifact-0000000001
+    - artifact-0000000003
+    - artifact-0000000008
+    - artifact-0000000037
+    - artifact-0000000004
+    - artifact-0000000038
+    if: ${{ always() && ( needs.artifact-0000000001.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000002.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000003.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000004.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000005.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000008.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000037.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000038.outputs.up-to-date-artifact == 'no' )  }}
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    - image-arm64
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-image
+      name: Build image Radxa-zero2_bookworm_edge_6.2.y 00000000050000000041
+      run: 'echo "fake image: BOARD=radxa-zero2 BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm rpardini-generic"'
+  image-00000000060000000041:
+    name: Odroidm1_bookworm_edge_6.2.y 00000000060000000041
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - artifact-0000000005
+    - artifact-0000000002
+    - artifact-0000000001
+    - artifact-0000000003
+    - artifact-0000000004
+    - artifact-0000000039
+    - artifact-0000000040
+    if: ${{ always() && ( needs.artifact-0000000001.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000002.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000003.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000004.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000005.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000039.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000040.outputs.up-to-date-artifact == 'no' )  }}
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    - image-arm64
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-image
+      name: Build image Odroidm1_bookworm_edge_6.2.y 00000000060000000041
+      run: 'echo "fake image: BOARD=odroidm1 BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm rpardini-generic"'
+  image-00000000070000000041:
+    name: Tinkerboard-2_bookworm_edge_6.1.y 00000000070000000041
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - artifact-0000000005
+    - artifact-0000000022
+    - artifact-0000000002
+    - artifact-0000000001
+    - artifact-0000000006
+    - artifact-0000000003
+    - artifact-0000000041
+    - artifact-0000000014
+    if: ${{ always() && ( needs.artifact-0000000001.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000002.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000003.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000005.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000006.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000014.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000022.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000041.outputs.up-to-date-artifact == 'no' )  }}
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    - image-arm64
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-image
+      name: Build image Tinkerboard-2_bookworm_edge_6.1.y 00000000070000000041
       run: 'echo "fake image: BOARD=tinkerboard-2 BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm rpardini-generic"'
+  image-00000000080000000041:
+    name: Rpi4b_lunar_current_6.1.y 00000000080000000041
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - artifact-0000000002
+    - artifact-0000000007
+    - artifact-0000000001
+    - artifact-0000000003
+    - artifact-0000000004
+    - artifact-0000000042
+    - artifact-0000000043
+    - artifact-0000000044
+    if: ${{ always() && ( needs.artifact-0000000001.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000002.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000003.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000004.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000007.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000042.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000043.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000044.outputs.up-to-date-artifact == 'no' )  }}
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    - image-arm64
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-image
+      name: Build image Rpi4b_lunar_current_6.1.y 00000000080000000041
+      run: 'echo "fake image: BOARD=rpi4b BRANCH=current BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=lunar rpardini-generic"'
+  image-00000000090000000041:
+    name: Rockpro64_bookworm_edge_6.1.y 00000000090000000041
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - artifact-0000000005
+    - artifact-0000000002
+    - artifact-0000000001
+    - artifact-0000000003
+    - artifact-0000000004
+    - artifact-0000000014
+    - artifact-0000000045
+    - artifact-0000000046
+    if: ${{ always() && ( needs.artifact-0000000001.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000002.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000003.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000004.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000005.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000014.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000045.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000046.outputs.up-to-date-artifact == 'no' )  }}
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    - image-arm64
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-image
+      name: Build image Rockpro64_bookworm_edge_6.1.y 00000000090000000041
+      run: 'echo "fake image: BOARD=rockpro64 BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm rpardini-generic"'
+  image-00000000100000000041:
+    name: T95z_bookworm_edge_6.2.y 00000000100000000041
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - artifact-0000000048
+    - artifact-0000000005
+    - artifact-0000000002
+    - artifact-0000000001
+    - artifact-0000000003
+    - artifact-0000000008
+    - artifact-0000000004
+    - artifact-0000000047
+    if: ${{ always() && ( needs.artifact-0000000001.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000002.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000003.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000004.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000005.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000008.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000047.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000048.outputs.up-to-date-artifact == 'no' )  }}
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    - image-arm64
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-image
+      name: Build image T95z_bookworm_edge_6.2.y 00000000100000000041
+      run: 'echo "fake image: BOARD=t95z BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm rpardini-generic"'
+  image-00000000110000000041:
+    name: Oneplus5_bookworm_edge_6.1.y 00000000110000000041
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - artifact-0000000005
+    - artifact-0000000049
+    - artifact-0000000050
+    - artifact-0000000002
+    - artifact-0000000001
+    - artifact-0000000003
+    - artifact-0000000004
+    if: ${{ always() && ( needs.artifact-0000000001.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000002.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000003.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000004.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000005.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000049.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000050.outputs.up-to-date-artifact == 'no' )  }}
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    - image-arm64
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-image
+      name: Build image Oneplus5_bookworm_edge_6.1.y 00000000110000000041
+      run: 'echo "fake image: BOARD=oneplus5 BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm rpardini-generic"'
+  image-00000000120000000041:
+    name: Phytium-d2000_bookworm_legacy_4.19.y 00000000120000000041
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - artifact-0000000005
+    - artifact-0000000051
+    - artifact-0000000002
+    - artifact-0000000052
+    - artifact-0000000001
+    - artifact-0000000006
+    - artifact-0000000003
+    if: ${{ always() && ( needs.artifact-0000000001.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000002.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000003.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000005.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000006.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000051.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000052.outputs.up-to-date-artifact == 'no' )  }}
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    - image-arm64
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-image
+      name: Build image Phytium-d2000_bookworm_legacy_4.19.y 00000000120000000041
+      run: 'echo "fake image: BOARD=phytium-d2000 BRANCH=legacy BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm rpardini-generic"'
+  image-00000000130000000041:
+    name: Uefi-arm64_bookworm_edge_6.3.y 00000000130000000041
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - artifact-0000000005
+    - artifact-0000000023
+    - artifact-0000000002
+    - artifact-0000000001
+    - artifact-0000000006
+    - artifact-0000000003
+    - artifact-0000000010
+    if: ${{ always() && ( needs.artifact-0000000001.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000002.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000003.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000005.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000006.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000010.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000023.outputs.up-to-date-artifact == 'no' )  }}
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    - image-arm64
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-image
+      name: Build image Uefi-arm64_bookworm_edge_6.3.y 00000000130000000041
+      run: 'echo "fake image: BOARD=uefi-arm64 BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no ENABLE_EXTENSIONS=image-output-utm RELEASE=bookworm rpardini-generic"'
+  image-00000000140000000041:
+    name: Uefi-x86_bookworm_edge_6.3.y 00000000140000000041
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - artifact-0000000002
+    - artifact-0000000053
+    - artifact-0000000001
+    - artifact-0000000006
+    - artifact-0000000003
+    - artifact-0000000009
+    - artifact-0000000015
+    if: ${{ always() && ( needs.artifact-0000000001.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000002.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000003.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000006.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000009.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000015.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000053.outputs.up-to-date-artifact == 'no' )  }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-image
+      name: Build image Uefi-x86_bookworm_edge_6.3.y 00000000140000000041
+      run: 'echo "fake image: BOARD=uefi-x86 BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no ENABLE_EXTENSIONS=image-output-utm RELEASE=bookworm rpardini-generic"'
+  image-00000000150000000041:
+    name: Uefi-arm64_bookworm_edge_6.3.y-buildmachine 00000000150000000041
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - artifact-0000000023
+    - artifact-0000000002
+    - artifact-0000000054
+    - artifact-0000000001
+    - artifact-0000000006
+    - artifact-0000000003
+    - artifact-0000000010
+    if: ${{ always() && ( needs.artifact-0000000001.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000002.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000003.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000006.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000010.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000023.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000054.outputs.up-to-date-artifact == 'no' )  }}
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    - image-arm64
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-image
+      name: Build image Uefi-arm64_bookworm_edge_6.3.y-buildmachine 00000000150000000041
+      run: 'echo "fake image: BOARD=uefi-arm64 BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no ENABLE_EXTENSIONS=build-machine-image RELEASE=bookworm rpardini-generic"'
+  image-00000000160000000041:
+    name: Uefi-x86_bookworm_edge_6.3.y-buildmachine 00000000160000000041
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - artifact-0000000002
+    - artifact-0000000055
+    - artifact-0000000001
+    - artifact-0000000006
+    - artifact-0000000003
+    - artifact-0000000009
+    - artifact-0000000015
+    if: ${{ always() && ( needs.artifact-0000000001.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000002.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000003.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000006.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000009.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000015.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000055.outputs.up-to-date-artifact == 'no' )  }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-image
+      name: Build image Uefi-x86_bookworm_edge_6.3.y-buildmachine 00000000160000000041
+      run: 'echo "fake image: BOARD=uefi-x86 BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no ENABLE_EXTENSIONS=build-machine-image RELEASE=bookworm rpardini-generic"'
+  image-00000000170000000041:
+    name: Orangepizero2_bookworm_legacy_4.9.y 00000000170000000041
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - artifact-0000000005
+    - artifact-0000000002
+    - artifact-0000000056
+    - artifact-0000000001
+    - artifact-0000000057
+    - artifact-0000000058
+    - artifact-0000000004
+    if: ${{ always() && ( needs.artifact-0000000001.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000002.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000004.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000005.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000056.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000057.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000058.outputs.up-to-date-artifact == 'no' )  }}
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    - image-arm64
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-image
+      name: Build image Orangepizero2_bookworm_legacy_4.9.y 00000000170000000041
+      run: 'echo "fake image: BOARD=orangepizero2 BRANCH=legacy BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm rpardini-generic"'
+  image-00000000180000000041:
+    name: Odroidxu4_bookworm_current_5.4.y 00000000180000000041
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - artifact-0000000002
+    - artifact-0000000001
+    - artifact-0000000059
+    - artifact-0000000060
+    - artifact-0000000061
+    - artifact-0000000003
+    - artifact-0000000004
+    - artifact-0000000016
+    if: ${{ always() && ( needs.artifact-0000000001.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000002.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000003.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000004.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000016.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000059.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000060.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000061.outputs.up-to-date-artifact == 'no' )  }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-image
+      name: Build image Odroidxu4_bookworm_current_5.4.y 00000000180000000041
+      run: 'echo "fake image: BOARD=odroidxu4 BRANCH=current BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm rpardini-generic"'
+  image-00000000190000000041:
+    name: Bananapicm4io_bookworm_edge_6.2.y 00000000190000000041
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - artifact-0000000005
+    - artifact-0000000002
+    - artifact-0000000001
+    - artifact-0000000003
+    - artifact-0000000062
+    - artifact-0000000008
+    - artifact-0000000063
+    - artifact-0000000004
+    if: ${{ always() && ( needs.artifact-0000000001.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000002.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000003.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000004.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000005.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000008.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000062.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000063.outputs.up-to-date-artifact == 'no' )  }}
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    - image-arm64
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-image
+      name: Build image Bananapicm4io_bookworm_edge_6.2.y 00000000190000000041
+      run: 'echo "fake image: BOARD=bananapicm4io BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm rpardini-generic"'
+  image-00000000200000000041:
+    name: Aml-s9xx-box_bookworm_edge_6.2.y 00000000200000000041
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - artifact-0000000005
+    - artifact-0000000002
+    - artifact-0000000001
+    - artifact-0000000003
+    - artifact-0000000008
+    - artifact-0000000064
+    - artifact-0000000004
+    - artifact-0000000065
+    if: ${{ always() && ( needs.artifact-0000000001.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000002.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000003.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000004.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000005.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000008.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000064.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000065.outputs.up-to-date-artifact == 'no' )  }}
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    - image-arm64
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-image
+      name: Build image Aml-s9xx-box_bookworm_edge_6.2.y 00000000200000000041
+      run: 'echo "fake image: BOARD=aml-s9xx-box BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm rpardini-generic"'
+  image-00000000210000000041:
+    name: Tinkerboard_bookworm_edge_6.2.y 00000000210000000041
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - artifact-0000000067
+    - artifact-0000000002
+    - artifact-0000000001
+    - artifact-0000000003
+    - artifact-0000000004
+    - artifact-0000000066
+    - artifact-0000000068
+    - artifact-0000000016
+    if: ${{ always() && ( needs.artifact-0000000001.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000002.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000003.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000004.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000016.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000066.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000067.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000068.outputs.up-to-date-artifact == 'no' )  }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-image
+      name: Build image Tinkerboard_bookworm_edge_6.2.y 00000000210000000041
+      run: 'echo "fake image: BOARD=tinkerboard BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm rpardini-generic"'
+  image-00000000220000000041:
+    name: Tritium-h3_bookworm_edge_6.2.y 00000000220000000041
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - artifact-0000000002
+    - artifact-0000000001
+    - artifact-0000000003
+    - artifact-0000000004
+    - artifact-0000000069
+    - artifact-0000000070
+    - artifact-0000000071
+    - artifact-0000000016
+    if: ${{ always() && ( needs.artifact-0000000001.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000002.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000003.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000004.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000016.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000069.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000070.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000071.outputs.up-to-date-artifact == 'no' )  }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-image
+      name: Build image Tritium-h3_bookworm_edge_6.2.y 00000000220000000041
+      run: 'echo "fake image: BOARD=tritium-h3 BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm rpardini-generic"'
+  image-00000000230000000041:
+    name: Tritium-h5_bookworm_edge_6.2.y 00000000230000000041
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - artifact-0000000005
+    - artifact-0000000002
+    - artifact-0000000001
+    - artifact-0000000003
+    - artifact-0000000004
+    - artifact-0000000072
+    - artifact-0000000073
+    - artifact-0000000074
+    if: ${{ always() && ( needs.artifact-0000000001.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000002.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000003.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000004.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000005.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000072.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000073.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000074.outputs.up-to-date-artifact == 'no' )  }}
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    - image-arm64
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-image
+      name: Build image Tritium-h5_bookworm_edge_6.2.y 00000000230000000041
+      run: 'echo "fake image: BOARD=tritium-h5 BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=no RELEASE=bookworm rpardini-generic"'
+  image-00000000240000000041:
+    name: Mekotronics-r58x_jammy_legacy_5.10.y_gnome-amazingfated_desktop 00000000240000000041
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - artifact-0000000076
+    - artifact-0000000077
+    - artifact-0000000002
+    - artifact-0000000007
+    - artifact-0000000001
+    - artifact-0000000003
+    - artifact-0000000004
+    - artifact-0000000011
+    - artifact-0000000012
+    - artifact-0000000013
+    - artifact-0000000075
+    if: ${{ always() && ( needs.artifact-0000000001.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000002.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000003.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000004.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000007.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000011.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000012.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000013.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000075.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000076.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000077.outputs.up-to-date-artifact == 'no' )  }}
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    - image-arm64
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-image
+      name: Build image Mekotronics-r58x_jammy_legacy_5.10.y_gnome-amazingfated_desktop 00000000240000000041
+      run: 'echo "fake image: BOARD=mekotronics-r58x BRANCH=legacy BUILD_DESKTOP=yes BUILD_MINIMAL=no CLOUD_IMAGE=no DESKTOP_APPGROUPS_SELECTED=browsers DESKTOP_ENVIRONMENT=gnome DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base ENABLE_EXTENSIONS=v4l2loopback-dkms,amazingfated-rk3588 RELEASE=jammy rpardini-generic"'
+  image-00000000250000000041:
+    name: Mekotronics-r58x-4g_jammy_legacy_5.10.y_gnome-amazingfated_desktop 00000000250000000041
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - artifact-0000000078
+    - artifact-0000000079
+    - artifact-0000000002
+    - artifact-0000000024
+    - artifact-0000000007
+    - artifact-0000000001
+    - artifact-0000000003
+    - artifact-0000000004
+    - artifact-0000000011
+    - artifact-0000000012
+    - artifact-0000000013
+    if: ${{ always() && ( needs.artifact-0000000001.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000002.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000003.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000004.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000007.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000011.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000012.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000013.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000024.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000078.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000079.outputs.up-to-date-artifact == 'no' )  }}
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    - image-arm64
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-image
+      name: Build image Mekotronics-r58x-4g_jammy_legacy_5.10.y_gnome-amazingfated_desktop 00000000250000000041
+      run: 'echo "fake image: BOARD=mekotronics-r58x-4g BRANCH=legacy BUILD_DESKTOP=yes BUILD_MINIMAL=no CLOUD_IMAGE=no DESKTOP_APPGROUPS_SELECTED=browsers DESKTOP_ENVIRONMENT=gnome DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base ENABLE_EXTENSIONS=v4l2loopback-dkms,amazingfated-rk3588 RELEASE=jammy rpardini-generic"'
+  image-00000000260000000041:
+    name: Mekotronics-r58-minipc_jammy_legacy_5.10.y_gnome-amazingfated_desktop 00000000260000000041
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - artifact-0000000080
+    - artifact-0000000081
+    - artifact-0000000002
+    - artifact-0000000007
+    - artifact-0000000082
+    - artifact-0000000001
+    - artifact-0000000003
+    - artifact-0000000004
+    - artifact-0000000011
+    - artifact-0000000012
+    - artifact-0000000013
+    if: ${{ always() && ( needs.artifact-0000000001.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000002.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000003.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000004.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000007.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000011.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000012.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000013.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000080.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000081.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000082.outputs.up-to-date-artifact == 'no' )  }}
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    - image-arm64
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-image
+      name: Build image Mekotronics-r58-minipc_jammy_legacy_5.10.y_gnome-amazingfated_desktop 00000000260000000041
+      run: 'echo "fake image: BOARD=mekotronics-r58-minipc BRANCH=legacy BUILD_DESKTOP=yes BUILD_MINIMAL=no CLOUD_IMAGE=no DESKTOP_APPGROUPS_SELECTED=browsers DESKTOP_ENVIRONMENT=gnome DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base ENABLE_EXTENSIONS=v4l2loopback-dkms,amazingfated-rk3588 RELEASE=jammy rpardini-generic"'
+  image-00000000270000000041:
+    name: Nanopi-r6s_jammy_legacy_5.10.y_gnome-amazingfated_desktop 00000000270000000041
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - artifact-0000000002
+    - artifact-0000000007
+    - artifact-0000000083
+    - artifact-0000000001
+    - artifact-0000000084
+    - artifact-0000000085
+    - artifact-0000000003
+    - artifact-0000000004
+    - artifact-0000000011
+    - artifact-0000000012
+    - artifact-0000000013
+    if: ${{ always() && ( needs.artifact-0000000001.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000002.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000003.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000004.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000007.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000011.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000012.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000013.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000083.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000084.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000085.outputs.up-to-date-artifact == 'no' )  }}
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    - image-arm64
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-image
+      name: Build image Nanopi-r6s_jammy_legacy_5.10.y_gnome-amazingfated_desktop 00000000270000000041
+      run: 'echo "fake image: BOARD=nanopi-r6s BRANCH=legacy BUILD_DESKTOP=yes BUILD_MINIMAL=no CLOUD_IMAGE=no DESKTOP_APPGROUPS_SELECTED=browsers DESKTOP_ENVIRONMENT=gnome DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base ENABLE_EXTENSIONS=v4l2loopback-dkms,amazingfated-rk3588 RELEASE=jammy rpardini-generic"'
+  image-00000000280000000041:
+    name: Uefi-x86_bookworm_edge_6.3.y_gnome_desktop 00000000280000000041
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - artifact-0000000002
+    - artifact-0000000001
+    - artifact-0000000086
+    - artifact-0000000087
+    - artifact-0000000006
+    - artifact-0000000088
+    - artifact-0000000003
+    - artifact-0000000009
+    - artifact-0000000015
+    if: ${{ always() && ( needs.artifact-0000000001.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000002.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000003.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000006.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000009.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000015.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000086.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000087.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000088.outputs.up-to-date-artifact == 'no' )  }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-image
+      name: Build image Uefi-x86_bookworm_edge_6.3.y_gnome_desktop 00000000280000000041
+      run: 'echo "fake image: BOARD=uefi-x86 BRANCH=edge BUILD_DESKTOP=yes BUILD_MINIMAL=no CLOUD_IMAGE=no DESKTOP_APPGROUPS_SELECTED=browsers DESKTOP_ENVIRONMENT=gnome DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base ENABLE_EXTENSIONS=vmware-vm RELEASE=bookworm rpardini-generic"'
+  image-00000000290000000041:
+    name: Uefi-arm64_jammy_ddk_generic-rescue-cloud 00000000290000000041
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - artifact-0000000002
+    - artifact-0000000025
+    - artifact-0000000007
+    - artifact-0000000026
+    - artifact-0000000001
+    - artifact-0000000003
+    if: ${{ always() && ( needs.artifact-0000000001.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000002.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000003.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000007.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000025.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000026.outputs.up-to-date-artifact == 'no' )  }}
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    - image-arm64
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-image
+      name: Build image Uefi-arm64_jammy_ddk_generic-rescue-cloud 00000000290000000041
+      run: 'echo "fake image: BOARD=uefi-arm64 BRANCH=ddk BUILD_MINIMAL=no CLOUD_IMAGE=yes ENABLE_EXTENSIONS=uefi-rescue RELEASE=jammy rpardini-generic"'
+  image-00000000300000000041:
+    name: Uefi-arm64_jammy_edge_6.3.y-rescue-cloud 00000000300000000041
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - artifact-0000000002
+    - artifact-0000000007
+    - artifact-0000000026
+    - artifact-0000000001
+    - artifact-0000000006
+    - artifact-0000000003
+    - artifact-0000000010
+    - artifact-0000000017
+    if: ${{ always() && ( needs.artifact-0000000001.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000002.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000003.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000006.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000007.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000010.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000017.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000026.outputs.up-to-date-artifact == 'no' )  }}
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    - image-arm64
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-image
+      name: Build image Uefi-arm64_jammy_edge_6.3.y-rescue-cloud 00000000300000000041
+      run: 'echo "fake image: BOARD=uefi-arm64 BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=yes ENABLE_EXTENSIONS=uefi-rescue RELEASE=jammy rpardini-generic"'
+  image-00000000310000000041:
+    name: Uefi-x86_jammy_ddk_generic-rescue-cloud 00000000310000000041
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - artifact-0000000002
+    - artifact-0000000007
+    - artifact-0000000027
+    - artifact-0000000001
+    - artifact-0000000028
+    - artifact-0000000003
+    if: ${{ always() && ( needs.artifact-0000000001.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000002.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000003.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000007.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000027.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000028.outputs.up-to-date-artifact == 'no' )  }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-image
+      name: Build image Uefi-x86_jammy_ddk_generic-rescue-cloud 00000000310000000041
+      run: 'echo "fake image: BOARD=uefi-x86 BRANCH=ddk BUILD_MINIMAL=no CLOUD_IMAGE=yes ENABLE_EXTENSIONS=uefi-rescue RELEASE=jammy rpardini-generic"'
+  image-00000000320000000041:
+    name: Uefi-x86_jammy_edge_6.3.y-rescue-cloud 00000000320000000041
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - artifact-0000000002
+    - artifact-0000000007
+    - artifact-0000000001
+    - artifact-0000000028
+    - artifact-0000000006
+    - artifact-0000000003
+    - artifact-0000000009
+    - artifact-0000000018
+    if: ${{ always() && ( needs.artifact-0000000001.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000002.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000003.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000006.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000007.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000009.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000018.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000028.outputs.up-to-date-artifact == 'no' )  }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-image
+      name: Build image Uefi-x86_jammy_edge_6.3.y-rescue-cloud 00000000320000000041
+      run: 'echo "fake image: BOARD=uefi-x86 BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=yes ENABLE_EXTENSIONS=uefi-rescue RELEASE=jammy rpardini-generic"'
+  image-00000000330000000041:
+    name: Uefi-arm64_bookworm_ddk_generic-rescue-cloud 00000000330000000041
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - artifact-0000000002
+    - artifact-0000000025
+    - artifact-0000000001
+    - artifact-0000000003
+    - artifact-0000000019
+    if: ${{ always() && ( needs.artifact-0000000001.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000002.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000003.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000019.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000025.outputs.up-to-date-artifact == 'no' )  }}
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    - image-arm64
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-image
+      name: Build image Uefi-arm64_bookworm_ddk_generic-rescue-cloud 00000000330000000041
+      run: 'echo "fake image: BOARD=uefi-arm64 BRANCH=ddk BUILD_MINIMAL=no CLOUD_IMAGE=yes ENABLE_EXTENSIONS=uefi-rescue RELEASE=bookworm rpardini-generic"'
+  image-00000000340000000041:
+    name: Uefi-arm64_bookworm_edge_6.3.y-rescue-cloud 00000000340000000041
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - artifact-0000000002
+    - artifact-0000000001
+    - artifact-0000000006
+    - artifact-0000000003
+    - artifact-0000000010
+    - artifact-0000000017
+    - artifact-0000000019
+    if: ${{ always() && ( needs.artifact-0000000001.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000002.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000003.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000006.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000010.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000017.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000019.outputs.up-to-date-artifact == 'no' )  }}
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    - image-arm64
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-image
+      name: Build image Uefi-arm64_bookworm_edge_6.3.y-rescue-cloud 00000000340000000041
+      run: 'echo "fake image: BOARD=uefi-arm64 BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=yes ENABLE_EXTENSIONS=uefi-rescue RELEASE=bookworm rpardini-generic"'
+  image-00000000350000000041:
+    name: Uefi-x86_bookworm_ddk_generic-rescue-cloud 00000000350000000041
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - artifact-0000000020
+    - artifact-0000000002
+    - artifact-0000000027
+    - artifact-0000000001
+    - artifact-0000000003
+    if: ${{ always() && ( needs.artifact-0000000001.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000002.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000003.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000020.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000027.outputs.up-to-date-artifact == 'no' )  }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-image
+      name: Build image Uefi-x86_bookworm_ddk_generic-rescue-cloud 00000000350000000041
+      run: 'echo "fake image: BOARD=uefi-x86 BRANCH=ddk BUILD_MINIMAL=no CLOUD_IMAGE=yes ENABLE_EXTENSIONS=uefi-rescue RELEASE=bookworm rpardini-generic"'
+  image-00000000360000000041:
+    name: Uefi-x86_bookworm_edge_6.3.y-rescue-cloud 00000000360000000041
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - artifact-0000000020
+    - artifact-0000000002
+    - artifact-0000000001
+    - artifact-0000000006
+    - artifact-0000000003
+    - artifact-0000000009
+    - artifact-0000000018
+    if: ${{ always() && ( needs.artifact-0000000001.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000002.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000003.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000006.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000009.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000018.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000020.outputs.up-to-date-artifact == 'no' )  }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-image
+      name: Build image Uefi-x86_bookworm_edge_6.3.y-rescue-cloud 00000000360000000041
+      run: 'echo "fake image: BOARD=uefi-x86 BRANCH=edge BUILD_MINIMAL=no CLOUD_IMAGE=yes ENABLE_EXTENSIONS=uefi-rescue RELEASE=bookworm rpardini-generic"'
+  image-00000000370000000041:
+    name: Uefi-x86_bookworm_edge_6.3.y-metadata-cloud 00000000370000000041
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - artifact-0000000020
+    - artifact-0000000002
+    - artifact-0000000001
+    - artifact-0000000006
+    - artifact-0000000003
+    - artifact-0000000009
+    - artifact-0000000018
+    if: ${{ always() && ( needs.artifact-0000000001.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000002.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000003.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000006.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000009.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000018.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000020.outputs.up-to-date-artifact == 'no' )  }}
+    runs-on: ubuntu-latest
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-image
+      name: Build image Uefi-x86_bookworm_edge_6.3.y-metadata-cloud 00000000370000000041
+      run: 'echo "fake image: BOARD=uefi-x86 BRANCH=edge BUILD_DESKTOP=no BUILD_MINIMAL=no CLOUD_IMAGE=yes ENABLE_EXTENSIONS=cloud-metadata RELEASE=bookworm rpardini-generic"'
+  image-00000000380000000041:
+    name: Uefi-arm64_bookworm_edge_6.3.y-metadata-cloud 00000000380000000041
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - artifact-0000000002
+    - artifact-0000000001
+    - artifact-0000000006
+    - artifact-0000000003
+    - artifact-0000000010
+    - artifact-0000000017
+    - artifact-0000000019
+    if: ${{ always() && ( needs.artifact-0000000001.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000002.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000003.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000006.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000010.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000017.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000019.outputs.up-to-date-artifact == 'no' )  }}
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    - image-arm64
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-image
+      name: Build image Uefi-arm64_bookworm_edge_6.3.y-metadata-cloud 00000000380000000041
+      run: 'echo "fake image: BOARD=uefi-arm64 BRANCH=edge BUILD_DESKTOP=no BUILD_MINIMAL=no CLOUD_IMAGE=yes ENABLE_EXTENSIONS=cloud-metadata RELEASE=bookworm rpardini-generic"'
+  image-00000000390000000041:
+    name: Mekotronics-r58x-4g_bullseye_legacy_5.10.y-homeassistant 00000000390000000041
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - artifact-0000000021
+    - artifact-0000000002
+    - artifact-0000000024
+    - artifact-0000000001
+    - artifact-0000000089
+    - artifact-0000000003
+    - artifact-0000000004
+    - artifact-0000000011
+    if: ${{ always() && ( needs.artifact-0000000001.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000002.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000003.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000004.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000011.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000021.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000024.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000089.outputs.up-to-date-artifact == 'no' )  }}
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    - image-arm64
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-image
+      name: Build image Mekotronics-r58x-4g_bullseye_legacy_5.10.y-homeassistant 00000000390000000041
+      run: 'echo "fake image: BOARD=mekotronics-r58x-4g BRANCH=legacy BUILD_DESKTOP=no BUILD_MINIMAL=no CLOUD_IMAGE=no ENABLE_EXTENSIONS=ha RELEASE=bullseye rpardini-generic"'
+  image-00000000400000000041:
+    name: Odroidhc4_bullseye_current_6.1.y-homeassistant 00000000400000000041
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - artifact-0000000021
+    - artifact-0000000002
+    - artifact-0000000001
+    - artifact-0000000003
+    - artifact-0000000090
+    - artifact-0000000091
+    - artifact-0000000092
+    - artifact-0000000004
+    if: ${{ always() && ( needs.artifact-0000000001.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000002.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000003.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000004.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000021.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000090.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000091.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000092.outputs.up-to-date-artifact == 'no' )  }}
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    - image-arm64
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-image
+      name: Build image Odroidhc4_bullseye_current_6.1.y-homeassistant 00000000400000000041
+      run: 'echo "fake image: BOARD=odroidhc4 BRANCH=current BUILD_DESKTOP=no BUILD_MINIMAL=no CLOUD_IMAGE=no ENABLE_EXTENSIONS=ha RELEASE=bullseye rpardini-generic"'
+  image-00000000410000000041:
+    name: Tinkerboard-2_bullseye_edge_6.1.y-homeassistant 00000000410000000041
+    env:
+      OCI_TARGET_BASE: ghcr.io/${{ github.repository }}/
+      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: ghcr.io/${{ github.repository }}:armbian-next-
+      DOCKER_SKIP_UPDATE: 'yes'
+    needs:
+    - artifact-0000000021
+    - artifact-0000000022
+    - artifact-0000000002
+    - artifact-0000000001
+    - artifact-0000000006
+    - artifact-0000000003
+    - artifact-0000000093
+    - artifact-0000000014
+    if: ${{ always() && ( needs.artifact-0000000001.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000002.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000003.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000006.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000014.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000021.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000022.outputs.up-to-date-artifact == 'no' || needs.artifact-0000000093.outputs.up-to-date-artifact == 'no' )  }}
+    runs-on:
+    - self-hosted
+    - Linux
+    - armbian
+    - image-arm64
+    steps:
+    - id: docker-login-ghcr
+      name: Docker Login to GitHub Container Registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      uses: docker/login-action@v2
+    - id: build-image
+      name: Build image Tinkerboard-2_bullseye_edge_6.1.y-homeassistant 00000000410000000041
+      run: 'echo "fake image: BOARD=tinkerboard-2 BRANCH=edge BUILD_DESKTOP=no BUILD_MINIMAL=no CLOUD_IMAGE=no ENABLE_EXTENSIONS=ha RELEASE=bullseye rpardini-generic"'
