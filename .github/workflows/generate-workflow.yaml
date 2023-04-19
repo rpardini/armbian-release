@@ -48,6 +48,7 @@ jobs:
       - name: Armbian workflow
         id: prepare-matrix
         run: |
+          rm -rf output/info
           bash ./compile.sh workflow rpardini-generic CHECK_UP_TO_DATE_ARTIFACTS=no # DEBUG=yes
 
       - name: chown cache memoize/oci back to normal user
