@@ -58,7 +58,7 @@ jobs:
         id: prepare-matrix
         run: |
           # this sets outputs "artifact-matrix" #and "image-matrix" 
-          bash ./compile.sh json-info-boards rpardini-generic # DEBUG=yes
+          bash ./compile.sh matrix rpardini-generic # DEBUG=yes
 
       - name: chown cache memoize/oci back to normal user
         run: |
