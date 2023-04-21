@@ -58,6 +58,7 @@ jobs:
         id: prepare-matrix
         run: |
           # this sets outputs "artifact-matrix" #and "image-matrix" 
+          rm -rf output/info # don't use info from previous run on self-hosted
           bash ./compile.sh matrix rpardini-generic # DEBUG=yes
 
       - name: chown cache memoize/oci back to normal user
