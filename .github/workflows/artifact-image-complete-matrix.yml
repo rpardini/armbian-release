@@ -58,8 +58,7 @@ jobs:
         id: prepare-matrix
         run: |
           # this sets outputs "artifact-matrix" #and "image-matrix" 
-          rm -rf output/info # don't use info from previous run on self-hosted
-          bash ./compile.sh matrix rpardini-generic # DEBUG=yes
+          bash ./compile.sh matrix rpardini-generic CLEAN_INFO=yes CLEAN_MATRIX=yes MATRIX_ARTIFACT_CHUNKS=1 MATRIX_IMAGE_CHUNKS=1 CHECK_OCI=yes  # DEBUG=yes
 
       - name: chown cache memoize/oci back to normal user
         run: |
@@ -90,7 +89,7 @@ jobs:
     needs: [ "matrix_prep" ]
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
-      matrix: ${{ fromJSON(needs.matrix_prep.outputs.artifact) }}
+      matrix: ${{ fromJSON(needs.matrix_prep.outputs.artifact)["chunk-1"] }}
     name: ${{ matrix.desc }}
     runs-on: ${{ matrix.runs_on }}
 
@@ -130,7 +129,7 @@ jobs:
 
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
-      matrix: ${{ fromJSON(needs.matrix_prep.outputs.image) }}
+      matrix: ${{ fromJSON(needs.matrix_prep.outputs.image)["chunk-1"] }}
     name: ${{ matrix.desc }}
     runs-on: ${{ matrix.runs_on }}
     env:
