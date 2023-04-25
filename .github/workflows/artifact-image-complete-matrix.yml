@@ -58,7 +58,7 @@ jobs:
         id: prepare-matrix
         run: |
           # this sets outputs "artifact-matrix" #and "image-matrix" 
-          bash ./compile.sh matrix rpardini-generic CLEAN_INFO=yes CLEAN_MATRIX=yes MATRIX_ARTIFACT_CHUNKS=10 MATRIX_IMAGE_CHUNKS=10 CHECK_OCI=yes TARGETS_FILE=none IMAGES_ONLY_OUTDATED_ARTIFACTS=yes SKIP_IMAGES=yes # DEBUG=yes
+          bash ./compile.sh matrix rpardini-generic CLEAN_INFO=yes CLEAN_MATRIX=yes MATRIX_ARTIFACT_CHUNKS=10 MATRIX_IMAGE_CHUNKS=10 CHECK_OCI=yes TARGETS_FILENAME=targets-all-cli-rpardini.yaml IMAGES_ONLY_OUTDATED_ARTIFACTS=yes SKIP_IMAGES=yes # DEBUG=yes
 
       - name: chown cache memoize/oci back to normal user
         run: |
