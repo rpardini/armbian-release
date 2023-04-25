@@ -89,7 +89,7 @@ jobs:
     needs: [ "matrix_prep" ]
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
-      matrix: ${{ fromJSON(needs.matrix_prep.outputs.artifact)["chunk-1"] }}
+      matrix: ${{ fromJSON(needs.matrix_prep.outputs.artifact).chunk1 }}
     name: ${{ matrix.desc }}
     runs-on: ${{ matrix.runs_on }}
 
@@ -129,7 +129,7 @@ jobs:
 
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
-      matrix: ${{ fromJSON(needs.matrix_prep.outputs.image)["chunk-1"] }}
+      matrix: ${{ fromJSON(needs.matrix_prep.outputs.image).chunk1 }}
     name: ${{ matrix.desc }}
     runs-on: ${{ matrix.runs_on }}
     env:
