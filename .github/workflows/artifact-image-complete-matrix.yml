@@ -1,31 +1,39 @@
 name: artifact-image-complete-matrix
 
 on:
-  #schedule:
-  #  - cron: '0 1 * * *' # Scheduled runs every day at 2am UTC
+  schedule:
+    - cron: '0 1 * * *' # Scheduled runs every day at 2am UTC
   workflow_dispatch:
 
+env:
+  
+  # For easier reuse across the multiple chunks
+  BUILD_REPOSITORY: ${{ github.repository_owner }}/armbian-build
+  BUILD_REF: extensions # branch or tag or sha1
+  
+  # Armbian envs. Adjust to your needs.
+  OCI_TARGET_BASE: "ghcr.io/${{ github.repository }}/" # This is picked up by the Docker launcher automatically. It does _not_ override the targets.yaml during info resolution.
+  DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: "ghcr.io/${{ github.repository }}:armbian-next-" # Use Docker image in same repo
+  DOCKER_SKIP_UPDATE: "yes" # Do not apt update/install/requirements/etc during Dockerfile build, trust DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX's images are up-to-date
+  
+  # Added to every image build arguments.
+  EXTRA_PARAMS_IMAGE: "'DONT_BUILD_ARTIFACTS=kernel,firmware,full_firmware,rootfs,fake_ubuntu_advantage_tools,armbian-config,armbian-zsh,armbian-plymouth-theme' 'IMAGE_VERSION=20230400-${{ github.repository_owner }}' COMPRESS_OUTPUTIMAGE=xz SHOW_DEBIAN=yes SHARE_LOG=yes "
 
 jobs:
   
   matrix_prep:
     if: ${{ github.repository_owner == 'rpardini' }}
-    # runs-on: "ubuntu-latest" # "macos-latest" # is mac faster? not really. 
     runs-on: [ "self-hosted", "Linux", 'armbian', "matrix-prepare" ]
-    env:
-      OCI_TARGET_BASE: "ghcr.io/${{ github.repository }}/" # This is picked up by the Docker launcher automatically
-      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: "ghcr.io/${{ github.repository }}:armbian-next-" # Use Docker image in same repo
-      DOCKER_SKIP_UPDATE: "yes" # Do not apt update/install/requirements/etc during Dockerfile build, trust DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX's images are up-to-date
     steps:
       - name: Checkout build repo
         uses: actions/checkout@v3 # We don't need to clone git, really. A wget would suffice for GH-hosted runners. But using clone is better for Igor-hosted runners.
         with:
-          repository: ${{ github.repository_owner }}/armbian-build
-          ref: extensions
+          repository: ${{ env.BUILD_REPOSITORY }}
+          ref: ${{ env.BUILD_REF }}
           fetch-depth: 1
           clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
 
-      - name: grab the sha1 of the latest commit # do NOT use set-output, it's deprecated. https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/
+      - name: grab the sha1 of the latest commit
         id: latest-commit
         run: echo "sha1=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
 
@@ -40,12 +48,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-matrix-cache-
       
-      #- name: Prepare MacOS Machine
-      #  id: prepare-machine-macos
-      #  run: |
-      #    brew install bash coreutils git docker
-      #    colima start
-      
       # Login to ghcr.io, we're gonna do a lot of OCI lookups.
       - name: Docker Login to GitHub Container Registry
         uses: docker/login-action@v2
@@ -58,19 +60,18 @@ jobs:
         id: prepare-matrix
         run: |
           # this sets outputs "artifact-matrix" #and "image-matrix" 
-          bash ./compile.sh matrix rpardini-generic CLEAN_INFO=yes CLEAN_MATRIX=yes MATRIX_ARTIFACT_CHUNKS=10 MATRIX_IMAGE_CHUNKS=10 CHECK_OCI=yes TARGETS_FILENAME=targets-all-cli-rpardini.yaml IMAGES_ONLY_OUTDATED_ARTIFACTS=yes SKIP_IMAGES=yes # DEBUG=yes
+          bash ./compile.sh matrix rpardini-generic CLEAN_INFO=yes CLEAN_MATRIX=yes MATRIX_ARTIFACT_CHUNKS=10 MATRIX_IMAGE_CHUNKS=10 CHECK_OCI=yes TARGETS_FILENAME=targets.yaml # DEBUG=yes IMAGES_ONLY_OUTDATED_ARTIFACTS=yes SKIP_IMAGES=yes
 
       - name: chown cache memoize/oci back to normal user
         run: |
           sudo chown -R $USER:$USER cache/memoize cache/oci/positive
 
-      - name: echo stuff artifact
-        run: |
-          echo '${{ steps.prepare-matrix.outputs.artifact-matrix }}' | jq --color-output .
-
-      - name: echo stuff image
-        run: |
-          echo '${{ steps.prepare-matrix.outputs.image-matrix }}' | jq --color-output .
+      #- name: echo stuff artifact
+      #  run: |
+      #    echo '${{ steps.prepare-matrix.outputs.artifact-matrix }}' | jq --color-output .
+      #- name: echo stuff image
+      #  run: |
+      #    echo '${{ steps.prepare-matrix.outputs.image-matrix }}' | jq --color-output .
 
       - name: Prepare GH Release
         uses: "marvinpinto/action-automatic-releases@latest" # @TODO this is outdated, needs replacement. Also it deletes the release if it already exists, which is not what we want. Might be necessary to move the tag.
@@ -83,6 +84,7 @@ jobs:
     outputs:
       artifact: ${{ steps.prepare-matrix.outputs.artifact-matrix }}
       image: ${{ steps.prepare-matrix.outputs.image-matrix }}
+      build-sha1: ${{ steps.latest-commit.outputs.sha1 }}
 
   build-artifacts-chunk1: # <-- HERE: Chunk number.
     if: ${{ github.repository_owner == 'rpardini' }}
@@ -92,12 +94,6 @@ jobs:
       matrix: ${{ fromJSON(needs.matrix_prep.outputs.artifact).chunk1 }} # <-- HERE: Chunk number.
     name: ${{ matrix.desc }}
     runs-on: ${{ matrix.runs_on }}
-
-    env:
-      OCI_TARGET_BASE: "ghcr.io/${{ github.repository }}/" # This is picked up by the Docker launcher automatically
-      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: "ghcr.io/${{ github.repository }}:armbian-next-" # Use Docker image in same repo
-      DOCKER_SKIP_UPDATE: "yes" # Do not apt update/install/requirements/etc during Dockerfile build, trust DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX's images are up-to-date
-
     steps:
       # Login to ghcr.io, for later uploading rootfs to ghcr.io
       - name: Docker Login to GitHub Container Registry
@@ -112,8 +108,8 @@ jobs:
         uses: actions/checkout@v3 # We don't need to clone git, really. A wget would suffice for GH-hosted runners. But using clone is better for Igor-hosted runners.
         if: ${{matrix.really == 'yes'}}
         with:
-          repository: ${{ github.repository_owner }}/armbian-build
-          ref: extensions
+          repository: ${{ env.BUILD_REPOSITORY }}
+          ref: ${{ needs.matrix_prep.outputs.build-sha1 }}
           fetch-depth: 1
           clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
 
@@ -131,12 +127,6 @@ jobs:
       matrix: ${{ fromJSON(needs.matrix_prep.outputs.artifact).chunk2 }} # <-- HERE: Chunk number.
     name: ${{ matrix.desc }}
     runs-on: ${{ matrix.runs_on }}
-
-    env:
-      OCI_TARGET_BASE: "ghcr.io/${{ github.repository }}/" # This is picked up by the Docker launcher automatically
-      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: "ghcr.io/${{ github.repository }}:armbian-next-" # Use Docker image in same repo
-      DOCKER_SKIP_UPDATE: "yes" # Do not apt update/install/requirements/etc during Dockerfile build, trust DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX's images are up-to-date
-
     steps:
       # Login to ghcr.io, for later uploading rootfs to ghcr.io
       - name: Docker Login to GitHub Container Registry
@@ -151,8 +141,8 @@ jobs:
         uses: actions/checkout@v3 # We don't need to clone git, really. A wget would suffice for GH-hosted runners. But using clone is better for Igor-hosted runners.
         if: ${{matrix.really == 'yes'}}
         with:
-          repository: ${{ github.repository_owner }}/armbian-build
-          ref: extensions
+          repository: ${{ env.BUILD_REPOSITORY }}
+          ref: ${{ needs.matrix_prep.outputs.build-sha1 }}
           fetch-depth: 1
           clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
 
@@ -170,12 +160,6 @@ jobs:
       matrix: ${{ fromJSON(needs.matrix_prep.outputs.artifact).chunk3 }} # <-- HERE: Chunk number.
     name: ${{ matrix.desc }}
     runs-on: ${{ matrix.runs_on }}
-
-    env:
-      OCI_TARGET_BASE: "ghcr.io/${{ github.repository }}/" # This is picked up by the Docker launcher automatically
-      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: "ghcr.io/${{ github.repository }}:armbian-next-" # Use Docker image in same repo
-      DOCKER_SKIP_UPDATE: "yes" # Do not apt update/install/requirements/etc during Dockerfile build, trust DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX's images are up-to-date
-
     steps:
       # Login to ghcr.io, for later uploading rootfs to ghcr.io
       - name: Docker Login to GitHub Container Registry
@@ -190,8 +174,8 @@ jobs:
         uses: actions/checkout@v3 # We don't need to clone git, really. A wget would suffice for GH-hosted runners. But using clone is better for Igor-hosted runners.
         if: ${{matrix.really == 'yes'}}
         with:
-          repository: ${{ github.repository_owner }}/armbian-build
-          ref: extensions
+          repository: ${{ env.BUILD_REPOSITORY }}
+          ref: ${{ needs.matrix_prep.outputs.build-sha1 }}
           fetch-depth: 1
           clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
 
@@ -209,12 +193,6 @@ jobs:
       matrix: ${{ fromJSON(needs.matrix_prep.outputs.artifact).chunk4 }} # <-- HERE: Chunk number.
     name: ${{ matrix.desc }}
     runs-on: ${{ matrix.runs_on }}
-
-    env:
-      OCI_TARGET_BASE: "ghcr.io/${{ github.repository }}/" # This is picked up by the Docker launcher automatically
-      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: "ghcr.io/${{ github.repository }}:armbian-next-" # Use Docker image in same repo
-      DOCKER_SKIP_UPDATE: "yes" # Do not apt update/install/requirements/etc during Dockerfile build, trust DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX's images are up-to-date
-
     steps:
       # Login to ghcr.io, for later uploading rootfs to ghcr.io
       - name: Docker Login to GitHub Container Registry
@@ -229,8 +207,8 @@ jobs:
         uses: actions/checkout@v3 # We don't need to clone git, really. A wget would suffice for GH-hosted runners. But using clone is better for Igor-hosted runners.
         if: ${{matrix.really == 'yes'}}
         with:
-          repository: ${{ github.repository_owner }}/armbian-build
-          ref: extensions
+          repository: ${{ env.BUILD_REPOSITORY }}
+          ref: ${{ needs.matrix_prep.outputs.build-sha1 }}
           fetch-depth: 1
           clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
 
@@ -248,12 +226,6 @@ jobs:
       matrix: ${{ fromJSON(needs.matrix_prep.outputs.artifact).chunk5 }} # <-- HERE: Chunk number.
     name: ${{ matrix.desc }}
     runs-on: ${{ matrix.runs_on }}
-
-    env:
-      OCI_TARGET_BASE: "ghcr.io/${{ github.repository }}/" # This is picked up by the Docker launcher automatically
-      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: "ghcr.io/${{ github.repository }}:armbian-next-" # Use Docker image in same repo
-      DOCKER_SKIP_UPDATE: "yes" # Do not apt update/install/requirements/etc during Dockerfile build, trust DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX's images are up-to-date
-
     steps:
       # Login to ghcr.io, for later uploading rootfs to ghcr.io
       - name: Docker Login to GitHub Container Registry
@@ -268,8 +240,8 @@ jobs:
         uses: actions/checkout@v3 # We don't need to clone git, really. A wget would suffice for GH-hosted runners. But using clone is better for Igor-hosted runners.
         if: ${{matrix.really == 'yes'}}
         with:
-          repository: ${{ github.repository_owner }}/armbian-build
-          ref: extensions
+          repository: ${{ env.BUILD_REPOSITORY }}
+          ref: ${{ needs.matrix_prep.outputs.build-sha1 }}
           fetch-depth: 1
           clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
 
@@ -287,12 +259,6 @@ jobs:
       matrix: ${{ fromJSON(needs.matrix_prep.outputs.artifact).chunk6 }} # <-- HERE: Chunk number.
     name: ${{ matrix.desc }}
     runs-on: ${{ matrix.runs_on }}
-
-    env:
-      OCI_TARGET_BASE: "ghcr.io/${{ github.repository }}/" # This is picked up by the Docker launcher automatically
-      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: "ghcr.io/${{ github.repository }}:armbian-next-" # Use Docker image in same repo
-      DOCKER_SKIP_UPDATE: "yes" # Do not apt update/install/requirements/etc during Dockerfile build, trust DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX's images are up-to-date
-
     steps:
       # Login to ghcr.io, for later uploading rootfs to ghcr.io
       - name: Docker Login to GitHub Container Registry
@@ -307,8 +273,8 @@ jobs:
         uses: actions/checkout@v3 # We don't need to clone git, really. A wget would suffice for GH-hosted runners. But using clone is better for Igor-hosted runners.
         if: ${{matrix.really == 'yes'}}
         with:
-          repository: ${{ github.repository_owner }}/armbian-build
-          ref: extensions
+          repository: ${{ env.BUILD_REPOSITORY }}
+          ref: ${{ needs.matrix_prep.outputs.build-sha1 }}
           fetch-depth: 1
           clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
 
@@ -326,12 +292,6 @@ jobs:
       matrix: ${{ fromJSON(needs.matrix_prep.outputs.artifact).chunk7 }} # <-- HERE: Chunk number.
     name: ${{ matrix.desc }}
     runs-on: ${{ matrix.runs_on }}
-
-    env:
-      OCI_TARGET_BASE: "ghcr.io/${{ github.repository }}/" # This is picked up by the Docker launcher automatically
-      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: "ghcr.io/${{ github.repository }}:armbian-next-" # Use Docker image in same repo
-      DOCKER_SKIP_UPDATE: "yes" # Do not apt update/install/requirements/etc during Dockerfile build, trust DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX's images are up-to-date
-
     steps:
       # Login to ghcr.io, for later uploading rootfs to ghcr.io
       - name: Docker Login to GitHub Container Registry
@@ -346,8 +306,8 @@ jobs:
         uses: actions/checkout@v3 # We don't need to clone git, really. A wget would suffice for GH-hosted runners. But using clone is better for Igor-hosted runners.
         if: ${{matrix.really == 'yes'}}
         with:
-          repository: ${{ github.repository_owner }}/armbian-build
-          ref: extensions
+          repository: ${{ env.BUILD_REPOSITORY }}
+          ref: ${{ needs.matrix_prep.outputs.build-sha1 }}
           fetch-depth: 1
           clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
 
@@ -365,12 +325,6 @@ jobs:
       matrix: ${{ fromJSON(needs.matrix_prep.outputs.artifact).chunk8 }} # <-- HERE: Chunk number.
     name: ${{ matrix.desc }}
     runs-on: ${{ matrix.runs_on }}
-
-    env:
-      OCI_TARGET_BASE: "ghcr.io/${{ github.repository }}/" # This is picked up by the Docker launcher automatically
-      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: "ghcr.io/${{ github.repository }}:armbian-next-" # Use Docker image in same repo
-      DOCKER_SKIP_UPDATE: "yes" # Do not apt update/install/requirements/etc during Dockerfile build, trust DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX's images are up-to-date
-
     steps:
       # Login to ghcr.io, for later uploading rootfs to ghcr.io
       - name: Docker Login to GitHub Container Registry
@@ -385,8 +339,8 @@ jobs:
         uses: actions/checkout@v3 # We don't need to clone git, really. A wget would suffice for GH-hosted runners. But using clone is better for Igor-hosted runners.
         if: ${{matrix.really == 'yes'}}
         with:
-          repository: ${{ github.repository_owner }}/armbian-build
-          ref: extensions
+          repository: ${{ env.BUILD_REPOSITORY }}
+          ref: ${{ needs.matrix_prep.outputs.build-sha1 }}
           fetch-depth: 1
           clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
 
@@ -404,12 +358,6 @@ jobs:
       matrix: ${{ fromJSON(needs.matrix_prep.outputs.artifact).chunk9 }} # <-- HERE: Chunk number.
     name: ${{ matrix.desc }}
     runs-on: ${{ matrix.runs_on }}
-
-    env:
-      OCI_TARGET_BASE: "ghcr.io/${{ github.repository }}/" # This is picked up by the Docker launcher automatically
-      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: "ghcr.io/${{ github.repository }}:armbian-next-" # Use Docker image in same repo
-      DOCKER_SKIP_UPDATE: "yes" # Do not apt update/install/requirements/etc during Dockerfile build, trust DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX's images are up-to-date
-
     steps:
       # Login to ghcr.io, for later uploading rootfs to ghcr.io
       - name: Docker Login to GitHub Container Registry
@@ -424,8 +372,8 @@ jobs:
         uses: actions/checkout@v3 # We don't need to clone git, really. A wget would suffice for GH-hosted runners. But using clone is better for Igor-hosted runners.
         if: ${{matrix.really == 'yes'}}
         with:
-          repository: ${{ github.repository_owner }}/armbian-build
-          ref: extensions
+          repository: ${{ env.BUILD_REPOSITORY }}
+          ref: ${{ needs.matrix_prep.outputs.build-sha1 }}
           fetch-depth: 1
           clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
 
@@ -443,12 +391,6 @@ jobs:
       matrix: ${{ fromJSON(needs.matrix_prep.outputs.artifact).chunk10 }} # <-- HERE: Chunk number.
     name: ${{ matrix.desc }}
     runs-on: ${{ matrix.runs_on }}
-
-    env:
-      OCI_TARGET_BASE: "ghcr.io/${{ github.repository }}/" # This is picked up by the Docker launcher automatically
-      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: "ghcr.io/${{ github.repository }}:armbian-next-" # Use Docker image in same repo
-      DOCKER_SKIP_UPDATE: "yes" # Do not apt update/install/requirements/etc during Dockerfile build, trust DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX's images are up-to-date
-
     steps:
       # Login to ghcr.io, for later uploading rootfs to ghcr.io
       - name: Docker Login to GitHub Container Registry
@@ -463,8 +405,8 @@ jobs:
         uses: actions/checkout@v3 # We don't need to clone git, really. A wget would suffice for GH-hosted runners. But using clone is better for Igor-hosted runners.
         if: ${{matrix.really == 'yes'}}
         with:
-          repository: ${{ github.repository_owner }}/armbian-build
-          ref: extensions
+          repository: ${{ env.BUILD_REPOSITORY }}
+          ref: ${{ needs.matrix_prep.outputs.build-sha1 }}
           fetch-depth: 1
           clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
 
@@ -486,20 +428,14 @@ jobs:
       matrix: ${{ fromJSON(needs.matrix_prep.outputs.image).chunk1 }} # <-- HERE: Image chunk number.
     name: ${{ matrix.desc }}
     runs-on: ${{ matrix.runs_on }}
-    env:
-      EXTRA: "'DONT_BUILD_ARTIFACTS=kernel,firmware,full_firmware,rootfs,fake_ubuntu_advantage_tools,armbian-config,armbian-zsh,armbian-plymouth-theme' COMPRESS_OUTPUTIMAGE=xz SHOW_DEBIAN=yes SHARE_LOG=yes "
-
-      OCI_TARGET_BASE: "ghcr.io/${{ github.repository }}/" # This is picked up by the Docker launcher automatically
-      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: "ghcr.io/${{ github.repository }}:armbian-next-" # Use Docker image in same repo
-      DOCKER_SKIP_UPDATE: "yes" # Do not apt update/install/requirements/etc during Dockerfile build, trust DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX's images are up-to-date
     steps:
 
       - name: Checkout build repo
         uses: actions/checkout@v3
         if: ${{matrix.really == 'yes'}}
         with:
-          repository: ${{ github.repository_owner }}/armbian-build
-          ref: extensions
+          repository: ${{ env.BUILD_REPOSITORY }}
+          ref: ${{ needs.matrix_prep.outputs.build-sha1 }}
           clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
 
       - name: Cleanup leftover output images
@@ -511,7 +447,7 @@ jobs:
         id: build-one-image
         if: ${{matrix.really == 'yes'}}
         run: |
-          bash ./compile.sh ${{ matrix.invocation }} "IMAGE_VERSION=20230400-${{ github.repository_owner }}" ${{env.EXTRA}}
+          bash ./compile.sh ${{ matrix.invocation }} ${{env.EXTRA_PARAMS_IMAGE}}
 
       # @TODO lets upload to GHR release ourselves instead of this shit
       - name: Release ${{ matrix.board }}
@@ -549,20 +485,14 @@ jobs:
       matrix: ${{ fromJSON(needs.matrix_prep.outputs.image).chunk2 }} # <-- HERE: Image chunk number.
     name: ${{ matrix.desc }}
     runs-on: ${{ matrix.runs_on }}
-    env:
-      EXTRA: "'DONT_BUILD_ARTIFACTS=kernel,firmware,full_firmware,rootfs,fake_ubuntu_advantage_tools,armbian-config,armbian-zsh,armbian-plymouth-theme' COMPRESS_OUTPUTIMAGE=xz SHOW_DEBIAN=yes SHARE_LOG=yes "
-
-      OCI_TARGET_BASE: "ghcr.io/${{ github.repository }}/" # This is picked up by the Docker launcher automatically
-      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: "ghcr.io/${{ github.repository }}:armbian-next-" # Use Docker image in same repo
-      DOCKER_SKIP_UPDATE: "yes" # Do not apt update/install/requirements/etc during Dockerfile build, trust DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX's images are up-to-date
     steps:
 
       - name: Checkout build repo
         uses: actions/checkout@v3
         if: ${{matrix.really == 'yes'}}
         with:
-          repository: ${{ github.repository_owner }}/armbian-build
-          ref: extensions
+          repository: ${{ env.BUILD_REPOSITORY }}
+          ref: ${{ needs.matrix_prep.outputs.build-sha1 }}
           clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
 
       - name: Cleanup leftover output images
@@ -574,7 +504,7 @@ jobs:
         id: build-one-image
         if: ${{matrix.really == 'yes'}}
         run: |
-          bash ./compile.sh ${{ matrix.invocation }} "IMAGE_VERSION=20230400-${{ github.repository_owner }}" ${{env.EXTRA}}
+          bash ./compile.sh ${{ matrix.invocation }} ${{env.EXTRA_PARAMS_IMAGE}}
 
       # @TODO lets upload to GHR release ourselves instead of this shit
       - name: Release ${{ matrix.board }}
@@ -612,20 +542,14 @@ jobs:
       matrix: ${{ fromJSON(needs.matrix_prep.outputs.image).chunk3 }} # <-- HERE: Image chunk number.
     name: ${{ matrix.desc }}
     runs-on: ${{ matrix.runs_on }}
-    env:
-      EXTRA: "'DONT_BUILD_ARTIFACTS=kernel,firmware,full_firmware,rootfs,fake_ubuntu_advantage_tools,armbian-config,armbian-zsh,armbian-plymouth-theme' COMPRESS_OUTPUTIMAGE=xz SHOW_DEBIAN=yes SHARE_LOG=yes "
-
-      OCI_TARGET_BASE: "ghcr.io/${{ github.repository }}/" # This is picked up by the Docker launcher automatically
-      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: "ghcr.io/${{ github.repository }}:armbian-next-" # Use Docker image in same repo
-      DOCKER_SKIP_UPDATE: "yes" # Do not apt update/install/requirements/etc during Dockerfile build, trust DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX's images are up-to-date
     steps:
 
       - name: Checkout build repo
         uses: actions/checkout@v3
         if: ${{matrix.really == 'yes'}}
         with:
-          repository: ${{ github.repository_owner }}/armbian-build
-          ref: extensions
+          repository: ${{ env.BUILD_REPOSITORY }}
+          ref: ${{ needs.matrix_prep.outputs.build-sha1 }}
           clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
 
       - name: Cleanup leftover output images
@@ -637,7 +561,7 @@ jobs:
         id: build-one-image
         if: ${{matrix.really == 'yes'}}
         run: |
-          bash ./compile.sh ${{ matrix.invocation }} "IMAGE_VERSION=20230400-${{ github.repository_owner }}" ${{env.EXTRA}}
+          bash ./compile.sh ${{ matrix.invocation }} ${{env.EXTRA_PARAMS_IMAGE}}
 
       # @TODO lets upload to GHR release ourselves instead of this shit
       - name: Release ${{ matrix.board }}
@@ -675,20 +599,14 @@ jobs:
       matrix: ${{ fromJSON(needs.matrix_prep.outputs.image).chunk4 }} # <-- HERE: Image chunk number.
     name: ${{ matrix.desc }}
     runs-on: ${{ matrix.runs_on }}
-    env:
-      EXTRA: "'DONT_BUILD_ARTIFACTS=kernel,firmware,full_firmware,rootfs,fake_ubuntu_advantage_tools,armbian-config,armbian-zsh,armbian-plymouth-theme' COMPRESS_OUTPUTIMAGE=xz SHOW_DEBIAN=yes SHARE_LOG=yes "
-
-      OCI_TARGET_BASE: "ghcr.io/${{ github.repository }}/" # This is picked up by the Docker launcher automatically
-      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: "ghcr.io/${{ github.repository }}:armbian-next-" # Use Docker image in same repo
-      DOCKER_SKIP_UPDATE: "yes" # Do not apt update/install/requirements/etc during Dockerfile build, trust DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX's images are up-to-date
     steps:
 
       - name: Checkout build repo
         uses: actions/checkout@v3
         if: ${{matrix.really == 'yes'}}
         with:
-          repository: ${{ github.repository_owner }}/armbian-build
-          ref: extensions
+          repository: ${{ env.BUILD_REPOSITORY }}
+          ref: ${{ needs.matrix_prep.outputs.build-sha1 }}
           clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
 
       - name: Cleanup leftover output images
@@ -700,7 +618,7 @@ jobs:
         id: build-one-image
         if: ${{matrix.really == 'yes'}}
         run: |
-          bash ./compile.sh ${{ matrix.invocation }} "IMAGE_VERSION=20230400-${{ github.repository_owner }}" ${{env.EXTRA}}
+          bash ./compile.sh ${{ matrix.invocation }} ${{env.EXTRA_PARAMS_IMAGE}}
 
       # @TODO lets upload to GHR release ourselves instead of this shit
       - name: Release ${{ matrix.board }}
@@ -738,20 +656,14 @@ jobs:
       matrix: ${{ fromJSON(needs.matrix_prep.outputs.image).chunk5 }} # <-- HERE: Image chunk number.
     name: ${{ matrix.desc }}
     runs-on: ${{ matrix.runs_on }}
-    env:
-      EXTRA: "'DONT_BUILD_ARTIFACTS=kernel,firmware,full_firmware,rootfs,fake_ubuntu_advantage_tools,armbian-config,armbian-zsh,armbian-plymouth-theme' COMPRESS_OUTPUTIMAGE=xz SHOW_DEBIAN=yes SHARE_LOG=yes "
-
-      OCI_TARGET_BASE: "ghcr.io/${{ github.repository }}/" # This is picked up by the Docker launcher automatically
-      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: "ghcr.io/${{ github.repository }}:armbian-next-" # Use Docker image in same repo
-      DOCKER_SKIP_UPDATE: "yes" # Do not apt update/install/requirements/etc during Dockerfile build, trust DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX's images are up-to-date
     steps:
 
       - name: Checkout build repo
         uses: actions/checkout@v3
         if: ${{matrix.really == 'yes'}}
         with:
-          repository: ${{ github.repository_owner }}/armbian-build
-          ref: extensions
+          repository: ${{ env.BUILD_REPOSITORY }}
+          ref: ${{ needs.matrix_prep.outputs.build-sha1 }}
           clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
 
       - name: Cleanup leftover output images
@@ -763,7 +675,7 @@ jobs:
         id: build-one-image
         if: ${{matrix.really == 'yes'}}
         run: |
-          bash ./compile.sh ${{ matrix.invocation }} "IMAGE_VERSION=20230400-${{ github.repository_owner }}" ${{env.EXTRA}}
+          bash ./compile.sh ${{ matrix.invocation }} ${{env.EXTRA_PARAMS_IMAGE}}
 
       # @TODO lets upload to GHR release ourselves instead of this shit
       - name: Release ${{ matrix.board }}
@@ -801,20 +713,14 @@ jobs:
       matrix: ${{ fromJSON(needs.matrix_prep.outputs.image).chunk6 }} # <-- HERE: Image chunk number.
     name: ${{ matrix.desc }}
     runs-on: ${{ matrix.runs_on }}
-    env:
-      EXTRA: "'DONT_BUILD_ARTIFACTS=kernel,firmware,full_firmware,rootfs,fake_ubuntu_advantage_tools,armbian-config,armbian-zsh,armbian-plymouth-theme' COMPRESS_OUTPUTIMAGE=xz SHOW_DEBIAN=yes SHARE_LOG=yes "
-
-      OCI_TARGET_BASE: "ghcr.io/${{ github.repository }}/" # This is picked up by the Docker launcher automatically
-      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: "ghcr.io/${{ github.repository }}:armbian-next-" # Use Docker image in same repo
-      DOCKER_SKIP_UPDATE: "yes" # Do not apt update/install/requirements/etc during Dockerfile build, trust DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX's images are up-to-date
     steps:
 
       - name: Checkout build repo
         uses: actions/checkout@v3
         if: ${{matrix.really == 'yes'}}
         with:
-          repository: ${{ github.repository_owner }}/armbian-build
-          ref: extensions
+          repository: ${{ env.BUILD_REPOSITORY }}
+          ref: ${{ needs.matrix_prep.outputs.build-sha1 }}
           clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
 
       - name: Cleanup leftover output images
@@ -826,7 +732,7 @@ jobs:
         id: build-one-image
         if: ${{matrix.really == 'yes'}}
         run: |
-          bash ./compile.sh ${{ matrix.invocation }} "IMAGE_VERSION=20230400-${{ github.repository_owner }}" ${{env.EXTRA}}
+          bash ./compile.sh ${{ matrix.invocation }} ${{env.EXTRA_PARAMS_IMAGE}}
 
       # @TODO lets upload to GHR release ourselves instead of this shit
       - name: Release ${{ matrix.board }}
@@ -864,20 +770,14 @@ jobs:
       matrix: ${{ fromJSON(needs.matrix_prep.outputs.image).chunk7 }} # <-- HERE: Image chunk number.
     name: ${{ matrix.desc }}
     runs-on: ${{ matrix.runs_on }}
-    env:
-      EXTRA: "'DONT_BUILD_ARTIFACTS=kernel,firmware,full_firmware,rootfs,fake_ubuntu_advantage_tools,armbian-config,armbian-zsh,armbian-plymouth-theme' COMPRESS_OUTPUTIMAGE=xz SHOW_DEBIAN=yes SHARE_LOG=yes "
-
-      OCI_TARGET_BASE: "ghcr.io/${{ github.repository }}/" # This is picked up by the Docker launcher automatically
-      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: "ghcr.io/${{ github.repository }}:armbian-next-" # Use Docker image in same repo
-      DOCKER_SKIP_UPDATE: "yes" # Do not apt update/install/requirements/etc during Dockerfile build, trust DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX's images are up-to-date
     steps:
 
       - name: Checkout build repo
         uses: actions/checkout@v3
         if: ${{matrix.really == 'yes'}}
         with:
-          repository: ${{ github.repository_owner }}/armbian-build
-          ref: extensions
+          repository: ${{ env.BUILD_REPOSITORY }}
+          ref: ${{ needs.matrix_prep.outputs.build-sha1 }}
           clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
 
       - name: Cleanup leftover output images
@@ -889,7 +789,7 @@ jobs:
         id: build-one-image
         if: ${{matrix.really == 'yes'}}
         run: |
-          bash ./compile.sh ${{ matrix.invocation }} "IMAGE_VERSION=20230400-${{ github.repository_owner }}" ${{env.EXTRA}}
+          bash ./compile.sh ${{ matrix.invocation }} ${{env.EXTRA_PARAMS_IMAGE}}
 
       # @TODO lets upload to GHR release ourselves instead of this shit
       - name: Release ${{ matrix.board }}
@@ -927,20 +827,14 @@ jobs:
       matrix: ${{ fromJSON(needs.matrix_prep.outputs.image).chunk8 }} # <-- HERE: Image chunk number.
     name: ${{ matrix.desc }}
     runs-on: ${{ matrix.runs_on }}
-    env:
-      EXTRA: "'DONT_BUILD_ARTIFACTS=kernel,firmware,full_firmware,rootfs,fake_ubuntu_advantage_tools,armbian-config,armbian-zsh,armbian-plymouth-theme' COMPRESS_OUTPUTIMAGE=xz SHOW_DEBIAN=yes SHARE_LOG=yes "
-
-      OCI_TARGET_BASE: "ghcr.io/${{ github.repository }}/" # This is picked up by the Docker launcher automatically
-      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: "ghcr.io/${{ github.repository }}:armbian-next-" # Use Docker image in same repo
-      DOCKER_SKIP_UPDATE: "yes" # Do not apt update/install/requirements/etc during Dockerfile build, trust DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX's images are up-to-date
     steps:
 
       - name: Checkout build repo
         uses: actions/checkout@v3
         if: ${{matrix.really == 'yes'}}
         with:
-          repository: ${{ github.repository_owner }}/armbian-build
-          ref: extensions
+          repository: ${{ env.BUILD_REPOSITORY }}
+          ref: ${{ needs.matrix_prep.outputs.build-sha1 }}
           clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
 
       - name: Cleanup leftover output images
@@ -952,7 +846,7 @@ jobs:
         id: build-one-image
         if: ${{matrix.really == 'yes'}}
         run: |
-          bash ./compile.sh ${{ matrix.invocation }} "IMAGE_VERSION=20230400-${{ github.repository_owner }}" ${{env.EXTRA}}
+          bash ./compile.sh ${{ matrix.invocation }} ${{env.EXTRA_PARAMS_IMAGE}}
 
       # @TODO lets upload to GHR release ourselves instead of this shit
       - name: Release ${{ matrix.board }}
@@ -990,20 +884,14 @@ jobs:
       matrix: ${{ fromJSON(needs.matrix_prep.outputs.image).chunk9 }} # <-- HERE: Image chunk number.
     name: ${{ matrix.desc }}
     runs-on: ${{ matrix.runs_on }}
-    env:
-      EXTRA: "'DONT_BUILD_ARTIFACTS=kernel,firmware,full_firmware,rootfs,fake_ubuntu_advantage_tools,armbian-config,armbian-zsh,armbian-plymouth-theme' COMPRESS_OUTPUTIMAGE=xz SHOW_DEBIAN=yes SHARE_LOG=yes "
-
-      OCI_TARGET_BASE: "ghcr.io/${{ github.repository }}/" # This is picked up by the Docker launcher automatically
-      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: "ghcr.io/${{ github.repository }}:armbian-next-" # Use Docker image in same repo
-      DOCKER_SKIP_UPDATE: "yes" # Do not apt update/install/requirements/etc during Dockerfile build, trust DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX's images are up-to-date
     steps:
 
       - name: Checkout build repo
         uses: actions/checkout@v3
         if: ${{matrix.really == 'yes'}}
         with:
-          repository: ${{ github.repository_owner }}/armbian-build
-          ref: extensions
+          repository: ${{ env.BUILD_REPOSITORY }}
+          ref: ${{ needs.matrix_prep.outputs.build-sha1 }}
           clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
 
       - name: Cleanup leftover output images
@@ -1015,7 +903,7 @@ jobs:
         id: build-one-image
         if: ${{matrix.really == 'yes'}}
         run: |
-          bash ./compile.sh ${{ matrix.invocation }} "IMAGE_VERSION=20230400-${{ github.repository_owner }}" ${{env.EXTRA}}
+          bash ./compile.sh ${{ matrix.invocation }} ${{env.EXTRA_PARAMS_IMAGE}}
 
       # @TODO lets upload to GHR release ourselves instead of this shit
       - name: Release ${{ matrix.board }}
@@ -1053,20 +941,14 @@ jobs:
       matrix: ${{ fromJSON(needs.matrix_prep.outputs.image).chunk10 }} # <-- HERE: Image chunk number.
     name: ${{ matrix.desc }}
     runs-on: ${{ matrix.runs_on }}
-    env:
-      EXTRA: "'DONT_BUILD_ARTIFACTS=kernel,firmware,full_firmware,rootfs,fake_ubuntu_advantage_tools,armbian-config,armbian-zsh,armbian-plymouth-theme' COMPRESS_OUTPUTIMAGE=xz SHOW_DEBIAN=yes SHARE_LOG=yes "
-
-      OCI_TARGET_BASE: "ghcr.io/${{ github.repository }}/" # This is picked up by the Docker launcher automatically
-      DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: "ghcr.io/${{ github.repository }}:armbian-next-" # Use Docker image in same repo
-      DOCKER_SKIP_UPDATE: "yes" # Do not apt update/install/requirements/etc during Dockerfile build, trust DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX's images are up-to-date
     steps:
 
       - name: Checkout build repo
         uses: actions/checkout@v3
         if: ${{matrix.really == 'yes'}}
         with:
-          repository: ${{ github.repository_owner }}/armbian-build
-          ref: extensions
+          repository: ${{ env.BUILD_REPOSITORY }}
+          ref: ${{ needs.matrix_prep.outputs.build-sha1 }}
           clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
 
       - name: Cleanup leftover output images
@@ -1078,7 +960,7 @@ jobs:
         id: build-one-image
         if: ${{matrix.really == 'yes'}}
         run: |
-          bash ./compile.sh ${{ matrix.invocation }} "IMAGE_VERSION=20230400-${{ github.repository_owner }}" ${{env.EXTRA}}
+          bash ./compile.sh ${{ matrix.invocation }} ${{env.EXTRA_PARAMS_IMAGE}}
 
       # @TODO lets upload to GHR release ourselves instead of this shit
       - name: Release ${{ matrix.board }}
