@@ -421,8 +421,7 @@ jobs:
   build-images-chunk1: # <-- HERE: Image chunk number.
     needs: [ "matrix_prep", "build-artifacts-chunk1", "build-artifacts-chunk2", "build-artifacts-chunk3", "build-artifacts-chunk4", "build-artifacts-chunk5", "build-artifacts-chunk6", "build-artifacts-chunk7", "build-artifacts-chunk8", "build-artifacts-chunk9", "build-artifacts-chunk10" ] # <-- HERE: all artifact chunk numbers.
     timeout-minutes: 15
-    if: ${{ github.repository_owner == 'rpardini' }}
-
+    if: ${{ always() && ( github.repository_owner == 'rpardini' )  }}
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
       matrix: ${{ fromJSON(needs.matrix_prep.outputs.image).chunk1 }} # <-- HERE: Image chunk number.
@@ -478,7 +477,7 @@ jobs:
   build-images-chunk2: # <-- HERE: Image chunk number.
     needs: [ "matrix_prep", "build-artifacts-chunk1", "build-artifacts-chunk2", "build-artifacts-chunk3", "build-artifacts-chunk4", "build-artifacts-chunk5", "build-artifacts-chunk6", "build-artifacts-chunk7", "build-artifacts-chunk8", "build-artifacts-chunk9", "build-artifacts-chunk10" ] # <-- HERE: all artifact chunk numbers.
     timeout-minutes: 15
-    if: ${{ github.repository_owner == 'rpardini' }}
+    if: ${{ always() && ( github.repository_owner == 'rpardini' )  }}
 
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
@@ -535,7 +534,7 @@ jobs:
   build-images-chunk3: # <-- HERE: Image chunk number.
     needs: [ "matrix_prep", "build-artifacts-chunk1", "build-artifacts-chunk2", "build-artifacts-chunk3", "build-artifacts-chunk4", "build-artifacts-chunk5", "build-artifacts-chunk6", "build-artifacts-chunk7", "build-artifacts-chunk8", "build-artifacts-chunk9", "build-artifacts-chunk10" ] # <-- HERE: all artifact chunk numbers.
     timeout-minutes: 15
-    if: ${{ github.repository_owner == 'rpardini' }}
+    if: ${{ always() && ( github.repository_owner == 'rpardini' )  }}
 
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
@@ -592,7 +591,7 @@ jobs:
   build-images-chunk4: # <-- HERE: Image chunk number.
     needs: [ "matrix_prep", "build-artifacts-chunk1", "build-artifacts-chunk2", "build-artifacts-chunk3", "build-artifacts-chunk4", "build-artifacts-chunk5", "build-artifacts-chunk6", "build-artifacts-chunk7", "build-artifacts-chunk8", "build-artifacts-chunk9", "build-artifacts-chunk10" ] # <-- HERE: all artifact chunk numbers.
     timeout-minutes: 15
-    if: ${{ github.repository_owner == 'rpardini' }}
+    if: ${{ always() && ( github.repository_owner == 'rpardini' )  }}
 
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
@@ -649,7 +648,7 @@ jobs:
   build-images-chunk5: # <-- HERE: Image chunk number.
     needs: [ "matrix_prep", "build-artifacts-chunk1", "build-artifacts-chunk2", "build-artifacts-chunk3", "build-artifacts-chunk4", "build-artifacts-chunk5", "build-artifacts-chunk6", "build-artifacts-chunk7", "build-artifacts-chunk8", "build-artifacts-chunk9", "build-artifacts-chunk10" ] # <-- HERE: all artifact chunk numbers.
     timeout-minutes: 15
-    if: ${{ github.repository_owner == 'rpardini' }}
+    if: ${{ always() && ( github.repository_owner == 'rpardini' )  }}
 
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
@@ -706,7 +705,7 @@ jobs:
   build-images-chunk6: # <-- HERE: Image chunk number.
     needs: [ "matrix_prep", "build-artifacts-chunk1", "build-artifacts-chunk2", "build-artifacts-chunk3", "build-artifacts-chunk4", "build-artifacts-chunk5", "build-artifacts-chunk6", "build-artifacts-chunk7", "build-artifacts-chunk8", "build-artifacts-chunk9", "build-artifacts-chunk10" ] # <-- HERE: all artifact chunk numbers.
     timeout-minutes: 15
-    if: ${{ github.repository_owner == 'rpardini' }}
+    if: ${{ always() && ( github.repository_owner == 'rpardini' )  }}
 
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
@@ -763,7 +762,7 @@ jobs:
   build-images-chunk7: # <-- HERE: Image chunk number.
     needs: [ "matrix_prep", "build-artifacts-chunk1", "build-artifacts-chunk2", "build-artifacts-chunk3", "build-artifacts-chunk4", "build-artifacts-chunk5", "build-artifacts-chunk6", "build-artifacts-chunk7", "build-artifacts-chunk8", "build-artifacts-chunk9", "build-artifacts-chunk10" ] # <-- HERE: all artifact chunk numbers.
     timeout-minutes: 15
-    if: ${{ github.repository_owner == 'rpardini' }}
+    if: ${{ always() && ( github.repository_owner == 'rpardini' )  }}
 
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
@@ -820,7 +819,7 @@ jobs:
   build-images-chunk8: # <-- HERE: Image chunk number.
     needs: [ "matrix_prep", "build-artifacts-chunk1", "build-artifacts-chunk2", "build-artifacts-chunk3", "build-artifacts-chunk4", "build-artifacts-chunk5", "build-artifacts-chunk6", "build-artifacts-chunk7", "build-artifacts-chunk8", "build-artifacts-chunk9", "build-artifacts-chunk10" ] # <-- HERE: all artifact chunk numbers.
     timeout-minutes: 15
-    if: ${{ github.repository_owner == 'rpardini' }}
+    if: ${{ always() && ( github.repository_owner == 'rpardini' )  }}
 
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
@@ -877,7 +876,7 @@ jobs:
   build-images-chunk9: # <-- HERE: Image chunk number.
     needs: [ "matrix_prep", "build-artifacts-chunk1", "build-artifacts-chunk2", "build-artifacts-chunk3", "build-artifacts-chunk4", "build-artifacts-chunk5", "build-artifacts-chunk6", "build-artifacts-chunk7", "build-artifacts-chunk8", "build-artifacts-chunk9", "build-artifacts-chunk10" ] # <-- HERE: all artifact chunk numbers.
     timeout-minutes: 15
-    if: ${{ github.repository_owner == 'rpardini' }}
+    if: ${{ always() && ( github.repository_owner == 'rpardini' )  }}
 
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
@@ -934,7 +933,7 @@ jobs:
   build-images-chunk10: # <-- HERE: Image chunk number.
     needs: [ "matrix_prep", "build-artifacts-chunk1", "build-artifacts-chunk2", "build-artifacts-chunk3", "build-artifacts-chunk4", "build-artifacts-chunk5", "build-artifacts-chunk6", "build-artifacts-chunk7", "build-artifacts-chunk8", "build-artifacts-chunk9", "build-artifacts-chunk10" ] # <-- HERE: all artifact chunk numbers.
     timeout-minutes: 15
-    if: ${{ github.repository_owner == 'rpardini' }}
+    if: ${{ always() && ( github.repository_owner == 'rpardini' )  }}
 
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
