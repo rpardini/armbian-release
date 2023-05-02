@@ -78,13 +78,6 @@ jobs:
         run: |
           sudo chown -R $USER:$USER cache/memoize cache/oci/positive
 
-      #- name: echo stuff artifact
-      #  run: |
-      #    echo '${{ steps.prepare-matrix.outputs.artifact-matrix }}' | jq --color-output .
-      #- name: echo stuff image
-      #  run: |
-      #    echo '${{ steps.prepare-matrix.outputs.image-matrix }}' | jq --color-output .
-
       - name: Prepare GH Release
         uses: "marvinpinto/action-automatic-releases@latest" # @TODO this is outdated, needs replacement. Also it deletes the release if it already exists, which is not what we want. Might be necessary to move the tag.
         if: ${{ github.event.inputs.skipImages == 'no' }} # this action deletes the release, so if skipping images, skip this too
@@ -97,9 +90,6 @@ jobs:
     outputs:
       # not related to matrix
       build-sha1: ${{ steps.latest-commit.outputs.sha1 }}
-      # "full" matrix, with all chunks. slow.
-      #artifact: ${{ steps.prepare-matrix.outputs.artifact-matrix }}
-      #image: ${{ steps.prepare-matrix.outputs.image-matrix }}
       # one-for-each images/artifacts chunks. much faster, more copy-paste.
       # images-1
       images-chunk-json-1: ${{ steps.prepare-matrix.outputs.images-chunk-json-1 }}
@@ -219,7 +209,7 @@ jobs:
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
       matrix: ${{ fromJSON(needs.matrix_prep.outputs.artifacts-chunk-json-1) }} # <-- HERE: Chunk number.
-    name: ${{ matrix.desc || 'Empty artifact chunk 1' }} # <-- HERE: Chunk number.
+    name: ${{ matrix.desc || 'Empty A1' }} # <-- HERE: Chunk number.
     runs-on: ${{ matrix.runs_on }}
     steps:
       # Login to ghcr.io, for later uploading rootfs to ghcr.io
@@ -250,7 +240,7 @@ jobs:
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
       matrix: ${{ fromJSON(needs.matrix_prep.outputs.artifacts-chunk-json-2) }} # <-- HERE: Chunk number.
-    name: ${{ matrix.desc || 'Empty artifact chunk 2' }} # <-- HERE: Chunk number.
+    name: ${{ matrix.desc || 'Empty A2' }} # <-- HERE: Chunk number.
     runs-on: ${{ matrix.runs_on }}
     steps:
       # Login to ghcr.io, for later uploading rootfs to ghcr.io
@@ -283,7 +273,7 @@ jobs:
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
       matrix: ${{ fromJSON(needs.matrix_prep.outputs.images-chunk-json-1) }} # <-- HERE: Chunk number.
-    name: ${{ matrix.desc || 'Empty images chunk 1' }} # <-- HERE: Chunk number.
+    name: ${{ matrix.desc || 'Empty I1' }} # <-- HERE: Chunk number.
     runs-on: ${{ matrix.runs_on }}
     steps:
 
@@ -334,7 +324,7 @@ jobs:
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
       matrix: ${{ fromJSON(needs.matrix_prep.outputs.images-chunk-json-2) }} # <-- HERE: Chunk number.
-    name: ${{ matrix.desc || 'Empty images chunk 2' }} # <-- HERE: Chunk number.
+    name: ${{ matrix.desc || 'Empty I2' }} # <-- HERE: Chunk number.
     runs-on: ${{ matrix.runs_on }}
     steps:
 
