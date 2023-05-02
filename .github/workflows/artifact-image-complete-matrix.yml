@@ -182,6 +182,36 @@ jobs:
       artifacts-chunk-not-empty-10: ${{ steps.prepare-matrix.outputs.artifacts-chunk-not-empty-10 }}
       artifacts-chunk-size-10: ${{ steps.prepare-matrix.outputs.artifacts-chunk-size-10 }}
   
+  # ------ aggregate all artifact chunks into a single dependency -------
+  
+  all-artifacts-ready:
+    name: all artifacts ready
+    runs-on: ubuntu-latest # not going to run, anyway, but is required.
+    if: ${{ always() && ( 1 == 2 ) }} # eg: never run.
+    needs: [ "matrix_prep", "build-artifacts-chunk1", "build-artifacts-chunk2" ] # <-- HERE: all artifact chunk numbers.
+    steps:
+      - name: fake step
+        run: uptime
+  
+  all-images-ready:
+    name: all images ready
+    runs-on: ubuntu-latest # not going to run, anyway, but is required.
+    if: ${{ always() && ( 1 == 2 ) }} # eg: never run.
+    needs: [ "matrix_prep", "build-images-chunk1", "build-images-chunk2" ] # <-- HERE: all image chunk numbers.
+    steps:
+      - name: fake step
+        run: uptime
+  
+  all-artifacts-and-images-ready:
+    name: all artifacts and images ready
+    runs-on: ubuntu-latest # not going to run, anyway, but is required.
+    if: ${{ always() && ( 1 == 2 ) }} # eg: never run.
+    needs: [ "matrix_prep", "all-artifacts-ready", "all-images-ready" ]
+    steps:
+      - name: fake step
+        run: uptime
+  
+  # ------- artifact chunks ----------------------------------------
   
   build-artifacts-chunk1: # <-- HERE: Chunk number.
     if: ${{ github.repository_owner == 'rpardini' && needs.matrix_prep.outputs.artifacts-chunk-not-empty-1 == 'yes' }}  # <-- HERE: Chunk number.
@@ -189,7 +219,7 @@ jobs:
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
       matrix: ${{ fromJSON(needs.matrix_prep.outputs.artifacts-chunk-json-1) }} # <-- HERE: Chunk number.
-    name: ${{ matrix.desc }}
+    name: ${{ matrix.desc || 'Empty artifact chunk 1' }} # <-- HERE: Chunk number.
     runs-on: ${{ matrix.runs_on }}
     steps:
       # Login to ghcr.io, for later uploading rootfs to ghcr.io
@@ -220,7 +250,7 @@ jobs:
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
       matrix: ${{ fromJSON(needs.matrix_prep.outputs.artifacts-chunk-json-2) }} # <-- HERE: Chunk number.
-    name: ${{ matrix.desc }}
+    name: ${{ matrix.desc || 'Empty artifact chunk 2' }} # <-- HERE: Chunk number.
     runs-on: ${{ matrix.runs_on }}
     steps:
       # Login to ghcr.io, for later uploading rootfs to ghcr.io
@@ -244,24 +274,6 @@ jobs:
         run: |
           bash ./compile.sh ${{ matrix.invocation }} SHARE_LOG=yes
 
-  # ------ aggregate all artifact chunks into a single dependency -------
-  
-  all-artifacts-ready:
-    runs-on: ubuntu-latest # not going to run, anyway, but is required.
-    if: ${{ always() && ( 1 == 2 ) }} # eg: never run.
-    needs: [ "matrix_prep", "build-artifacts-chunk1", "build-artifacts-chunk2" ] # <-- HERE: all artifact chunk numbers.
-    steps:
-      - name: fake step
-        run: uptime
-  
-  all-images-ready:
-    runs-on: ubuntu-latest # not going to run, anyway, but is required.
-    if: ${{ always() && ( 1 == 2 ) }} # eg: never run.
-    needs: [ "matrix_prep", "build-images-chunk1", "build-images-chunk2" ] # <-- HERE: all image chunk numbers.
-    steps:
-      - name: fake step
-        run: uptime
-
   # -------------------- images ------------------------------------------
 
   build-images-chunk1: # <-- HERE: Image chunk number.
@@ -271,7 +283,7 @@ jobs:
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
       matrix: ${{ fromJSON(needs.matrix_prep.outputs.images-chunk-json-1) }} # <-- HERE: Chunk number.
-    name: ${{ matrix.desc }}
+    name: ${{ matrix.desc || 'Empty images chunk 1' }} # <-- HERE: Chunk number.
     runs-on: ${{ matrix.runs_on }}
     steps:
 
@@ -322,7 +334,7 @@ jobs:
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
       matrix: ${{ fromJSON(needs.matrix_prep.outputs.images-chunk-json-2) }} # <-- HERE: Chunk number.
-    name: ${{ matrix.desc }}
+    name: ${{ matrix.desc || 'Empty images chunk 2' }} # <-- HERE: Chunk number.
     runs-on: ${{ matrix.runs_on }}
     steps:
 
