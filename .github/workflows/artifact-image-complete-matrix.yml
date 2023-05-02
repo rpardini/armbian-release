@@ -10,6 +10,11 @@ on:
         required: true
         options: [ 'no', 'yes' ]
         type: choice
+      checkOci:
+        description: 'Check OCI for existing artifacts? yes = check OCI, no = always build everything'
+        required: true
+        options: [ 'yes', 'no' ]
+        type: choice
 
 env:
   
@@ -66,7 +71,7 @@ jobs:
         id: prepare-matrix
         run: |
           # this sets outputs "artifact-matrix" #and "image-matrix" 
-          bash ./compile.sh matrix rpardini-generic CLEAN_INFO=yes CLEAN_MATRIX=yes MATRIX_ARTIFACT_CHUNKS=10 MATRIX_IMAGE_CHUNKS=10 CHECK_OCI=yes TARGETS_FILENAME=targets.yaml SKIP_IMAGES=${{ github.event.inputs.skipImages }} # DEBUG=yes IMAGES_ONLY_OUTDATED_ARTIFACTS=yes 
+          bash ./compile.sh matrix rpardini-generic CLEAN_INFO=yes CLEAN_MATRIX=yes MATRIX_ARTIFACT_CHUNKS=10 MATRIX_IMAGE_CHUNKS=10 CHECK_OCI=${{ github.event.inputs.checkOci }} TARGETS_FILENAME=targets.yaml SKIP_IMAGES=${{ github.event.inputs.skipImages }} # DEBUG=yes IMAGES_ONLY_OUTDATED_ARTIFACTS=yes 
 
       - name: chown cache memoize/oci back to normal user
         run: |
@@ -89,23 +94,106 @@ jobs:
           title: "Latest images"
     
     outputs:
-      artifact: ${{ steps.prepare-matrix.outputs.artifact-matrix }}
-      image: ${{ steps.prepare-matrix.outputs.image-matrix }}
+      # not related to matrix
       build-sha1: ${{ steps.latest-commit.outputs.sha1 }}
-
+      # "full" matrix, with all chunks. slow.
+      #artifact: ${{ steps.prepare-matrix.outputs.artifact-matrix }}
+      #image: ${{ steps.prepare-matrix.outputs.image-matrix }}
+      # one-for-each images/artifacts chunks. much faster, more copy-paste.
+      # images-1
+      images-chunk-json-1: ${{ steps.prepare-matrix.outputs.images-chunk-json-1 }}
+      images-chunk-not-empty-1: ${{ steps.prepare-matrix.outputs.images-chunk-not-empty-1 }}
+      images-chunk-size-1: ${{ steps.prepare-matrix.outputs.images-chunk-size-1 }}
+      # images-2
+      images-chunk-json-2: ${{ steps.prepare-matrix.outputs.images-chunk-json-2 }}
+      images-chunk-not-empty-2: ${{ steps.prepare-matrix.outputs.images-chunk-not-empty-2 }}
+      images-chunk-size-2: ${{ steps.prepare-matrix.outputs.images-chunk-size-2 }}
+      # images-3
+      images-chunk-json-3: ${{ steps.prepare-matrix.outputs.images-chunk-json-3 }}
+      images-chunk-not-empty-3: ${{ steps.prepare-matrix.outputs.images-chunk-not-empty-3 }}
+      images-chunk-size-3: ${{ steps.prepare-matrix.outputs.images-chunk-size-3 }}
+      # images-4
+      images-chunk-json-4: ${{ steps.prepare-matrix.outputs.images-chunk-json-4 }}
+      images-chunk-not-empty-4: ${{ steps.prepare-matrix.outputs.images-chunk-not-empty-4 }}
+      images-chunk-size-4: ${{ steps.prepare-matrix.outputs.images-chunk-size-4 }}
+      # images-5
+      images-chunk-json-5: ${{ steps.prepare-matrix.outputs.images-chunk-json-5 }}
+      images-chunk-not-empty-5: ${{ steps.prepare-matrix.outputs.images-chunk-not-empty-5 }}
+      images-chunk-size-5: ${{ steps.prepare-matrix.outputs.images-chunk-size-5 }}
+      # images-6
+      images-chunk-json-6: ${{ steps.prepare-matrix.outputs.images-chunk-json-6 }}
+      images-chunk-not-empty-6: ${{ steps.prepare-matrix.outputs.images-chunk-not-empty-6 }}
+      images-chunk-size-6: ${{ steps.prepare-matrix.outputs.images-chunk-size-6 }}
+      # images-7
+      images-chunk-json-7: ${{ steps.prepare-matrix.outputs.images-chunk-json-7 }}
+      images-chunk-not-empty-7: ${{ steps.prepare-matrix.outputs.images-chunk-not-empty-7 }}
+      images-chunk-size-7: ${{ steps.prepare-matrix.outputs.images-chunk-size-7 }}
+      # images-8
+      images-chunk-json-8: ${{ steps.prepare-matrix.outputs.images-chunk-json-8 }}
+      images-chunk-not-empty-8: ${{ steps.prepare-matrix.outputs.images-chunk-not-empty-8 }}
+      images-chunk-size-8: ${{ steps.prepare-matrix.outputs.images-chunk-size-8 }}
+      # images-9
+      images-chunk-json-9: ${{ steps.prepare-matrix.outputs.images-chunk-json-9 }}
+      images-chunk-not-empty-9: ${{ steps.prepare-matrix.outputs.images-chunk-not-empty-9 }}
+      images-chunk-size-9: ${{ steps.prepare-matrix.outputs.images-chunk-size-9 }}
+      # images-10
+      images-chunk-json-10: ${{ steps.prepare-matrix.outputs.images-chunk-json-10 }}
+      images-chunk-not-empty-10: ${{ steps.prepare-matrix.outputs.images-chunk-not-empty-10 }}
+      images-chunk-size-10: ${{ steps.prepare-matrix.outputs.images-chunk-size-10 }}
+      # artifacts-1
+      artifacts-chunk-json-1: ${{ steps.prepare-matrix.outputs.artifacts-chunk-json-1 }}
+      artifacts-chunk-not-empty-1: ${{ steps.prepare-matrix.outputs.artifacts-chunk-not-empty-1 }}
+      artifacts-chunk-size-1: ${{ steps.prepare-matrix.outputs.artifacts-chunk-size-1 }}
+      # artifacts-2
+      artifacts-chunk-json-2: ${{ steps.prepare-matrix.outputs.artifacts-chunk-json-2 }}
+      artifacts-chunk-not-empty-2: ${{ steps.prepare-matrix.outputs.artifacts-chunk-not-empty-2 }}
+      artifacts-chunk-size-2: ${{ steps.prepare-matrix.outputs.artifacts-chunk-size-2 }}
+      # artifacts-3
+      artifacts-chunk-json-3: ${{ steps.prepare-matrix.outputs.artifacts-chunk-json-3 }}
+      artifacts-chunk-not-empty-3: ${{ steps.prepare-matrix.outputs.artifacts-chunk-not-empty-3 }}
+      artifacts-chunk-size-3: ${{ steps.prepare-matrix.outputs.artifacts-chunk-size-3 }}
+      # artifacts-4
+      artifacts-chunk-json-4: ${{ steps.prepare-matrix.outputs.artifacts-chunk-json-4 }}
+      artifacts-chunk-not-empty-4: ${{ steps.prepare-matrix.outputs.artifacts-chunk-not-empty-4 }}
+      artifacts-chunk-size-4: ${{ steps.prepare-matrix.outputs.artifacts-chunk-size-4 }}
+      # artifacts-5
+      artifacts-chunk-json-5: ${{ steps.prepare-matrix.outputs.artifacts-chunk-json-5 }}
+      artifacts-chunk-not-empty-5: ${{ steps.prepare-matrix.outputs.artifacts-chunk-not-empty-5 }}
+      artifacts-chunk-size-5: ${{ steps.prepare-matrix.outputs.artifacts-chunk-size-5 }}
+      # artifacts-6
+      artifacts-chunk-json-6: ${{ steps.prepare-matrix.outputs.artifacts-chunk-json-6 }}
+      artifacts-chunk-not-empty-6: ${{ steps.prepare-matrix.outputs.artifacts-chunk-not-empty-6 }}
+      artifacts-chunk-size-6: ${{ steps.prepare-matrix.outputs.artifacts-chunk-size-6 }}
+      # artifacts-7
+      artifacts-chunk-json-7: ${{ steps.prepare-matrix.outputs.artifacts-chunk-json-7 }}
+      artifacts-chunk-not-empty-7: ${{ steps.prepare-matrix.outputs.artifacts-chunk-not-empty-7 }}
+      artifacts-chunk-size-7: ${{ steps.prepare-matrix.outputs.artifacts-chunk-size-7 }}
+      # artifacts-8
+      artifacts-chunk-json-8: ${{ steps.prepare-matrix.outputs.artifacts-chunk-json-8 }}
+      artifacts-chunk-not-empty-8: ${{ steps.prepare-matrix.outputs.artifacts-chunk-not-empty-8 }}
+      artifacts-chunk-size-8: ${{ steps.prepare-matrix.outputs.artifacts-chunk-size-8 }}
+      # artifacts-9
+      artifacts-chunk-json-9: ${{ steps.prepare-matrix.outputs.artifacts-chunk-json-9 }}
+      artifacts-chunk-not-empty-9: ${{ steps.prepare-matrix.outputs.artifacts-chunk-not-empty-9 }}
+      artifacts-chunk-size-9: ${{ steps.prepare-matrix.outputs.artifacts-chunk-size-9 }}
+      # artifacts-10
+      artifacts-chunk-json-10: ${{ steps.prepare-matrix.outputs.artifacts-chunk-json-10 }}
+      artifacts-chunk-not-empty-10: ${{ steps.prepare-matrix.outputs.artifacts-chunk-not-empty-10 }}
+      artifacts-chunk-size-10: ${{ steps.prepare-matrix.outputs.artifacts-chunk-size-10 }}
+  
+  
   build-artifacts-chunk1: # <-- HERE: Chunk number.
-    if: ${{ github.repository_owner == 'rpardini' }}
+    if: ${{ github.repository_owner == 'rpardini' && needs.matrix_prep.outputs.artifacts-chunk-not-empty-1 == 'yes' }}  # <-- HERE: Chunk number.
     needs: [ "matrix_prep" ]
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
-      matrix: ${{ fromJSON(needs.matrix_prep.outputs.artifact).chunk1 }} # <-- HERE: Chunk number.
+      matrix: ${{ fromJSON(needs.matrix_prep.outputs.artifacts-chunk-json-1) }} # <-- HERE: Chunk number.
     name: ${{ matrix.desc }}
     runs-on: ${{ matrix.runs_on }}
     steps:
       # Login to ghcr.io, for later uploading rootfs to ghcr.io
       - name: Docker Login to GitHub Container Registry
         uses: docker/login-action@v2
-        if: ${{matrix.really == 'yes'}}
         with:
           registry: ghcr.io
           username: ${{ github.repository_owner }} # GitHub username or org
@@ -113,7 +201,6 @@ jobs:
 
       - name: Checkout build repo
         uses: actions/checkout@v3 # We don't need to clone git, really. A wget would suffice for GH-hosted runners. But using clone is better for Igor-hosted runners.
-        if: ${{matrix.really == 'yes'}}
         with:
           repository: ${{ env.BUILD_REPOSITORY }}
           ref: ${{ needs.matrix_prep.outputs.build-sha1 }}
@@ -122,343 +209,42 @@ jobs:
 
       - name: Build  ${{matrix.desc}}
         id: build
-        if: ${{matrix.really == 'yes'}}
         run: |
           bash ./compile.sh ${{ matrix.invocation }} SHARE_LOG=yes
 
-  build-artifacts-chunk2: # <-- HERE: Chunk number.
-    if: ${{ github.repository_owner == 'rpardini' }}
-    needs: [ "matrix_prep" ]
-    strategy:
-      fail-fast: false # let other jobs try to complete if one fails
-      matrix: ${{ fromJSON(needs.matrix_prep.outputs.artifact).chunk2 }} # <-- HERE: Chunk number.
-    name: ${{ matrix.desc }}
-    runs-on: ${{ matrix.runs_on }}
-    steps:
-      # Login to ghcr.io, for later uploading rootfs to ghcr.io
-      - name: Docker Login to GitHub Container Registry
-        uses: docker/login-action@v2
-        if: ${{matrix.really == 'yes'}}
-        with:
-          registry: ghcr.io
-          username: ${{ github.repository_owner }} # GitHub username or org
-          password: ${{ secrets.GITHUB_TOKEN }}    # GitHub actions builtin token. repo has to have pkg access.
-
-      - name: Checkout build repo
-        uses: actions/checkout@v3 # We don't need to clone git, really. A wget would suffice for GH-hosted runners. But using clone is better for Igor-hosted runners.
-        if: ${{matrix.really == 'yes'}}
-        with:
-          repository: ${{ env.BUILD_REPOSITORY }}
-          ref: ${{ needs.matrix_prep.outputs.build-sha1 }}
-          fetch-depth: 1
-          clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
-
-      - name: Build  ${{matrix.desc}}
-        id: build
-        if: ${{matrix.really == 'yes'}}
-        run: |
-          bash ./compile.sh ${{ matrix.invocation }} SHARE_LOG=yes
-
-  build-artifacts-chunk3: # <-- HERE: Chunk number.
-    if: ${{ github.repository_owner == 'rpardini' }}
-    needs: [ "matrix_prep" ]
-    strategy:
-      fail-fast: false # let other jobs try to complete if one fails
-      matrix: ${{ fromJSON(needs.matrix_prep.outputs.artifact).chunk3 }} # <-- HERE: Chunk number.
-    name: ${{ matrix.desc }}
-    runs-on: ${{ matrix.runs_on }}
-    steps:
-      # Login to ghcr.io, for later uploading rootfs to ghcr.io
-      - name: Docker Login to GitHub Container Registry
-        uses: docker/login-action@v2
-        if: ${{matrix.really == 'yes'}}
-        with:
-          registry: ghcr.io
-          username: ${{ github.repository_owner }} # GitHub username or org
-          password: ${{ secrets.GITHUB_TOKEN }}    # GitHub actions builtin token. repo has to have pkg access.
-
-      - name: Checkout build repo
-        uses: actions/checkout@v3 # We don't need to clone git, really. A wget would suffice for GH-hosted runners. But using clone is better for Igor-hosted runners.
-        if: ${{matrix.really == 'yes'}}
-        with:
-          repository: ${{ env.BUILD_REPOSITORY }}
-          ref: ${{ needs.matrix_prep.outputs.build-sha1 }}
-          fetch-depth: 1
-          clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
-
-      - name: Build  ${{matrix.desc}}
-        id: build
-        if: ${{matrix.really == 'yes'}}
-        run: |
-          bash ./compile.sh ${{ matrix.invocation }} SHARE_LOG=yes
-
-  build-artifacts-chunk4: # <-- HERE: Chunk number.
-    if: ${{ github.repository_owner == 'rpardini' }}
-    needs: [ "matrix_prep" ]
-    strategy:
-      fail-fast: false # let other jobs try to complete if one fails
-      matrix: ${{ fromJSON(needs.matrix_prep.outputs.artifact).chunk4 }} # <-- HERE: Chunk number.
-    name: ${{ matrix.desc }}
-    runs-on: ${{ matrix.runs_on }}
-    steps:
-      # Login to ghcr.io, for later uploading rootfs to ghcr.io
-      - name: Docker Login to GitHub Container Registry
-        uses: docker/login-action@v2
-        if: ${{matrix.really == 'yes'}}
-        with:
-          registry: ghcr.io
-          username: ${{ github.repository_owner }} # GitHub username or org
-          password: ${{ secrets.GITHUB_TOKEN }}    # GitHub actions builtin token. repo has to have pkg access.
-
-      - name: Checkout build repo
-        uses: actions/checkout@v3 # We don't need to clone git, really. A wget would suffice for GH-hosted runners. But using clone is better for Igor-hosted runners.
-        if: ${{matrix.really == 'yes'}}
-        with:
-          repository: ${{ env.BUILD_REPOSITORY }}
-          ref: ${{ needs.matrix_prep.outputs.build-sha1 }}
-          fetch-depth: 1
-          clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
-
-      - name: Build  ${{matrix.desc}}
-        id: build
-        if: ${{matrix.really == 'yes'}}
-        run: |
-          bash ./compile.sh ${{ matrix.invocation }} SHARE_LOG=yes
-
-  build-artifacts-chunk5: # <-- HERE: Chunk number.
-    if: ${{ github.repository_owner == 'rpardini' }}
-    needs: [ "matrix_prep" ]
-    strategy:
-      fail-fast: false # let other jobs try to complete if one fails
-      matrix: ${{ fromJSON(needs.matrix_prep.outputs.artifact).chunk5 }} # <-- HERE: Chunk number.
-    name: ${{ matrix.desc }}
-    runs-on: ${{ matrix.runs_on }}
-    steps:
-      # Login to ghcr.io, for later uploading rootfs to ghcr.io
-      - name: Docker Login to GitHub Container Registry
-        uses: docker/login-action@v2
-        if: ${{matrix.really == 'yes'}}
-        with:
-          registry: ghcr.io
-          username: ${{ github.repository_owner }} # GitHub username or org
-          password: ${{ secrets.GITHUB_TOKEN }}    # GitHub actions builtin token. repo has to have pkg access.
-
-      - name: Checkout build repo
-        uses: actions/checkout@v3 # We don't need to clone git, really. A wget would suffice for GH-hosted runners. But using clone is better for Igor-hosted runners.
-        if: ${{matrix.really == 'yes'}}
-        with:
-          repository: ${{ env.BUILD_REPOSITORY }}
-          ref: ${{ needs.matrix_prep.outputs.build-sha1 }}
-          fetch-depth: 1
-          clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
-
-      - name: Build  ${{matrix.desc}}
-        id: build
-        if: ${{matrix.really == 'yes'}}
-        run: |
-          bash ./compile.sh ${{ matrix.invocation }} SHARE_LOG=yes
-
-  build-artifacts-chunk6: # <-- HERE: Chunk number.
-    if: ${{ github.repository_owner == 'rpardini' }}
-    needs: [ "matrix_prep" ]
-    strategy:
-      fail-fast: false # let other jobs try to complete if one fails
-      matrix: ${{ fromJSON(needs.matrix_prep.outputs.artifact).chunk6 }} # <-- HERE: Chunk number.
-    name: ${{ matrix.desc }}
-    runs-on: ${{ matrix.runs_on }}
-    steps:
-      # Login to ghcr.io, for later uploading rootfs to ghcr.io
-      - name: Docker Login to GitHub Container Registry
-        uses: docker/login-action@v2
-        if: ${{matrix.really == 'yes'}}
-        with:
-          registry: ghcr.io
-          username: ${{ github.repository_owner }} # GitHub username or org
-          password: ${{ secrets.GITHUB_TOKEN }}    # GitHub actions builtin token. repo has to have pkg access.
-
-      - name: Checkout build repo
-        uses: actions/checkout@v3 # We don't need to clone git, really. A wget would suffice for GH-hosted runners. But using clone is better for Igor-hosted runners.
-        if: ${{matrix.really == 'yes'}}
-        with:
-          repository: ${{ env.BUILD_REPOSITORY }}
-          ref: ${{ needs.matrix_prep.outputs.build-sha1 }}
-          fetch-depth: 1
-          clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
-
-      - name: Build  ${{matrix.desc}}
-        id: build
-        if: ${{matrix.really == 'yes'}}
-        run: |
-          bash ./compile.sh ${{ matrix.invocation }} SHARE_LOG=yes
-
-  build-artifacts-chunk7: # <-- HERE: Chunk number.
-    if: ${{ github.repository_owner == 'rpardini' }}
-    needs: [ "matrix_prep" ]
-    strategy:
-      fail-fast: false # let other jobs try to complete if one fails
-      matrix: ${{ fromJSON(needs.matrix_prep.outputs.artifact).chunk7 }} # <-- HERE: Chunk number.
-    name: ${{ matrix.desc }}
-    runs-on: ${{ matrix.runs_on }}
-    steps:
-      # Login to ghcr.io, for later uploading rootfs to ghcr.io
-      - name: Docker Login to GitHub Container Registry
-        uses: docker/login-action@v2
-        if: ${{matrix.really == 'yes'}}
-        with:
-          registry: ghcr.io
-          username: ${{ github.repository_owner }} # GitHub username or org
-          password: ${{ secrets.GITHUB_TOKEN }}    # GitHub actions builtin token. repo has to have pkg access.
-
-      - name: Checkout build repo
-        uses: actions/checkout@v3 # We don't need to clone git, really. A wget would suffice for GH-hosted runners. But using clone is better for Igor-hosted runners.
-        if: ${{matrix.really == 'yes'}}
-        with:
-          repository: ${{ env.BUILD_REPOSITORY }}
-          ref: ${{ needs.matrix_prep.outputs.build-sha1 }}
-          fetch-depth: 1
-          clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
-
-      - name: Build  ${{matrix.desc}}
-        id: build
-        if: ${{matrix.really == 'yes'}}
-        run: |
-          bash ./compile.sh ${{ matrix.invocation }} SHARE_LOG=yes
-
-  build-artifacts-chunk8: # <-- HERE: Chunk number.
-    if: ${{ github.repository_owner == 'rpardini' }}
-    needs: [ "matrix_prep" ]
-    strategy:
-      fail-fast: false # let other jobs try to complete if one fails
-      matrix: ${{ fromJSON(needs.matrix_prep.outputs.artifact).chunk8 }} # <-- HERE: Chunk number.
-    name: ${{ matrix.desc }}
-    runs-on: ${{ matrix.runs_on }}
-    steps:
-      # Login to ghcr.io, for later uploading rootfs to ghcr.io
-      - name: Docker Login to GitHub Container Registry
-        uses: docker/login-action@v2
-        if: ${{matrix.really == 'yes'}}
-        with:
-          registry: ghcr.io
-          username: ${{ github.repository_owner }} # GitHub username or org
-          password: ${{ secrets.GITHUB_TOKEN }}    # GitHub actions builtin token. repo has to have pkg access.
-
-      - name: Checkout build repo
-        uses: actions/checkout@v3 # We don't need to clone git, really. A wget would suffice for GH-hosted runners. But using clone is better for Igor-hosted runners.
-        if: ${{matrix.really == 'yes'}}
-        with:
-          repository: ${{ env.BUILD_REPOSITORY }}
-          ref: ${{ needs.matrix_prep.outputs.build-sha1 }}
-          fetch-depth: 1
-          clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
-
-      - name: Build  ${{matrix.desc}}
-        id: build
-        if: ${{matrix.really == 'yes'}}
-        run: |
-          bash ./compile.sh ${{ matrix.invocation }} SHARE_LOG=yes
-
-  build-artifacts-chunk9: # <-- HERE: Chunk number.
-    if: ${{ github.repository_owner == 'rpardini' }}
-    needs: [ "matrix_prep" ]
-    strategy:
-      fail-fast: false # let other jobs try to complete if one fails
-      matrix: ${{ fromJSON(needs.matrix_prep.outputs.artifact).chunk9 }} # <-- HERE: Chunk number.
-    name: ${{ matrix.desc }}
-    runs-on: ${{ matrix.runs_on }}
-    steps:
-      # Login to ghcr.io, for later uploading rootfs to ghcr.io
-      - name: Docker Login to GitHub Container Registry
-        uses: docker/login-action@v2
-        if: ${{matrix.really == 'yes'}}
-        with:
-          registry: ghcr.io
-          username: ${{ github.repository_owner }} # GitHub username or org
-          password: ${{ secrets.GITHUB_TOKEN }}    # GitHub actions builtin token. repo has to have pkg access.
-
-      - name: Checkout build repo
-        uses: actions/checkout@v3 # We don't need to clone git, really. A wget would suffice for GH-hosted runners. But using clone is better for Igor-hosted runners.
-        if: ${{matrix.really == 'yes'}}
-        with:
-          repository: ${{ env.BUILD_REPOSITORY }}
-          ref: ${{ needs.matrix_prep.outputs.build-sha1 }}
-          fetch-depth: 1
-          clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
-
-      - name: Build  ${{matrix.desc}}
-        id: build
-        if: ${{matrix.really == 'yes'}}
-        run: |
-          bash ./compile.sh ${{ matrix.invocation }} SHARE_LOG=yes
-
-  build-artifacts-chunk10: # <-- HERE: Chunk number.
-    if: ${{ github.repository_owner == 'rpardini' }}
-    needs: [ "matrix_prep" ]
-    strategy:
-      fail-fast: false # let other jobs try to complete if one fails
-      matrix: ${{ fromJSON(needs.matrix_prep.outputs.artifact).chunk10 }} # <-- HERE: Chunk number.
-    name: ${{ matrix.desc }}
-    runs-on: ${{ matrix.runs_on }}
-    steps:
-      # Login to ghcr.io, for later uploading rootfs to ghcr.io
-      - name: Docker Login to GitHub Container Registry
-        uses: docker/login-action@v2
-        if: ${{matrix.really == 'yes'}}
-        with:
-          registry: ghcr.io
-          username: ${{ github.repository_owner }} # GitHub username or org
-          password: ${{ secrets.GITHUB_TOKEN }}    # GitHub actions builtin token. repo has to have pkg access.
-
-      - name: Checkout build repo
-        uses: actions/checkout@v3 # We don't need to clone git, really. A wget would suffice for GH-hosted runners. But using clone is better for Igor-hosted runners.
-        if: ${{matrix.really == 'yes'}}
-        with:
-          repository: ${{ env.BUILD_REPOSITORY }}
-          ref: ${{ needs.matrix_prep.outputs.build-sha1 }}
-          fetch-depth: 1
-          clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
-
-      - name: Build  ${{matrix.desc}}
-        id: build
-        if: ${{matrix.really == 'yes'}}
-        run: |
-          bash ./compile.sh ${{ matrix.invocation }} SHARE_LOG=yes
 
   # -------------------- images ------------------------------------------
 
   build-images-chunk1: # <-- HERE: Image chunk number.
-    needs: [ "matrix_prep", "build-artifacts-chunk1", "build-artifacts-chunk2", "build-artifacts-chunk3", "build-artifacts-chunk4", "build-artifacts-chunk5", "build-artifacts-chunk6", "build-artifacts-chunk7", "build-artifacts-chunk8", "build-artifacts-chunk9", "build-artifacts-chunk10" ] # <-- HERE: all artifact chunk numbers.
+    needs: [ "matrix_prep", "build-artifacts-chunk1" ] # <-- HERE: all artifact chunk numbers.
     timeout-minutes: 15
-    if: ${{ always() && ( github.repository_owner == 'rpardini' )  }}
+    if: ${{ always() && ( github.repository_owner == 'rpardini' ) && ( needs.matrix_prep.outputs.images-chunk-not-empty-1 == 'yes' ) }}
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
-      matrix: ${{ fromJSON(needs.matrix_prep.outputs.image).chunk1 }} # <-- HERE: Image chunk number.
+      matrix: ${{ fromJSON(needs.matrix_prep.outputs.image-chunk-json-1) }} # <-- HERE: Chunk number.
     name: ${{ matrix.desc }}
     runs-on: ${{ matrix.runs_on }}
     steps:
 
       - name: Checkout build repo
         uses: actions/checkout@v3
-        if: ${{matrix.really == 'yes'}}
         with:
           repository: ${{ env.BUILD_REPOSITORY }}
           ref: ${{ needs.matrix_prep.outputs.build-sha1 }}
           clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
 
       - name: Cleanup leftover output images
-        if: always() && ${{matrix.really == 'yes' }}
         run: |
           rm -rfv output/images userpatches/VERSION
 
       - name: ${{matrix.desc}}
         id: build-one-image
-        if: ${{matrix.really == 'yes'}}
         run: |
           bash ./compile.sh ${{ matrix.invocation }} ${{env.EXTRA_PARAMS_IMAGE}}
 
       # @TODO lets upload to GHR release ourselves instead of this shit
       - name: Release ${{ matrix.board }}
         id: release1
-        if: ${{matrix.really == 'yes'}}
         continue-on-error: true
         uses: softprops/action-gh-release@de2c0eb89ae2a093876385947365aca7b0e5f844 # de2c0eb8 = v0.1.5; already with koplo199's node16 fixes
         with:
@@ -468,7 +254,7 @@ jobs:
 
       - name: Release ${{ matrix.board }} (retry if 1st failed)
         id: release2
-        if: ${{matrix.really == 'yes' && steps.release1.outcome == 'failure'}}
+        if: ${{ steps.release1.outcome == 'failure'}}
         uses: softprops/action-gh-release@de2c0eb89ae2a093876385947365aca7b0e5f844 # de2c0eb8 = v0.1.5; already with koplo199's node16 fixes
         with:
           tag_name: latest-images
@@ -476,522 +262,8 @@ jobs:
             output/images/*.xz
 
       - name: Cleanup output images
-        if: always() && ${{matrix.really == 'yes' }}
+        if: always()
         run: |
           rm -rfv output/images userpatches/VERSION
-
-
-  build-images-chunk2: # <-- HERE: Image chunk number.
-    needs: [ "matrix_prep", "build-artifacts-chunk1", "build-artifacts-chunk2", "build-artifacts-chunk3", "build-artifacts-chunk4", "build-artifacts-chunk5", "build-artifacts-chunk6", "build-artifacts-chunk7", "build-artifacts-chunk8", "build-artifacts-chunk9", "build-artifacts-chunk10" ] # <-- HERE: all artifact chunk numbers.
-    timeout-minutes: 15
-    if: ${{ always() && ( github.repository_owner == 'rpardini' )  }}
-
-    strategy:
-      fail-fast: false # let other jobs try to complete if one fails
-      matrix: ${{ fromJSON(needs.matrix_prep.outputs.image).chunk2 }} # <-- HERE: Image chunk number.
-    name: ${{ matrix.desc }}
-    runs-on: ${{ matrix.runs_on }}
-    steps:
-
-      - name: Checkout build repo
-        uses: actions/checkout@v3
-        if: ${{matrix.really == 'yes'}}
-        with:
-          repository: ${{ env.BUILD_REPOSITORY }}
-          ref: ${{ needs.matrix_prep.outputs.build-sha1 }}
-          clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
-
-      - name: Cleanup leftover output images
-        if: always() && ${{matrix.really == 'yes' }}
-        run: |
-          rm -rfv output/images userpatches/VERSION
-
-      - name: ${{matrix.desc}}
-        id: build-one-image
-        if: ${{matrix.really == 'yes'}}
-        run: |
-          bash ./compile.sh ${{ matrix.invocation }} ${{env.EXTRA_PARAMS_IMAGE}}
-
-      # @TODO lets upload to GHR release ourselves instead of this shit
-      - name: Release ${{ matrix.board }}
-        id: release1
-        if: ${{matrix.really == 'yes'}}
-        continue-on-error: true
-        uses: softprops/action-gh-release@de2c0eb89ae2a093876385947365aca7b0e5f844 # de2c0eb8 = v0.1.5; already with koplo199's node16 fixes
-        with:
-          tag_name: latest-images
-          files: |
-            output/images/*.xz
-
-      - name: Release ${{ matrix.board }} (retry if 1st failed)
-        id: release2
-        if: ${{matrix.really == 'yes' && steps.release1.outcome == 'failure'}}
-        uses: softprops/action-gh-release@de2c0eb89ae2a093876385947365aca7b0e5f844 # de2c0eb8 = v0.1.5; already with koplo199's node16 fixes
-        with:
-          tag_name: latest-images
-          files: |
-            output/images/*.xz
-
-      - name: Cleanup output images
-        if: always() && ${{matrix.really == 'yes' }}
-        run: |
-          rm -rfv output/images userpatches/VERSION
-
-
-  build-images-chunk3: # <-- HERE: Image chunk number.
-    needs: [ "matrix_prep", "build-artifacts-chunk1", "build-artifacts-chunk2", "build-artifacts-chunk3", "build-artifacts-chunk4", "build-artifacts-chunk5", "build-artifacts-chunk6", "build-artifacts-chunk7", "build-artifacts-chunk8", "build-artifacts-chunk9", "build-artifacts-chunk10" ] # <-- HERE: all artifact chunk numbers.
-    timeout-minutes: 15
-    if: ${{ always() && ( github.repository_owner == 'rpardini' )  }}
-
-    strategy:
-      fail-fast: false # let other jobs try to complete if one fails
-      matrix: ${{ fromJSON(needs.matrix_prep.outputs.image).chunk3 }} # <-- HERE: Image chunk number.
-    name: ${{ matrix.desc }}
-    runs-on: ${{ matrix.runs_on }}
-    steps:
-
-      - name: Checkout build repo
-        uses: actions/checkout@v3
-        if: ${{matrix.really == 'yes'}}
-        with:
-          repository: ${{ env.BUILD_REPOSITORY }}
-          ref: ${{ needs.matrix_prep.outputs.build-sha1 }}
-          clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
-
-      - name: Cleanup leftover output images
-        if: always() && ${{matrix.really == 'yes' }}
-        run: |
-          rm -rfv output/images userpatches/VERSION
-
-      - name: ${{matrix.desc}}
-        id: build-one-image
-        if: ${{matrix.really == 'yes'}}
-        run: |
-          bash ./compile.sh ${{ matrix.invocation }} ${{env.EXTRA_PARAMS_IMAGE}}
-
-      # @TODO lets upload to GHR release ourselves instead of this shit
-      - name: Release ${{ matrix.board }}
-        id: release1
-        if: ${{matrix.really == 'yes'}}
-        continue-on-error: true
-        uses: softprops/action-gh-release@de2c0eb89ae2a093876385947365aca7b0e5f844 # de2c0eb8 = v0.1.5; already with koplo199's node16 fixes
-        with:
-          tag_name: latest-images
-          files: |
-            output/images/*.xz
-
-      - name: Release ${{ matrix.board }} (retry if 1st failed)
-        id: release2
-        if: ${{matrix.really == 'yes' && steps.release1.outcome == 'failure'}}
-        uses: softprops/action-gh-release@de2c0eb89ae2a093876385947365aca7b0e5f844 # de2c0eb8 = v0.1.5; already with koplo199's node16 fixes
-        with:
-          tag_name: latest-images
-          files: |
-            output/images/*.xz
-
-      - name: Cleanup output images
-        if: always() && ${{matrix.really == 'yes' }}
-        run: |
-          rm -rfv output/images userpatches/VERSION
-
-
-  build-images-chunk4: # <-- HERE: Image chunk number.
-    needs: [ "matrix_prep", "build-artifacts-chunk1", "build-artifacts-chunk2", "build-artifacts-chunk3", "build-artifacts-chunk4", "build-artifacts-chunk5", "build-artifacts-chunk6", "build-artifacts-chunk7", "build-artifacts-chunk8", "build-artifacts-chunk9", "build-artifacts-chunk10" ] # <-- HERE: all artifact chunk numbers.
-    timeout-minutes: 15
-    if: ${{ always() && ( github.repository_owner == 'rpardini' )  }}
-
-    strategy:
-      fail-fast: false # let other jobs try to complete if one fails
-      matrix: ${{ fromJSON(needs.matrix_prep.outputs.image).chunk4 }} # <-- HERE: Image chunk number.
-    name: ${{ matrix.desc }}
-    runs-on: ${{ matrix.runs_on }}
-    steps:
-
-      - name: Checkout build repo
-        uses: actions/checkout@v3
-        if: ${{matrix.really == 'yes'}}
-        with:
-          repository: ${{ env.BUILD_REPOSITORY }}
-          ref: ${{ needs.matrix_prep.outputs.build-sha1 }}
-          clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
-
-      - name: Cleanup leftover output images
-        if: always() && ${{matrix.really == 'yes' }}
-        run: |
-          rm -rfv output/images userpatches/VERSION
-
-      - name: ${{matrix.desc}}
-        id: build-one-image
-        if: ${{matrix.really == 'yes'}}
-        run: |
-          bash ./compile.sh ${{ matrix.invocation }} ${{env.EXTRA_PARAMS_IMAGE}}
-
-      # @TODO lets upload to GHR release ourselves instead of this shit
-      - name: Release ${{ matrix.board }}
-        id: release1
-        if: ${{matrix.really == 'yes'}}
-        continue-on-error: true
-        uses: softprops/action-gh-release@de2c0eb89ae2a093876385947365aca7b0e5f844 # de2c0eb8 = v0.1.5; already with koplo199's node16 fixes
-        with:
-          tag_name: latest-images
-          files: |
-            output/images/*.xz
-
-      - name: Release ${{ matrix.board }} (retry if 1st failed)
-        id: release2
-        if: ${{matrix.really == 'yes' && steps.release1.outcome == 'failure'}}
-        uses: softprops/action-gh-release@de2c0eb89ae2a093876385947365aca7b0e5f844 # de2c0eb8 = v0.1.5; already with koplo199's node16 fixes
-        with:
-          tag_name: latest-images
-          files: |
-            output/images/*.xz
-
-      - name: Cleanup output images
-        if: always() && ${{matrix.really == 'yes' }}
-        run: |
-          rm -rfv output/images userpatches/VERSION
-
-
-  build-images-chunk5: # <-- HERE: Image chunk number.
-    needs: [ "matrix_prep", "build-artifacts-chunk1", "build-artifacts-chunk2", "build-artifacts-chunk3", "build-artifacts-chunk4", "build-artifacts-chunk5", "build-artifacts-chunk6", "build-artifacts-chunk7", "build-artifacts-chunk8", "build-artifacts-chunk9", "build-artifacts-chunk10" ] # <-- HERE: all artifact chunk numbers.
-    timeout-minutes: 15
-    if: ${{ always() && ( github.repository_owner == 'rpardini' )  }}
-
-    strategy:
-      fail-fast: false # let other jobs try to complete if one fails
-      matrix: ${{ fromJSON(needs.matrix_prep.outputs.image).chunk5 }} # <-- HERE: Image chunk number.
-    name: ${{ matrix.desc }}
-    runs-on: ${{ matrix.runs_on }}
-    steps:
-
-      - name: Checkout build repo
-        uses: actions/checkout@v3
-        if: ${{matrix.really == 'yes'}}
-        with:
-          repository: ${{ env.BUILD_REPOSITORY }}
-          ref: ${{ needs.matrix_prep.outputs.build-sha1 }}
-          clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
-
-      - name: Cleanup leftover output images
-        if: always() && ${{matrix.really == 'yes' }}
-        run: |
-          rm -rfv output/images userpatches/VERSION
-
-      - name: ${{matrix.desc}}
-        id: build-one-image
-        if: ${{matrix.really == 'yes'}}
-        run: |
-          bash ./compile.sh ${{ matrix.invocation }} ${{env.EXTRA_PARAMS_IMAGE}}
-
-      # @TODO lets upload to GHR release ourselves instead of this shit
-      - name: Release ${{ matrix.board }}
-        id: release1
-        if: ${{matrix.really == 'yes'}}
-        continue-on-error: true
-        uses: softprops/action-gh-release@de2c0eb89ae2a093876385947365aca7b0e5f844 # de2c0eb8 = v0.1.5; already with koplo199's node16 fixes
-        with:
-          tag_name: latest-images
-          files: |
-            output/images/*.xz
-
-      - name: Release ${{ matrix.board }} (retry if 1st failed)
-        id: release2
-        if: ${{matrix.really == 'yes' && steps.release1.outcome == 'failure'}}
-        uses: softprops/action-gh-release@de2c0eb89ae2a093876385947365aca7b0e5f844 # de2c0eb8 = v0.1.5; already with koplo199's node16 fixes
-        with:
-          tag_name: latest-images
-          files: |
-            output/images/*.xz
-
-      - name: Cleanup output images
-        if: always() && ${{matrix.really == 'yes' }}
-        run: |
-          rm -rfv output/images userpatches/VERSION
-
-
-  build-images-chunk6: # <-- HERE: Image chunk number.
-    needs: [ "matrix_prep", "build-artifacts-chunk1", "build-artifacts-chunk2", "build-artifacts-chunk3", "build-artifacts-chunk4", "build-artifacts-chunk5", "build-artifacts-chunk6", "build-artifacts-chunk7", "build-artifacts-chunk8", "build-artifacts-chunk9", "build-artifacts-chunk10" ] # <-- HERE: all artifact chunk numbers.
-    timeout-minutes: 15
-    if: ${{ always() && ( github.repository_owner == 'rpardini' )  }}
-
-    strategy:
-      fail-fast: false # let other jobs try to complete if one fails
-      matrix: ${{ fromJSON(needs.matrix_prep.outputs.image).chunk6 }} # <-- HERE: Image chunk number.
-    name: ${{ matrix.desc }}
-    runs-on: ${{ matrix.runs_on }}
-    steps:
-
-      - name: Checkout build repo
-        uses: actions/checkout@v3
-        if: ${{matrix.really == 'yes'}}
-        with:
-          repository: ${{ env.BUILD_REPOSITORY }}
-          ref: ${{ needs.matrix_prep.outputs.build-sha1 }}
-          clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
-
-      - name: Cleanup leftover output images
-        if: always() && ${{matrix.really == 'yes' }}
-        run: |
-          rm -rfv output/images userpatches/VERSION
-
-      - name: ${{matrix.desc}}
-        id: build-one-image
-        if: ${{matrix.really == 'yes'}}
-        run: |
-          bash ./compile.sh ${{ matrix.invocation }} ${{env.EXTRA_PARAMS_IMAGE}}
-
-      # @TODO lets upload to GHR release ourselves instead of this shit
-      - name: Release ${{ matrix.board }}
-        id: release1
-        if: ${{matrix.really == 'yes'}}
-        continue-on-error: true
-        uses: softprops/action-gh-release@de2c0eb89ae2a093876385947365aca7b0e5f844 # de2c0eb8 = v0.1.5; already with koplo199's node16 fixes
-        with:
-          tag_name: latest-images
-          files: |
-            output/images/*.xz
-
-      - name: Release ${{ matrix.board }} (retry if 1st failed)
-        id: release2
-        if: ${{matrix.really == 'yes' && steps.release1.outcome == 'failure'}}
-        uses: softprops/action-gh-release@de2c0eb89ae2a093876385947365aca7b0e5f844 # de2c0eb8 = v0.1.5; already with koplo199's node16 fixes
-        with:
-          tag_name: latest-images
-          files: |
-            output/images/*.xz
-
-      - name: Cleanup output images
-        if: always() && ${{matrix.really == 'yes' }}
-        run: |
-          rm -rfv output/images userpatches/VERSION
-
-
-  build-images-chunk7: # <-- HERE: Image chunk number.
-    needs: [ "matrix_prep", "build-artifacts-chunk1", "build-artifacts-chunk2", "build-artifacts-chunk3", "build-artifacts-chunk4", "build-artifacts-chunk5", "build-artifacts-chunk6", "build-artifacts-chunk7", "build-artifacts-chunk8", "build-artifacts-chunk9", "build-artifacts-chunk10" ] # <-- HERE: all artifact chunk numbers.
-    timeout-minutes: 15
-    if: ${{ always() && ( github.repository_owner == 'rpardini' )  }}
-
-    strategy:
-      fail-fast: false # let other jobs try to complete if one fails
-      matrix: ${{ fromJSON(needs.matrix_prep.outputs.image).chunk7 }} # <-- HERE: Image chunk number.
-    name: ${{ matrix.desc }}
-    runs-on: ${{ matrix.runs_on }}
-    steps:
-
-      - name: Checkout build repo
-        uses: actions/checkout@v3
-        if: ${{matrix.really == 'yes'}}
-        with:
-          repository: ${{ env.BUILD_REPOSITORY }}
-          ref: ${{ needs.matrix_prep.outputs.build-sha1 }}
-          clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
-
-      - name: Cleanup leftover output images
-        if: always() && ${{matrix.really == 'yes' }}
-        run: |
-          rm -rfv output/images userpatches/VERSION
-
-      - name: ${{matrix.desc}}
-        id: build-one-image
-        if: ${{matrix.really == 'yes'}}
-        run: |
-          bash ./compile.sh ${{ matrix.invocation }} ${{env.EXTRA_PARAMS_IMAGE}}
-
-      # @TODO lets upload to GHR release ourselves instead of this shit
-      - name: Release ${{ matrix.board }}
-        id: release1
-        if: ${{matrix.really == 'yes'}}
-        continue-on-error: true
-        uses: softprops/action-gh-release@de2c0eb89ae2a093876385947365aca7b0e5f844 # de2c0eb8 = v0.1.5; already with koplo199's node16 fixes
-        with:
-          tag_name: latest-images
-          files: |
-            output/images/*.xz
-
-      - name: Release ${{ matrix.board }} (retry if 1st failed)
-        id: release2
-        if: ${{matrix.really == 'yes' && steps.release1.outcome == 'failure'}}
-        uses: softprops/action-gh-release@de2c0eb89ae2a093876385947365aca7b0e5f844 # de2c0eb8 = v0.1.5; already with koplo199's node16 fixes
-        with:
-          tag_name: latest-images
-          files: |
-            output/images/*.xz
-
-      - name: Cleanup output images
-        if: always() && ${{matrix.really == 'yes' }}
-        run: |
-          rm -rfv output/images userpatches/VERSION
-
-
-  build-images-chunk8: # <-- HERE: Image chunk number.
-    needs: [ "matrix_prep", "build-artifacts-chunk1", "build-artifacts-chunk2", "build-artifacts-chunk3", "build-artifacts-chunk4", "build-artifacts-chunk5", "build-artifacts-chunk6", "build-artifacts-chunk7", "build-artifacts-chunk8", "build-artifacts-chunk9", "build-artifacts-chunk10" ] # <-- HERE: all artifact chunk numbers.
-    timeout-minutes: 15
-    if: ${{ always() && ( github.repository_owner == 'rpardini' )  }}
-
-    strategy:
-      fail-fast: false # let other jobs try to complete if one fails
-      matrix: ${{ fromJSON(needs.matrix_prep.outputs.image).chunk8 }} # <-- HERE: Image chunk number.
-    name: ${{ matrix.desc }}
-    runs-on: ${{ matrix.runs_on }}
-    steps:
-
-      - name: Checkout build repo
-        uses: actions/checkout@v3
-        if: ${{matrix.really == 'yes'}}
-        with:
-          repository: ${{ env.BUILD_REPOSITORY }}
-          ref: ${{ needs.matrix_prep.outputs.build-sha1 }}
-          clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
-
-      - name: Cleanup leftover output images
-        if: always() && ${{matrix.really == 'yes' }}
-        run: |
-          rm -rfv output/images userpatches/VERSION
-
-      - name: ${{matrix.desc}}
-        id: build-one-image
-        if: ${{matrix.really == 'yes'}}
-        run: |
-          bash ./compile.sh ${{ matrix.invocation }} ${{env.EXTRA_PARAMS_IMAGE}}
-
-      # @TODO lets upload to GHR release ourselves instead of this shit
-      - name: Release ${{ matrix.board }}
-        id: release1
-        if: ${{matrix.really == 'yes'}}
-        continue-on-error: true
-        uses: softprops/action-gh-release@de2c0eb89ae2a093876385947365aca7b0e5f844 # de2c0eb8 = v0.1.5; already with koplo199's node16 fixes
-        with:
-          tag_name: latest-images
-          files: |
-            output/images/*.xz
-
-      - name: Release ${{ matrix.board }} (retry if 1st failed)
-        id: release2
-        if: ${{matrix.really == 'yes' && steps.release1.outcome == 'failure'}}
-        uses: softprops/action-gh-release@de2c0eb89ae2a093876385947365aca7b0e5f844 # de2c0eb8 = v0.1.5; already with koplo199's node16 fixes
-        with:
-          tag_name: latest-images
-          files: |
-            output/images/*.xz
-
-      - name: Cleanup output images
-        if: always() && ${{matrix.really == 'yes' }}
-        run: |
-          rm -rfv output/images userpatches/VERSION
-
-
-  build-images-chunk9: # <-- HERE: Image chunk number.
-    needs: [ "matrix_prep", "build-artifacts-chunk1", "build-artifacts-chunk2", "build-artifacts-chunk3", "build-artifacts-chunk4", "build-artifacts-chunk5", "build-artifacts-chunk6", "build-artifacts-chunk7", "build-artifacts-chunk8", "build-artifacts-chunk9", "build-artifacts-chunk10" ] # <-- HERE: all artifact chunk numbers.
-    timeout-minutes: 15
-    if: ${{ always() && ( github.repository_owner == 'rpardini' )  }}
-
-    strategy:
-      fail-fast: false # let other jobs try to complete if one fails
-      matrix: ${{ fromJSON(needs.matrix_prep.outputs.image).chunk9 }} # <-- HERE: Image chunk number.
-    name: ${{ matrix.desc }}
-    runs-on: ${{ matrix.runs_on }}
-    steps:
-
-      - name: Checkout build repo
-        uses: actions/checkout@v3
-        if: ${{matrix.really == 'yes'}}
-        with:
-          repository: ${{ env.BUILD_REPOSITORY }}
-          ref: ${{ needs.matrix_prep.outputs.build-sha1 }}
-          clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
-
-      - name: Cleanup leftover output images
-        if: always() && ${{matrix.really == 'yes' }}
-        run: |
-          rm -rfv output/images userpatches/VERSION
-
-      - name: ${{matrix.desc}}
-        id: build-one-image
-        if: ${{matrix.really == 'yes'}}
-        run: |
-          bash ./compile.sh ${{ matrix.invocation }} ${{env.EXTRA_PARAMS_IMAGE}}
-
-      # @TODO lets upload to GHR release ourselves instead of this shit
-      - name: Release ${{ matrix.board }}
-        id: release1
-        if: ${{matrix.really == 'yes'}}
-        continue-on-error: true
-        uses: softprops/action-gh-release@de2c0eb89ae2a093876385947365aca7b0e5f844 # de2c0eb8 = v0.1.5; already with koplo199's node16 fixes
-        with:
-          tag_name: latest-images
-          files: |
-            output/images/*.xz
-
-      - name: Release ${{ matrix.board }} (retry if 1st failed)
-        id: release2
-        if: ${{matrix.really == 'yes' && steps.release1.outcome == 'failure'}}
-        uses: softprops/action-gh-release@de2c0eb89ae2a093876385947365aca7b0e5f844 # de2c0eb8 = v0.1.5; already with koplo199's node16 fixes
-        with:
-          tag_name: latest-images
-          files: |
-            output/images/*.xz
-
-      - name: Cleanup output images
-        if: always() && ${{matrix.really == 'yes' }}
-        run: |
-          rm -rfv output/images userpatches/VERSION
-
-
-  build-images-chunk10: # <-- HERE: Image chunk number.
-    needs: [ "matrix_prep", "build-artifacts-chunk1", "build-artifacts-chunk2", "build-artifacts-chunk3", "build-artifacts-chunk4", "build-artifacts-chunk5", "build-artifacts-chunk6", "build-artifacts-chunk7", "build-artifacts-chunk8", "build-artifacts-chunk9", "build-artifacts-chunk10" ] # <-- HERE: all artifact chunk numbers.
-    timeout-minutes: 15
-    if: ${{ always() && ( github.repository_owner == 'rpardini' )  }}
-
-    strategy:
-      fail-fast: false # let other jobs try to complete if one fails
-      matrix: ${{ fromJSON(needs.matrix_prep.outputs.image).chunk10 }} # <-- HERE: Image chunk number.
-    name: ${{ matrix.desc }}
-    runs-on: ${{ matrix.runs_on }}
-    steps:
-
-      - name: Checkout build repo
-        uses: actions/checkout@v3
-        if: ${{matrix.really == 'yes'}}
-        with:
-          repository: ${{ env.BUILD_REPOSITORY }}
-          ref: ${{ needs.matrix_prep.outputs.build-sha1 }}
-          clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
-
-      - name: Cleanup leftover output images
-        if: always() && ${{matrix.really == 'yes' }}
-        run: |
-          rm -rfv output/images userpatches/VERSION
-
-      - name: ${{matrix.desc}}
-        id: build-one-image
-        if: ${{matrix.really == 'yes'}}
-        run: |
-          bash ./compile.sh ${{ matrix.invocation }} ${{env.EXTRA_PARAMS_IMAGE}}
-
-      # @TODO lets upload to GHR release ourselves instead of this shit
-      - name: Release ${{ matrix.board }}
-        id: release1
-        if: ${{matrix.really == 'yes'}}
-        continue-on-error: true
-        uses: softprops/action-gh-release@de2c0eb89ae2a093876385947365aca7b0e5f844 # de2c0eb8 = v0.1.5; already with koplo199's node16 fixes
-        with:
-          tag_name: latest-images
-          files: |
-            output/images/*.xz
-
-      - name: Release ${{ matrix.board }} (retry if 1st failed)
-        id: release2
-        if: ${{matrix.really == 'yes' && steps.release1.outcome == 'failure'}}
-        uses: softprops/action-gh-release@de2c0eb89ae2a093876385947365aca7b0e5f844 # de2c0eb8 = v0.1.5; already with koplo199's node16 fixes
-        with:
-          tag_name: latest-images
-          files: |
-            output/images/*.xz
-
-      - name: Cleanup output images
-        if: always() && ${{matrix.really == 'yes' }}
-        run: |
-          rm -rfv output/images userpatches/VERSION
-
 
 
