@@ -22,8 +22,8 @@ on:
 env:
 
   # For easier reuse across the multiple chunks
-  BUILD_REPOSITORY: ${{ github.repository_owner }}/armbian-build
-  BUILD_REF: extensions # branch or tag or sha1
+  BUILD_REPOSITORY: "${{ github.repository_owner }}/armbian-build"
+  BUILD_REF: "extensions" # branch or tag or sha1
 
   # Armbian envs. Adjust to your needs.
   OCI_TARGET_BASE: "ghcr.io/${{ github.repository }}/" # This is picked up by the Docker launcher automatically. It does _not_ override the targets.yaml during info resolution.
@@ -68,7 +68,7 @@ jobs:
         uses: docker/login-action@v2
         with:
           registry: ghcr.io
-          username: ${{ github.repository_owner }} # GitHub username or org
+          username: "${{ github.repository_owner }}" # GitHub username or org
           password: ${{ secrets.GITHUB_TOKEN }}    # GitHub actions builtin token. repo has to have pkg access.
 
       - name: Prepare Info JSON and Matrices
@@ -239,7 +239,7 @@ jobs:
         uses: docker/login-action@v2
         with:
           registry: ghcr.io
-          username: ${{ github.repository_owner }} # GitHub username or org
+          username: "${{ github.repository_owner }}" # GitHub username or org
           password: ${{ secrets.GITHUB_TOKEN }}    # GitHub actions builtin token. repo has to have pkg access.
 
       - name: Checkout build repo
@@ -269,7 +269,7 @@ jobs:
         uses: docker/login-action@v2
         with:
           registry: ghcr.io
-          username: ${{ github.repository_owner }} # GitHub username or org
+          username: "${{ github.repository_owner }}" # GitHub username or org
           password: ${{ secrets.GITHUB_TOKEN }}    # GitHub actions builtin token. repo has to have pkg access.
 
       - name: Checkout build repo
@@ -299,7 +299,7 @@ jobs:
         uses: docker/login-action@v2
         with:
           registry: ghcr.io
-          username: ${{ github.repository_owner }} # GitHub username or org
+          username: "${{ github.repository_owner }}" # GitHub username or org
           password: ${{ secrets.GITHUB_TOKEN }}    # GitHub actions builtin token. repo has to have pkg access.
 
       - name: Checkout build repo
@@ -329,7 +329,7 @@ jobs:
         uses: docker/login-action@v2
         with:
           registry: ghcr.io
-          username: ${{ github.repository_owner }} # GitHub username or org
+          username: "${{ github.repository_owner }}" # GitHub username or org
           password: ${{ secrets.GITHUB_TOKEN }}    # GitHub actions builtin token. repo has to have pkg access.
 
       - name: Checkout build repo
@@ -359,7 +359,7 @@ jobs:
         uses: docker/login-action@v2
         with:
           registry: ghcr.io
-          username: ${{ github.repository_owner }} # GitHub username or org
+          username: "${{ github.repository_owner }}" # GitHub username or org
           password: ${{ secrets.GITHUB_TOKEN }}    # GitHub actions builtin token. repo has to have pkg access.
 
       - name: Checkout build repo
@@ -389,7 +389,7 @@ jobs:
         uses: docker/login-action@v2
         with:
           registry: ghcr.io
-          username: ${{ github.repository_owner }} # GitHub username or org
+          username: "${{ github.repository_owner }}" # GitHub username or org
           password: ${{ secrets.GITHUB_TOKEN }}    # GitHub actions builtin token. repo has to have pkg access.
 
       - name: Checkout build repo
@@ -419,7 +419,7 @@ jobs:
         uses: docker/login-action@v2
         with:
           registry: ghcr.io
-          username: ${{ github.repository_owner }} # GitHub username or org
+          username: "${{ github.repository_owner }}" # GitHub username or org
           password: ${{ secrets.GITHUB_TOKEN }}    # GitHub actions builtin token. repo has to have pkg access.
 
       - name: Checkout build repo
@@ -449,7 +449,7 @@ jobs:
         uses: docker/login-action@v2
         with:
           registry: ghcr.io
-          username: ${{ github.repository_owner }} # GitHub username or org
+          username: "${{ github.repository_owner }}" # GitHub username or org
           password: ${{ secrets.GITHUB_TOKEN }}    # GitHub actions builtin token. repo has to have pkg access.
 
       - name: Checkout build repo
@@ -479,7 +479,7 @@ jobs:
         uses: docker/login-action@v2
         with:
           registry: ghcr.io
-          username: ${{ github.repository_owner }} # GitHub username or org
+          username: "${{ github.repository_owner }}" # GitHub username or org
           password: ${{ secrets.GITHUB_TOKEN }}    # GitHub actions builtin token. repo has to have pkg access.
 
       - name: Checkout build repo
@@ -509,7 +509,7 @@ jobs:
         uses: docker/login-action@v2
         with:
           registry: ghcr.io
-          username: ${{ github.repository_owner }} # GitHub username or org
+          username: "${{ github.repository_owner }}" # GitHub username or org
           password: ${{ secrets.GITHUB_TOKEN }}    # GitHub actions builtin token. repo has to have pkg access.
 
       - name: Checkout build repo
@@ -539,7 +539,7 @@ jobs:
         uses: docker/login-action@v2
         with:
           registry: ghcr.io
-          username: ${{ github.repository_owner }} # GitHub username or org
+          username: "${{ github.repository_owner }}" # GitHub username or org
           password: ${{ secrets.GITHUB_TOKEN }}    # GitHub actions builtin token. repo has to have pkg access.
 
       - name: Checkout build repo
@@ -569,7 +569,7 @@ jobs:
         uses: docker/login-action@v2
         with:
           registry: ghcr.io
-          username: ${{ github.repository_owner }} # GitHub username or org
+          username: "${{ github.repository_owner }}" # GitHub username or org
           password: ${{ secrets.GITHUB_TOKEN }}    # GitHub actions builtin token. repo has to have pkg access.
 
       - name: Checkout build repo
@@ -645,7 +645,7 @@ jobs:
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
       matrix: ${{ fromJSON(needs.matrix_prep.outputs.images-chunk-json-2) }} # <-- HERE: Chunk number.
-    name: ${{ matrix.desc || 'Empty I1' }} # <-- HERE: Chunk number.
+    name: ${{ matrix.desc || 'Empty I2' }} # <-- HERE: Chunk number.
     runs-on: ${{ matrix.runs_on }}
     steps:
 
@@ -695,7 +695,7 @@ jobs:
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
       matrix: ${{ fromJSON(needs.matrix_prep.outputs.images-chunk-json-3) }} # <-- HERE: Chunk number.
-    name: ${{ matrix.desc || 'Empty I1' }} # <-- HERE: Chunk number.
+    name: ${{ matrix.desc || 'Empty I3' }} # <-- HERE: Chunk number.
     runs-on: ${{ matrix.runs_on }}
     steps:
 
@@ -745,7 +745,7 @@ jobs:
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
       matrix: ${{ fromJSON(needs.matrix_prep.outputs.images-chunk-json-4) }} # <-- HERE: Chunk number.
-    name: ${{ matrix.desc || 'Empty I1' }} # <-- HERE: Chunk number.
+    name: ${{ matrix.desc || 'Empty I4' }} # <-- HERE: Chunk number.
     runs-on: ${{ matrix.runs_on }}
     steps:
 
@@ -795,7 +795,7 @@ jobs:
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
       matrix: ${{ fromJSON(needs.matrix_prep.outputs.images-chunk-json-5) }} # <-- HERE: Chunk number.
-    name: ${{ matrix.desc || 'Empty I1' }} # <-- HERE: Chunk number.
+    name: ${{ matrix.desc || 'Empty I5' }} # <-- HERE: Chunk number.
     runs-on: ${{ matrix.runs_on }}
     steps:
 
@@ -845,7 +845,7 @@ jobs:
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
       matrix: ${{ fromJSON(needs.matrix_prep.outputs.images-chunk-json-6) }} # <-- HERE: Chunk number.
-    name: ${{ matrix.desc || 'Empty I1' }} # <-- HERE: Chunk number.
+    name: ${{ matrix.desc || 'Empty I6' }} # <-- HERE: Chunk number.
     runs-on: ${{ matrix.runs_on }}
     steps:
 
@@ -895,7 +895,7 @@ jobs:
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
       matrix: ${{ fromJSON(needs.matrix_prep.outputs.images-chunk-json-7) }} # <-- HERE: Chunk number.
-    name: ${{ matrix.desc || 'Empty I1' }} # <-- HERE: Chunk number.
+    name: ${{ matrix.desc || 'Empty I7' }} # <-- HERE: Chunk number.
     runs-on: ${{ matrix.runs_on }}
     steps:
 
@@ -945,7 +945,7 @@ jobs:
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
       matrix: ${{ fromJSON(needs.matrix_prep.outputs.images-chunk-json-8) }} # <-- HERE: Chunk number.
-    name: ${{ matrix.desc || 'Empty I1' }} # <-- HERE: Chunk number.
+    name: ${{ matrix.desc || 'Empty I8' }} # <-- HERE: Chunk number.
     runs-on: ${{ matrix.runs_on }}
     steps:
 
@@ -995,7 +995,7 @@ jobs:
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
       matrix: ${{ fromJSON(needs.matrix_prep.outputs.images-chunk-json-9) }} # <-- HERE: Chunk number.
-    name: ${{ matrix.desc || 'Empty I1' }} # <-- HERE: Chunk number.
+    name: ${{ matrix.desc || 'Empty I9' }} # <-- HERE: Chunk number.
     runs-on: ${{ matrix.runs_on }}
     steps:
 
@@ -1045,7 +1045,7 @@ jobs:
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
       matrix: ${{ fromJSON(needs.matrix_prep.outputs.images-chunk-json-10) }} # <-- HERE: Chunk number.
-    name: ${{ matrix.desc || 'Empty I1' }} # <-- HERE: Chunk number.
+    name: ${{ matrix.desc || 'Empty I10' }} # <-- HERE: Chunk number.
     runs-on: ${{ matrix.runs_on }}
     steps:
 
@@ -1095,7 +1095,7 @@ jobs:
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
       matrix: ${{ fromJSON(needs.matrix_prep.outputs.images-chunk-json-11) }} # <-- HERE: Chunk number.
-    name: ${{ matrix.desc || 'Empty I1' }} # <-- HERE: Chunk number.
+    name: ${{ matrix.desc || 'Empty I11' }} # <-- HERE: Chunk number.
     runs-on: ${{ matrix.runs_on }}
     steps:
 
