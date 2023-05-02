@@ -250,13 +250,17 @@ jobs:
     runs-on: ubuntu-latest # not going to run, anyway, but is required.
     if: ${{ always() && ( 1 == 2 ) }} # eg: never run.
     needs: [ "matrix_prep", "build-artifacts-chunk1", "build-artifacts-chunk2" ] # <-- HERE: all artifact chunk numbers.
-
-  # ------ aggregate all image chunks into a single dependency -------
+    steps:
+      - name: fake step
+        run: uptime
   
   all-images-ready:
     runs-on: ubuntu-latest # not going to run, anyway, but is required.
     if: ${{ always() && ( 1 == 2 ) }} # eg: never run.
     needs: [ "matrix_prep", "build-images-chunk1", "build-images-chunk2" ] # <-- HERE: all image chunk numbers.
+    steps:
+      - name: fake step
+        run: uptime
 
   # -------------------- images ------------------------------------------
 
