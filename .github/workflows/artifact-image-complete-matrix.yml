@@ -33,6 +33,7 @@ env:
 jobs:
   
   matrix_prep:
+    name: "Prepare JSON matrix, 10 chunks"
     if: ${{ github.repository_owner == 'rpardini' }}
     runs-on: [ "self-hosted", "Linux", 'armbian', "matrix-prepare" ]
     steps:
@@ -221,7 +222,7 @@ jobs:
     if: ${{ always() && ( github.repository_owner == 'rpardini' ) && ( needs.matrix_prep.outputs.images-chunk-not-empty-1 == 'yes' ) }}
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
-      matrix: ${{ fromJSON(needs.matrix_prep.outputs.image-chunk-json-1) }} # <-- HERE: Chunk number.
+      matrix: ${{ fromJSON(needs.matrix_prep.outputs.images-chunk-json-1) }} # <-- HERE: Chunk number.
     name: ${{ matrix.desc }}
     runs-on: ${{ matrix.runs_on }}
     steps:
