@@ -428,7 +428,7 @@ jobs:
       - name: Prepare the reprepro scripts
         id: prepare-scripts-reprepro
         run: |
-          bash ./compile.sh debs-to-repo-reprepro REPO_GPG_KEYID="${{ steps.import_gpg.outputs.keyid }}" SHARE_LOG=yes ${{env.EXTRA_PARAMS_ALL_BUILDS}}
+          bash ./compile.sh debs-to-repo-reprepro REPO_GPG_KEYID="E56DDEA2B74BEF06D4AD5F65FFC9D0F6C41BCD73" SHARE_LOG=yes ${{env.EXTRA_PARAMS_ALL_BUILDS}}
 
       - name: Run the reprepro scripts
         id: run-scripts-reprepro
