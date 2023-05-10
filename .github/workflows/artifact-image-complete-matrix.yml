@@ -433,7 +433,8 @@ jobs:
       - name: Run the reprepro scripts
         id: run-scripts-reprepro
         env:
-          REPO_GPG_KEYID: ${{ steps.import_gpg.outputs.keyid }}
+          #REPO_GPG_KEYID: ${{ steps.import_gpg.outputs.keyid }}
+          REPO_GPG_KEYID: E56DDEA2B74BEF06D4AD5F65FFC9D0F6C41BCD73
           REPO_LOCATION: /opt/armbian_repo
           REPO_CONF_LOCATION: /opt/armbian_repo/conf
         run: |
