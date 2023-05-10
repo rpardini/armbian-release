@@ -1287,7 +1287,7 @@ jobs:
 
   "build-images-chunk-1": # templated "build-images-chunk-1"
     needs: [ "matrix_prep", "all-artifacts-ready" ]
-    timeout-minutes: 15
+    timeout-minutes: 20
     if: ${{ always() && ( github.repository_owner == 'rpardini' ) && ( needs.matrix_prep.outputs.images-chunk-not-empty-1 == 'yes' ) }} # <-- HERE: Chunk number.
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
@@ -1359,7 +1359,7 @@ jobs:
           rm -rfv output/images userpatches/VERSION
   "build-images-chunk-2": # templated "build-images-chunk-2"
     needs: [ "matrix_prep", "all-artifacts-ready" ]
-    timeout-minutes: 15
+    timeout-minutes: 20
     if: ${{ always() && ( github.repository_owner == 'rpardini' ) && ( needs.matrix_prep.outputs.images-chunk-not-empty-2 == 'yes' ) }} # <-- HERE: Chunk number.
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
@@ -1431,7 +1431,7 @@ jobs:
           rm -rfv output/images userpatches/VERSION
   "build-images-chunk-3": # templated "build-images-chunk-3"
     needs: [ "matrix_prep", "all-artifacts-ready" ]
-    timeout-minutes: 15
+    timeout-minutes: 20
     if: ${{ always() && ( github.repository_owner == 'rpardini' ) && ( needs.matrix_prep.outputs.images-chunk-not-empty-3 == 'yes' ) }} # <-- HERE: Chunk number.
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
@@ -1503,7 +1503,7 @@ jobs:
           rm -rfv output/images userpatches/VERSION
   "build-images-chunk-4": # templated "build-images-chunk-4"
     needs: [ "matrix_prep", "all-artifacts-ready" ]
-    timeout-minutes: 15
+    timeout-minutes: 20
     if: ${{ always() && ( github.repository_owner == 'rpardini' ) && ( needs.matrix_prep.outputs.images-chunk-not-empty-4 == 'yes' ) }} # <-- HERE: Chunk number.
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
@@ -1575,7 +1575,7 @@ jobs:
           rm -rfv output/images userpatches/VERSION
   "build-images-chunk-5": # templated "build-images-chunk-5"
     needs: [ "matrix_prep", "all-artifacts-ready" ]
-    timeout-minutes: 15
+    timeout-minutes: 20
     if: ${{ always() && ( github.repository_owner == 'rpardini' ) && ( needs.matrix_prep.outputs.images-chunk-not-empty-5 == 'yes' ) }} # <-- HERE: Chunk number.
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
@@ -1647,7 +1647,7 @@ jobs:
           rm -rfv output/images userpatches/VERSION
   "build-images-chunk-6": # templated "build-images-chunk-6"
     needs: [ "matrix_prep", "all-artifacts-ready" ]
-    timeout-minutes: 15
+    timeout-minutes: 20
     if: ${{ always() && ( github.repository_owner == 'rpardini' ) && ( needs.matrix_prep.outputs.images-chunk-not-empty-6 == 'yes' ) }} # <-- HERE: Chunk number.
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
@@ -1719,7 +1719,7 @@ jobs:
           rm -rfv output/images userpatches/VERSION
   "build-images-chunk-7": # templated "build-images-chunk-7"
     needs: [ "matrix_prep", "all-artifacts-ready" ]
-    timeout-minutes: 15
+    timeout-minutes: 20
     if: ${{ always() && ( github.repository_owner == 'rpardini' ) && ( needs.matrix_prep.outputs.images-chunk-not-empty-7 == 'yes' ) }} # <-- HERE: Chunk number.
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
@@ -1791,7 +1791,7 @@ jobs:
           rm -rfv output/images userpatches/VERSION
   "build-images-chunk-8": # templated "build-images-chunk-8"
     needs: [ "matrix_prep", "all-artifacts-ready" ]
-    timeout-minutes: 15
+    timeout-minutes: 20
     if: ${{ always() && ( github.repository_owner == 'rpardini' ) && ( needs.matrix_prep.outputs.images-chunk-not-empty-8 == 'yes' ) }} # <-- HERE: Chunk number.
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
@@ -1863,7 +1863,7 @@ jobs:
           rm -rfv output/images userpatches/VERSION
   "build-images-chunk-9": # templated "build-images-chunk-9"
     needs: [ "matrix_prep", "all-artifacts-ready" ]
-    timeout-minutes: 15
+    timeout-minutes: 20
     if: ${{ always() && ( github.repository_owner == 'rpardini' ) && ( needs.matrix_prep.outputs.images-chunk-not-empty-9 == 'yes' ) }} # <-- HERE: Chunk number.
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
@@ -1935,7 +1935,7 @@ jobs:
           rm -rfv output/images userpatches/VERSION
   "build-images-chunk-10": # templated "build-images-chunk-10"
     needs: [ "matrix_prep", "all-artifacts-ready" ]
-    timeout-minutes: 15
+    timeout-minutes: 20
     if: ${{ always() && ( github.repository_owner == 'rpardini' ) && ( needs.matrix_prep.outputs.images-chunk-not-empty-10 == 'yes' ) }} # <-- HERE: Chunk number.
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
@@ -2007,7 +2007,7 @@ jobs:
           rm -rfv output/images userpatches/VERSION
   "build-images-chunk-11": # templated "build-images-chunk-11"
     needs: [ "matrix_prep", "all-artifacts-ready" ]
-    timeout-minutes: 15
+    timeout-minutes: 20
     if: ${{ always() && ( github.repository_owner == 'rpardini' ) && ( needs.matrix_prep.outputs.images-chunk-not-empty-11 == 'yes' ) }} # <-- HERE: Chunk number.
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
@@ -2079,7 +2079,7 @@ jobs:
           rm -rfv output/images userpatches/VERSION
   "build-images-chunk-12": # templated "build-images-chunk-12"
     needs: [ "matrix_prep", "all-artifacts-ready" ]
-    timeout-minutes: 15
+    timeout-minutes: 20
     if: ${{ always() && ( github.repository_owner == 'rpardini' ) && ( needs.matrix_prep.outputs.images-chunk-not-empty-12 == 'yes' ) }} # <-- HERE: Chunk number.
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
@@ -2151,7 +2151,7 @@ jobs:
           rm -rfv output/images userpatches/VERSION
   "build-images-chunk-13": # templated "build-images-chunk-13"
     needs: [ "matrix_prep", "all-artifacts-ready" ]
-    timeout-minutes: 15
+    timeout-minutes: 20
     if: ${{ always() && ( github.repository_owner == 'rpardini' ) && ( needs.matrix_prep.outputs.images-chunk-not-empty-13 == 'yes' ) }} # <-- HERE: Chunk number.
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
@@ -2223,7 +2223,7 @@ jobs:
           rm -rfv output/images userpatches/VERSION
   "build-images-chunk-14": # templated "build-images-chunk-14"
     needs: [ "matrix_prep", "all-artifacts-ready" ]
-    timeout-minutes: 15
+    timeout-minutes: 20
     if: ${{ always() && ( github.repository_owner == 'rpardini' ) && ( needs.matrix_prep.outputs.images-chunk-not-empty-14 == 'yes' ) }} # <-- HERE: Chunk number.
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
@@ -2295,7 +2295,7 @@ jobs:
           rm -rfv output/images userpatches/VERSION
   "build-images-chunk-15": # templated "build-images-chunk-15"
     needs: [ "matrix_prep", "all-artifacts-ready" ]
-    timeout-minutes: 15
+    timeout-minutes: 20
     if: ${{ always() && ( github.repository_owner == 'rpardini' ) && ( needs.matrix_prep.outputs.images-chunk-not-empty-15 == 'yes' ) }} # <-- HERE: Chunk number.
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
@@ -2367,7 +2367,7 @@ jobs:
           rm -rfv output/images userpatches/VERSION
   "build-images-chunk-16": # templated "build-images-chunk-16"
     needs: [ "matrix_prep", "all-artifacts-ready" ]
-    timeout-minutes: 15
+    timeout-minutes: 20
     if: ${{ always() && ( github.repository_owner == 'rpardini' ) && ( needs.matrix_prep.outputs.images-chunk-not-empty-16 == 'yes' ) }} # <-- HERE: Chunk number.
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
@@ -2437,3 +2437,75 @@ jobs:
         if: always()
         run: |
           rm -rfv output/images userpatches/VERSION
+  
+  # template file: 750.single_repo.yaml
+
+  # ------ publish packages to repository -------
+
+  publish-debs-to-repo:
+    name: "publish debs to repo"
+    runs-on: [ "self-hosted", "Linux", 'armbian', "debs-to-repo" ]
+    if: ${{ always() }} # eg: always run.
+    needs: [ "matrix_prep", "all-artifacts-ready" ]
+    steps:
+      # Login to ghcr.io, for later uploading rootfs to ghcr.io
+      - name: Docker Login to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: "${{ github.repository_owner }}" # GitHub username or org
+          password: ${{ secrets.GITHUB_TOKEN }}    # GitHub actions builtin token. repo has to have pkg access.
+
+      # cleanup the place where we will clone the userpatches repo, to avoid git going insane and cleaning everything later
+      - name: Cleanup userpatches repo
+        if: ${{ ( env.USERPATCHES_REPOSITORY != '' ) && ( env.USERPATCHES_REF != '' ) }}
+        run: rm -rf userpatches.repo
+
+      - name: Checkout build repo
+        uses: actions/checkout@v3 # We don't need to clone git, really. A wget would suffice for GH-hosted runners. But using clone is better for Igor-hosted runners.
+        with:
+          repository: ${{ env.BUILD_REPOSITORY }}
+          ref: ${{ needs.matrix_prep.outputs.build-sha1 }}
+          fetch-depth: 1
+          clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
+
+      # clone the userpatches repo (`armbian/os`)
+      - name: "Checkout userpatches repo: ${{env.USERPATCHES_REPOSITORY}}#${{env.USERPATCHES_REF}}"
+        uses: actions/checkout@v3
+        if: ${{ ( env.USERPATCHES_REPOSITORY != '' ) && ( env.USERPATCHES_REF != '' ) }}
+        with:
+          repository: ${{ env.USERPATCHES_REPOSITORY }}
+          ref: ${{ env.USERPATCHES_REF }}
+          fetch-depth: 1
+          clean: false # true is default.
+          path: userpatches.repo
+
+      - name: "Put userpatches in place, and remove userpatches repo"
+        if: ${{ ( env.USERPATCHES_REPOSITORY != '' ) && ( env.USERPATCHES_REF != '' ) }}
+        run: |
+          mkdir -pv userpatches
+          rsync -av userpatches.repo/${{env.USERPATCHES_DIR}}/. userpatches/
+          rm -rf userpatches.repo
+
+      # Clean off output/info, if any
+      - name: Cleanup output/info
+        run: |
+          rm -rfv output/info
+          mkdir -pv output
+
+      # Download the artifacts (output/info) produced by the prepare-matrix job.
+      - name: Download artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: build-info-json
+          path: output/info
+
+      # List the artifacts we downloaded
+      - name: List artifacts
+        run: |
+          ls -laht output/info
+
+      - name: Prepare debs-to-repo scripts
+        id: prepare-scripts
+        run: |
+          bash ./compile.sh debs-to-repo SHARE_LOG=yes ${{env.EXTRA_PARAMS_ALL_BUILDS}}
