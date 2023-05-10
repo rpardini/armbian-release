@@ -388,7 +388,7 @@ jobs:
       # Clean off output/info, if any
       - name: Cleanup output/info
         run: |
-          rm -rfv output/info
+          rm -rf output/info
           mkdir -pv output
 
       # Download the artifacts (output/info) produced by the prepare-matrix job.
@@ -397,11 +397,6 @@ jobs:
         with:
           name: build-info-json
           path: output/info
-
-      # List the artifacts we downloaded
-      - name: List artifacts
-        run: |
-          ls -laht output/info
 
       - name: Download the debs
         id: download-debs
@@ -438,8 +433,6 @@ jobs:
           REPO_LOCATION: /opt/armbian_repo
           REPO_CONF_LOCATION: /opt/armbian_repo/conf
         run: |
-          set -x
           export REPREPRO_INFO_DIR="$(pwd)/output/info/reprepro"
           export INCOMING_DEBS_DIR="$(pwd)/output/debs"
-          ls -laR "${INCOMING_DEBS_DIR}"
-          bash -x output/info/reprepro/reprepro.sh
+          bash output/info/reprepro/reprepro.sh
