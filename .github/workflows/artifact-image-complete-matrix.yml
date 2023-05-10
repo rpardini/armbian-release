@@ -332,6 +332,20 @@ jobs:
     if: ${{ always() }} # eg: always run.
     needs: [ "matrix_prep", "all-artifacts-ready" ]
     steps:
+      # Prepare dependencies.
+      # If no /usr/bin/gpg, install gnupg2
+      # If no /usr/bin/reprepro, install reprepro
+      - name: Install dependencies
+        run: |
+          if [ ! -e /usr/bin/gpg ]; then
+            sudo apt-get update
+            sudo apt-get install -y gnupg2
+          fi
+          if [ ! -e /usr/bin/reprepro ]; then
+            sudo apt-get update
+            sudo apt-get install -y reprepro
+          fi
+
       # Login to ghcr.io, for later uploading rootfs to ghcr.io
       - name: Docker Login to GitHub Container Registry
         uses: docker/login-action@v2
