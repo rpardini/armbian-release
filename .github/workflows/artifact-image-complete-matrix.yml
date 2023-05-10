@@ -1,7 +1,8 @@
 
 # template file: 050.single_header.yaml
 
-name: artifact-image-complete-matrix
+#name: "Build All Artifacts/Images"
+name: "artifact-image-complete-matrix"
 
 on:
   schedule:
@@ -120,6 +121,13 @@ jobs:
       - name: chown cache memoize/oci back to normal user
         run: |
           sudo chown -R $USER:$USER cache/memoize cache/oci/positive
+
+      # Store output/info folder in a GitHub Actions artifact
+      - uses: actions/upload-artifact@v3
+        name: Upload output/info as GitHub Artifact
+        with:
+          name: build-info-json
+          path: output/info
 
       - name: Prepare GH Release
         uses: "marvinpinto/action-automatic-releases@latest" # @TODO this is outdated, needs replacement. Also it deletes the release if it already exists, which is not what we want. Might be necessary to move the tag.
