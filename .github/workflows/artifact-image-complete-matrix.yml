@@ -12,7 +12,7 @@ on:
       skipImages:
         description: 'Skip building images? no = build images, yes = skip images'
         required: true
-        options: [ 'no', 'yes' ]
+        options: [ 'yes' , 'no' ]
         type: choice
       checkOci:
         description: 'Check OCI for existing artifacts? yes = check OCI, no = always build everything'
