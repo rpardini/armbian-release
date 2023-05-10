@@ -1,3 +1,4 @@
+
 # template file: 050.single_header.yaml
 
 #name: "Build All Artifacts/Images"
@@ -2522,7 +2523,7 @@ jobs:
           echo "keyid:       ${{ steps.import_gpg.outputs.keyid }}"
           echo "name:        ${{ steps.import_gpg.outputs.name }}"
           echo "email:       ${{ steps.import_gpg.outputs.email }}"
-          
+
       - name: List loaded keys keys
         run: gpg -K || true
 
@@ -2536,8 +2537,10 @@ jobs:
         env:
           REPO_GPG_KEYID: ${{ steps.import_gpg.outputs.keyid }}
           REPO_LOCATION: /opt/armbian_repo
+          REPO_CONF_LOCATION: /opt/armbian_repo/conf
         run: |
           set -x
+          export REPREPRO_INFO_DIR="$(pwd)/output/info/reprepro"
           export INCOMING_DEBS_DIR="$(pwd)/output/debs"
           ls -laR "${INCOMING_DEBS_DIR}"
-          bash output/info/reprepro/reprepro.sh
+          bash -x output/info/reprepro/reprepro.sh
