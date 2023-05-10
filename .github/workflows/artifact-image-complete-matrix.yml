@@ -2505,7 +2505,37 @@ jobs:
         run: |
           ls -laht output/info
 
-      - name: Prepare debs-to-repo scripts
-        id: prepare-scripts
+      - name: Download the debs
+        id: download-debs
         run: |
-          bash ./compile.sh debs-to-repo SHARE_LOG=yes ${{env.EXTRA_PARAMS_ALL_BUILDS}}
+          bash ./compile.sh debs-to-repo-download SHARE_LOG=yes ${{env.EXTRA_PARAMS_ALL_BUILDS}}
+
+      - name: Import GPG key from GitHub secrets
+        id: import_gpg
+        uses: crazy-max/ghaction-import-gpg@72b6676b71ab476b77e676928516f6982eef7a41 # v5.3.0 # https://github.com/crazy-max/ghaction-import-gpg/releases
+        with:
+          gpg_private_key: ${{ secrets.REPO_GPG_PRIVATE_KEY }}
+          passphrase: ${{ secrets.REPO_GPG_PASSPHRASE }}
+
+      - name: Show GPG user IDs
+        run: |
+          echo "fingerprint: ${{ steps.import_gpg.outputs.fingerprint }}"
+          echo "keyid:       ${{ steps.import_gpg.outputs.keyid }}"
+          echo "name:        ${{ steps.import_gpg.outputs.name }}"
+          echo "email:       ${{ steps.import_gpg.outputs.email }}"
+
+      - name: Prepare the reprepro scripts
+        id: prepare-scripts-reprepro
+        run: |
+          bash ./compile.sh debs-to-repo-reprepro REPO_GPG_KEYID="${{ steps.import_gpg.outputs.keyid }}" SHARE_LOG=yes ${{env.EXTRA_PARAMS_ALL_BUILDS}}
+
+      - name: Run the reprepro scripts
+        id: run-scripts-reprepro
+        env:
+          REPO_GPG_KEYID: ${{ steps.import_gpg.outputs.keyid }}
+          REPO_LOCATION: /opt/armbian_repo
+        run: |
+          set -x
+          export INCOMING_DEBS_DIR="$(pwd)/output/debs"
+          ls -laR "${INCOMING_DEBS_DIR}"
+          bash output/info/reprepro/reprepro.sh
