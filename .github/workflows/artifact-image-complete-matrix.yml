@@ -5,6 +5,8 @@
 name: "artifact-image-complete-matrix"
 
 on:
+  schedule:
+    - cron: '0 1 * * *' # Scheduled runs every day at 2am UTC
   workflow_dispatch:
     inputs:
       skipImages:
@@ -285,7 +287,7 @@ jobs:
   all-artifacts-ready:
     name: "17 artifacts chunks ready"
     runs-on: ubuntu-latest # not going to run, anyway, but is required.
-    if: ${{ always() && ( 1 == 2 ) }} # eg: never run.
+    if: ${{ success() && ( 1 == 2 ) }} # eg: never run.
     needs: [ "matrix_prep", "build-artifacts-chunk-1","build-artifacts-chunk-2","build-artifacts-chunk-3","build-artifacts-chunk-4","build-artifacts-chunk-5","build-artifacts-chunk-6","build-artifacts-chunk-7","build-artifacts-chunk-8","build-artifacts-chunk-9","build-artifacts-chunk-10","build-artifacts-chunk-11","build-artifacts-chunk-12","build-artifacts-chunk-13","build-artifacts-chunk-14","build-artifacts-chunk-15","build-artifacts-chunk-16","build-artifacts-chunk-17" ] # <-- HERE: all artifact chunk numbers.
     steps:
       - name: fake step
@@ -294,7 +296,7 @@ jobs:
   all-images-ready:
     name: "16 image chunks ready"
     runs-on: ubuntu-latest # not going to run, anyway, but is required.
-    if: ${{ always() && ( 1 == 2 ) }} # eg: never run.
+    if: ${{ success() && ( 1 == 2 ) }} # eg: never run.
     needs: [ "matrix_prep", "build-images-chunk-1","build-images-chunk-2","build-images-chunk-3","build-images-chunk-4","build-images-chunk-5","build-images-chunk-6","build-images-chunk-7","build-images-chunk-8","build-images-chunk-9","build-images-chunk-10","build-images-chunk-11","build-images-chunk-12","build-images-chunk-13","build-images-chunk-14","build-images-chunk-15","build-images-chunk-16" ] # <-- HERE: all image chunk numbers.
     steps:
       - name: fake step
@@ -303,7 +305,7 @@ jobs:
   all-artifacts-and-images-ready:
     name: "17 artifacts and 16 image chunks ready"
     runs-on: ubuntu-latest # not going to run, anyway, but is required.
-    if: ${{ always() && ( 1 == 2 ) }} # eg: never run.
+    if: ${{ success() && ( 1 == 2 ) }} # eg: never run.
     needs: [ "matrix_prep", "all-artifacts-ready", "all-images-ready" ]
     steps:
       - name: fake step
@@ -1286,7 +1288,7 @@ jobs:
   "build-images-chunk-1": # templated "build-images-chunk-1"
     needs: [ "matrix_prep", "all-artifacts-ready" ]
     timeout-minutes: 20
-    if: ${{ always() && ( github.repository_owner == 'rpardini' ) && ( needs.matrix_prep.outputs.images-chunk-not-empty-1 == 'yes' ) }} # <-- HERE: Chunk number.
+    if: ${{ success() && ( github.repository_owner == 'rpardini' ) && ( needs.matrix_prep.outputs.images-chunk-not-empty-1 == 'yes' ) }} # <-- HERE: Chunk number.
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
       matrix: ${{ fromJSON(needs.matrix_prep.outputs.images-chunk-json-1) }} # <-- HERE: Chunk number.
@@ -1358,7 +1360,7 @@ jobs:
   "build-images-chunk-2": # templated "build-images-chunk-2"
     needs: [ "matrix_prep", "all-artifacts-ready" ]
     timeout-minutes: 20
-    if: ${{ always() && ( github.repository_owner == 'rpardini' ) && ( needs.matrix_prep.outputs.images-chunk-not-empty-2 == 'yes' ) }} # <-- HERE: Chunk number.
+    if: ${{ success() && ( github.repository_owner == 'rpardini' ) && ( needs.matrix_prep.outputs.images-chunk-not-empty-2 == 'yes' ) }} # <-- HERE: Chunk number.
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
       matrix: ${{ fromJSON(needs.matrix_prep.outputs.images-chunk-json-2) }} # <-- HERE: Chunk number.
@@ -1430,7 +1432,7 @@ jobs:
   "build-images-chunk-3": # templated "build-images-chunk-3"
     needs: [ "matrix_prep", "all-artifacts-ready" ]
     timeout-minutes: 20
-    if: ${{ always() && ( github.repository_owner == 'rpardini' ) && ( needs.matrix_prep.outputs.images-chunk-not-empty-3 == 'yes' ) }} # <-- HERE: Chunk number.
+    if: ${{ success() && ( github.repository_owner == 'rpardini' ) && ( needs.matrix_prep.outputs.images-chunk-not-empty-3 == 'yes' ) }} # <-- HERE: Chunk number.
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
       matrix: ${{ fromJSON(needs.matrix_prep.outputs.images-chunk-json-3) }} # <-- HERE: Chunk number.
@@ -1502,7 +1504,7 @@ jobs:
   "build-images-chunk-4": # templated "build-images-chunk-4"
     needs: [ "matrix_prep", "all-artifacts-ready" ]
     timeout-minutes: 20
-    if: ${{ always() && ( github.repository_owner == 'rpardini' ) && ( needs.matrix_prep.outputs.images-chunk-not-empty-4 == 'yes' ) }} # <-- HERE: Chunk number.
+    if: ${{ success() && ( github.repository_owner == 'rpardini' ) && ( needs.matrix_prep.outputs.images-chunk-not-empty-4 == 'yes' ) }} # <-- HERE: Chunk number.
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
       matrix: ${{ fromJSON(needs.matrix_prep.outputs.images-chunk-json-4) }} # <-- HERE: Chunk number.
@@ -1574,7 +1576,7 @@ jobs:
   "build-images-chunk-5": # templated "build-images-chunk-5"
     needs: [ "matrix_prep", "all-artifacts-ready" ]
     timeout-minutes: 20
-    if: ${{ always() && ( github.repository_owner == 'rpardini' ) && ( needs.matrix_prep.outputs.images-chunk-not-empty-5 == 'yes' ) }} # <-- HERE: Chunk number.
+    if: ${{ success() && ( github.repository_owner == 'rpardini' ) && ( needs.matrix_prep.outputs.images-chunk-not-empty-5 == 'yes' ) }} # <-- HERE: Chunk number.
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
       matrix: ${{ fromJSON(needs.matrix_prep.outputs.images-chunk-json-5) }} # <-- HERE: Chunk number.
@@ -1646,7 +1648,7 @@ jobs:
   "build-images-chunk-6": # templated "build-images-chunk-6"
     needs: [ "matrix_prep", "all-artifacts-ready" ]
     timeout-minutes: 20
-    if: ${{ always() && ( github.repository_owner == 'rpardini' ) && ( needs.matrix_prep.outputs.images-chunk-not-empty-6 == 'yes' ) }} # <-- HERE: Chunk number.
+    if: ${{ success() && ( github.repository_owner == 'rpardini' ) && ( needs.matrix_prep.outputs.images-chunk-not-empty-6 == 'yes' ) }} # <-- HERE: Chunk number.
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
       matrix: ${{ fromJSON(needs.matrix_prep.outputs.images-chunk-json-6) }} # <-- HERE: Chunk number.
@@ -1718,7 +1720,7 @@ jobs:
   "build-images-chunk-7": # templated "build-images-chunk-7"
     needs: [ "matrix_prep", "all-artifacts-ready" ]
     timeout-minutes: 20
-    if: ${{ always() && ( github.repository_owner == 'rpardini' ) && ( needs.matrix_prep.outputs.images-chunk-not-empty-7 == 'yes' ) }} # <-- HERE: Chunk number.
+    if: ${{ success() && ( github.repository_owner == 'rpardini' ) && ( needs.matrix_prep.outputs.images-chunk-not-empty-7 == 'yes' ) }} # <-- HERE: Chunk number.
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
       matrix: ${{ fromJSON(needs.matrix_prep.outputs.images-chunk-json-7) }} # <-- HERE: Chunk number.
@@ -1790,7 +1792,7 @@ jobs:
   "build-images-chunk-8": # templated "build-images-chunk-8"
     needs: [ "matrix_prep", "all-artifacts-ready" ]
     timeout-minutes: 20
-    if: ${{ always() && ( github.repository_owner == 'rpardini' ) && ( needs.matrix_prep.outputs.images-chunk-not-empty-8 == 'yes' ) }} # <-- HERE: Chunk number.
+    if: ${{ success() && ( github.repository_owner == 'rpardini' ) && ( needs.matrix_prep.outputs.images-chunk-not-empty-8 == 'yes' ) }} # <-- HERE: Chunk number.
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
       matrix: ${{ fromJSON(needs.matrix_prep.outputs.images-chunk-json-8) }} # <-- HERE: Chunk number.
@@ -1862,7 +1864,7 @@ jobs:
   "build-images-chunk-9": # templated "build-images-chunk-9"
     needs: [ "matrix_prep", "all-artifacts-ready" ]
     timeout-minutes: 20
-    if: ${{ always() && ( github.repository_owner == 'rpardini' ) && ( needs.matrix_prep.outputs.images-chunk-not-empty-9 == 'yes' ) }} # <-- HERE: Chunk number.
+    if: ${{ success() && ( github.repository_owner == 'rpardini' ) && ( needs.matrix_prep.outputs.images-chunk-not-empty-9 == 'yes' ) }} # <-- HERE: Chunk number.
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
       matrix: ${{ fromJSON(needs.matrix_prep.outputs.images-chunk-json-9) }} # <-- HERE: Chunk number.
@@ -1934,7 +1936,7 @@ jobs:
   "build-images-chunk-10": # templated "build-images-chunk-10"
     needs: [ "matrix_prep", "all-artifacts-ready" ]
     timeout-minutes: 20
-    if: ${{ always() && ( github.repository_owner == 'rpardini' ) && ( needs.matrix_prep.outputs.images-chunk-not-empty-10 == 'yes' ) }} # <-- HERE: Chunk number.
+    if: ${{ success() && ( github.repository_owner == 'rpardini' ) && ( needs.matrix_prep.outputs.images-chunk-not-empty-10 == 'yes' ) }} # <-- HERE: Chunk number.
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
       matrix: ${{ fromJSON(needs.matrix_prep.outputs.images-chunk-json-10) }} # <-- HERE: Chunk number.
@@ -2006,7 +2008,7 @@ jobs:
   "build-images-chunk-11": # templated "build-images-chunk-11"
     needs: [ "matrix_prep", "all-artifacts-ready" ]
     timeout-minutes: 20
-    if: ${{ always() && ( github.repository_owner == 'rpardini' ) && ( needs.matrix_prep.outputs.images-chunk-not-empty-11 == 'yes' ) }} # <-- HERE: Chunk number.
+    if: ${{ success() && ( github.repository_owner == 'rpardini' ) && ( needs.matrix_prep.outputs.images-chunk-not-empty-11 == 'yes' ) }} # <-- HERE: Chunk number.
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
       matrix: ${{ fromJSON(needs.matrix_prep.outputs.images-chunk-json-11) }} # <-- HERE: Chunk number.
@@ -2078,7 +2080,7 @@ jobs:
   "build-images-chunk-12": # templated "build-images-chunk-12"
     needs: [ "matrix_prep", "all-artifacts-ready" ]
     timeout-minutes: 20
-    if: ${{ always() && ( github.repository_owner == 'rpardini' ) && ( needs.matrix_prep.outputs.images-chunk-not-empty-12 == 'yes' ) }} # <-- HERE: Chunk number.
+    if: ${{ success() && ( github.repository_owner == 'rpardini' ) && ( needs.matrix_prep.outputs.images-chunk-not-empty-12 == 'yes' ) }} # <-- HERE: Chunk number.
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
       matrix: ${{ fromJSON(needs.matrix_prep.outputs.images-chunk-json-12) }} # <-- HERE: Chunk number.
@@ -2150,7 +2152,7 @@ jobs:
   "build-images-chunk-13": # templated "build-images-chunk-13"
     needs: [ "matrix_prep", "all-artifacts-ready" ]
     timeout-minutes: 20
-    if: ${{ always() && ( github.repository_owner == 'rpardini' ) && ( needs.matrix_prep.outputs.images-chunk-not-empty-13 == 'yes' ) }} # <-- HERE: Chunk number.
+    if: ${{ success() && ( github.repository_owner == 'rpardini' ) && ( needs.matrix_prep.outputs.images-chunk-not-empty-13 == 'yes' ) }} # <-- HERE: Chunk number.
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
       matrix: ${{ fromJSON(needs.matrix_prep.outputs.images-chunk-json-13) }} # <-- HERE: Chunk number.
@@ -2222,7 +2224,7 @@ jobs:
   "build-images-chunk-14": # templated "build-images-chunk-14"
     needs: [ "matrix_prep", "all-artifacts-ready" ]
     timeout-minutes: 20
-    if: ${{ always() && ( github.repository_owner == 'rpardini' ) && ( needs.matrix_prep.outputs.images-chunk-not-empty-14 == 'yes' ) }} # <-- HERE: Chunk number.
+    if: ${{ success() && ( github.repository_owner == 'rpardini' ) && ( needs.matrix_prep.outputs.images-chunk-not-empty-14 == 'yes' ) }} # <-- HERE: Chunk number.
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
       matrix: ${{ fromJSON(needs.matrix_prep.outputs.images-chunk-json-14) }} # <-- HERE: Chunk number.
@@ -2294,7 +2296,7 @@ jobs:
   "build-images-chunk-15": # templated "build-images-chunk-15"
     needs: [ "matrix_prep", "all-artifacts-ready" ]
     timeout-minutes: 20
-    if: ${{ always() && ( github.repository_owner == 'rpardini' ) && ( needs.matrix_prep.outputs.images-chunk-not-empty-15 == 'yes' ) }} # <-- HERE: Chunk number.
+    if: ${{ success() && ( github.repository_owner == 'rpardini' ) && ( needs.matrix_prep.outputs.images-chunk-not-empty-15 == 'yes' ) }} # <-- HERE: Chunk number.
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
       matrix: ${{ fromJSON(needs.matrix_prep.outputs.images-chunk-json-15) }} # <-- HERE: Chunk number.
@@ -2366,7 +2368,7 @@ jobs:
   "build-images-chunk-16": # templated "build-images-chunk-16"
     needs: [ "matrix_prep", "all-artifacts-ready" ]
     timeout-minutes: 20
-    if: ${{ always() && ( github.repository_owner == 'rpardini' ) && ( needs.matrix_prep.outputs.images-chunk-not-empty-16 == 'yes' ) }} # <-- HERE: Chunk number.
+    if: ${{ success() && ( github.repository_owner == 'rpardini' ) && ( needs.matrix_prep.outputs.images-chunk-not-empty-16 == 'yes' ) }} # <-- HERE: Chunk number.
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
       matrix: ${{ fromJSON(needs.matrix_prep.outputs.images-chunk-json-16) }} # <-- HERE: Chunk number.
@@ -2443,7 +2445,7 @@ jobs:
   publish-debs-to-repo:
     name: "publish debs to repo"
     runs-on: [ "self-hosted", "Linux", 'armbian', "debs-to-repo" ]
-    if: ${{ always() }} # eg: always run.
+    if: ${{ success() }} # eg: run if dependencies worked.
     needs: [ "matrix_prep", "all-artifacts-ready" ]
     steps:
       # Prepare dependencies.
