@@ -67,3 +67,9 @@ jobs:
           bash ./compile.sh kernel \
             "BRANCH=${{env.BRANCH}}" "BOARD=${{env.BOARD}}" ${{env.VARIANT}} \
             SHARE_LOG=yes rpardini-generic
+
+      - name: "Logs: ${{ steps.kernel.outputs.logs_url }}"
+        run: |
+          echo "Logs:"
+          echo "${{ steps.kernel.outputs.logs_url }}"
+          echo "Done."
