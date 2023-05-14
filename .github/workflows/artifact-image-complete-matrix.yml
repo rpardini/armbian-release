@@ -5,8 +5,8 @@
 name: "artifact-image-complete-matrix"
 
 on:
-  #schedule:
-  #  - cron: '0 1 * * *' # Scheduled runs every day at 1am UTC
+  schedule:
+    - cron: '0 1 * * *' # Scheduled runs every day at 2am UTC
   workflow_dispatch:
     inputs:
       skipImages:
@@ -117,6 +117,10 @@ jobs:
         run: |
           # this sets outputs "artifact-matrix" #and "image-matrix"
           bash ./compile.sh gha-matrix rpardini-generic CLEAN_INFO=yes CLEAN_MATRIX=yes MATRIX_ARTIFACT_CHUNKS=17 MATRIX_IMAGE_CHUNKS=16 CHECK_OCI=${{ github.event.inputs.checkOci || 'yes' }} TARGETS_FILENAME=targets.yaml SKIP_IMAGES=${{ github.event.inputs.skipImages || 'yes' }} ${{env.EXTRA_PARAMS_ALL_BUILDS}} SHARE_LOG=yes #  IMAGES_ONLY_OUTDATED_ARTIFACTS=yes
+
+      - name: "Logs: ${{ steps.prepare-matrix.outputs.logs_url }}"
+        run: |
+          echo "Logs: ${{ steps.prepare-matrix.outputs.logs_url }}"
 
       - name: chown cache memoize/oci back to normal user
         run: |
@@ -370,6 +374,10 @@ jobs:
         run: |
           bash ./compile.sh ${{ matrix.invocation }} SHARE_LOG=yes ${{env.EXTRA_PARAMS_ALL_BUILDS}}
 
+      - name: "Logs: ${{ steps.build.outputs.logs_url }}"
+        run: |
+          echo "Logs: ${{ steps.build.outputs.logs_url }}"
+
   "build-artifacts-chunk-2": # templated "build-artifacts-chunk-2"
     if: ${{ github.repository_owner == 'rpardini' && needs.matrix_prep.outputs.artifacts-chunk-not-empty-2 == 'yes' }}  # <-- HERE: Chunk number.
     needs: [ "matrix_prep" ]
@@ -426,6 +434,10 @@ jobs:
         id: build
         run: |
           bash ./compile.sh ${{ matrix.invocation }} SHARE_LOG=yes ${{env.EXTRA_PARAMS_ALL_BUILDS}}
+
+      - name: "Logs: ${{ steps.build.outputs.logs_url }}"
+        run: |
+          echo "Logs: ${{ steps.build.outputs.logs_url }}"
 
   "build-artifacts-chunk-3": # templated "build-artifacts-chunk-3"
     if: ${{ github.repository_owner == 'rpardini' && needs.matrix_prep.outputs.artifacts-chunk-not-empty-3 == 'yes' }}  # <-- HERE: Chunk number.
@@ -484,6 +496,10 @@ jobs:
         run: |
           bash ./compile.sh ${{ matrix.invocation }} SHARE_LOG=yes ${{env.EXTRA_PARAMS_ALL_BUILDS}}
 
+      - name: "Logs: ${{ steps.build.outputs.logs_url }}"
+        run: |
+          echo "Logs: ${{ steps.build.outputs.logs_url }}"
+
   "build-artifacts-chunk-4": # templated "build-artifacts-chunk-4"
     if: ${{ github.repository_owner == 'rpardini' && needs.matrix_prep.outputs.artifacts-chunk-not-empty-4 == 'yes' }}  # <-- HERE: Chunk number.
     needs: [ "matrix_prep" ]
@@ -540,6 +556,10 @@ jobs:
         id: build
         run: |
           bash ./compile.sh ${{ matrix.invocation }} SHARE_LOG=yes ${{env.EXTRA_PARAMS_ALL_BUILDS}}
+
+      - name: "Logs: ${{ steps.build.outputs.logs_url }}"
+        run: |
+          echo "Logs: ${{ steps.build.outputs.logs_url }}"
 
   "build-artifacts-chunk-5": # templated "build-artifacts-chunk-5"
     if: ${{ github.repository_owner == 'rpardini' && needs.matrix_prep.outputs.artifacts-chunk-not-empty-5 == 'yes' }}  # <-- HERE: Chunk number.
@@ -598,6 +618,10 @@ jobs:
         run: |
           bash ./compile.sh ${{ matrix.invocation }} SHARE_LOG=yes ${{env.EXTRA_PARAMS_ALL_BUILDS}}
 
+      - name: "Logs: ${{ steps.build.outputs.logs_url }}"
+        run: |
+          echo "Logs: ${{ steps.build.outputs.logs_url }}"
+
   "build-artifacts-chunk-6": # templated "build-artifacts-chunk-6"
     if: ${{ github.repository_owner == 'rpardini' && needs.matrix_prep.outputs.artifacts-chunk-not-empty-6 == 'yes' }}  # <-- HERE: Chunk number.
     needs: [ "matrix_prep" ]
@@ -654,6 +678,10 @@ jobs:
         id: build
         run: |
           bash ./compile.sh ${{ matrix.invocation }} SHARE_LOG=yes ${{env.EXTRA_PARAMS_ALL_BUILDS}}
+
+      - name: "Logs: ${{ steps.build.outputs.logs_url }}"
+        run: |
+          echo "Logs: ${{ steps.build.outputs.logs_url }}"
 
   "build-artifacts-chunk-7": # templated "build-artifacts-chunk-7"
     if: ${{ github.repository_owner == 'rpardini' && needs.matrix_prep.outputs.artifacts-chunk-not-empty-7 == 'yes' }}  # <-- HERE: Chunk number.
@@ -712,6 +740,10 @@ jobs:
         run: |
           bash ./compile.sh ${{ matrix.invocation }} SHARE_LOG=yes ${{env.EXTRA_PARAMS_ALL_BUILDS}}
 
+      - name: "Logs: ${{ steps.build.outputs.logs_url }}"
+        run: |
+          echo "Logs: ${{ steps.build.outputs.logs_url }}"
+
   "build-artifacts-chunk-8": # templated "build-artifacts-chunk-8"
     if: ${{ github.repository_owner == 'rpardini' && needs.matrix_prep.outputs.artifacts-chunk-not-empty-8 == 'yes' }}  # <-- HERE: Chunk number.
     needs: [ "matrix_prep" ]
@@ -768,6 +800,10 @@ jobs:
         id: build
         run: |
           bash ./compile.sh ${{ matrix.invocation }} SHARE_LOG=yes ${{env.EXTRA_PARAMS_ALL_BUILDS}}
+
+      - name: "Logs: ${{ steps.build.outputs.logs_url }}"
+        run: |
+          echo "Logs: ${{ steps.build.outputs.logs_url }}"
 
   "build-artifacts-chunk-9": # templated "build-artifacts-chunk-9"
     if: ${{ github.repository_owner == 'rpardini' && needs.matrix_prep.outputs.artifacts-chunk-not-empty-9 == 'yes' }}  # <-- HERE: Chunk number.
@@ -826,6 +862,10 @@ jobs:
         run: |
           bash ./compile.sh ${{ matrix.invocation }} SHARE_LOG=yes ${{env.EXTRA_PARAMS_ALL_BUILDS}}
 
+      - name: "Logs: ${{ steps.build.outputs.logs_url }}"
+        run: |
+          echo "Logs: ${{ steps.build.outputs.logs_url }}"
+
   "build-artifacts-chunk-10": # templated "build-artifacts-chunk-10"
     if: ${{ github.repository_owner == 'rpardini' && needs.matrix_prep.outputs.artifacts-chunk-not-empty-10 == 'yes' }}  # <-- HERE: Chunk number.
     needs: [ "matrix_prep" ]
@@ -882,6 +922,10 @@ jobs:
         id: build
         run: |
           bash ./compile.sh ${{ matrix.invocation }} SHARE_LOG=yes ${{env.EXTRA_PARAMS_ALL_BUILDS}}
+
+      - name: "Logs: ${{ steps.build.outputs.logs_url }}"
+        run: |
+          echo "Logs: ${{ steps.build.outputs.logs_url }}"
 
   "build-artifacts-chunk-11": # templated "build-artifacts-chunk-11"
     if: ${{ github.repository_owner == 'rpardini' && needs.matrix_prep.outputs.artifacts-chunk-not-empty-11 == 'yes' }}  # <-- HERE: Chunk number.
@@ -940,6 +984,10 @@ jobs:
         run: |
           bash ./compile.sh ${{ matrix.invocation }} SHARE_LOG=yes ${{env.EXTRA_PARAMS_ALL_BUILDS}}
 
+      - name: "Logs: ${{ steps.build.outputs.logs_url }}"
+        run: |
+          echo "Logs: ${{ steps.build.outputs.logs_url }}"
+
   "build-artifacts-chunk-12": # templated "build-artifacts-chunk-12"
     if: ${{ github.repository_owner == 'rpardini' && needs.matrix_prep.outputs.artifacts-chunk-not-empty-12 == 'yes' }}  # <-- HERE: Chunk number.
     needs: [ "matrix_prep" ]
@@ -996,6 +1044,10 @@ jobs:
         id: build
         run: |
           bash ./compile.sh ${{ matrix.invocation }} SHARE_LOG=yes ${{env.EXTRA_PARAMS_ALL_BUILDS}}
+
+      - name: "Logs: ${{ steps.build.outputs.logs_url }}"
+        run: |
+          echo "Logs: ${{ steps.build.outputs.logs_url }}"
 
   "build-artifacts-chunk-13": # templated "build-artifacts-chunk-13"
     if: ${{ github.repository_owner == 'rpardini' && needs.matrix_prep.outputs.artifacts-chunk-not-empty-13 == 'yes' }}  # <-- HERE: Chunk number.
@@ -1054,6 +1106,10 @@ jobs:
         run: |
           bash ./compile.sh ${{ matrix.invocation }} SHARE_LOG=yes ${{env.EXTRA_PARAMS_ALL_BUILDS}}
 
+      - name: "Logs: ${{ steps.build.outputs.logs_url }}"
+        run: |
+          echo "Logs: ${{ steps.build.outputs.logs_url }}"
+
   "build-artifacts-chunk-14": # templated "build-artifacts-chunk-14"
     if: ${{ github.repository_owner == 'rpardini' && needs.matrix_prep.outputs.artifacts-chunk-not-empty-14 == 'yes' }}  # <-- HERE: Chunk number.
     needs: [ "matrix_prep" ]
@@ -1110,6 +1166,10 @@ jobs:
         id: build
         run: |
           bash ./compile.sh ${{ matrix.invocation }} SHARE_LOG=yes ${{env.EXTRA_PARAMS_ALL_BUILDS}}
+
+      - name: "Logs: ${{ steps.build.outputs.logs_url }}"
+        run: |
+          echo "Logs: ${{ steps.build.outputs.logs_url }}"
 
   "build-artifacts-chunk-15": # templated "build-artifacts-chunk-15"
     if: ${{ github.repository_owner == 'rpardini' && needs.matrix_prep.outputs.artifacts-chunk-not-empty-15 == 'yes' }}  # <-- HERE: Chunk number.
@@ -1168,6 +1228,10 @@ jobs:
         run: |
           bash ./compile.sh ${{ matrix.invocation }} SHARE_LOG=yes ${{env.EXTRA_PARAMS_ALL_BUILDS}}
 
+      - name: "Logs: ${{ steps.build.outputs.logs_url }}"
+        run: |
+          echo "Logs: ${{ steps.build.outputs.logs_url }}"
+
   "build-artifacts-chunk-16": # templated "build-artifacts-chunk-16"
     if: ${{ github.repository_owner == 'rpardini' && needs.matrix_prep.outputs.artifacts-chunk-not-empty-16 == 'yes' }}  # <-- HERE: Chunk number.
     needs: [ "matrix_prep" ]
@@ -1225,6 +1289,10 @@ jobs:
         run: |
           bash ./compile.sh ${{ matrix.invocation }} SHARE_LOG=yes ${{env.EXTRA_PARAMS_ALL_BUILDS}}
 
+      - name: "Logs: ${{ steps.build.outputs.logs_url }}"
+        run: |
+          echo "Logs: ${{ steps.build.outputs.logs_url }}"
+
   "build-artifacts-chunk-17": # templated "build-artifacts-chunk-17"
     if: ${{ github.repository_owner == 'rpardini' && needs.matrix_prep.outputs.artifacts-chunk-not-empty-17 == 'yes' }}  # <-- HERE: Chunk number.
     needs: [ "matrix_prep" ]
@@ -1281,6 +1349,10 @@ jobs:
         id: build
         run: |
           bash ./compile.sh ${{ matrix.invocation }} SHARE_LOG=yes ${{env.EXTRA_PARAMS_ALL_BUILDS}}
+
+      - name: "Logs: ${{ steps.build.outputs.logs_url }}"
+        run: |
+          echo "Logs: ${{ steps.build.outputs.logs_url }}"
   
   
   # template file: 650.per-chunk-images_job.yaml
@@ -1333,6 +1405,10 @@ jobs:
         id: build-one-image
         run: |
           bash ./compile.sh ${{ matrix.invocation }} SHARE_LOG=yes ${{env.EXTRA_PARAMS_IMAGE}} ${{env.EXTRA_PARAMS_ALL_BUILDS}}
+
+      - name: "Logs: ${{ steps.build-one-image.outputs.logs_url }}"
+        run: |
+          echo "Logs: ${{ steps.build-one-image.outputs.logs_url }}"
 
       # @TODO lets upload to GHR release ourselves instead of this shit
       - name: Release ${{ matrix.board }}
@@ -1406,6 +1482,10 @@ jobs:
         run: |
           bash ./compile.sh ${{ matrix.invocation }} SHARE_LOG=yes ${{env.EXTRA_PARAMS_IMAGE}} ${{env.EXTRA_PARAMS_ALL_BUILDS}}
 
+      - name: "Logs: ${{ steps.build-one-image.outputs.logs_url }}"
+        run: |
+          echo "Logs: ${{ steps.build-one-image.outputs.logs_url }}"
+
       # @TODO lets upload to GHR release ourselves instead of this shit
       - name: Release ${{ matrix.board }}
         id: release1
@@ -1477,6 +1557,10 @@ jobs:
         id: build-one-image
         run: |
           bash ./compile.sh ${{ matrix.invocation }} SHARE_LOG=yes ${{env.EXTRA_PARAMS_IMAGE}} ${{env.EXTRA_PARAMS_ALL_BUILDS}}
+
+      - name: "Logs: ${{ steps.build-one-image.outputs.logs_url }}"
+        run: |
+          echo "Logs: ${{ steps.build-one-image.outputs.logs_url }}"
 
       # @TODO lets upload to GHR release ourselves instead of this shit
       - name: Release ${{ matrix.board }}
@@ -1550,6 +1634,10 @@ jobs:
         run: |
           bash ./compile.sh ${{ matrix.invocation }} SHARE_LOG=yes ${{env.EXTRA_PARAMS_IMAGE}} ${{env.EXTRA_PARAMS_ALL_BUILDS}}
 
+      - name: "Logs: ${{ steps.build-one-image.outputs.logs_url }}"
+        run: |
+          echo "Logs: ${{ steps.build-one-image.outputs.logs_url }}"
+
       # @TODO lets upload to GHR release ourselves instead of this shit
       - name: Release ${{ matrix.board }}
         id: release1
@@ -1621,6 +1709,10 @@ jobs:
         id: build-one-image
         run: |
           bash ./compile.sh ${{ matrix.invocation }} SHARE_LOG=yes ${{env.EXTRA_PARAMS_IMAGE}} ${{env.EXTRA_PARAMS_ALL_BUILDS}}
+
+      - name: "Logs: ${{ steps.build-one-image.outputs.logs_url }}"
+        run: |
+          echo "Logs: ${{ steps.build-one-image.outputs.logs_url }}"
 
       # @TODO lets upload to GHR release ourselves instead of this shit
       - name: Release ${{ matrix.board }}
@@ -1694,6 +1786,10 @@ jobs:
         run: |
           bash ./compile.sh ${{ matrix.invocation }} SHARE_LOG=yes ${{env.EXTRA_PARAMS_IMAGE}} ${{env.EXTRA_PARAMS_ALL_BUILDS}}
 
+      - name: "Logs: ${{ steps.build-one-image.outputs.logs_url }}"
+        run: |
+          echo "Logs: ${{ steps.build-one-image.outputs.logs_url }}"
+
       # @TODO lets upload to GHR release ourselves instead of this shit
       - name: Release ${{ matrix.board }}
         id: release1
@@ -1765,6 +1861,10 @@ jobs:
         id: build-one-image
         run: |
           bash ./compile.sh ${{ matrix.invocation }} SHARE_LOG=yes ${{env.EXTRA_PARAMS_IMAGE}} ${{env.EXTRA_PARAMS_ALL_BUILDS}}
+
+      - name: "Logs: ${{ steps.build-one-image.outputs.logs_url }}"
+        run: |
+          echo "Logs: ${{ steps.build-one-image.outputs.logs_url }}"
 
       # @TODO lets upload to GHR release ourselves instead of this shit
       - name: Release ${{ matrix.board }}
@@ -1838,6 +1938,10 @@ jobs:
         run: |
           bash ./compile.sh ${{ matrix.invocation }} SHARE_LOG=yes ${{env.EXTRA_PARAMS_IMAGE}} ${{env.EXTRA_PARAMS_ALL_BUILDS}}
 
+      - name: "Logs: ${{ steps.build-one-image.outputs.logs_url }}"
+        run: |
+          echo "Logs: ${{ steps.build-one-image.outputs.logs_url }}"
+
       # @TODO lets upload to GHR release ourselves instead of this shit
       - name: Release ${{ matrix.board }}
         id: release1
@@ -1909,6 +2013,10 @@ jobs:
         id: build-one-image
         run: |
           bash ./compile.sh ${{ matrix.invocation }} SHARE_LOG=yes ${{env.EXTRA_PARAMS_IMAGE}} ${{env.EXTRA_PARAMS_ALL_BUILDS}}
+
+      - name: "Logs: ${{ steps.build-one-image.outputs.logs_url }}"
+        run: |
+          echo "Logs: ${{ steps.build-one-image.outputs.logs_url }}"
 
       # @TODO lets upload to GHR release ourselves instead of this shit
       - name: Release ${{ matrix.board }}
@@ -1982,6 +2090,10 @@ jobs:
         run: |
           bash ./compile.sh ${{ matrix.invocation }} SHARE_LOG=yes ${{env.EXTRA_PARAMS_IMAGE}} ${{env.EXTRA_PARAMS_ALL_BUILDS}}
 
+      - name: "Logs: ${{ steps.build-one-image.outputs.logs_url }}"
+        run: |
+          echo "Logs: ${{ steps.build-one-image.outputs.logs_url }}"
+
       # @TODO lets upload to GHR release ourselves instead of this shit
       - name: Release ${{ matrix.board }}
         id: release1
@@ -2053,6 +2165,10 @@ jobs:
         id: build-one-image
         run: |
           bash ./compile.sh ${{ matrix.invocation }} SHARE_LOG=yes ${{env.EXTRA_PARAMS_IMAGE}} ${{env.EXTRA_PARAMS_ALL_BUILDS}}
+
+      - name: "Logs: ${{ steps.build-one-image.outputs.logs_url }}"
+        run: |
+          echo "Logs: ${{ steps.build-one-image.outputs.logs_url }}"
 
       # @TODO lets upload to GHR release ourselves instead of this shit
       - name: Release ${{ matrix.board }}
@@ -2126,6 +2242,10 @@ jobs:
         run: |
           bash ./compile.sh ${{ matrix.invocation }} SHARE_LOG=yes ${{env.EXTRA_PARAMS_IMAGE}} ${{env.EXTRA_PARAMS_ALL_BUILDS}}
 
+      - name: "Logs: ${{ steps.build-one-image.outputs.logs_url }}"
+        run: |
+          echo "Logs: ${{ steps.build-one-image.outputs.logs_url }}"
+
       # @TODO lets upload to GHR release ourselves instead of this shit
       - name: Release ${{ matrix.board }}
         id: release1
@@ -2197,6 +2317,10 @@ jobs:
         id: build-one-image
         run: |
           bash ./compile.sh ${{ matrix.invocation }} SHARE_LOG=yes ${{env.EXTRA_PARAMS_IMAGE}} ${{env.EXTRA_PARAMS_ALL_BUILDS}}
+
+      - name: "Logs: ${{ steps.build-one-image.outputs.logs_url }}"
+        run: |
+          echo "Logs: ${{ steps.build-one-image.outputs.logs_url }}"
 
       # @TODO lets upload to GHR release ourselves instead of this shit
       - name: Release ${{ matrix.board }}
@@ -2270,6 +2394,10 @@ jobs:
         run: |
           bash ./compile.sh ${{ matrix.invocation }} SHARE_LOG=yes ${{env.EXTRA_PARAMS_IMAGE}} ${{env.EXTRA_PARAMS_ALL_BUILDS}}
 
+      - name: "Logs: ${{ steps.build-one-image.outputs.logs_url }}"
+        run: |
+          echo "Logs: ${{ steps.build-one-image.outputs.logs_url }}"
+
       # @TODO lets upload to GHR release ourselves instead of this shit
       - name: Release ${{ matrix.board }}
         id: release1
@@ -2342,6 +2470,10 @@ jobs:
         run: |
           bash ./compile.sh ${{ matrix.invocation }} SHARE_LOG=yes ${{env.EXTRA_PARAMS_IMAGE}} ${{env.EXTRA_PARAMS_ALL_BUILDS}}
 
+      - name: "Logs: ${{ steps.build-one-image.outputs.logs_url }}"
+        run: |
+          echo "Logs: ${{ steps.build-one-image.outputs.logs_url }}"
+
       # @TODO lets upload to GHR release ourselves instead of this shit
       - name: Release ${{ matrix.board }}
         id: release1
@@ -2413,6 +2545,10 @@ jobs:
         id: build-one-image
         run: |
           bash ./compile.sh ${{ matrix.invocation }} SHARE_LOG=yes ${{env.EXTRA_PARAMS_IMAGE}} ${{env.EXTRA_PARAMS_ALL_BUILDS}}
+
+      - name: "Logs: ${{ steps.build-one-image.outputs.logs_url }}"
+        run: |
+          echo "Logs: ${{ steps.build-one-image.outputs.logs_url }}"
 
       # @TODO lets upload to GHR release ourselves instead of this shit
       - name: Release ${{ matrix.board }}
@@ -2524,6 +2660,10 @@ jobs:
         run: |
           bash ./compile.sh debs-to-repo-download SHARE_LOG=yes ${{env.EXTRA_PARAMS_ALL_BUILDS}}
 
+      - name: "Logs: ${{ steps.download-debs.outputs.logs_url }}"
+        run: |
+          echo "Logs: ${{ steps.download-debs.outputs.logs_url }}"
+
       - name: Import GPG key from GitHub secrets
         id: import_gpg
         uses: crazy-max/ghaction-import-gpg@72b6676b71ab476b77e676928516f6982eef7a41 # v5.3.0 # https://github.com/crazy-max/ghaction-import-gpg/releases
@@ -2545,6 +2685,10 @@ jobs:
         id: prepare-scripts-reprepro
         run: |
           bash ./compile.sh debs-to-repo-reprepro REPO_GPG_KEYID="${{ steps.import_gpg.outputs.keyid }}" SHARE_LOG=yes ${{env.EXTRA_PARAMS_ALL_BUILDS}}
+
+      - name: "Logs: ${{ steps.prepare-scripts-reprepro.outputs.logs_url }}"
+        run: |
+          echo "Logs: ${{ steps.prepare-scripts-reprepro.outputs.logs_url }}"
 
       - name: Run the reprepro scripts
         id: run-scripts-reprepro
