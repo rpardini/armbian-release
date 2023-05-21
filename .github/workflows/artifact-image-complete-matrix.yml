@@ -200,7 +200,7 @@ jobs:
       fail-fast: false # let other jobs try to complete if one fails
       matrix: ${{ fromJSON(needs.matrix_prep.outputs.artifacts-chunk-json-1) }} # <-- HERE: Chunk number.
     name: ${{ matrix.desc || 'Empty A1' }} # <-- HERE: Chunk number.
-    timeout-minutes: 30
+    timeout-minutes: 120
     runs-on: ${{ matrix.runs_on }}
     steps:
 
@@ -463,5 +463,4 @@ jobs:
           set -x
           export REPREPRO_INFO_DIR="$(pwd)/output/info/reprepro"
           export INCOMING_DEBS_DIR="$(pwd)/output/debs"
-          ls -laR "${INCOMING_DEBS_DIR}"
           bash -x output/info/reprepro/reprepro.sh
