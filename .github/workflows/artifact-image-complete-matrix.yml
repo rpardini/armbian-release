@@ -14,6 +14,11 @@ on:
         required: true
         options: [ 'yes' , 'no' ]
         type: choice
+      nightly: # This is passed as BETA=yes or BETA=no, to prepare step, and to reprepro steps. it affects output/debs vs output/debs-beta
+        description: 'yes = nightly, no = stable'
+        required: true
+        options: [ 'yes', 'no' ]
+        type: choice
       checkOci:
         description: 'Check OCI for existing artifacts? yes = check OCI, no = always build everything'
         required: true
@@ -116,7 +121,7 @@ jobs:
         id: prepare-matrix
         run: |
           # this sets outputs "artifact-matrix" #and "image-matrix"
-          bash ./compile.sh gha-matrix rpardini-generic CLEAN_INFO=yes CLEAN_MATRIX=yes MATRIX_ARTIFACT_CHUNKS=17 MATRIX_IMAGE_CHUNKS=16 CHECK_OCI=${{ github.event.inputs.checkOci || 'yes' }} TARGETS_FILENAME=targets.yaml SKIP_IMAGES=${{ github.event.inputs.skipImages || 'yes' }} ${{env.EXTRA_PARAMS_ALL_BUILDS}} SHARE_LOG=yes #  IMAGES_ONLY_OUTDATED_ARTIFACTS=yes
+          bash ./compile.sh gha-matrix rpardini-generic CLEAN_INFO=yes CLEAN_MATRIX=yes MATRIX_ARTIFACT_CHUNKS=17 MATRIX_IMAGE_CHUNKS=16 BETA=${{ github.event.inputs.nightly || 'yes' }} CHECK_OCI=${{ github.event.inputs.checkOci || 'yes' }} TARGETS_FILENAME=targets.yaml SKIP_IMAGES=${{ github.event.inputs.skipImages || 'yes' }} ${{env.EXTRA_PARAMS_ALL_BUILDS}} SHARE_LOG=yes #  IMAGES_ONLY_OUTDATED_ARTIFACTS=yes
 
       - name: "Logs: ${{ steps.prepare-matrix.outputs.logs_url }}"
         run: |
@@ -2708,7 +2713,7 @@ jobs:
       - name: Download the debs
         id: download-debs
         run: |
-          bash ./compile.sh debs-to-repo-download SHARE_LOG=yes ${{env.EXTRA_PARAMS_ALL_BUILDS}}
+          bash ./compile.sh debs-to-repo-download BETA=${{ github.event.inputs.nightly || 'yes' }} SHARE_LOG=yes ${{env.EXTRA_PARAMS_ALL_BUILDS}}
 
       - name: "Logs debs-to-repo-download: ${{ steps.download-debs.outputs.logs_url }}"
         run: |
@@ -2734,7 +2739,7 @@ jobs:
       - name: Prepare the reprepro scripts
         id: prepare-scripts-reprepro
         run: |
-          bash ./compile.sh debs-to-repo-reprepro REPO_GPG_KEYID="${{ steps.import_gpg.outputs.keyid }}" SHARE_LOG=yes ${{env.EXTRA_PARAMS_ALL_BUILDS}}
+          bash ./compile.sh debs-to-repo-reprepro REPO_GPG_KEYID="${{ steps.import_gpg.outputs.keyid }}" BETA=${{ github.event.inputs.nightly || 'yes' }} SHARE_LOG=yes ${{env.EXTRA_PARAMS_ALL_BUILDS}}
 
       - name: "Logs debs-to-repo-reprepro: ${{ steps.prepare-scripts-reprepro.outputs.logs_url }}"
         run: |
@@ -2749,5 +2754,9 @@ jobs:
         run: |
           set -x
           export REPREPRO_INFO_DIR="$(pwd)/output/info/reprepro"
-          export INCOMING_DEBS_DIR="$(pwd)/output/debs"
+          if False; then
+            export INCOMING_DEBS_DIR="$(pwd)/output/debs-beta"
+          else
+            export INCOMING_DEBS_DIR="$(pwd)/output/debs"
+          fi
           bash -x output/info/reprepro/reprepro.sh
