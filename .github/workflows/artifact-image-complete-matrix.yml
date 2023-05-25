@@ -15,7 +15,7 @@ on:
         options: [ 'yes' , 'no' ]
         type: choice
       nightly: # This is passed as BETA=yes or BETA=no, to prepare step, and to reprepro steps. it affects output/debs vs output/debs-beta
-        description: 'yes = nightly, no = stable'
+        description: 'BETA/nightly? yes = nightly, no = stable'
         required: true
         options: [ 'yes', 'no' ]
         type: choice
