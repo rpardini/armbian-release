@@ -19,7 +19,7 @@ on:
 jobs:
 
   "Kernel":
-    if: ${{ github.repository_owner == 'rpardini' }}
+    if: ${{ !cancelled() && (github.repository_owner == 'rpardini') }}
     strategy:
       fail-fast: false # let other jobs try to complete if one fails
       matrix:
