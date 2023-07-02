@@ -50,7 +50,7 @@ env:
   EXTRA_PARAMS_ALL_BUILDS: "${{ github.event.inputs.extraParamsAllBuilds }}"
 
   # Added to every image build arguments.
-  EXTRA_PARAMS_IMAGE: "'DONT_BUILD_ARTIFACTS=any' 'IMAGE_VERSION=20230600' COMPRESS_OUTPUTIMAGE=xz SHOW_DEBIAN=yes SHARE_LOG=yes "
+  EXTRA_PARAMS_IMAGE: "'DONT_BUILD_ARTIFACTS=any' COMPRESS_OUTPUTIMAGE=xz SHOW_DEBIAN=yes SHARE_LOG=yes " # IMAGE_VERSION is individually added at the build step.
 
 jobs:
 
@@ -62,6 +62,12 @@ jobs:
 
       #- name: Runner clean
       #  uses: armbian/actions/runner-clean@main
+
+      # prepare and output with the date, in YYYYMMDD format + plus the build number
+      - name: "Prepare date-based release outputs"
+        id: prepare-date-outputs
+        run: |
+          echo "images_release=$(date +%Y%m%d)-${{ github.run_number }}" >> $GITHUB_OUTPUT
 
       # cleanup the place where we will clone the userpatches repo, to avoid git going insane and cleaning everything later
       - name: Cleanup userpatches repo
@@ -143,13 +149,14 @@ jobs:
         if: ${{ github.event.inputs.skipImages == 'no' }} # this action deletes the release, so if skipping images, skip this too
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "latest-images"
+          automatic_release_tag: "${{ steps.prepare-date-outputs.outputs.images_release }}"
           prerelease: false
-          title: "Latest images"
+          title: "Images ${{ steps.prepare-date-outputs.outputs.images_release }}"
 
     outputs:
       # not related to matrix
       build-sha1: ${{ steps.latest-commit.outputs.sha1 }}
+      images_release: ${{ steps.prepare-date-outputs.outputs.images_release }}
       
       # template file: 150.per-chunk-artifacts_prep-outputs.yaml
 
@@ -320,7 +327,7 @@ jobs:
       - name: ${{matrix.desc}}
         id: build-one-image
         run: |
-          bash ./compile.sh ${{ matrix.invocation }} SHARE_LOG=yes ${{env.EXTRA_PARAMS_IMAGE}} ${{env.EXTRA_PARAMS_ALL_BUILDS}}
+          bash ./compile.sh ${{ matrix.invocation }} SHARE_LOG=yes ${{env.EXTRA_PARAMS_IMAGE}} ${{env.EXTRA_PARAMS_ALL_BUILDS}} "IMAGE_VERSION=${{ needs.matrix_prep.outputs.images_release }}"
 
       - name: "Logs: ${{ steps.build-one-image.outputs.logs_url }}"
         if: always()
@@ -333,7 +340,7 @@ jobs:
         continue-on-error: true
         uses: softprops/action-gh-release@de2c0eb89ae2a093876385947365aca7b0e5f844 # de2c0eb8 = v0.1.5; already with koplo199's node16 fixes
         with:
-          tag_name: latest-images
+          tag_name: "${{ needs.matrix_prep.outputs.images_release }}"
           files: |
             output/images/*.xz
 
@@ -342,7 +349,7 @@ jobs:
         if: ${{ steps.release1.outcome == 'failure'}}
         uses: softprops/action-gh-release@de2c0eb89ae2a093876385947365aca7b0e5f844 # de2c0eb8 = v0.1.5; already with koplo199's node16 fixes
         with:
-          tag_name: latest-images
+          tag_name: "${{ needs.matrix_prep.outputs.images_release }}"
           files: |
             output/images/*.xz
 
