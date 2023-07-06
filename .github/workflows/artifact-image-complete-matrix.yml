@@ -472,8 +472,8 @@ jobs:
 
       - name: export the GPG public key from the agent into repo files
         run: |
-          gpg --export "${{ steps.import_gpg.outputs.keyid }}" --output /opt/armbian_repo/armbian-next.gpg
-          gpg --export --armor "${{ steps.import_gpg.outputs.keyid }}" --output /opt/armbian_repo/armbian-next.asc
+          gpg --export --output /opt/armbian_repo/armbian-next.gpg "${{ steps.import_gpg.outputs.keyid }}"
+          gpg --export --output /opt/armbian_repo/armbian-next.asc --armor "${{ steps.import_gpg.outputs.keyid }}"
 
       - name: Prepare the reprepro scripts
         id: prepare-scripts-reprepro
