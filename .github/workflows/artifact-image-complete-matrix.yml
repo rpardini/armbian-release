@@ -467,7 +467,7 @@ jobs:
 
       - name: restart repo from scratch
         run: |
-          rm -rf /opt/armbian_repo
+          sudo rm -rf /opt/armbian_repo
 
       - name: create and ensure ownership of /opt/armbian_repo
         run: |
@@ -529,7 +529,6 @@ jobs:
             }
           }
           EOF
-          cat /etc/nginx/sites-available/armbian_repo.conf
           sudo nginx -t
           sudo systemctl restart nginx
 
