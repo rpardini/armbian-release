@@ -465,10 +465,14 @@ jobs:
       - name: List loaded keys keys
         run: gpg -K || true
 
+      - name: restart repo from scratch
+        run: |
+          rm -rf /opt/armbian_repo
+
       - name: create and ensure ownership of /opt/armbian_repo
         run: |
           sudo mkdir -pv /opt/armbian_repo
-          sudo chown -Rv $USER:$USER /opt/armbian_repo
+          sudo chown -R $USER:$USER /opt/armbian_repo
 
       - name: export the GPG public key from the agent into repo files
         run: |
@@ -501,8 +505,37 @@ jobs:
           fi
           bash -x output/info/reprepro/reprepro.sh
 
+
+      - name: Deploy nginx and setup for serving the repo over http 8081
+        run: |
+          if [ ! -e /usr/sbin/nginx ]; then
+            sudo apt-get update
+            sudo apt-get install -y nginx-full
+          fi
+          cat <<EOF | sudo tee /etc/nginx/sites-enabled/armbian_repo.conf
+          server {
+            listen 8081;
+            access_log /var/log/nginx/repo-access.log;
+            error_log /var/log/nginx/repo-error.log;
+            location / {
+              root /opt/armbian_repo;
+              autoindex on;
+            }
+            location ~ /(.*)/conf {
+              deny all;
+            }
+            location ~ /(.*)/db {
+              deny all;
+            }
+          }
+          EOF
+          cat /etc/nginx/sites-available/armbian_repo.conf
+          sudo nginx -t
+          sudo systemctl restart nginx
+
+
 # # Generate priv
-# gpg --batch --passphrase "supersecretpassphrase" --quick-generate-key "armbian-next (apt) <apt-repo@next.armbian.com>" rsa4096 cert never
+# gpg --batch --passphrase "supersecretpassphrase" --quick-generate-key "armbian-next (apt) <apt-repo@next.armbian.com>" default default never
 #
 # # Export priv
 # gpg --batch --pinentry-mode=loopback --yes --passphrase "supersecretpassphrase" --armor --output apt-repo-private.asc --export-secret-key
