@@ -340,7 +340,7 @@ jobs:
         continue-on-error: true
         uses: softprops/action-gh-release@de2c0eb89ae2a093876385947365aca7b0e5f844 # de2c0eb8 = v0.1.5; already with koplo199's node16 fixes
         with:
-          tag_name: "${{ needs.matrix_prep.outputs.images_release }}"
+          tag_name: ${{ needs.matrix_prep.outputs.images_release }}
           files: |
             output/images/*.xz
 
@@ -349,7 +349,7 @@ jobs:
         if: ${{ steps.release1.outcome == 'failure'}}
         uses: softprops/action-gh-release@de2c0eb89ae2a093876385947365aca7b0e5f844 # de2c0eb8 = v0.1.5; already with koplo199's node16 fixes
         with:
-          tag_name: "${{ needs.matrix_prep.outputs.images_release }}"
+          tag_name: ${{ needs.matrix_prep.outputs.images_release }}
           files: |
             output/images/*.xz
 
@@ -465,6 +465,16 @@ jobs:
       - name: List loaded keys keys
         run: gpg -K || true
 
+      - name: create and ensure ownership of /opt/armbian_repo
+        run: |
+          sudo mkdir -pv /opt/armbian_repo
+          sudo chown -Rv $USER:$USER /opt/armbian_repo
+
+      - name: export the GPG public key from the agent into repo files
+        run: |
+          gpg --export "${{ steps.import_gpg.outputs.keyid }}" --output /opt/armbian_repo/armbian-next.gpg
+          gpg --export --armor "${{ steps.import_gpg.outputs.keyid }}" --output /opt/armbian_repo/armbian-next.asc
+
       - name: Prepare the reprepro scripts
         id: prepare-scripts-reprepro
         run: |
@@ -490,3 +500,12 @@ jobs:
             export INCOMING_DEBS_DIR="$(pwd)/output/debs"
           fi
           bash -x output/info/reprepro/reprepro.sh
+
+# # Generate priv
+# gpg --batch --passphrase "supersecretpassphrase" --quick-generate-key "armbian-next (apt) <apt-repo@next.armbian.com>" rsa4096 cert never
+#
+# # Export priv
+# gpg --batch --pinentry-mode=loopback --yes --passphrase "supersecretpassphrase" --armor --output apt-repo-private.asc --export-secret-key
+#
+# # Put contents of apt-repo-private.asc in secret REPO_GPG_PRIVATE_KEY
+# # Put supersecretpassphrase in secret REPO_GPG_PASSPHRASE
