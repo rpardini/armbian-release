@@ -202,6 +202,15 @@ jobs:
     steps:
       - name: fake step
         run: uptime
+
+  all-artifacts-and-repo-ready:
+    name: "1 artifacts and apt repository ready"
+    runs-on: ubuntu-latest # not going to run, anyway, but is required.
+    if: ${{ !cancelled() && ( 1 == 2 ) }} # eg: never run.
+    needs: [ "matrix_prep", "all-artifacts-ready", "publish-debs-to-repo" ]
+    steps:
+      - name: fake step
+        run: uptime
   
   # template file: 550.per-chunk-artifacts_job.yaml
 
@@ -272,7 +281,7 @@ jobs:
   # template file: 650.per-chunk-images_job.yaml
 
   "build-images-chunk-1": # templated "build-images-chunk-1"
-    needs: [ "matrix_prep", "all-artifacts-ready" ]
+    needs: [ "matrix_prep", "all-artifacts-and-repo-ready" ]
     timeout-minutes: 60
     if: ${{ !failure() && !cancelled() && ( github.repository_owner == 'rpardini' ) && ( needs.matrix_prep.outputs.images-chunk-not-empty-1 == 'yes' ) }} # <-- HERE: Chunk number.
     strategy:
