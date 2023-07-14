@@ -24,6 +24,11 @@ on:
         required: true
         options: [ 'yes', 'no' ]
         type: choice
+      skipCustomRepo:
+        description: 'Skip custom repo? yes = skip custom repo, no = use custom repo'
+        required: true
+        options: [ 'no', 'yes' ]
+        type: choice
       extraParamsAllBuilds:
         description: 'Extra params for all builds/jobs (prepare/artifact/image) (eg: DEBUG=yes)'
         required: false
@@ -47,10 +52,10 @@ env:
   DOCKER_SKIP_UPDATE: "yes" # Do not apt update/install/requirements/etc during Dockerfile build, trust DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX's images are up-to-date
 
   # Added to every build, even the prepare job.
-  EXTRA_PARAMS_ALL_BUILDS: "${{ github.event.inputs.extraParamsAllBuilds }}"
+  EXTRA_PARAMS_ALL_BUILDS: "SHARE_LOG=yes ${{ github.event.inputs.extraParamsAllBuilds }}"
 
   # Added to every image build arguments.
-  EXTRA_PARAMS_IMAGE: "'DONT_BUILD_ARTIFACTS=any' COMPRESS_OUTPUTIMAGE=xz SHOW_DEBIAN=yes SHARE_LOG=yes " # IMAGE_VERSION is individually added at the build step.
+  EXTRA_PARAMS_IMAGE: "'DONT_BUILD_ARTIFACTS=any' COMPRESS_OUTPUTIMAGE=xz SHOW_DEBIAN=yes SKIP_CUSTOM_REPO=${{github.event.inputs.skipCustomRepo}}" # IMAGE_VERSION is individually added at the build step.
 
 jobs:
 
@@ -67,7 +72,7 @@ jobs:
       - name: "Prepare date-based release outputs"
         id: prepare-date-outputs
         run: |
-          echo "images_release=$(date +%Y%m%d)-${{ github.run_number }}" >> $GITHUB_OUTPUT
+          echo "images_release=$(date +%Y%m%d)-${{ github.run_number }}-rpardini" >> $GITHUB_OUTPUT
 
       # cleanup the place where we will clone the userpatches repo, to avoid git going insane and cleaning everything later
       - name: Cleanup userpatches repo
@@ -127,7 +132,7 @@ jobs:
         id: prepare-matrix
         run: |
           # this sets outputs "artifact-matrix" #and "image-matrix"
-          bash ./compile.sh gha-matrix rpardini-generic CLEAN_INFO=yes CLEAN_MATRIX=yes MATRIX_ARTIFACT_CHUNKS=1 MATRIX_IMAGE_CHUNKS=1 BETA=${{ github.event.inputs.nightly || 'yes' }} CHECK_OCI=${{ github.event.inputs.checkOci || 'yes' }} TARGETS_FILENAME=targets.yaml SKIP_IMAGES=${{ github.event.inputs.skipImages || 'yes' }} ${{env.EXTRA_PARAMS_ALL_BUILDS}} SHARE_LOG=yes #  IMAGES_ONLY_OUTDATED_ARTIFACTS=yes
+          bash ./compile.sh gha-matrix rpardini-generic CLEAN_INFO=yes CLEAN_MATRIX=yes MATRIX_ARTIFACT_CHUNKS=1 MATRIX_IMAGE_CHUNKS=1 BETA=${{ github.event.inputs.nightly || 'yes' }} CHECK_OCI=${{ github.event.inputs.checkOci || 'yes' }} TARGETS_FILENAME=targets.yaml SKIP_IMAGES=${{ github.event.inputs.skipImages || 'yes' }} ${{env.EXTRA_PARAMS_ALL_BUILDS}} #  IMAGES_ONLY_OUTDATED_ARTIFACTS=yes
 
       - name: "Logs: ${{ steps.prepare-matrix.outputs.logs_url }}"
         run: |
@@ -195,7 +200,7 @@ jobs:
         run: uptime
 
   all-artifacts-and-images-ready:
-    name: "1 artifacts and 1 image chunks ready"
+    name: "1 artifact chunks and 1 image chunks ready"
     runs-on: ubuntu-latest # not going to run, anyway, but is required.
     if: ${{ !cancelled() && ( 1 == 2 ) }} # eg: never run.
     needs: [ "matrix_prep", "all-artifacts-ready", "all-images-ready" ]
@@ -204,7 +209,7 @@ jobs:
         run: uptime
 
   all-artifacts-and-repo-ready:
-    name: "1 artifacts and apt repository ready"
+    name: "1 artifact chunks and apt repository ready"
     runs-on: ubuntu-latest # not going to run, anyway, but is required.
     if: ${{ !cancelled() && ( 1 == 2 ) }} # eg: never run.
     needs: [ "matrix_prep", "all-artifacts-ready", "publish-debs-to-repo" ]
@@ -270,7 +275,7 @@ jobs:
       - name: Build  ${{matrix.desc}}
         id: build
         run: |
-          bash ./compile.sh ${{ matrix.invocation }} SHARE_LOG=yes ${{env.EXTRA_PARAMS_ALL_BUILDS}}
+          bash ./compile.sh ${{ matrix.invocation }} ${{env.EXTRA_PARAMS_ALL_BUILDS}}
 
       - name: "Logs: ${{ steps.build.outputs.logs_url }}"
         if: always()
@@ -336,7 +341,7 @@ jobs:
       - name: ${{matrix.desc}}
         id: build-one-image
         run: |
-          bash ./compile.sh ${{ matrix.invocation }} SHARE_LOG=yes ${{env.EXTRA_PARAMS_IMAGE}} ${{env.EXTRA_PARAMS_ALL_BUILDS}} "IMAGE_VERSION=${{ needs.matrix_prep.outputs.images_release }}"
+          bash ./compile.sh ${{ matrix.invocation }} ${{env.EXTRA_PARAMS_IMAGE}} ${{env.EXTRA_PARAMS_ALL_BUILDS}} "IMAGE_VERSION=${{ needs.matrix_prep.outputs.images_release }}"
 
       - name: "Logs: ${{ steps.build-one-image.outputs.logs_url }}"
         if: always()
@@ -451,7 +456,7 @@ jobs:
       - name: Download the debs
         id: download-debs
         run: |
-          bash ./compile.sh debs-to-repo-download BETA=${{ github.event.inputs.nightly || 'yes' }} SHARE_LOG=yes ${{env.EXTRA_PARAMS_ALL_BUILDS}}
+          bash ./compile.sh debs-to-repo-download BETA=${{ github.event.inputs.nightly || 'yes' }} ${{env.EXTRA_PARAMS_ALL_BUILDS}}
 
       - name: "Logs debs-to-repo-download: ${{ steps.download-debs.outputs.logs_url }}"
         run: |
@@ -491,7 +496,7 @@ jobs:
       - name: Prepare the reprepro scripts
         id: prepare-scripts-reprepro
         run: |
-          bash ./compile.sh debs-to-repo-reprepro REPO_GPG_KEYID="${{ steps.import_gpg.outputs.keyid }}" BETA=${{ github.event.inputs.nightly || 'yes' }} SHARE_LOG=yes ${{env.EXTRA_PARAMS_ALL_BUILDS}}
+          bash ./compile.sh debs-to-repo-reprepro REPO_GPG_KEYID="${{ steps.import_gpg.outputs.keyid }}" BETA=${{ github.event.inputs.nightly || 'yes' }} ${{env.EXTRA_PARAMS_ALL_BUILDS}}
 
       - name: "Logs debs-to-repo-reprepro: ${{ steps.prepare-scripts-reprepro.outputs.logs_url }}"
         run: |
