@@ -34,6 +34,11 @@ on:
         required: false
         default: ''
         type: string
+      targetsFilterInclude:
+        description: 'TARGETS_FILTER_INCLUDE, example: "BOARD:odroidhc4,BOARD:odroidn2"'
+        required: false
+        default: ''
+        type: string
 
 env:
 
@@ -132,7 +137,14 @@ jobs:
         id: prepare-matrix
         run: |
           # this sets outputs "artifact-matrix" #and "image-matrix"
-          bash ./compile.sh gha-matrix rpardini-generic CLEAN_INFO=yes CLEAN_MATRIX=yes MATRIX_ARTIFACT_CHUNKS=1 MATRIX_IMAGE_CHUNKS=1 BETA=${{ github.event.inputs.nightly || 'yes' }} CHECK_OCI=${{ github.event.inputs.checkOci || 'yes' }} TARGETS_FILENAME=targets.yaml SKIP_IMAGES=${{ github.event.inputs.skipImages || 'yes' }} ${{env.EXTRA_PARAMS_ALL_BUILDS}} #  IMAGES_ONLY_OUTDATED_ARTIFACTS=yes
+          bash ./compile.sh gha-matrix rpardini-generic ${{env.EXTRA_PARAMS_ALL_BUILDS}} \
+            TARGETS_FILTER_INCLUDE='${{ github.event.inputs.targetsFilterInclude || '' }}' \
+            MATRIX_ARTIFACT_CHUNKS=1 \
+            MATRIX_IMAGE_CHUNKS=1 \
+            BETA=${{ github.event.inputs.nightly || 'yes' }} \
+            CHECK_OCI=${{ github.event.inputs.checkOci || 'yes' }} \
+            TARGETS_FILENAME=targets.yaml \
+            SKIP_IMAGES=${{ github.event.inputs.skipImages || 'yes' }}
 
       - name: "Logs: ${{ steps.prepare-matrix.outputs.logs_url }}"
         run: |
@@ -162,22 +174,22 @@ jobs:
       # not related to matrix
       build-sha1: ${{ steps.latest-commit.outputs.sha1 }}
       images_release: ${{ steps.prepare-date-outputs.outputs.images_release }}
-      
-      # template file: 150.per-chunk-artifacts_prep-outputs.yaml
+
+# template file: 150.per-chunk-artifacts_prep-outputs.yaml
 
       # artifacts-1 of 1
       artifacts-chunk-json-1: ${{ steps.prepare-matrix.outputs.artifacts-chunk-json-1 }}
       artifacts-chunk-not-empty-1: ${{ steps.prepare-matrix.outputs.artifacts-chunk-not-empty-1 }}
       artifacts-chunk-size-1: ${{ steps.prepare-matrix.outputs.artifacts-chunk-size-1 }}
-      
-      # template file: 151.per-chunk-images_prep-outputs.yaml
+
+# template file: 151.per-chunk-images_prep-outputs.yaml
 
       # artifacts-1 of 1
       images-chunk-json-1: ${{ steps.prepare-matrix.outputs.images-chunk-json-1 }}
       images-chunk-not-empty-1: ${{ steps.prepare-matrix.outputs.images-chunk-not-empty-1 }}
       images-chunk-size-1: ${{ steps.prepare-matrix.outputs.images-chunk-size-1 }}
-  
-  # template file: 250.single_aggr-jobs.yaml
+
+# template file: 250.single_aggr-jobs.yaml
 
   # ------ aggregate all artifact chunks into a single dependency -------
 
@@ -216,8 +228,8 @@ jobs:
     steps:
       - name: fake step
         run: uptime
-  
-  # template file: 550.per-chunk-artifacts_job.yaml
+
+# template file: 550.per-chunk-artifacts_job.yaml
 
   "build-artifacts-chunk-1": # templated "build-artifacts-chunk-1"
     if: ${{ github.repository_owner == 'rpardini' && needs.matrix_prep.outputs.artifacts-chunk-not-empty-1 == 'yes' }}  # <-- HERE: Chunk number.
@@ -281,9 +293,9 @@ jobs:
         if: always()
         run: |
           echo "Logs: ${{ steps.build.outputs.logs_url }}"
-  
-  
-  # template file: 650.per-chunk-images_job.yaml
+
+
+# template file: 650.per-chunk-images_job.yaml
 
   "build-images-chunk-1": # templated "build-images-chunk-1"
     needs: [ "matrix_prep", "all-artifacts-and-repo-ready" ]
@@ -371,8 +383,8 @@ jobs:
         if: always()
         run: |
           rm -rfv output/images userpatches/VERSION
-  
-  # template file: 750.single_repo.yaml
+
+# template file: 750.single_repo.yaml
 
   # ------ publish packages to repository -------
 
