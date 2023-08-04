@@ -52,7 +52,7 @@ env:
   USERPATCHES_DIR: "" # folder inside USERPATCHES_REPOSITORY
 
   # Armbian envs. Adjust to your needs.
-  OCI_TARGET_BASE: "ghcr.io/${{ github.repository }}/" # This is picked up by the Docker launcher automatically. It does _not_ override the targets.yaml during info resolution.
+  # OCI_TARGET_BASE: "ghcr.io/${{ github.repository }}/" # This is picked up by the Docker launcher automatically. It does _not_ override the targets.yaml during info resolution.
   DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX: "ghcr.io/${{ github.repository }}:armbian-next-" # Use Docker image in same repo
   DOCKER_SKIP_UPDATE: "yes" # Do not apt update/install/requirements/etc during Dockerfile build, trust DOCKER_ARMBIAN_BASE_COORDINATE_PREFIX's images are up-to-date
 
@@ -73,11 +73,12 @@ jobs:
       #- name: Runner clean
       #  uses: armbian/actions/runner-clean@main
 
-      # prepare and output with the date, in YYYYMMDD format + plus the build number
+      # prepare and output with the date. there are two so we can be independent regarding GH release name vs REVISION
       - name: "Prepare date-based release outputs"
         id: prepare-date-outputs
         run: |
-          echo "images_release=$(date +%Y%m%d)-${{ github.run_number }}-rpardini" >> $GITHUB_OUTPUT
+          echo "images_release=$(date +%y.%m.%d)-rpardini-${{ github.run_number }}" >> $GITHUB_OUTPUT
+          echo "revision_release=$(date +%y.%m.%d)-rpardini-${{ github.run_number }}" >> $GITHUB_OUTPUT
 
       # cleanup the place where we will clone the userpatches repo, to avoid git going insane and cleaning everything later
       - name: Cleanup userpatches repo
@@ -138,6 +139,7 @@ jobs:
         run: |
           # this sets outputs "artifact-matrix" #and "image-matrix"
           bash ./compile.sh gha-matrix rpardini-generic ${{env.EXTRA_PARAMS_ALL_BUILDS}} \
+            REVISION="${{ steps.prepare-date-outputs.outputs.revision_release }}" \
             TARGETS_FILTER_INCLUDE='${{ github.event.inputs.targetsFilterInclude || '' }}' \
             MATRIX_ARTIFACT_CHUNKS=1 \
             MATRIX_IMAGE_CHUNKS=1 \
@@ -174,6 +176,7 @@ jobs:
       # not related to matrix
       build-sha1: ${{ steps.latest-commit.outputs.sha1 }}
       images_release: ${{ steps.prepare-date-outputs.outputs.images_release }}
+      revision_release: ${{ steps.prepare-date-outputs.outputs.revision_release }}
 
 # template file: 150.per-chunk-artifacts_prep-outputs.yaml
 
@@ -287,7 +290,7 @@ jobs:
       - name: Build  ${{matrix.desc}}
         id: build
         run: |
-          bash ./compile.sh ${{ matrix.invocation }} ${{env.EXTRA_PARAMS_ALL_BUILDS}}
+          bash ./compile.sh ${{ matrix.invocation }} ${{env.EXTRA_PARAMS_ALL_BUILDS}} UPLOAD_TO_OCI_ONLY=yes
 
       - name: "Logs: ${{ steps.build.outputs.logs_url }}"
         if: always()
@@ -353,7 +356,7 @@ jobs:
       - name: ${{matrix.desc}}
         id: build-one-image
         run: |
-          bash ./compile.sh ${{ matrix.invocation }} ${{env.EXTRA_PARAMS_IMAGE}} ${{env.EXTRA_PARAMS_ALL_BUILDS}} "IMAGE_VERSION=${{ needs.matrix_prep.outputs.images_release }}"
+          bash ./compile.sh ${{ matrix.invocation }} ${{env.EXTRA_PARAMS_IMAGE}} ${{env.EXTRA_PARAMS_ALL_BUILDS}} OUTPUT_IMAGES_ONLY=yes
 
       - name: "Logs: ${{ steps.build-one-image.outputs.logs_url }}"
         if: always()
@@ -468,7 +471,7 @@ jobs:
       - name: Download the debs
         id: download-debs
         run: |
-          bash ./compile.sh debs-to-repo-download BETA=${{ github.event.inputs.nightly || 'yes' }} ${{env.EXTRA_PARAMS_ALL_BUILDS}}
+          bash ./compile.sh rpardini-generic debs-to-repo-download BETA=${{ github.event.inputs.nightly || 'yes' }} ${{env.EXTRA_PARAMS_ALL_BUILDS}}
 
       - name: "Logs debs-to-repo-download: ${{ steps.download-debs.outputs.logs_url }}"
         run: |
@@ -508,7 +511,7 @@ jobs:
       - name: Prepare the reprepro scripts
         id: prepare-scripts-reprepro
         run: |
-          bash ./compile.sh debs-to-repo-reprepro REPO_GPG_KEYID="${{ steps.import_gpg.outputs.keyid }}" BETA=${{ github.event.inputs.nightly || 'yes' }} ${{env.EXTRA_PARAMS_ALL_BUILDS}}
+          bash ./compile.sh rpardini-generic debs-to-repo-reprepro REPO_GPG_KEYID="${{ steps.import_gpg.outputs.keyid }}" BETA=${{ github.event.inputs.nightly || 'yes' }} ${{env.EXTRA_PARAMS_ALL_BUILDS}}
 
       - name: "Logs debs-to-repo-reprepro: ${{ steps.prepare-scripts-reprepro.outputs.logs_url }}"
         run: |

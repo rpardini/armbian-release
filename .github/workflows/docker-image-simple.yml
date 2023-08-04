@@ -21,10 +21,10 @@ jobs:
             cache-to: "type=gha,mode=max" # all-automatic Github Actions caching, max mode
           #- os: "ubuntu"
           #  release: "kinetic"
-          - os: "debian"
-            release: "bullseye"
-            cache-from: ""
-            cache-to: ""
+          #- os: "debian"
+          #  release: "bullseye"
+          #  cache-from: ""
+          #  cache-to: ""
           #- os: "debian"
           #  release: "sid"
           - os: "debian"
@@ -33,10 +33,10 @@ jobs:
             cache-to: ""
           #- os: "ubuntu"
           #  release: "focal" # to make sure -- not really "supported"
-          - os: "ubuntu"
-            release: "lunar" # better be early than late
-            cache-from: ""
-            cache-to: ""
+          #- os: "ubuntu"
+          #  release: "lunar" # better be early than late
+          #  cache-from: ""
+          #  cache-to: ""
     name: "${{ matrix.release }} (${{ matrix.os }})"
     env:
       DOCKERFILE_OS: "${{ matrix.os }}"
