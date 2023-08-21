@@ -115,16 +115,16 @@ jobs:
           rsync -av userpatches.repo/${{env.USERPATCHES_DIR}}/. userpatches/
           rm -rf userpatches.repo
 
-      - name: GitHub cache
-        id: cache-restore
-        uses: actions/cache@v3
-        with:
-          path: |
-            cache/memoize
-            cache/oci/positive
-          key: ${{ runner.os }}-matrix-cache-${{ github.sha }}-${{ steps.latest-commit.outputs.sha1 }}"
-          restore-keys: |
-            ${{ runner.os }}-matrix-cache-
+      #- name: GitHub cache
+      #  id: cache-restore
+      #  uses: actions/cache@v3
+      #  with:
+      #    path: |
+      #      cache/memoize
+      #      cache/oci/positive
+      #    key: ${{ runner.os }}-matrix-cache-${{ github.sha }}-${{ steps.latest-commit.outputs.sha1 }}"
+      #    restore-keys: |
+      #      ${{ runner.os }}-matrix-cache-
 
       # Login to ghcr.io, we're gonna do a lot of OCI lookups.
       - name: Docker Login to GitHub Container Registry
@@ -152,9 +152,9 @@ jobs:
         run: |
           echo "Logs: ${{ steps.prepare-matrix.outputs.logs_url }}"
 
-      - name: chown cache memoize/oci back to normal user
-        run: |
-          sudo chown -R $USER:$USER cache/memoize cache/oci/positive
+      #- name: chown cache memoize/oci back to normal user
+      #  run: |
+      #    sudo chown -R $USER:$USER cache/memoize cache/oci/positive
 
       # Store output/info folder in a GitHub Actions artifact
       - uses: actions/upload-artifact@v3
