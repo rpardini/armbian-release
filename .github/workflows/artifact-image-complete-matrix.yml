@@ -90,7 +90,7 @@ jobs:
         with:
           repository: ${{ env.BUILD_REPOSITORY }}
           ref: ${{ env.BUILD_REF }}
-          fetch-depth: 1
+          fetch-depth: 0 # fetch all history; much faster for self-hosted runners
           clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
 
       - name: "grab the sha1 of the latest commit of the build repo ${{ env.BUILD_REPOSITORY }}#${{ env.BUILD_REF }}"
@@ -115,16 +115,16 @@ jobs:
           rsync -av userpatches.repo/${{env.USERPATCHES_DIR}}/. userpatches/
           rm -rf userpatches.repo
 
-      #- name: GitHub cache
-      #  id: cache-restore
-      #  uses: actions/cache@v3
-      #  with:
-      #    path: |
-      #      cache/memoize
-      #      cache/oci/positive
-      #    key: ${{ runner.os }}-matrix-cache-${{ github.sha }}-${{ steps.latest-commit.outputs.sha1 }}"
-      #    restore-keys: |
-      #      ${{ runner.os }}-matrix-cache-
+      - name: GitHub cache
+        id: cache-restore
+        uses: actions/cache@v3
+        with:
+          path: |
+            cache/memoize
+            cache/oci/positive
+          key: ${{ runner.os }}-matrix-cache-${{ github.sha }}-${{ steps.latest-commit.outputs.sha1 }}"
+          restore-keys: |
+            ${{ runner.os }}-matrix-cache-
 
       # Login to ghcr.io, we're gonna do a lot of OCI lookups.
       - name: Docker Login to GitHub Container Registry
@@ -152,9 +152,9 @@ jobs:
         run: |
           echo "Logs: ${{ steps.prepare-matrix.outputs.logs_url }}"
 
-      #- name: chown cache memoize/oci back to normal user
-      #  run: |
-      #    sudo chown -R $USER:$USER cache/memoize cache/oci/positive
+      - name: chown cache memoize/oci back to normal user
+        run: |
+          sudo chown -R $USER:$USER cache/memoize cache/oci/positive
 
       # Store output/info folder in a GitHub Actions artifact
       - uses: actions/upload-artifact@v3
@@ -429,7 +429,7 @@ jobs:
         with:
           repository: ${{ env.BUILD_REPOSITORY }}
           ref: ${{ needs.matrix_prep.outputs.build-sha1 }}
-          fetch-depth: 1
+          fetch-depth: 0 # fetch all history; much faster for self-hosted runners
           clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
 
       # clone the userpatches repo (`armbian/os`)
@@ -439,7 +439,6 @@ jobs:
         with:
           repository: ${{ env.USERPATCHES_REPOSITORY }}
           ref: ${{ env.USERPATCHES_REF }}
-          fetch-depth: 1
           clean: false # true is default.
           path: userpatches.repo
 
@@ -468,15 +467,6 @@ jobs:
         run: |
           ls -laht output/info
 
-      - name: Download the debs
-        id: download-debs
-        run: |
-          bash ./compile.sh rpardini-generic debs-to-repo-download BETA=${{ github.event.inputs.nightly || 'yes' }} ${{env.EXTRA_PARAMS_ALL_BUILDS}}
-
-      - name: "Logs debs-to-repo-download: ${{ steps.download-debs.outputs.logs_url }}"
-        run: |
-          echo "Logs debs-to-repo-download: ${{ steps.download-debs.outputs.logs_url }}"
-
       - name: Import GPG key from GitHub secrets
         id: import_gpg
         uses: crazy-max/ghaction-import-gpg@72b6676b71ab476b77e676928516f6982eef7a41 # v5.3.0 # https://github.com/crazy-max/ghaction-import-gpg/releases
@@ -494,28 +484,43 @@ jobs:
       - name: List loaded keys keys
         run: gpg -K || true
 
-      - name: restart repo from scratch
-        run: |
-          sudo rm -rf /opt/armbian_repo
+      #- name: restart repo from scratch
+      #  run: |
+      #    sudo rm -rf /opt/armbian_repo
 
       - name: create and ensure ownership of /opt/armbian_repo
         run: |
           sudo mkdir -pv /opt/armbian_repo
           sudo chown -R $USER:$USER /opt/armbian_repo
 
-      - name: export the GPG public key from the agent into repo files
+      - name: copy the reprepro db inside armbian output/reprepro-db
         run: |
-          gpg --export --output /opt/armbian_repo/armbian-next.gpg "${{ steps.import_gpg.outputs.keyid }}"
-          gpg --export --output /opt/armbian_repo/armbian-next.asc --armor "${{ steps.import_gpg.outputs.keyid }}"
+          
+          mkdir -pv output/reprepro-db/db
+          if [[ -d /opt/armbian_repo/db ]]; then
+            cp -pv /opt/armbian_repo/db/packages.db output/reprepro-db/db/packages.db
+          else
+            rm -rf output/reprepro-db
+          fi
+          
 
-      - name: Prepare the reprepro scripts
-        id: prepare-scripts-reprepro
+      - name: Integrated reprepro-based deb-download and reprepro script generation
+        id: rolling-repo-reprepro-download-script
         run: |
-          bash ./compile.sh rpardini-generic debs-to-repo-reprepro REPO_GPG_KEYID="${{ steps.import_gpg.outputs.keyid }}" BETA=${{ github.event.inputs.nightly || 'yes' }} ${{env.EXTRA_PARAMS_ALL_BUILDS}}
+          bash ./compile.sh rpardini-generic debs-to-repo-rolling-reprepro REPO_REPREPRO_PATH=/armbian/output/reprepro-db REPO_GPG_KEYID="${{ steps.import_gpg.outputs.keyid }}" BETA=${{ github.event.inputs.nightly || 'yes' }} ${{env.EXTRA_PARAMS_ALL_BUILDS}}
 
-      - name: "Logs debs-to-repo-reprepro: ${{ steps.prepare-scripts-reprepro.outputs.logs_url }}"
+      - name: "Logs debs-to-repo-rolling-reprepro: ${{ steps.rolling-repo-reprepro-download-script.outputs.logs_url }}"
         run: |
-          echo "Logs debs-to-repo-reprepro: ${{ steps.prepare-scripts-reprepro.outputs.logs_url }}"
+          echo "Logs debs-to-repo-rolling-reprepro: ${{ steps.rolling-repo-reprepro-download-script.outputs.logs_url }}"
+
+      #- name: Prepare the reprepro scripts
+      #  id: prepare-scripts-reprepro
+      #  run: |
+      #    bash ./compile.sh rpardini-generic debs-to-repo-reprepro BETA=${{ github.event.inputs.nightly || 'yes' }} ${{env.EXTRA_PARAMS_ALL_BUILDS}}
+      #
+      #- name: "Logs debs-to-repo-reprepro: ${{ steps.prepare-scripts-reprepro.outputs.logs_url }}"
+      #  run: |
+      #    echo "Logs debs-to-repo-reprepro: ${{ steps.prepare-scripts-reprepro.outputs.logs_url }}"
 
       - name: Run the reprepro scripts
         id: run-scripts-reprepro
@@ -533,6 +538,13 @@ jobs:
             export INCOMING_DEBS_DIR="$(pwd)/output/debs"
           fi
           bash -x output/info/reprepro/reprepro.sh
+
+      - name: export the GPG public key from the agent into repo files
+        run: |
+          rm -fv /opt/armbian_repo/armbian-next.gpg
+          gpg --batch --export --output /opt/armbian_repo/armbian-next.gpg "${{ steps.import_gpg.outputs.keyid }}"
+          rm -fv /opt/armbian_repo/armbian-next.asc
+          gpg --batch --export --output /opt/armbian_repo/armbian-next.asc --armor "${{ steps.import_gpg.outputs.keyid }}"
 
 
       - name: Deploy nginx and setup for serving the repo over http 8081
@@ -560,6 +572,15 @@ jobs:
           EOF
           sudo nginx -t
           sudo systemctl restart nginx
+
+      - name: Run the OCI-tagging script
+        id: run-scripts-oci-tagging
+        run: |
+          
+          set -x
+          [[ ! -f /usr/local/bin/oras ]] &&  wget -O- "https://github.com/oras-project/oras/releases/download/v1.0.1/oras_1.0.1_linux_arm64.tar.gz" | sudo tar xzf - -C/usr/local/bin/ && oras version
+          bash -x output/info/reprepro/oci_tag_versions.sh
+          
 
 
 # # Generate priv
