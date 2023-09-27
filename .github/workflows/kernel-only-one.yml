@@ -55,7 +55,7 @@ jobs:
         with:
           repository: ${{ github.repository_owner }}/armbian-build
           ref: extensions
-          fetch-depth: 1
+          fetch-depth: 0 # fetch all history; much faster for self-hosted runners
           clean: false # true is default. it *will* delete the hosts /dev if mounted inside.
 
       - name: Build Kernel ${{env.BOARD}}:${{env.BRANCH}} (variant ${{env.VARIANT}})
