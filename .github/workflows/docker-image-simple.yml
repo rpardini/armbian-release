@@ -17,22 +17,27 @@ jobs:
         include:
           - os: "ubuntu"
             release: "jammy"
+            platforms: "linux/amd64,linux/arm64,linux/riscv64"
             cache-from: "type=gha" # all-automatic Github Actions caching
             cache-to: "type=gha,mode=max" # all-automatic Github Actions caching, max mode
           - os: "debian"
             release: "bookworm"
+            platforms: "linux/amd64,linux/arm64"
             cache-from: ""
             cache-to: ""
           - os: "debian"
             release: "trixie"
+            platforms: "linux/amd64,linux/arm64"
             cache-from: ""
             cache-to: ""
           - os: "ubuntu"
             release: "mantic"
+            platforms: "linux/amd64,linux/arm64"
             cache-from: ""
             cache-to: ""
           - os: "ubuntu"
             release: "noble"
+            platforms: "linux/amd64,linux/arm64,linux/riscv64"
             cache-from: ""
             cache-to: ""
     name: "${{ matrix.release }} (${{ matrix.os }})"
@@ -82,7 +87,7 @@ jobs:
         with:
           context: .
           file: ./Dockerfile
-          platforms: linux/amd64,linux/arm64 # arm64 is done under qemu and is _very_ slow. Thanks, GitHub!
+          platforms: "${{ matrix.platforms }}"
           pull: true # Pull new version of base image, always; avoid bit-rot
           push: true
           labels: |
@@ -112,7 +117,7 @@ jobs:
         with:
           context: .
           file: ./Dockerfile
-          platforms: linux/amd64,linux/arm64 # arm64 is done under qemu and is _very_ slow. Thanks, GitHub!
+          platforms: "${{ matrix.platforms }}"
           pull: false # Don't pull when retrying
           push: true
           labels: |
