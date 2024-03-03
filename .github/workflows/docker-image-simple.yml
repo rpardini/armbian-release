@@ -17,7 +17,7 @@ jobs:
         include:
           - os: "ubuntu"
             release: "jammy"
-            platforms: "linux/amd64,linux/arm64,linux/riscv64"
+            platforms: "linux/amd64,linux/arm64" # Ubuntu doesn't have yet: ,linux/riscv64
             cache-from: "type=gha" # all-automatic Github Actions caching
             cache-to: "type=gha,mode=max" # all-automatic Github Actions caching, max mode
           - os: "debian"
@@ -30,14 +30,14 @@ jobs:
             platforms: "linux/amd64,linux/arm64"
             cache-from: ""
             cache-to: ""
-          - os: "ubuntu"
-            release: "mantic"
-            platforms: "linux/amd64,linux/arm64"
+          - os: "debian"
+            release: "sid"
+            platforms: "linux/amd64,linux/arm64,linux/riscv64" # debian:sid is the only image with riscv64 as of 2024-03-03
             cache-from: ""
             cache-to: ""
           - os: "ubuntu"
             release: "noble"
-            platforms: "linux/amd64,linux/arm64,linux/riscv64"
+            platforms: "linux/amd64,linux/arm64" # Ubuntu doesn't have yet: ,linux/riscv64
             cache-from: ""
             cache-to: ""
     name: "${{ matrix.release }} (${{ matrix.os }})"
